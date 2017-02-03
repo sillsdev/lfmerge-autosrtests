@@ -1,0 +1,73 @@
+# This file lists dependencies
+# It can be edited with the BuildDependencyManager application.
+# See https://github.com/ermshiperete/BuildDependency for more information.
+
+[[TC]]
+Type=TeamCity
+Url=http://build.palaso.org
+
+[TC::ChorusTrusty64lfmergeCont]
+Name=chorus-trusty64-lfmerge Continuous
+RevisionName=lastSuccessful
+RevisionValue=latest.lastSuccessful
+Condition=Linux
+Path=LibChorus.dll*=>lib/
+MercurialExtensions/**/*.py=>MercurialExtensions
+
+
+[TC::ChorusTrusty64lfmergeCont]
+Name=chorus-trusty64-lfmerge Continuous
+RevisionName=lastSuccessful
+RevisionValue=latest.lastSuccessful
+Condition=Linux32
+Path=Mercurial-i686.zip!**=>.
+
+
+[TC::ChorusTrusty64lfmergeCont]
+Name=chorus-trusty64-lfmerge Continuous
+RevisionName=lastSuccessful
+RevisionValue=latest.lastSuccessful
+Condition=Linux64
+Path=Mercurial-x86_64.zip!**=>.
+
+
+[TC::PalasoTrusty64lfmergeContinuous]
+Name=palaso-trusty64-lfmerge Continuous
+RevisionName=lastSuccessful
+RevisionValue=latest.lastSuccessful
+Condition=Linux
+Path=Palaso.dll*=>lib/
+Palaso.Lift.dll*=>lib/
+Palaso.TestUtilities.dll*=>lib/
+L10NSharp.dll*=>lib/
+Ionic.Zip.dll*=>lib/
+Spart.dll*=>lib/
+SIL.Linux.Logging.dll*=>lib/
+
+
+[TC::ChorusWin32LfmergeCont]
+Name=chorus-win32-lfmerge Continuous
+RevisionName=lastSuccessful
+RevisionValue=latest.lastSuccessful
+Condition=Windows
+Path=LibChorus.dll=>lib/
+LibChorus.pdb=>lib/
+MercurialExtensions/**/*.py=>MercurialExtensions/
+Mercurial.zip!**=>.
+
+
+[TC::PalasoWin32lfmergeContinuous]
+Name=palaso-win32-lfmerge Continuous
+RevisionName=lastSuccessful
+RevisionValue=latest.lastSuccessful
+Condition=Windows
+Path=SIL.dll=>lib/
+SIL.pdb=>lib/
+Palaso.dll=>lib/
+Palaso.pdb=>lib/
+Palaso.Lift.dll=>lib/
+Palaso.Lift.pdb=>lib/
+Palaso.TestUtilities.dll=>lib/
+Palaso.TestUtilities.pdb=>lib/
+L10NSharp.dll=>lib/
+L10NSharp.pdb=>lib/

@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "name" : "_id_", "ns" : "sf_xyz.lexicon" }, { "v" : 1, "unique" : true, "key" : { "guid" : 1 }, "name" : "guid_1", "ns" : "sf_xyz.lexicon" }, { "v" : 1, "unique" : true, "key" : { "guid" : 1, "dirtySR" : 1 }, "name" : "guid_1_dirtySR_1", "ns" : "sf_xyz.lexicon" } ] }
