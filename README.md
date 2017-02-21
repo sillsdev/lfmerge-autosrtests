@@ -1,5 +1,6 @@
 # Automated LfMerge S/R Tests
 
+NOTE: This project requires Mono 4.x, i.e. the package `mono4-sil` has to be installed!
 ## Restore existing Chorus repos
 
 The mocked LanguageDepot/Chorus repo is stored in the source tree as a series of
