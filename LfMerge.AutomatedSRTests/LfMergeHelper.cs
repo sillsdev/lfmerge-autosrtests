@@ -3,6 +3,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using Palaso.IO;
 
 namespace LfMerge.AutomatedSRTests
 {
@@ -60,7 +61,7 @@ LanguageDepotRepoUri = {LanguageDepotHelper.LdDirectory}
 			{
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = true;
-				process.StartInfo.FileName = "lfmerge";
+				process.StartInfo.FileName = Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, "lfmerge");
 				process.StartInfo.Arguments = args + $" --config \"{Directories.TempDir}\"";
 				process.StartInfo.RedirectStandardOutput = true;
 				Console.WriteLine($"Executing: lfmerge {process.StartInfo.Arguments}");
