@@ -34,12 +34,14 @@ namespace LfMerge.AutomatedSRTests
 			}
 
 			Directory.CreateDirectory(BaseDir);
+			var mongoHostName = Environment.GetEnvironmentVariable("MongoHostName") ?? "localhost";
+			var mongoPort = Environment.GetEnvironmentVariable("MongoPort") ?? "27017";
 			var settings = $@"
 BaseDir = {BaseDir}
 WebworkDir = webwork
 TemplatesDir = Templates
-MongoHostname = localhost
-MongoPort = 27017
+MongoHostname = {mongoHostName}
+MongoPort = {mongoPort}
 MongoMainDatabaseName = scriptureforge
 MongoDatabaseNamePrefix = sf_
 VerboseProgress = false

@@ -83,9 +83,6 @@ namespace LfMerge.AutomatedSRTests
 			}
 		}
 
-		/// <summary>
-		/// <paramref name=""/>
-		/// </summary>
 		private void RemoveDatabase()
 		{
 			var projectCode = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
