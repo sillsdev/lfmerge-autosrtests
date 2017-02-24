@@ -13,7 +13,7 @@ namespace LfMerge.AutomatedSRTests
 	{
 		public LanguageDepotHelper()
 		{
-			LdDirectory = Path.Combine(Directories.TempDir, "LanguageDepot");
+			LdDirectory = Path.Combine(Settings.TempDir, "LanguageDepot");
 			Directory.CreateDirectory(LdDirectory);
 			HgRepository.CreateRepositoryInExistingDir(LdDirectory, new NullProgress());
 
@@ -48,14 +48,14 @@ namespace LfMerge.AutomatedSRTests
 		/// <summary>
 		/// Applies a patch to the mock LanguageDepot hg repo
 		/// </summary>
-		/// <param name="patchFile">Patchfile and path, relative to <see cref="Directories.DataDir"/>.</param>
+		/// <param name="patchFile">Patchfile and path, relative to <see cref="Settings.DataDir"/>.</param>
 		/// <exception cref="FileNotFoundException">If <paramref name="patchFile"/> doesn't
-		/// exist in <see cref="Directories.DataDir"/>.</exception>
+		/// exist in <see cref="Settings.DataDir"/>.</exception>
 		/// <exception cref="ApplicationException">If "hg import" returns a non-0 exit
 		/// code</exception>
 		public void ApplyPatch(string patchFile)
 		{
-			var patchPath = Path.Combine(Directories.DataDir, patchFile);
+			var patchPath = Path.Combine(Settings.DataDir, patchFile);
 			if (!File.Exists(patchPath))
 				throw new FileNotFoundException("Can't find patchfile", patchPath);
 

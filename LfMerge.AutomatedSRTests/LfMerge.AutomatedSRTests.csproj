@@ -45,7 +45,7 @@
 	<Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Directories.cs" />
+    <Compile Include="Settings.cs" />
     <Compile Include="LanguageDepotHelper.cs" />
     <Compile Include="LfMergeHelper.cs" />
     <Compile Include="MongoHelper.cs" />

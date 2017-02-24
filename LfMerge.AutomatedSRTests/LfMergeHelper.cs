@@ -9,49 +9,12 @@ namespace LfMerge.AutomatedSRTests
 {
 	public static class LfMergeHelper
 	{
-		public static string BaseDir => Path.Combine(Directories.TempDir, "BaseDir");
-
-		private static bool VerifyPhpDir(string dir)
-		{
-			return File.Exists(Path.Combine(dir, "Api/Library/Shared/CLI/cliConfig.php")) &&
-				File.Exists(Path.Combine(dir, "vendor/autoload.php"));
-		}
-
-		private static string CheckPhpDir(string candidate)
-		{
-			return VerifyPhpDir(candidate) ? candidate : null;
-		}
+		public static string BaseDir => Path.Combine(Settings.TempDir, "BaseDir");
 
 		private static void WriteTestSettingsFile()
 		{
-			var phpSourceDir = CheckPhpDir("/var/www/virtual/languageforge.org/htdocs") ??
-				CheckPhpDir("/var/www/virtual/languageforge.org/htdocs") ??
-				CheckPhpDir("/var/www/languageforge.org_dev/htdocs") ??
-				Path.Combine(Directories.DataDir, "php", "src");
-			if (!VerifyPhpDir(phpSourceDir))
-			{
-				Console.WriteLine("Can't find 'Api/Library/Shared/CLI/cliConfig.php' or 'vendor/autoload.php'" +
-					" in any of the directories ['/var/www/virtual/languageforge.org/htdocs', " +
-					"'/var/www/virtual/languageforge.org/htdocs', '{0}']", phpSourceDir);
-			}
-
 			Directory.CreateDirectory(BaseDir);
-			var mongoHostName = Environment.GetEnvironmentVariable("MongoHostName") ?? "localhost";
-			var mongoPort = Environment.GetEnvironmentVariable("MongoPort") ?? "27017";
-			var settings = $@"
-BaseDir = {BaseDir}
-WebworkDir = webwork
-TemplatesDir = Templates
-MongoHostname = {mongoHostName}
-MongoPort = {mongoPort}
-MongoMainDatabaseName = scriptureforge
-MongoDatabaseNamePrefix = sf_
-VerboseProgress = false
-PhpSourcePath = {phpSourceDir}
-LanguageDepotRepoUri = {LanguageDepotHelper.LdDirectory}
-";
-			var configFile = Path.Combine(Directories.TempDir, "sendreceive.conf");
-			File.WriteAllText(configFile, settings);
+			Settings.WriteConfigFile(BaseDir);
 		}
 
 		public static void Run(string args)
@@ -63,7 +26,7 @@ LanguageDepotRepoUri = {LanguageDepotHelper.LdDirectory}
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = true;
 				process.StartInfo.FileName = Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, "lfmerge");
-				process.StartInfo.Arguments = args + $" --config \"{Directories.TempDir}\"";
+				process.StartInfo.Arguments = args + $" --config \"{Settings.TempDir}\"";
 				process.StartInfo.RedirectStandardOutput = true;
 				Console.WriteLine($"Executing: {process.StartInfo.FileName} {process.StartInfo.Arguments}");
 

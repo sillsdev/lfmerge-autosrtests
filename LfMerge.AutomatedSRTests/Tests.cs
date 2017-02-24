@@ -22,7 +22,7 @@ namespace LfMerge.AutomatedSRTests
 			get
 			{
 				var stateFile = Path.Combine(LfMergeHelper.BaseDir, "state", "autosrtests.state");
-				Assert.That(File.Exists(stateFile), Is.True);
+				Assert.That(File.Exists(stateFile), Is.True, $"Statefile '{stateFile}' doesn't exist");
 				var stateFileContent = JObject.Parse(File.ReadAllText(stateFile));
 				var state = stateFileContent["SRState"].ToString();
 				return state;
@@ -42,7 +42,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			_mongo.Dispose();
 			_languageDepot.Dispose();
-			Directories.Cleanup();
+			Settings.Cleanup();
 		}
 
 		[Test]

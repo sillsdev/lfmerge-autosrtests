@@ -51,16 +51,19 @@ namespace LfMerge.AutomatedSRTests
 			}
 
 			Run("mongoimport",
-				$"-db scriptureforge --collection projects --file {projectEntryFile}",
+				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db scriptureforge " +
+				$"--collection projects --file {projectEntryFile}",
 				DataDir);
 
-			Run("mongorestore", $"-db {DbName} {projectDumpDir}", DataDir);
+			Run("mongorestore",
+				$" --host {Settings.MongoHostName}:{Settings.MongoPort} " +
+				$"--db {DbName} {projectDumpDir}", DataDir);
 		}
 
 		private string DbName { get; }
 
 		public static string DataDir =>
-			Path.Combine(Directories.DataDir, "mongo", "dump");
+			Path.Combine(Settings.DataDir, "mongo", "dump");
 
 		private static void Run(string command, string args, string workDir)
 		{
@@ -86,8 +89,10 @@ namespace LfMerge.AutomatedSRTests
 		private void RemoveDatabase()
 		{
 			var projectCode = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
-			Run("mongo", $"{DbName} --eval 'db.dropDatabase()'", DataDir);
+			Run("mongo", $"--host {Settings.MongoHostName} --port {Settings.MongoPort} " +
+				$"{DbName} --eval 'db.dropDatabase()'", DataDir);
 			Run("mongo",
+				$"--host {Settings.MongoHostName} --port {Settings.MongoPort} " +
 				$"scriptureforge --eval 'db.projects.remove({{ \"projectName\" : \"{projectCode}\" }})'",
 				DataDir);
 		}
