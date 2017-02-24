@@ -26,6 +26,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var phpSourceDir = CheckPhpDir("/var/www/virtual/languageforge.org/htdocs") ??
 				CheckPhpDir("/var/www/virtual/languageforge.org/htdocs") ??
+				CheckPhpDir("/var/www/languageforge.org_dev/htdocs") ??
 				Path.Combine(Directories.DataDir, "php", "src");
 			if (!VerifyPhpDir(phpSourceDir))
 			{
@@ -64,7 +65,7 @@ LanguageDepotRepoUri = {LanguageDepotHelper.LdDirectory}
 				process.StartInfo.FileName = Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, "lfmerge");
 				process.StartInfo.Arguments = args + $" --config \"{Directories.TempDir}\"";
 				process.StartInfo.RedirectStandardOutput = true;
-				Console.WriteLine($"Executing: lfmerge {process.StartInfo.Arguments}");
+				Console.WriteLine($"Executing: {process.StartInfo.FileName} {process.StartInfo.Arguments}");
 
 				process.Start();
 
