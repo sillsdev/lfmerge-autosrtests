@@ -39,6 +39,7 @@ namespace LfMerge.AutomatedSRTests
 		public void FixtureTearDown()
 		{
 			MongoHelper.Cleanup();
+			Settings.Cleanup();
 		}
 
 		[SetUp]
@@ -53,7 +54,6 @@ namespace LfMerge.AutomatedSRTests
 		{
 			_mongo.Dispose();
 			_languageDepot.Dispose();
-			Settings.Cleanup();
 		}
 
 		[Test]
