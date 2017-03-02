@@ -1,6 +1,7 @@
 # Automated LfMerge S/R Tests
 
 NOTE: This project requires Mono 4.x, i.e. the package `mono4-sil` has to be installed!
+
 ## Restore existing Chorus repos
 
 The mocked LanguageDepot/Chorus repo is stored in the source tree as a series of
@@ -16,10 +17,14 @@ repo. This can be achieved by creating a Mercurial repo and then applying the pa
 
 ## Export Mongo database
 
-	mongoexport -db scriptureforge --collection projects --query '{ "projectName" : $projectname}' > $projectname.json
-	mongodump -db $projectname
+	mongoexport --db scriptureforge --collection projects --query '{ "projectName" : $projectname}' > $projectname.json
+	for col in activity lexicon optionlists; do
+		mongoexport --db $projectname --collection $col > ${projectname}.${col}.json
+	done
 
 ## Restore Mongo database
 
-	mongoimport -db scriptureforge --collection projects --file $dbname.json
-	mongorestore -db $dbname dump/$dbname/
+	mongoimport --db scriptureforge --collection projects --file $dbname.json
+	for col in activity lexicon optionlists; do
+		mongoimport --db $dbname --drop --collection $col --file ${dbname}.${col}.json
+	done

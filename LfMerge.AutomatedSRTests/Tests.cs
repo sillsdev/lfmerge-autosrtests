@@ -29,6 +29,18 @@ namespace LfMerge.AutomatedSRTests
 			}
 		}
 
+		[TestFixtureSetUp]
+		public void FixtureSetup()
+		{
+			MongoHelper.Initialize();
+		}
+
+		[TestFixtureTearDown]
+		public void FixtureTearDown()
+		{
+			MongoHelper.Cleanup();
+		}
+
 		[SetUp]
 		public void Setup()
 		{
