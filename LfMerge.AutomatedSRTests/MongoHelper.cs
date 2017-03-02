@@ -41,9 +41,9 @@ namespace LfMerge.AutomatedSRTests
 
 		#endregion
 
-		public void RestoreDatabase()
+		public void RestoreDatabase(string tag)
 		{
-			Run("git", "checkout r1", MongoSourceDir);
+			Run("git", $"checkout {tag}", MongoSourceDir);
 			var projectEntryFile = Path.Combine(MongoSourceDir, DbName + ".json");
 			if (!File.Exists(projectEntryFile))
 			{
@@ -77,6 +77,9 @@ namespace LfMerge.AutomatedSRTests
 			// switch between versions.
 			Directory.CreateDirectory(MongoSourceDir);
 			Run("git", "init .", MongoSourceDir);
+			Run("git", "config user.email \"you@example.com\"", MongoSourceDir);
+			Run("git", "config user.name \"Your Name\"", MongoSourceDir);
+
 			var patchFiles = Directory.GetFiles(MongoPatchDir, "*.patch");
 			Array.Sort(patchFiles);
 			foreach (var file in patchFiles)

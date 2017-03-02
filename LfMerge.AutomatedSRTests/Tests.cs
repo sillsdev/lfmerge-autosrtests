@@ -46,7 +46,6 @@ namespace LfMerge.AutomatedSRTests
 		{
 			_languageDepot = new LanguageDepotHelper();
 			_mongo = new MongoHelper("sf_autosrtests");
-			_mongo.RestoreDatabase();
 		}
 
 		[TearDown]
@@ -61,6 +60,7 @@ namespace LfMerge.AutomatedSRTests
 		public void Clone([Range(MinVersion, MaxVersion)] int dbVersion)
 		{
 			// Setup
+			_mongo.RestoreDatabase("r1");
 			_languageDepot.ApplyPatch(Path.Combine(dbVersion.ToString(), "r1.patch"));
 
 			// Exercise
