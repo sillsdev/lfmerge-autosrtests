@@ -10,6 +10,8 @@ ProjectSection(SolutionItems) = preProject
 	README.md = README.md
 EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUtil", "TestUtil\TestUtil.csproj", "{00FE0C8B-7DB4-47D5-93F3-1DF12E1FEF1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,10 @@ Global
 		{D00F9A00-50E8-4810-8441-1E93E1EF5672}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D00F9A00-50E8-4810-8441-1E93E1EF5672}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D00F9A00-50E8-4810-8441-1E93E1EF5672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00FE0C8B-7DB4-47D5-93F3-1DF12E1FEF1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00FE0C8B-7DB4-47D5-93F3-1DF12E1FEF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00FE0C8B-7DB4-47D5-93F3-1DF12E1FEF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00FE0C8B-7DB4-47D5-93F3-1DF12E1FEF1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

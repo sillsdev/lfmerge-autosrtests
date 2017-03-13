@@ -64,11 +64,6 @@
 			Properties="Configuration=$(Configuration);RootDir=$(RootDir);SolutionDir=$(SolutionDir)" />
 	</Target>
 
-	<Target Name="PrepareSource" DependsOnTargets="DownloadDependencies;RestorePackages">
-		<!-- This target gets called before building the source package -->
-		<RemoveDir Directories="$(RootDir)/Downloads"/>
-	</Target>
-
 	<Target Name="Compile" DependsOnTargets="DownloadDependencies;RestorePackages">
 		<FileUpdate File="$(RootDir)/Mercurial/mercurial.ini" Regex="fixutf8=../" ReplacementText="fixutf8=$(RootDir)/"/>
 		<MSBuild
