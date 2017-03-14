@@ -63,7 +63,7 @@ namespace LfMerge.TestUtil
 				: options.WorkDir;
 			Directory.CreateDirectory(patchDir);
 
-			var output = Run("hg", $"log -b {options.ModelVersion} --template \"{{rev}} \"", hgDir);
+			var output = Run("hg", "log --template \"{rev} \"", hgDir);
 			var revs = output.Trim().Trim('\r', '\n').Split(' ').Reverse();
 			foreach (var rev in revs)
 			{
@@ -85,7 +85,7 @@ namespace LfMerge.TestUtil
 			DirectoryUtilities.DeleteDirectoryRobust(dir);
 			using (var ld = new LanguageDepotHelper(true))
 			{
-				for (var i = 1; i <= options.LanguageDepotVersion.Value; i++)
+				for (var i = 0; i <= options.LanguageDepotVersion.Value; i++)
 				{
 					ld.ApplyPatch(Path.Combine(options.ModelVersion, $"r{i}.patch"));
 				}

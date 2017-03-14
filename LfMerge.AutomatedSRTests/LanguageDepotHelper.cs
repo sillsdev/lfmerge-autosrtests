@@ -19,8 +19,6 @@ namespace LfMerge.AutomatedSRTests
 			LdDirectory = Path.Combine(Settings.TempDir, "LanguageDepot");
 			Directory.CreateDirectory(LdDirectory);
 			HgRepository.CreateRepositoryInExistingDir(LdDirectory, new NullProgress());
-
-			ApplyPatch("r0.patch");
 		}
 
 		#region Dispose functionality
@@ -70,7 +68,7 @@ namespace LfMerge.AutomatedSRTests
 
 		public void ApplyPatches(int dbVersion, int patch)
 		{
-			for (var i = 1; i <= patch; i++)
+			for (var i = 0; i <= patch; i++)
 			{
 				ApplyPatch(Path.Combine(dbVersion.ToString(), $"r{i}.patch"));
 			}

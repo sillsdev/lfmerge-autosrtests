@@ -35,8 +35,7 @@ This will save the new patches in `data/7000068`.
 
 **NOTE:** When doing a S/R in FLEx to the USB stick be aware that _flexbridge_ identifies
 the correct directory by checking the hash of the first commit. If multiple repos
-exist with the same history (as is the case when using TestUtil to restore the repos
-for several database model versions) it is unclear which directory _flexbridge_
+exist with the same history it is unclear which directory _flexbridge_
 chooses, so you might get unexpected results.
 
 ## Creating new tests - the hard way
