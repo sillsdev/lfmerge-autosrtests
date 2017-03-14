@@ -1,8 +1,7 @@
 // Copyright (c) 2017 SIL International
 // This software is licensed under the MIT License (http://opensource.org/licenses/MIT)
-using System;
+
 using System.IO;
-using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -11,6 +10,7 @@ namespace LfMerge.AutomatedSRTests
 	[TestFixture]
 	public class Tests
 	{
+		public const string DbName = "autosrtests";
 		private const int MinVersion = 7000068;
 		private const int MaxVersion = 7000070;
 
@@ -21,7 +21,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			get
 			{
-				var stateFile = Path.Combine(LfMergeHelper.BaseDir, "state", "autosrtests.state");
+				var stateFile = Path.Combine(LfMergeHelper.BaseDir, "state", $"{DbName}.state");
 				Assert.That(File.Exists(stateFile), Is.True, $"Statefile '{stateFile}' doesn't exist");
 				var stateFileContent = JObject.Parse(File.ReadAllText(stateFile));
 				var state = stateFileContent["SRState"].ToString();
@@ -46,7 +46,7 @@ namespace LfMerge.AutomatedSRTests
 		public void Setup()
 		{
 			_languageDepot = new LanguageDepotHelper();
-			_mongo = new MongoHelper("sf_autosrtests");
+			_mongo = new MongoHelper($"sf_{DbName}");
 		}
 
 		[TearDown]
@@ -54,6 +54,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			_mongo.Dispose();
 			_languageDepot.Dispose();
+			LfMergeHelper.Cleanup();
 		}
 
 		[Test]
@@ -61,13 +62,45 @@ namespace LfMerge.AutomatedSRTests
 		{
 			// Setup
 			_mongo.RestoreDatabase("r1");
-			_languageDepot.ApplyPatch(Path.Combine(dbVersion.ToString(), "r1.patch"));
+			_languageDepot.ApplyPatches(dbVersion, 1);
 
 			// Exercise
-			LfMergeHelper.Run("--project autosrtests --clone --action=Synchronize");
+			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));
+		}
+
+		[Test]
+		public void NoConflicts([Range(MinVersion, MaxVersion)] int dbVersion)
+		{
+			// Setup
+			_mongo.RestoreDatabase("r2");
+			_languageDepot.ApplyPatches(dbVersion, 2);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
+
+			// Verify
+			Assert.That(SRState, Is.EqualTo("IDLE"));
+			const string expected = @"[
+				{ 'lexeme': { 'fr' : { 'value' : 'lf1<br/>' } },
+					'senses' : [ {
+						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
+						'gloss' : { 'en' : { 'value' : '' } },
+						'partOfSpeech' : { 'value' : 'n' }
+					} ] },
+				{ 'lexeme': { 'fr' : { 'value' : 'flex' } },
+					'senses' : [ {
+						/* no definition */
+						'gloss' : { 'en' : { 'value' : 'created in FLEx' } },
+						'partOfSpeech' : { 'value' : 'adv1' }
+					} ] },
+				]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
 		}
 
 	}

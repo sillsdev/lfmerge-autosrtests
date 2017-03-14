@@ -11,8 +11,11 @@ namespace LfMerge.AutomatedSRTests
 {
 	public class LanguageDepotHelper: IDisposable
 	{
-		public LanguageDepotHelper()
+		private bool _keepDir;
+
+		public LanguageDepotHelper(bool keepDir = false)
 		{
+			_keepDir = keepDir;
 			LdDirectory = Path.Combine(Settings.TempDir, "LanguageDepot");
 			Directory.CreateDirectory(LdDirectory);
 			HgRepository.CreateRepositoryInExistingDir(LdDirectory, new NullProgress());
@@ -25,7 +28,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			if (disposing)
 			{
-				if (!string.IsNullOrEmpty(LdDirectory))
+				if (!string.IsNullOrEmpty(LdDirectory) && !_keepDir)
 					DirectoryUtilities.DeleteDirectoryRobust(LdDirectory);
 			}
 			LdDirectory = null;
@@ -65,5 +68,12 @@ namespace LfMerge.AutomatedSRTests
 				throw new ApplicationException($"'{command}' returned {result.ExitCode}");
 		}
 
+		public void ApplyPatches(int dbVersion, int patch)
+		{
+			for (var i = 1; i <= patch; i++)
+			{
+				ApplyPatch(Path.Combine(dbVersion.ToString(), $"r{i}.patch"));
+			}
+		}
 	}
 }

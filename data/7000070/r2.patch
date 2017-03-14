@@ -1,0 +1,109 @@
+# HG changeset patch
+# User eberhard
+# Date 1488900623 -3600
+#      Tue Mar 07 16:30:23 2017 +0100
+# Branch 7000070
+# Node ID d73466b0b85d49af7979f791f7a6eb112ac50100
+# Parent  1f6e9150571650767f55c21515bb580936065dac
+[FLEx Bridge: 2.1] sync
+
+diff -r 1f6e91505716 -r d73466b0b85d Lexicon.fwstub.ChorusNotes
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/Lexicon.fwstub.ChorusNotes	Tue Mar 07 16:30:23 2017 +0100
+@@ -0,0 +1,1 @@
++<notes version='0'/>
+\ No newline at end of file
+diff -r 1f6e91505716 -r d73466b0b85d Linguistics/Lexicon/Lexicon_10.lexdb
+--- a/Linguistics/Lexicon/Lexicon_10.lexdb	Fri Feb 03 18:05:08 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_10.lexdb	Tue Mar 07 16:30:23 2017 +0100
+@@ -1,2 +1,55 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="88cef36d-7991-464f-9af8-91acd748d5e7">
++		<DateCreated
++			val="2017-3-7 15:30:9.13" />
++		<DateModified
++			val="2017-3-7 15:30:9.13" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="04af0d8b-0a41-4a2d-989d-81604cd954f5">
++				<Form>
++					<AUni
++						ws="fr">flex</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="09de14b5-3bb0-4b50-b561-a1c8359454bd">
++				<PartOfSpeech>
++					<objsur
++						guid="46e4fe08-ffa0-4c8b-bf98-2c56f38904d9"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="c8a2be1a-721a-4f86-871d-10819cd25531">
++				<Gloss>
++					<AUni
++						ws="en">created in FLEx</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="09de14b5-3bb0-4b50-b561-a1c8359454bd"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 1f6e91505716 -r d73466b0b85d WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Fri Feb 03 18:05:08 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Tue Mar 07 16:30:23 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-02-03T17:04:47" />
++			date="2017-03-07T15:14:00" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -29,6 +29,8 @@
+ 			value="Charis SIL" />
+ 		<palaso:languageName
+ 			value="French" />
++		<palaso:spellCheckingId
++			value="fr" />
+ 		<palaso:version
+ 			value="2" />
+ 	</special>
+@@ -39,6 +41,10 @@
+ 				layout="th"
+ 				locale="th-TH"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="fr"
++				locale="fr-FR"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />

@@ -1,0 +1,77 @@
+# HG changeset patch
+# User eberhard
+# Date 1489510624 -3600
+#      Tue Mar 14 17:57:04 2017 +0100
+# Branch 7000069
+# Node ID c7bd53707af8a3eef9be976d762364bcd79229e9
+# Parent  3a0246ea943dde56be94274ad5100007ef5c3596
+[FLEx Bridge: 2.1] sync
+
+diff -r 3a0246ea943d -r c7bd53707af8 Lexicon.fwstub.ChorusNotes
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/Lexicon.fwstub.ChorusNotes	Tue Mar 14 17:57:04 2017 +0100
+@@ -0,0 +1,1 @@
++<notes version='0'/>
+\ No newline at end of file
+diff -r 3a0246ea943d -r c7bd53707af8 Linguistics/Lexicon/Lexicon_03.lexdb
+--- a/Linguistics/Lexicon/Lexicon_03.lexdb	Fri Feb 03 17:52:38 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_03.lexdb	Tue Mar 14 17:57:04 2017 +0100
+@@ -1,2 +1,55 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="257d2a76-bdd3-4fec-af96-2e5666366678">
++		<DateCreated
++			val="2017-3-14 16:56:50.590" />
++		<DateModified
++			val="2017-3-14 16:56:50.590" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="5d7d3053-ae50-4ed4-ae00-354022e8ae7a">
++				<Form>
++					<AUni
++						ws="fr">flex</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="080d54ad-ef34-4c8b-9ac9-4eb501162449">
++				<PartOfSpeech>
++					<objsur
++						guid="46e4fe08-ffa0-4c8b-bf98-2c56f38904d9"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="4969f40d-e160-4993-b6db-c7690312cd83">
++				<Gloss>
++					<AUni
++						ws="en">created in FLEx</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="080d54ad-ef34-4c8b-9ac9-4eb501162449"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file

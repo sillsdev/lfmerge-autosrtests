@@ -41,5 +41,10 @@ namespace LfMerge.AutomatedSRTests
 				}
 			}
 		}
+
+		public static void Cleanup()
+		{
+			DirectoryUtilities.DeleteDirectoryRobust(BaseDir);
+		}
 	}
 }

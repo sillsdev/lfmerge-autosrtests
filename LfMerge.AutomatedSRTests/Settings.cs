@@ -10,8 +10,18 @@ namespace LfMerge.AutomatedSRTests
 {
 	public static class Settings
 	{
-		public static string TempDir => Path.Combine(Path.GetTempPath(),
-			Process.GetCurrentProcess().Id.ToString());
+		private static string _tempDir;
+
+		public static string TempDir
+		{
+			get
+			{
+				return string.IsNullOrEmpty(_tempDir)
+					? Path.Combine(Path.GetTempPath(), Process.GetCurrentProcess().Id.ToString())
+					: _tempDir;
+			}
+			set { _tempDir = value; }
+		}
 
 		public static string DataDir =>
 			Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, "data");

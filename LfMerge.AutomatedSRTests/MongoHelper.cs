@@ -12,8 +12,11 @@ namespace LfMerge.AutomatedSRTests
 {
 	public class MongoHelper : IDisposable
 	{
-		public MongoHelper(string dbName)
+		private bool _keepDatabase;
+
+		public MongoHelper(string dbName, bool keepDatabase = false)
 		{
+			_keepDatabase = keepDatabase;
 			DbName = dbName;
 			RemoveDatabase();
 		}
@@ -24,7 +27,8 @@ namespace LfMerge.AutomatedSRTests
 		{
 			if (disposing)
 			{
-				RemoveDatabase();
+				if (!_keepDatabase)
+					RemoveDatabase();
 			}
 		}
 
@@ -60,6 +64,23 @@ namespace LfMerge.AutomatedSRTests
 			ImportCollection("optionlists");
 		}
 
+		public void SaveDatabase(string patchDir, string msg, int startNumber)
+		{
+			InitSourceDir(MongoSourceDir);
+			var project = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
+			Run("mongoexport",
+				$"--host {Settings.MongoHostName}:{Settings.MongoPort} " +
+				$"--db scriptureforge --collection projects --query '{{ \"projectName\" : \"{project}\" }}'",
+				MongoSourceDir);
+
+			ExportCollection("activity");
+			ExportCollection("lexicon");
+			ExportCollection("optionlists");
+
+			Run("git", $"commit -a -m \"{msg}\"", MongoSourceDir);
+			Run("git", $"format-patch -1 -o {patchDir} --start-number {startNumber}", MongoSourceDir);
+		}
+
 		private void ImportCollection(string collection)
 		{
 			var file = Path.Combine(MongoSourceDir, $"{DbName}.{collection}.json");
@@ -69,16 +90,24 @@ namespace LfMerge.AutomatedSRTests
 				MongoSourceDir);
 		}
 
+		private void ExportCollection(string collection)
+		{
+			var file = Path.Combine(MongoSourceDir, $"{DbName}.{collection}.json");
+			var content = Run("mongoexport",
+				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db {DbName} " +
+				$"--collection {collection}",
+				MongoSourceDir);
+			File.WriteAllText(file, content);
+		}
+
 		public static void Initialize()
 		{
 			// we use a git repo to store the JSON files that we'll import into Mongo. Storing
 			// the JSON files as patch files allows to easily see (e.g. on GitHub) the changes
 			// between two versions; recreating the git repo at test run time makes it easier to
 			// switch between versions.
-			Directory.CreateDirectory(MongoSourceDir);
-			Run("git", "init .", MongoSourceDir);
-			Run("git", "config user.email \"you@example.com\"", MongoSourceDir);
-			Run("git", "config user.name \"Your Name\"", MongoSourceDir);
+			var sourceDir = MongoSourceDir;
+			InitSourceDir(sourceDir);
 
 			var patchFiles = Directory.GetFiles(MongoPatchDir, "*.patch");
 			Array.Sort(patchFiles);
@@ -86,9 +115,17 @@ namespace LfMerge.AutomatedSRTests
 			{
 				var patchNoStr = Path.GetFileName(file).Substring(0, 4);
 				var patchNo = int.Parse(patchNoStr);
-				Run("git", $"am {file}", MongoSourceDir);
-				Run("git", $"tag r{patchNo}", MongoSourceDir);
+				Run("git", $"am {file}", sourceDir);
+				Run("git", $"tag r{patchNo}", sourceDir);
 			}
+		}
+
+		private static void InitSourceDir(string gitDir)
+		{
+			Directory.CreateDirectory(gitDir);
+			Run("git", "init .", gitDir);
+			Run("git", "config user.email \"you@example.com\"", gitDir);
+			Run("git", "config user.name \"Your Name\"", gitDir);
 		}
 
 		public static void Cleanup()
@@ -102,7 +139,7 @@ namespace LfMerge.AutomatedSRTests
 
 		private static string MongoSourceDir => Path.Combine(Settings.TempDir, "patches");
 
-		private static void Run(string command, string args, string workDir, bool throwException = true)
+		private static string Run(string command, string args, string workDir, bool throwException = true)
 		{
 			//Console.WriteLine();
 			//Console.WriteLine($"Running command: {command} {args}");
@@ -148,13 +185,14 @@ namespace LfMerge.AutomatedSRTests
 					//Console.WriteLine($"Stderr: {stderr}");
 
 					if (process.ExitCode == 0)
-						return;
+						return output.ToString();
 
 					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n${stderr}";
 					if (throwException)
 						throw new ApplicationException(msg);
 
 					Console.WriteLine(msg);
+					return stderr.ToString();
 				}
 			}
 		}
