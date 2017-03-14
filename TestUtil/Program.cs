@@ -5,11 +5,9 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
-using Chorus.VcsDrivers.Mercurial;
 using LfMerge.AutomatedSRTests;
 using Palaso.IO;
 using Palaso.Linq;
-using Palaso.Progress;
 
 namespace LfMerge.TestUtil
 {
