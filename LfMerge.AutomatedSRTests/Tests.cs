@@ -61,7 +61,7 @@ namespace LfMerge.AutomatedSRTests
 		public void Clone([Range(MinVersion, MaxVersion)] int dbVersion)
 		{
 			// Setup
-			_mongo.RestoreDatabase("r1");
+			_mongo.RestoreDatabase("r1", dbVersion);
 			_languageDepot.ApplyPatches(dbVersion, 1);
 
 			// Exercise
@@ -75,7 +75,7 @@ namespace LfMerge.AutomatedSRTests
 		public void NoConflicts([Range(MinVersion, MaxVersion)] int dbVersion)
 		{
 			// Setup
-			_mongo.RestoreDatabase("r2");
+			_mongo.RestoreDatabase("r2", dbVersion);
 			_languageDepot.ApplyPatches(dbVersion, 2);
 
 			// Exercise
@@ -83,6 +83,7 @@ namespace LfMerge.AutomatedSRTests
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));
+			// language=json
 			const string expected = @"[
 				{ 'lexeme': { 'fr' : { 'value' : 'lf1<br/>' } },
 					'senses' : [ {

@@ -24,11 +24,13 @@ namespace LfMerge.AutomatedSRTests
 		#region Dispose functionality
 		protected virtual void Dispose(bool disposing)
 		{
-			if (disposing)
-			{
-				if (!string.IsNullOrEmpty(LdDirectory) && !_keepDir)
-					DirectoryUtilities.DeleteDirectoryRobust(LdDirectory);
-			}
+			if (!disposing)
+				return;
+
+			if (string.IsNullOrEmpty(LdDirectory) || _keepDir)
+				return;
+
+			DirectoryUtilities.DeleteDirectoryRobust(LdDirectory);
 			LdDirectory = null;
 		}
 

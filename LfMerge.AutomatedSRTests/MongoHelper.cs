@@ -14,11 +14,44 @@ namespace LfMerge.AutomatedSRTests
 	{
 		private bool _keepDatabase;
 
-		public MongoHelper(string dbName, bool keepDatabase = false)
+		public static void Initialize()
+		{
+			var modelVersionDirectories = Directory.GetDirectories(Settings.DataDir, "70*");
+			foreach (var modelVersionDirectory in modelVersionDirectories)
+			{
+				var modelVersion = Path.GetFileName(modelVersionDirectory);
+				Initialize(modelVersion);
+			}
+		}
+
+		public static void Initialize(string modelVersion, int? version = null)
+		{
+			// we use a git repo to store the JSON files that we'll import into Mongo. Storing
+			// the JSON files as patch files allows to easily see (e.g. on GitHub) the changes
+			// between two versions; recreating the git repo at test run time makes it easier to
+			// switch between versions.
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			InitSourceDir(mongoSourceDir);
+
+			var patchFiles = Directory.GetFiles(GetMongoPatchDir(modelVersion), "*.patch");
+			Array.Sort(patchFiles);
+			foreach (var file in patchFiles)
+			{
+				var patchNoStr = Path.GetFileName(file).Substring(0, 4);
+				var patchNo = int.Parse(patchNoStr);
+				if (version.HasValue && patchNo > version.Value)
+					break;
+				Run("git", $"am {file}", mongoSourceDir);
+				Run("git", $"tag r{patchNo}", mongoSourceDir);
+			}
+		}
+
+		public MongoHelper(string dbName, bool keepDatabase = false, bool removeDatabase = true)
 		{
 			_keepDatabase = keepDatabase;
 			DbName = dbName;
-			RemoveDatabase();
+			if (removeDatabase)
+				RemoveDatabase();
 		}
 
 		#region Dispose functionality
@@ -45,79 +78,96 @@ namespace LfMerge.AutomatedSRTests
 
 		#endregion
 
-		public void RestoreDatabase(string tag)
+		public void RestoreDatabase(string tag, int modelVersion)
 		{
-			Run("git", $"checkout {tag}", MongoSourceDir);
-			var projectEntryFile = Path.Combine(MongoSourceDir, DbName + ".json");
+			RestoreDatabase(tag, modelVersion.ToString());
+		}
+
+		public void RestoreDatabase(string tag, string modelVersion)
+		{
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			Run("git", $"checkout {tag}", mongoSourceDir);
+			var projectEntryFile = Path.Combine(mongoSourceDir, DbName + ".json");
 			if (!File.Exists(projectEntryFile))
 			{
 				throw new FileNotFoundException($"Can't find file {projectEntryFile}");
 			}
 
+			var tempFile = ReadJson(projectEntryFile);
 			Run("mongoimport",
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db scriptureforge " +
-				$"--collection projects --file {projectEntryFile}",
-				MongoPatchDir);
+				$"--collection projects --file {tempFile}",
+				GetMongoPatchDir(modelVersion));
+			File.Delete(tempFile);
 
-			ImportCollection("activity");
-			ImportCollection("lexicon");
-			ImportCollection("optionlists");
+			ImportCollection("activity", modelVersion);
+			ImportCollection("lexicon", modelVersion);
+			ImportCollection("optionlists", modelVersion);
 		}
 
-		public void SaveDatabase(string patchDir, string msg, int startNumber)
+		public void SaveDatabase(string patchDir, string modelVersion, string msg, int startNumber)
 		{
-			InitSourceDir(MongoSourceDir);
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			InitSourceDir(mongoSourceDir);
 			var project = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
-			Run("mongoexport",
+			var file = Path.Combine(mongoSourceDir, $"{DbName}.json");
+			var content = Run("mongoexport",
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} " +
 				$"--db scriptureforge --collection projects --query '{{ \"projectName\" : \"{project}\" }}'",
-				MongoSourceDir);
+				mongoSourceDir);
+			WriteJson(file, content);
 
-			ExportCollection("activity");
-			ExportCollection("lexicon");
-			ExportCollection("optionlists");
+			ExportCollection("activity", modelVersion);
+			ExportCollection("lexicon", modelVersion);
+			ExportCollection("optionlists", modelVersion);
 
-			Run("git", $"commit -a -m \"{msg}\"", MongoSourceDir);
-			Run("git", $"format-patch -1 -o {patchDir} --start-number {startNumber}", MongoSourceDir);
+			Run("git", $"commit -a -m \"{msg}\"", mongoSourceDir);
+			Run("git", $"format-patch -1 -o {patchDir} --start-number {startNumber}", mongoSourceDir);
 		}
 
-		private void ImportCollection(string collection)
+		private static void WriteJson(string file, string content)
 		{
-			var file = Path.Combine(MongoSourceDir, $"{DbName}.{collection}.json");
+			File.WriteAllText(file, content.Replace("}", "}\n"));
+		}
+
+		private static string ReadJson(string file)
+		{
+			var tempFile = Path.GetTempFileName();
+			File.WriteAllText(tempFile, File.ReadAllText(file).Replace("}\n", "}"));
+			return tempFile;
+		}
+
+		private void ImportCollection(string collection, string modelVersion)
+		{
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			var file = Path.Combine(mongoSourceDir, $"{DbName}.{collection}.json");
+			var tempFile = ReadJson(file);
 			Run("mongoimport",
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db {DbName} " +
-				$"--drop --collection {collection} --file {file}",
-				MongoSourceDir);
+				$"--drop --collection {collection} --file {tempFile}",
+				mongoSourceDir);
+			File.Delete(tempFile);
 		}
 
-		private void ExportCollection(string collection)
+		private void ExportCollection(string collection, string modelVersion)
 		{
-			var file = Path.Combine(MongoSourceDir, $"{DbName}.{collection}.json");
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			var file = Path.Combine(mongoSourceDir, $"{DbName}.{collection}.json");
 			var content = Run("mongoexport",
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db {DbName} " +
 				$"--collection {collection}",
-				MongoSourceDir);
-			File.WriteAllText(file, content);
+				mongoSourceDir);
+			WriteJson(file, content);
 		}
 
-		public static void Initialize()
+		public static string GetMongoPatchDir(string modelVersion)
 		{
-			// we use a git repo to store the JSON files that we'll import into Mongo. Storing
-			// the JSON files as patch files allows to easily see (e.g. on GitHub) the changes
-			// between two versions; recreating the git repo at test run time makes it easier to
-			// switch between versions.
-			var sourceDir = MongoSourceDir;
-			InitSourceDir(sourceDir);
+			return Path.Combine(Settings.DataDir, modelVersion, "mongo");
+		}
 
-			var patchFiles = Directory.GetFiles(MongoPatchDir, "*.patch");
-			Array.Sort(patchFiles);
-			foreach (var file in patchFiles)
-			{
-				var patchNoStr = Path.GetFileName(file).Substring(0, 4);
-				var patchNo = int.Parse(patchNoStr);
-				Run("git", $"am {file}", sourceDir);
-				Run("git", $"tag r{patchNo}", sourceDir);
-			}
+		private static string GetMongoSourceDir(string modelVersion)
+		{
+			return Path.Combine(Settings.TempDir, "source", modelVersion);
 		}
 
 		private static void InitSourceDir(string gitDir)
@@ -130,14 +180,10 @@ namespace LfMerge.AutomatedSRTests
 
 		public static void Cleanup()
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(MongoSourceDir);
+			DirectoryUtilities.DeleteDirectoryRobust(Path.Combine(Settings.TempDir, "patches"));
 		}
 
 		private string DbName { get; }
-
-		private static string MongoPatchDir => Path.Combine(Settings.DataDir, "mongo");
-
-		private static string MongoSourceDir => Path.Combine(Settings.TempDir, "patches");
 
 		private static string Run(string command, string args, string workDir, bool throwException = true)
 		{
@@ -187,7 +233,7 @@ namespace LfMerge.AutomatedSRTests
 					if (process.ExitCode == 0)
 						return output.ToString();
 
-					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n${stderr}";
+					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n{stderr}";
 					if (throwException)
 						throw new ApplicationException(msg);
 
@@ -200,11 +246,12 @@ namespace LfMerge.AutomatedSRTests
 		private void RemoveDatabase()
 		{
 			var projectCode = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
-			Run("mongo", $"{DbName} --eval 'db.dropDatabase()'", MongoSourceDir, false);
+			var workDir = Path.Combine(Settings.TempDir, "patches");
+			Run("mongo", $"{DbName} --eval 'db.dropDatabase()'", workDir, false);
 			Run("mongo",
 				$"--host {Settings.MongoHostName} --port {Settings.MongoPort} " +
 				$"scriptureforge --eval 'db.projects.remove({{ \"projectName\" : \"{projectCode}\" }})'",
-				MongoSourceDir, false);
+				workDir, false);
 		}
 	}
 }

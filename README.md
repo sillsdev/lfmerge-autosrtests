@@ -14,7 +14,7 @@ possible to easily see the difference between two versions of the test data.
 ### Restore existing Chorus repo
 
 To restore a Chorus repo up to revision _rev_, run the following command. The patch
-files (up to revision _1_, i.e. `r0.patch` and `r1.patch`) are taken from the
+files (up to revision _rev_; in the example below this would be `r0.patch` and `r1.patch`) are taken from the
 `data/7000068` directory and the Chorus repo will end up in
 `/tmp/testdata/LanguageDepot`.
 
@@ -29,7 +29,8 @@ your hard drive (e.g. /tmp/ld) to speed up processing.
 
 The new changes can be exported by running:
 
-	mono --debug TestUtil.exe save --ld --workdir /tmp/ld --project autosrtests --model 7000068
+	mono --debug TestUtil.exe save --ld --workdir /tmp/ld --project autosrtests \
+		--model 7000068
 
 This will save the new patches in `data/7000068`.
 
@@ -37,6 +38,35 @@ This will save the new patches in `data/7000068`.
 the correct directory by checking the hash of the first commit. If multiple repos
 exist with the same history it is unclear which directory _flexbridge_
 chooses, so you might get unexpected results.
+
+### Restore test project in Mongo
+
+The patches for the test project in the mongo database are located as patches in
+`data/<modelversion>/mongo`. To restore version _2_ for model version
+_7000068_ run the following command:
+
+	mono --debug TestUtil.exe restore --mongo=2 --project autosrtests \
+		--workdir /tmp/testdata --model 7000068
+
+### Export test project in Mongo
+
+Make the changes in _LanguageForge_, then run:
+
+	mono --debug TestUtil.exe save --mongo --project autosrtests --msg "commit msg" \
+		--workdir /tmp/testdata --model 7000068
+
+### Merge Chorus and Mongo test data
+
+Before writing a new test you'll have to created the merged data, i.e. get the data
+in the state it would be after a send/receive. This is necessary because currently
+the patches are consecutive (if necessary this could be changed by introducing an
+additional path parameter).
+
+The merged data based on mongo patch _2_ and
+language depot patch _2_ for model version 7000068 can be created by running:
+
+	mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
+		--ld=2 --workdir=/tmp/testdata/ --model=7000068
 
 ## Creating new tests - the hard way
 

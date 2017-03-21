@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
+using CommandLine;
 using LfMerge.AutomatedSRTests;
 using Palaso.IO;
 using Palaso.Linq;
@@ -13,6 +14,8 @@ namespace LfMerge.TestUtil
 {
 	internal static class Program
 	{
+		private static MongoHelper _mongoHelper;
+
 		public static void Main(string[] args)
 		{
 			var tuple = Options.ParseCommandLineArgs(args);
@@ -24,17 +27,48 @@ namespace LfMerge.TestUtil
 			switch (verb)
 			{
 				case "restore":
-					Restore(tuple.Item2 as Options.RestoreOptions);
+					var restoreOptions = tuple.Item2 as Options.RestoreOptions;
+					if (restoreOptions.LanguageDepotVersion.HasValue &&
+						string.IsNullOrEmpty(restoreOptions.WorkDir))
+					{
+						Console.WriteLine(restoreOptions.GetUsage());
+						return;
+					}
+
+					Restore(restoreOptions);
 					break;
 				case "save":
-					Save(tuple.Item2 as Options.SaveOptions);
+					var saveOptions = tuple.Item2 as Options.SaveOptions;
+					if (saveOptions.SaveLanguageDepot &&
+						string.IsNullOrEmpty(saveOptions.WorkDir))
+					{
+						Console.WriteLine(saveOptions.GetUsage());
+						return;
+					}
+
+					Save(saveOptions);
+					break;
+				case "merge":
+					var mergeOptions = tuple.Item2 as Options.MergeOptions;
+					if (string.IsNullOrEmpty(mergeOptions.WorkDir))
+					{
+						{
+							Console.WriteLine(mergeOptions.GetUsage());
+							return;
+						}
+					}
+
+					Merge(mergeOptions);
 					break;
 			}
+
+			_mongoHelper?.Dispose();
 		}
 
 		private static void Restore(Options.RestoreOptions options)
 		{
 			Settings.TempDir = options.WorkDir;
+
 			if (options.LanguageDepotVersion.HasValue)
 				RestoreLanguageDepot(options);
 
@@ -49,8 +83,35 @@ namespace LfMerge.TestUtil
 			if (options.SaveLanguageDepot)
 				SaveLanguageDepot(options);
 
-			if (options.SaveMongoDb)
-				SaveMongoDb(options);
+			if (!options.SaveMongoDb)
+				return;
+
+			MongoHelper.Initialize(options.ModelVersion);
+			SaveMongoDb(options);
+		}
+
+		private static void Merge(Options.MergeOptions options)
+		{
+			DirectoryUtilities.DeleteDirectoryRobust(options.WorkDir);
+			Settings.TempDir = options.WorkDir;
+
+			// restore previous data
+			var restoreOptions = new Options.RestoreOptions(options);
+			RestoreLanguageDepot(restoreOptions);
+			RestoreMongoDb(restoreOptions);
+
+			// run merge
+			LfMergeHelper.Run($"--project {options.Project} --clone --action=Synchronize");
+			Console.WriteLine("Successfully merged test data");
+
+			// save merged data
+			var saveOptions = new Options.SaveOptions(options)
+			{
+				WorkDir = Path.Combine(options.WorkDir, "LanguageDepot"),
+				CommitMsg = options.CommitMsg ?? "Merged test data"
+			};
+			SaveLanguageDepot(saveOptions);
+			SaveMongoDb(saveOptions);
 		}
 
 		private static void SaveLanguageDepot(Options.SaveOptions options)
@@ -73,7 +134,7 @@ namespace LfMerge.TestUtil
 				Console.WriteLine($"Saved file {patchFile}");
 			}
 
-			Console.WriteLine($"Successfully saved patches in {patchDir}");
+			Console.WriteLine($"Successfully saved language depot patches in {patchDir}");
 		}
 
 		private static void RestoreLanguageDepot(Options.RestoreOptions options)
@@ -95,7 +156,10 @@ namespace LfMerge.TestUtil
 
 		private static void SaveMongoDb(Options.SaveOptions options)
 		{
-			var patchFiles = Directory.GetFiles(options.WorkDir, "*.patch");
+			if (!options.Project.StartsWith("sf_"))
+				options.Project = "sf_" + options.Project;
+
+			var patchFiles = Directory.GetFiles(MongoHelper.GetMongoPatchDir(options.ModelVersion), "*.patch");
 			var lastNumber = 0;
 			if (patchFiles != null && patchFiles.Length > 0)
 			{
@@ -103,21 +167,23 @@ namespace LfMerge.TestUtil
 				var patchNoStr = Path.GetFileName(patchFiles[patchFiles.Length - 1]).Substring(0, 4);
 				lastNumber = int.Parse(patchNoStr);
 			}
-			using (var mongoHelper = new MongoHelper(options.Project, true))
-			{
-				mongoHelper.SaveDatabase(options.WorkDir, options.CommitMsg, lastNumber + 1);
-			}
+			if (_mongoHelper == null)
+				_mongoHelper = new MongoHelper(options.Project, true, false);
+			_mongoHelper.SaveDatabase(MongoHelper.GetMongoPatchDir(options.ModelVersion), options.ModelVersion,
+				 options.CommitMsg, lastNumber + 1);
 
 			Console.WriteLine("Successfully saved mongo database");
 		}
 
 		private static void RestoreMongoDb(Options.RestoreOptions options)
 		{
-			MongoHelper.Initialize();
-			using (var mongoHelper = new MongoHelper(options.Project, true))
-			{
-				mongoHelper.RestoreDatabase($"r{options.MongoVersion}");
-			}
+			if (!options.Project.StartsWith("sf_"))
+				options.Project = "sf_" + options.Project;
+
+			MongoHelper.Initialize(options.ModelVersion, options.MongoVersion);
+			if (_mongoHelper == null)
+				_mongoHelper = new MongoHelper(options.Project, true);
+			_mongoHelper.RestoreDatabase("master", options.ModelVersion);
 
 			Console.WriteLine($"Successfully restored mongo database at version {options.MongoVersion}");
 		}
