@@ -69,8 +69,7 @@ namespace LfMerge.TestUtil
 				if (File.Exists(patchFile))
 					continue;
 
-				output = Run("hg", $"export -r {rev}", hgDir);
-				File.WriteAllText(patchFile, output);
+				Run("hg", $"export -r {rev} --output {patchFile}", hgDir);
 				Console.WriteLine($"Saved file {patchFile}");
 			}
 
