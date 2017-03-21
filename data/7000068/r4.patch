@@ -1,0 +1,745 @@
+# HG changeset patch
+# User eberhard
+# Date 1490201806 -3600
+#      Wed Mar 22 17:56:46 2017 +0100
+# Branch 7000068
+# Node ID 65f9eba2be0a6547d44617f6cb70438ce2d47f08
+# Parent  296b98c254595b8bc4b2a1bcbdc2efc03b7e013e
+[FLEx Bridge: 2.1] sync
+
+diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 16:17:36 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 17:56:46 2017 +0100
+@@ -1,102 +1,2 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon>
+-	<LexEntry
+-		guid="51fda335-51f1-46f5-abd1-9f9ce5e8f4df">
+-		<DateCreated
+-			val="2017-2-23 16:40:52.81" />
+-		<DateModified
+-			val="2017-2-23 16:41:58.537" />
+-		<DoNotUseForParsing
+-			val="False" />
+-		<Etymology>
+-			<LexEtymology
+-				guid="b0d7bcd3-9cca-4dac-b2fe-a52a47351112" />
+-		</Etymology>
+-		<HomographNumber
+-			val="0" />
+-		<LexemeForm>
+-			<MoStemAllomorph
+-				guid="4b8b9ca1-5b27-4090-afd3-3bb1b71d801a">
+-				<Form>
+-					<AUni
+-						ws="fr">lf1&lt;br/&gt;</AUni>
+-				</Form>
+-				<IsAbstract
+-					val="False" />
+-				<MorphType>
+-					<objsur
+-						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
+-						t="r" />
+-				</MorphType>
+-			</MoStemAllomorph>
+-		</LexemeForm>
+-		<MorphoSyntaxAnalyses>
+-			<MoStemMsa
+-				guid="eda6582e-ae0e-4658-bc07-968ad45a30d0">
+-				<PartOfSpeech>
+-					<objsur
+-						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
+-						t="r" />
+-				</PartOfSpeech>
+-			</MoStemMsa>
+-		</MorphoSyntaxAnalyses>
+-		<Pronunciations>
+-			<ownseq
+-				class="LexPronunciation"
+-				guid="4354f4fd-63e4-418f-a65b-76df6eff34c1" />
+-		</Pronunciations>
+-		<Senses>
+-			<ownseq
+-				class="LexSense"
+-				guid="fcab1080-000b-4393-b95e-2631310d317d">
+-				<Definition>
+-					<AStr
+-						ws="en">
+-						<Run
+-							ws="en">Word added by LF&lt;br/&gt;</Run>
+-					</AStr>
+-				</Definition>
+-				<Examples>
+-					<ownseq
+-						class="LexExampleSentence"
+-						guid="02544948-0bba-4034-8978-a72464955177">
+-						<Example>
+-							<AStr
+-								ws="fr">
+-								<Run
+-									ws="fr">C'est un exemple&lt;br/&gt;</Run>
+-							</AStr>
+-						</Example>
+-						<Translations>
+-							<CmTranslation
+-								guid="54284978-710e-49fe-9bb7-9a8176d31f69">
+-								<Translation>
+-									<AStr
+-										ws="en">
+-										<Run
+-											ws="en">This is an example&lt;br/&gt;</Run>
+-									</AStr>
+-								</Translation>
+-								<Type>
+-									<objsur
+-										guid="d7f7164a-e8cf-11d3-9764-00c04f186933"
+-										t="r" />
+-								</Type>
+-							</CmTranslation>
+-						</Translations>
+-					</ownseq>
+-				</Examples>
+-				<MorphoSyntaxAnalysis>
+-					<objsur
+-						guid="eda6582e-ae0e-4658-bc07-968ad45a30d0"
+-						t="r" />
+-				</MorphoSyntaxAnalysis>
+-				<SemanticDomains>
+-					<refcol
+-						guid="999581c4-1611-4acb-ae1b-5e6c1dfe6f0c"
+-						t="r" />
+-				</SemanticDomains>
+-			</ownseq>
+-		</Senses>
+-	</LexEntry>
+-</Lexicon>
+\ No newline at end of file
++<Lexicon />
+\ No newline at end of file
+diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/Lexicon/SemanticDomainList.list
+--- a/Linguistics/Lexicon/SemanticDomainList.list	Wed Mar 22 16:17:36 2017 +0100
++++ b/Linguistics/Lexicon/SemanticDomainList.list	Wed Mar 22 17:56:46 2017 +0100
+@@ -12183,7 +12183,7 @@
+ 									<AStr
+ 										ws="en">
+ 										<Run
+-											ws="en">Use this domain for words referring to male and female animals. Most languages have special words for the male and female of a species only for domesticated animals. Sometimes there will be a word for the male and not the female, and vice versa (male dog, bitch). Sometimes the word for one is also used generically
++											ws="en">Use this domain for words referring to male and female animals. Most languages have special words for the male and female of a species only for domesticated animals. Sometimes there will be a word for the male and not the female, and vice versa (male dog, bitch). Sometimes the word for one is also used generically
+ (cow for both female and generic).</Run>
+ 									</AStr>
+ 								</Description>
+@@ -47490,7 +47490,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">The &lt;subject&gt; of the book is the President.;  The &lt;topic&gt; of the discussion is efficiency.
++																	ws="en">The &lt;subject&gt; of the book is the President.;  The &lt;topic&gt; of the discussion is efficiency.
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -77478,7 +77478,7 @@
+ 									<AStr
+ 										ws="en">
+ 										<Run
+-											ws="en">Use this domain for words referring to fighting someone. The words in this domain describe a situation in which two people or groups of people fight each other over something or in order to reach some goal. A fight can use words, various kinds of weapons, or other actions. For fights that only use words use the domain
++											ws="en">Use this domain for words referring to fighting someone. The words in this domain describe a situation in which two people or groups of people fight each other over something or in order to reach some goal. A fight can use words, various kinds of weapons, or other actions. For fights that only use words use the domain
+ 'Quarrel'.</Run>
+ 									</AStr>
+ 								</Description>
+@@ -90216,7 +90216,7 @@
+ 									<AStr
+ 										ws="en">
+ 										<Run
+-											ws="en">Use this domain for words related to being naked--not wearing any clothes, and for words referring to how a person feels about being naked. It is a part of universal human experience that people do not want to be naked. So there are words that refer to feeling bad if one does not have enough clothes on (shame). Other words refer to wanting to have enough clothes (modest). Other words refer to how people feel about other people who do not wear enough clothes
++											ws="en">Use this domain for words related to being naked--not wearing any clothes, and for words referring to how a person feels about being naked. It is a part of universal human experience that people do not want to be naked. So there are words that refer to feeling bad if one does not have enough clothes on (shame). Other words refer to wanting to have enough clothes (modest). Other words refer to how people feel about other people who do not wear enough clothes
+ (indecent).</Run>
+ 									</AStr>
+ 								</Description>
+@@ -114875,7 +114875,7 @@
+ 							<AStr
+ 								ws="en">
+ 								<Run
+-									ws="en">Use this domain for intransitive verbs of movement referring to moving your whole body to a different location. There are many components of meaning involved in verbs of movement. They can include a source location (from), a goal location (to), a path (along), manner (walk, run), speed (race, crawl), direction
++									ws="en">Use this domain for intransitive verbs of movement referring to moving your whole body to a different location. There are many components of meaning involved in verbs of movement. They can include a source location (from), a goal location (to), a path (along), manner (walk, run), speed (race, crawl), direction
+ (forward, back, side, up, down, toward, away from), shape of the path (straight, curve, circle, angle), relationship to some object or objects (on, hang, against, between, across, through, into, out of, onto, off of, around), proximity (near, far), multiple movements (back and forth, return, bounce), inclusion with other objects or parts of objects (join, leave, collect, disperse, unite, separate), volition (go versus drift), intransitive versus transitive (move versus move something). Some verbs of movement do not involve moving from one place to another, but express bodily movement.</Run>
+ 							</AStr>
+ 						</Description>
+@@ -124530,7 +124530,7 @@
+ 									<AStr
+ 										ws="en">
+ 										<Run
+-											ws="en">Hold: John &lt;has&gt; the key in his pocket.
++											ws="en">Hold: John &lt;has&gt; the key in his pocket.
+ </Run>
+ 									</AStr>
+ 								</ExampleSentences>
+@@ -133078,7 +133078,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">I couldn't decide which of the two I wanted more, so I bought them both.;  The plan would be to our &lt;mutual&gt; benefit.;  We have a &lt;mutual&gt; friend.;  They &lt;share&gt; the same name.
++															ws="en">I couldn't decide which of the two I wanted more, so I bought them both.;  The plan would be to our &lt;mutual&gt; benefit.;  We have a &lt;mutual&gt; friend.;  They &lt;share&gt; the same name.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -142891,7 +142891,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">Use this domain for words related to a shadow--the area on the ground where the light does not shine because something is in the way. For instance if the sun
++															ws="en">Use this domain for words related to a shadow--the area on the ground where the light does not shine because something is in the way. For instance if the sun
+ (or another light) is shining on an object, the area behind the object is in shadow (dark).</Run>
+ 													</AStr>
+ 												</Description>
+@@ -144451,7 +144451,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">Mushrooms are not &lt;classified with&gt; the plants.;  I would not &lt;classify&gt; this fossil &lt;as&gt; a dinosaur.
++													ws="en">Mushrooms are not &lt;classified with&gt; the plants.;  I would not &lt;classify&gt; this fossil &lt;as&gt; a dinosaur.
+ </Run>
+ 											</AStr>
+ 										</ExampleSentences>
+@@ -158086,7 +158086,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">the cup&lt;'s&gt; &lt;contents&gt;
++													ws="en">the cup&lt;'s&gt; &lt;contents&gt;
+ </Run>
+ 											</AStr>
+ 										</ExampleSentences>
+@@ -159440,7 +159440,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">He &lt;reached&gt; the age of 100.
++															ws="en">He &lt;reached&gt; the age of 100.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -159478,7 +159478,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">Many languages have several general words that are used to indicate a variety of relationships between two things. There are three such words in English:
++													ws="en">Many languages have several general words that are used to indicate a variety of relationships between two things. There are three such words in English:
+ "have," "of," and the possessive suffix "-'s." The basic meaning of these words in English is 'to own', but they can mean many other things too. For instance they can mean that I am related to someone (I have a brother), something has a part (birds have wings), and many other ideas. There is also a set of pronouns in English that are like nouns ending in -'s (my/mine, your/yours, his, her/hers, its, our/ours, their/theirs, whose). Use this domain for these general words.</Run>
+ 											</AStr>
+ 										</Description>
+@@ -159500,7 +159500,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">Own: John &lt;has&gt; a house (to sell), the house &lt;of&gt; John, John&lt;'s&gt; house, hi&lt;s&gt; house, who&lt;se&gt; house (is this?), the house is hi&lt;s&gt;;  Kinship: John &lt;has&gt; a brother, the brother &lt;of&gt; John, John&lt;'s&gt;brother, hi&lt;s&gt; brother;  Relationship: John &lt;has&gt; a friend, the friend &lt;of&gt; John, John&lt;'s&gt; friend, a friend of hi&lt;s&gt;;  Member: The school &lt;has&gt; (a hundred) students, the students &lt;of&gt; the school, the school&lt;'s&gt; students;  Part: Trees &lt;have&gt; leaves, the leaves &lt;of&gt; the tree, the tree&lt;'s&gt; leaves, it&lt;s&gt; leaves;  Name: John &lt;has&gt; three names, the three names &lt;of&gt; John, John&lt;'s&gt; three names, hi&lt;s&gt; names;  Know: John &lt;has&gt; the answer, John&lt;'s&gt; answer, hi&lt;s&gt; answer;  Hold: John &lt;has&gt; the key (in his pocket), John&lt;'s&gt; key, hi&lt;s&gt; key;  Feel: John &lt;has&gt; anger, the anger &lt;of&gt; John, John's anger, hi&lt;s&gt; anger;  Sickness: John &lt;has&gt; cancer, John&lt;'s&gt; cancer, hi&lt;s&gt; cancer;  Located on: The yard &lt;has&gt; a fence, the yard&lt;'s&gt; fence;  Be pictured in: the photo &lt;of&gt; John, John&lt;'s&gt; photo, hi&lt;s&gt; photo;  Quality: John &lt;has&gt; status, the status &lt;of&gt; John, John&lt;'s&gt; status, hi&lt;s&gt; status;  Use: The secretary &lt;has&gt; a computer, the computer &lt;of&gt; the secretary, the secretary&lt;'s&gt; computer, the computer is her&lt;s&gt;;  Event: the arrival &lt;of&gt; John, John&lt;'s&gt; arrival, hi&lt;s&gt; arrival
++															ws="en">Own: John &lt;has&gt; a house (to sell), the house &lt;of&gt; John, John&lt;'s&gt; house, hi&lt;s&gt; house, who&lt;se&gt; house (is this?), the house is hi&lt;s&gt;;  Kinship: John &lt;has&gt; a brother, the brother &lt;of&gt; John, John&lt;'s&gt;brother, hi&lt;s&gt; brother;  Relationship: John &lt;has&gt; a friend, the friend &lt;of&gt; John, John&lt;'s&gt; friend, a friend of hi&lt;s&gt;;  Member: The school &lt;has&gt; (a hundred) students, the students &lt;of&gt; the school, the school&lt;'s&gt; students;  Part: Trees &lt;have&gt; leaves, the leaves &lt;of&gt; the tree, the tree&lt;'s&gt; leaves, it&lt;s&gt; leaves;  Name: John &lt;has&gt; three names, the three names &lt;of&gt; John, John&lt;'s&gt; three names, hi&lt;s&gt; names;  Know: John &lt;has&gt; the answer, John&lt;'s&gt; answer, hi&lt;s&gt; answer;  Hold: John &lt;has&gt; the key (in his pocket), John&lt;'s&gt; key, hi&lt;s&gt; key;  Feel: John &lt;has&gt; anger, the anger &lt;of&gt; John, John's anger, hi&lt;s&gt; anger;  Sickness: John &lt;has&gt; cancer, John&lt;'s&gt; cancer, hi&lt;s&gt; cancer;  Located on: The yard &lt;has&gt; a fence, the yard&lt;'s&gt; fence;  Be pictured in: the photo &lt;of&gt; John, John&lt;'s&gt; photo, hi&lt;s&gt; photo;  Quality: John &lt;has&gt; status, the status &lt;of&gt; John, John&lt;'s&gt; status, hi&lt;s&gt; status;  Use: The secretary &lt;has&gt; a computer, the computer &lt;of&gt; the secretary, the secretary&lt;'s&gt; computer, the computer is her&lt;s&gt;;  Event: the arrival &lt;of&gt; John, John&lt;'s&gt; arrival, hi&lt;s&gt; arrival
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -159598,7 +159598,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">That woman &lt;is&gt; beautiful.
++															ws="en">That woman &lt;is&gt; beautiful.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -160334,7 +160334,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">A bark&lt;ing&gt; dog (kept me awake last night).;  The dog&lt;'s&gt; bark&lt;ing&gt; (woke me up).;  The bark&lt;ing&gt; &lt;of&gt; a dog (woke me up).;  (John told me) &lt;to&gt; wake him up at 6 a.m.;  I want &lt;to&gt; do something.;  He started do&lt;ing&gt; something.
++															ws="en">A bark&lt;ing&gt; dog (kept me awake last night).;  The dog&lt;'s&gt; bark&lt;ing&gt; (woke me up).;  The bark&lt;ing&gt; &lt;of&gt; a dog (woke me up).;  (John told me) &lt;to&gt; wake him up at 6 a.m.;  I want &lt;to&gt; do something.;  He started do&lt;ing&gt; something.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -160799,7 +160799,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">We would like you to do it &lt;thus&gt;.;  I'll show you &lt;how&gt; I want it.
++													ws="en">We would like you to do it &lt;thus&gt;.;  I'll show you &lt;how&gt; I want it.
+ </Run>
+ 											</AStr>
+ 										</ExampleSentences>
+@@ -161138,7 +161138,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">He &lt;himself&gt; admits he is guilty.;  I did it &lt;myself&gt; without any help.;  You can do what you want. &lt;As for me&gt;, I'm not going.
++													ws="en">He &lt;himself&gt; admits he is guilty.;  I did it &lt;myself&gt; without any help.;  You can do what you want. &lt;As for me&gt;, I'm not going.
+ </Run>
+ 											</AStr>
+ 										</ExampleSentences>
+@@ -161215,7 +161215,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">They hit &lt;each other&gt;.;  We should help &lt;one another&gt;.
++															ws="en">They hit &lt;each other&gt;.;  We should help &lt;one another&gt;.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161400,7 +161400,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">I'm looking for the man &lt;who&gt; killed John.;  I found the coin &lt;that&gt; I lost.;  That is the reason &lt;why&gt; I did it.
++															ws="en">I'm looking for the man &lt;who&gt; killed John.;  I found the coin &lt;that&gt; I lost.;  That is the reason &lt;why&gt; I did it.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161459,7 +161459,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">&lt;Who&gt; is that?;  &lt;Where&gt; did you go?;  &lt;How many&gt; did you get?;  &lt;How often&gt; will you go?;  &lt;Why&gt; did you do that?
++															ws="en">&lt;Who&gt; is that?;  &lt;Where&gt; did you go?;  &lt;How many&gt; did you get?;  &lt;How often&gt; will you go?;  &lt;Why&gt; did you do that?
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161521,7 +161521,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">&lt;the&gt; leader;  &lt;a&gt; really old man;  &lt;this&gt; new shirt;  &lt;these&gt; tomatoes;  &lt;that&gt; book;  &lt;those&gt; flowers;  I want &lt;this&gt;.;  &lt;That&gt; is what I want.
++															ws="en">&lt;the&gt; leader;  &lt;a&gt; really old man;  &lt;this&gt; new shirt;  &lt;these&gt; tomatoes;  &lt;that&gt; book;  &lt;those&gt; flowers;  I want &lt;this&gt;.;  &lt;That&gt; is what I want.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161599,7 +161599,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">We made this book entirely &lt;by hand&gt;, using locally available materials.
++															ws="en">We made this book entirely &lt;by hand&gt;, using locally available materials.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161762,7 +161762,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">coming &lt;and&gt; going;  me &lt;and&gt; you;  men &lt;and&gt; women;  &lt;both&gt; this &lt;and&gt; that;  &lt;either&gt; good &lt;or&gt; bad;  &lt;neither&gt; good &lt;nor&gt; bad;  quickly &lt;but&gt; not carelessly
++															ws="en">coming &lt;and&gt; going;  me &lt;and&gt; you;  men &lt;and&gt; women;  &lt;both&gt; this &lt;and&gt; that;  &lt;either&gt; good &lt;or&gt; bad;  &lt;neither&gt; good &lt;nor&gt; bad;  quickly &lt;but&gt; not carelessly
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161821,7 +161821,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">You come here &lt;and&gt; I'll go there.;  You come here &lt;or&gt; I'll go there.;  You come here &lt;while&gt; I go there.;  You come here &lt;then&gt; I'll go there.;  &lt;If&gt; you come here, I'll go there.
++															ws="en">You come here &lt;and&gt; I'll go there.;  You come here &lt;or&gt; I'll go there.;  You come here &lt;while&gt; I go there.;  You come here &lt;then&gt; I'll go there.;  &lt;If&gt; you come here, I'll go there.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -161880,7 +161880,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">I want you to come here. &lt;Then&gt; I'll go there.;  You wanted to come here. &lt;So&gt; I decided to let you.
++															ws="en">I want you to come here. &lt;Then&gt; I'll go there.;  You wanted to come here. &lt;So&gt; I decided to let you.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -162079,7 +162079,7 @@
+ 									<AStr
+ 										ws="en">
+ 										<Run
+-											ws="en">Use this domain to list all idiophones. If there are many idiophones in your language, it is probably not worth the trouble to list them here. The Shoebox program
++											ws="en">Use this domain to list all idiophones. If there are many idiophones in your language, it is probably not worth the trouble to list them here. The Shoebox program
+ (and other dictionary programs) can sort your dictionary by part of speech.</Run>
+ 									</AStr>
+ 								</Description>
+@@ -163076,7 +163076,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">&lt;light&gt; blue, &lt;dark&gt; red, &lt;dull&gt; gray, &lt;faded&gt; colors
++													ws="en">&lt;light&gt; blue, &lt;dark&gt; red, &lt;dull&gt; gray, &lt;faded&gt; colors
+ </Run>
+ 											</AStr>
+ 										</ExampleSentences>
+@@ -164646,7 +164646,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">So, you are going, &lt;hmm?&gt;
++															ws="en">So, you are going, &lt;hmm?&gt;
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -165181,7 +165181,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">&lt;It is possible that&gt; he will come.;  &lt;It is possible for&gt; him to come.;  He &lt;could&gt; come.;  He &lt;might&gt; come.;  He &lt;may&gt; come.;  He &lt;is able to&gt; come.;  &lt;Maybe&gt; he will come.
++															ws="en">&lt;It is possible that&gt; he will come.;  &lt;It is possible for&gt; him to come.;  He &lt;could&gt; come.;  He &lt;might&gt; come.;  He &lt;may&gt; come.;  He &lt;is able to&gt; come.;  &lt;Maybe&gt; he will come.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -165443,7 +165443,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">"Is X true?" "&lt;I think so&gt;.";  X is true, &lt;as far as I know&gt;.;  &lt;To the best of my knowledge&gt;, X is true.;  &lt;As far as I'm aware&gt;, X is true.
++																	ws="en">"Is X true?" "&lt;I think so&gt;.";  X is true, &lt;as far as I know&gt;.;  &lt;To the best of my knowledge&gt;, X is true.;  &lt;As far as I'm aware&gt;, X is true.
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -166203,7 +166203,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">&lt;According to&gt; John his business is doing very well.
++															ws="en">&lt;According to&gt; John his business is doing very well.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -166407,7 +166407,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">You are going, &lt;aren't you&gt;? (The expected answer in English is, 'Yes, I am going'.);  He's going, &lt;isn't he&gt;? (Yes, he is.);  Are&lt;n't&gt; you going? (Yes, I am.);  Did&lt;n't&gt; he go? (Yes, he did).
++															ws="en">You are going, &lt;aren't you&gt;? (The expected answer in English is, 'Yes, I am going'.);  He's going, &lt;isn't he&gt;? (Yes, he is.);  Are&lt;n't&gt; you going? (Yes, I am.);  Did&lt;n't&gt; he go? (Yes, he did).
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -166469,7 +166469,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">You are&lt;n't&gt; going, &lt;are you&gt;? (The expected answer in English is, 'No, I'm not going.');  He is&lt;n't&gt; going, &lt;is he&gt;? (No, he's not going.);  You're &lt;not&gt; going? (No, I'm not going.);  He is&lt;n't&gt; going? (No, he's not going.)
++															ws="en">You are&lt;n't&gt; going, &lt;are you&gt;? (The expected answer in English is, 'No, I'm not going.');  He is&lt;n't&gt; going, &lt;is he&gt;? (No, he's not going.);  You're &lt;not&gt; going? (No, I'm not going.);  He is&lt;n't&gt; going? (No, he's not going.)
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -166725,7 +166725,7 @@
+ 							<AStr
+ 								ws="en">
+ 								<Run
+-									ws="en">Each verb has a set of semantic case relations. For instance in the sentence 'I gave flowers to my wife' the verb give has three case relations. 'I' is the Agent,
++									ws="en">Each verb has a set of semantic case relations. For instance in the sentence 'I gave flowers to my wife' the verb give has three case relations. 'I' is the Agent,
+ 'flowers' is the Patient, and 'my wife is the 'Recipient'. In this sentence the only word that marks a case relation is 'to'. English often marks case relations by their position in the sentence. Some languages mark case relations by affixes, prepositions, postpositions, and sometimes special verbs. To completely describe a language, each verb must be investigated, all its case relations must be identified, and all the ways in which these relations are marked must be described. Since verbs are often unique and unpredictable in their case relations, this information should go into the dictionary. This section should be used to classify the words and affixes that are used to mark case relations. This domain should be used for technical terms that refer to case.</Run>
+ 							</AStr>
+ 						</Description>
+@@ -166871,7 +166871,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John held our coats &lt;for&gt; us.;  John manages the business &lt;for&gt; us.;  John invited some older couples to join them &lt;for&gt; his parent's &lt;sake&gt;.;  &lt;For the sake of&gt; his parents John invited some older couples to join them.;  &lt;For the benefit of&gt; the children we included a trip to the zoo.;  Because you are sick, Mary has offered to cook &lt;for&gt; you.
++															ws="en">John held our coats &lt;for&gt; us.;  John manages the business &lt;for&gt; us.;  John invited some older couples to join them &lt;for&gt; his parent's &lt;sake&gt;.;  &lt;For the sake of&gt; his parents John invited some older couples to join them.;  &lt;For the benefit of&gt; the children we included a trip to the zoo.;  Because you are sick, Mary has offered to cook &lt;for&gt; you.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -166933,7 +166933,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John hit the dog &lt;with&gt; a stick.;  John caught the rat &lt;using&gt; a trap he built.
++															ws="en">John hit the dog &lt;with&gt; a stick.;  John caught the rat &lt;using&gt; a trap he built.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167003,7 +167003,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John travels to work &lt;by&gt; bus.;  He intends to get there &lt;by means of&gt; his wits.
++															ws="en">John travels to work &lt;by&gt; bus.;  He intends to get there &lt;by means of&gt; his wits.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167169,7 +167169,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">The president resigned &lt;in&gt; disgrace.
++															ws="en">The president resigned &lt;in&gt; disgrace.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167228,7 +167228,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John ate lunch &lt;at&gt; a restaurant.
++															ws="en">John ate lunch &lt;at&gt; a restaurant.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167283,7 +167283,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">The &lt;source&gt; of our water is a deep well.;  Our drinking water is &lt;from&gt; a deep well.;  John brought the wood &lt;from&gt; the forest.
++																	ws="en">The &lt;source&gt; of our water is a deep well.;  Our drinking water is &lt;from&gt; a deep well.;  John brought the wood &lt;from&gt; the forest.
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -167342,7 +167342,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">We traveled &lt;via&gt; the highway most of the way.;  What &lt;route&gt; will you follow?
++																	ws="en">We traveled &lt;via&gt; the highway most of the way.;  What &lt;route&gt; will you follow?
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -167401,7 +167401,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">We traveled &lt;to&gt; New York.;  Our &lt;destination&gt; is New York.;  John moved the wood &lt;to&gt; the back of the house.;  John sent David &lt;to&gt; New York.
++																	ws="en">We traveled &lt;to&gt; New York.;  Our &lt;destination&gt; is New York.;  John moved the wood &lt;to&gt; the back of the house.;  John sent David &lt;to&gt; New York.
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -167594,7 +167594,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John and David went to town &lt;separately&gt;.
++															ws="en">John and David went to town &lt;separately&gt;.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167653,7 +167653,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John was &lt;with&gt; me at supper last night.;  John was there &lt;along with&gt; David.
++															ws="en">John was &lt;with&gt; me at supper last night.;  John was there &lt;along with&gt; David.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167837,7 +167837,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">The feeling is &lt;mutual&gt;.;  The two countries signed a &lt;reciprocal&gt; trade agreement.;  Effective communication is &lt;two-way&gt;.
++															ws="en">The feeling is &lt;mutual&gt;.;  The two countries signed a &lt;reciprocal&gt; trade agreement.;  Effective communication is &lt;two-way&gt;.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167896,7 +167896,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">The participants entered two &lt;by&gt; two.;  The students lined up class &lt;by&gt; class.;  We lined up the shoes &lt;in&gt; pairs.;  The guests were seated &lt;in&gt; groups of six.
++															ws="en">The participants entered two &lt;by&gt; two.;  The students lined up class &lt;by&gt; class.;  We lined up the shoes &lt;in&gt; pairs.;  The guests were seated &lt;in&gt; groups of six.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -167973,7 +167973,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">Use this domain for words that mark the beneficiary of the Patient of an activity. The Patient is often expressed as the object of a sentence. In the sentence
++													ws="en">Use this domain for words that mark the beneficiary of the Patient of an activity. The Patient is often expressed as the object of a sentence. In the sentence
+ "John built a house for his parents," the house is the Patient. It is the house that benefits the parents, not the building of the house.</Run>
+ 											</AStr>
+ 										</Description>
+@@ -168014,7 +168014,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John bought Mary some medicine.
++															ws="en">John bought Mary some medicine.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -168088,7 +168088,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John gave Mary a ring.
++															ws="en">John gave Mary a ring.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -168146,7 +168146,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">John drank coffee &lt;with&gt; milk.;  John sent flowers to Mary &lt;along with&gt; a birthday card.;  He paid back my money &lt;with&gt; interest.
++															ws="en">John drank coffee &lt;with&gt; milk.;  John sent flowers to Mary &lt;along with&gt; a birthday card.;  He paid back my money &lt;with&gt; interest.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -168496,7 +168496,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">You have two &lt;alternatives&gt;, keep quiet &lt;or&gt; leave.
++															ws="en">You have two &lt;alternatives&gt;, keep quiet &lt;or&gt; leave.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -168609,7 +168609,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">We eat vegetables &lt;with&gt; our rice.;  We used mud &lt;mixed with&gt; a little cement to plaster the wall.
++															ws="en">We eat vegetables &lt;with&gt; our rice.;  We used mud &lt;mixed with&gt; a little cement to plaster the wall.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -168940,7 +168940,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">I couldn't do this, so he did it &lt;instead&gt;.;  I went &lt;instead of&gt; him.
++																	ws="en">I couldn't do this, so he did it &lt;instead&gt;.;  I went &lt;instead of&gt; him.
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -169062,7 +169062,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">The disease spread &lt;throughout&gt; the population.;  He went &lt;from&gt; town &lt;to&gt; town.;  He applied for admission year &lt;after&gt; year.;  He placed them in piles of ten &lt;each&gt;.;  They received ten dollars &lt;apiece&gt;.
++															ws="en">The disease spread &lt;throughout&gt; the population.;  He went &lt;from&gt; town &lt;to&gt; town.;  He applied for admission year &lt;after&gt; year.;  He placed them in piles of ten &lt;each&gt;.;  They received ten dollars &lt;apiece&gt;.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -169184,7 +169184,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">It all &lt;depends&gt;.;  This &lt;is dependent on&gt; that.;  It all &lt;hangs on&gt; whether we finish on time.;  Prosperity &lt;is tied to&gt; government regulations.
++													ws="en">It all &lt;depends&gt;.;  This &lt;is dependent on&gt; that.;  It all &lt;hangs on&gt; whether we finish on time.;  Prosperity &lt;is tied to&gt; government regulations.
+ </Run>
+ 											</AStr>
+ 										</ExampleSentences>
+@@ -169242,7 +169242,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">The word 'goner' &lt;is derived from&gt; the root 'go'.
++															ws="en">The word 'goner' &lt;is derived from&gt; the root 'go'.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -169304,7 +169304,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">He is rich &lt;in&gt; land.;  He is a leader, &lt;specifically in regard to&gt; strategy.;  &lt;In the case of&gt; a disagreement we will seek arbitration.;  What does that have to do &lt;with&gt; me?;  There might be a problem &lt;between&gt; our decision &lt;and&gt; his.
++															ws="en">He is rich &lt;in&gt; land.;  He is a leader, &lt;specifically in regard to&gt; strategy.;  &lt;In the case of&gt; a disagreement we will seek arbitration.;  What does that have to do &lt;with&gt; me?;  There might be a problem &lt;between&gt; our decision &lt;and&gt; his.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -169419,7 +169419,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">We will submit the file &lt;in accordance with&gt; the law.;  He will be judged &lt;in accordance with&gt; his crime.;  His grade &lt;corresponds to&gt; his performance.;  You aren't acting &lt;in line with&gt; your beliefs.;  You will benefit &lt;in proportion to&gt; your contribution.;  What I have said &lt;applies to&gt; myself as well.
++															ws="en">We will submit the file &lt;in accordance with&gt; the law.;  He will be judged &lt;in accordance with&gt; his crime.;  His grade &lt;corresponds to&gt; his performance.;  You aren't acting &lt;in line with&gt; your beliefs.;  You will benefit &lt;in proportion to&gt; your contribution.;  What I have said &lt;applies to&gt; myself as well.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -169481,7 +169481,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">His promise &lt;is the basis of&gt; my hope.;  His work &lt;formed the basis of&gt; all subsequent developments.;  He was convicted &lt;on the basis of&gt; circumstantial evidence.;  &lt;In view of&gt; the current situation we should think about moving.;  &lt;By virtue of&gt; the authority conferred on me I pronounce you man and wife.
++															ws="en">His promise &lt;is the basis of&gt; my hope.;  His work &lt;formed the basis of&gt; all subsequent developments.;  He was convicted &lt;on the basis of&gt; circumstantial evidence.;  &lt;In view of&gt; the current situation we should think about moving.;  &lt;By virtue of&gt; the authority conferred on me I pronounce you man and wife.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -169581,7 +169581,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">His request &lt;is reasonable&gt;.
++															ws="en">His request &lt;is reasonable&gt;.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -169748,7 +169748,7 @@
+ 															<AStr
+ 																ws="en">
+ 																<Run
+-																	ws="en">The door opened &lt;by itself&gt;.;  Goodness &lt;is its own reason&gt;.
++																	ws="en">The door opened &lt;by itself&gt;.;  Goodness &lt;is its own reason&gt;.
+ </Run>
+ 															</AStr>
+ 														</ExampleSentences>
+@@ -169941,7 +169941,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">Do something &lt;lest&gt; something happen.
++															ws="en">Do something &lt;lest&gt; something happen.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -170163,7 +170163,7 @@
+ 													<AStr
+ 														ws="en">
+ 														<Run
+-															ws="en">&lt;If&gt; you do this thing, something bad will happen to you.
++															ws="en">&lt;If&gt; you do this thing, something bad will happen to you.
+ </Run>
+ 													</AStr>
+ 												</ExampleSentences>
+@@ -171575,7 +171575,7 @@
+ 											<AStr
+ 												ws="en">
+ 												<Run
+-													ws="en">Use this domain for the proper names of the countries that exist around the language community, especially those countries where your language is spoken. Include the name of your own country. Do not list every country in the world, unless your language has developed special names or pronunciations for those countries. Include any country that you refer to in your language, especially those names whose pronunciation you have adapted to fit your language. Give the form of the name that you use, rather than the official spelling. For instance the Japanese refer to their country as 'Nihon', but in English will call it 'Japan'. So
++													ws="en">Use this domain for the proper names of the countries that exist around the language community, especially those countries where your language is spoken. Include the name of your own country. Do not list every country in the world, unless your language has developed special names or pronunciations for those countries. Include any country that you refer to in your language, especially those names whose pronunciation you have adapted to fit your language. Give the form of the name that you use, rather than the official spelling. For instance the Japanese refer to their country as 'Nihon', but in English will call it 'Japan'. So
+ 'Japan' is an English word and should go into an English dictionary. But 'Nihon' is not an English word and should not go in the dictionary.</Run>
+ 											</AStr>
+ 										</Description>
+diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata
+--- a/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Wed Mar 22 16:17:36 2017 +0100
++++ b/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Wed Mar 22 17:56:46 2017 +0100
+@@ -3,13 +3,13 @@
+ 	<MoMorphData
+ 		guid="b80228bc-ea5e-11de-9d24-0013722f8dec">
+ 		<ParserParameters>
+-			<Uni>&lt;ParserParameters&gt; &lt;XAmple&gt;
+-&lt;MaxPrefixes&gt;5&lt;/MaxPrefixes&gt;
+-&lt;MaxInfixes&gt;1&lt;/MaxInfixes&gt;
+-&lt;MaxSuffixes&gt;5&lt;/MaxSuffixes&gt;
+-&lt;MaxInterfixes&gt;0&lt;/MaxInterfixes&gt;
+-&lt;MaxNulls&gt;1&lt;/MaxNulls&gt;
+-&lt;MaxAnalysesToReturn&gt;10&lt;/MaxAnalysesToReturn&gt;
++			<Uni>&lt;ParserParameters&gt; &lt;XAmple&gt;
++&lt;MaxPrefixes&gt;5&lt;/MaxPrefixes&gt;
++&lt;MaxInfixes&gt;1&lt;/MaxInfixes&gt;
++&lt;MaxSuffixes&gt;5&lt;/MaxSuffixes&gt;
++&lt;MaxInterfixes&gt;0&lt;/MaxInterfixes&gt;
++&lt;MaxNulls&gt;1&lt;/MaxNulls&gt;
++&lt;MaxAnalysesToReturn&gt;10&lt;/MaxAnalysesToReturn&gt;
+ &lt;/XAmple&gt; &lt;/ParserParameters&gt; </Uni>
+ 		</ParserParameters>
+ 		<ProdRestrict />
+diff -r 296b98c25459 -r 65f9eba2be0a WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Wed Mar 22 16:17:36 2017 +0100
++++ b/WritingSystemStore/en.ldml	Wed Mar 22 17:56:46 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-21T16:45:46" />
++			date="2017-03-21T16:45:47" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 296b98c25459 -r 65f9eba2be0a WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Mar 22 16:17:36 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Mar 22 17:56:46 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-21T16:45:46" />
++			date="2017-03-21T16:45:47" />
+ 		<language
+ 			type="fr" />
+ 	</identity>

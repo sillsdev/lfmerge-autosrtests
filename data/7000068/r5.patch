@@ -1,0 +1,154 @@
+# HG changeset patch
+# User Language Forge
+# Date 1490291364 -3600
+#      Thu Mar 23 18:49:24 2017 +0100
+# Branch 7000068
+# Node ID 2f9b910fd465b559339978b03366c2193e933a4e
+# Parent  59710408f98dcd0fa6684208a54e260ffc77bc63
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+
+diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 17:56:46 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:49:24 2017 +0100
+@@ -1,2 +1,102 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="51fda335-51f1-46f5-abd1-9f9ce5e8f4df">
++		<DateCreated
++			val="2017-2-23 16:40:52.81" />
++		<DateModified
++			val="2017-3-23 15:21:56.237" />
++		<DoNotUseForParsing
++			val="False" />
++		<Etymology>
++			<LexEtymology
++				guid="700f5eca-db76-4190-8fe2-40b0568103b5" />
++		</Etymology>
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="68b845a6-d235-4289-85d8-2b2742755404">
++				<Form>
++					<AUni
++						ws="fr">lf1modified&lt;br/&gt;</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="74dcbd48-fbbf-4145-adc7-12deb158ca07">
++				<PartOfSpeech>
++					<objsur
++						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Pronunciations>
++			<ownseq
++				class="LexPronunciation"
++				guid="1699ae65-9769-4b82-9f8c-796167d93a1b" />
++		</Pronunciations>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="fcab1080-000b-4393-b95e-2631310d317d">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">Word added by LF&lt;br/&gt;</Run>
++					</AStr>
++				</Definition>
++				<Examples>
++					<ownseq
++						class="LexExampleSentence"
++						guid="02544948-0bba-4034-8978-a72464955177">
++						<Example>
++							<AStr
++								ws="fr">
++								<Run
++									ws="fr">C'est un exemple&lt;br/&gt;</Run>
++							</AStr>
++						</Example>
++						<Translations>
++							<CmTranslation
++								guid="2dc8ac7d-0692-4459-a2de-b11a033cc96a">
++								<Translation>
++									<AStr
++										ws="en">
++										<Run
++											ws="en">This is an example&lt;br/&gt;</Run>
++									</AStr>
++								</Translation>
++								<Type>
++									<objsur
++										guid="d7f7164a-e8cf-11d3-9764-00c04f186933"
++										t="r" />
++								</Type>
++							</CmTranslation>
++						</Translations>
++					</ownseq>
++				</Examples>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="74dcbd48-fbbf-4145-adc7-12deb158ca07"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++				<SemanticDomains>
++					<refcol
++						guid="999581c4-1611-4acb-ae1b-5e6c1dfe6f0c"
++						t="r" />
++				</SemanticDomains>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Wed Mar 22 17:56:46 2017 +0100
++++ b/WritingSystemStore/en-US.ldml	Thu Mar 23 18:49:24 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-22T15:17:27" />
++			date="2017-03-22T16:24:34" />
+ 		<language
+ 			type="en" />
+ 		<territory
+diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Wed Mar 22 17:56:46 2017 +0100
++++ b/WritingSystemStore/en.ldml	Thu Mar 23 18:49:24 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-21T16:45:47" />
++			date="2017-03-23T17:08:38" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Mar 22 17:56:46 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Thu Mar 23 18:49:24 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-21T16:45:47" />
++			date="2017-03-23T17:08:38" />
+ 		<language
+ 			type="fr" />
+ 	</identity>

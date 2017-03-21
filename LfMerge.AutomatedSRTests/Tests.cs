@@ -104,5 +104,42 @@ namespace LfMerge.AutomatedSRTests
 			VerifyLanguageDepot.AssertFilesContain(expectedXml);
 		}
 
+		[Test]
+		public void FlexDeletesLfEdits_EntryRemains([Range(MinVersion, MaxVersion)] int dbVersion)
+		{
+			// Setup
+			_mongo.RestoreDatabase("r4", dbVersion);
+			_languageDepot.ApplyPatches(dbVersion, 4);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
+
+			// Verify
+			Assert.That(SRState, Is.EqualTo("IDLE"));
+
+			// REVIEW: after restoring version 3 the "Part Of Speech" showed up as "Unknown" in
+			// LF. Setting it to "Noun" resulted in having it the value "n1" in mongo!
+
+			// language=json
+			const string expected = @"[
+				{ 'lexeme': { 'fr' : { 'value' : 'lf1modified<br/>' } },
+					'senses' : [ {
+						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
+						'gloss' : { 'en' : { 'value' : '' } },
+						'partOfSpeech' : { 'value' : 'n1' }
+					} ] },
+				{ 'lexeme': { 'fr' : { 'value' : 'flex' } },
+					'senses' : [ {
+						/* no definition */
+						'gloss' : { 'en' : { 'value' : 'created in FLEx' } },
+						'partOfSpeech' : { 'value' : 'adv1' }
+					} ] },
+				]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
 	}
 }

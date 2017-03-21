@@ -1,0 +1,231 @@
+# HG changeset patch
+# User Language Forge
+# Date 1490195856 -3600
+#      Wed Mar 22 16:17:36 2017 +0100
+# Branch 7000068
+# Node ID 296b98c254595b8bc4b2a1bcbdc2efc03b7e013e
+# Parent  6f4b26e94a950c0dc622601bc31f5337efe3e59c
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+
+diff -r 6f4b26e94a95 -r 296b98c25459 Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Tue Mar 21 18:08:21 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 16:17:36 2017 +0100
+@@ -1,2 +1,102 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="51fda335-51f1-46f5-abd1-9f9ce5e8f4df">
++		<DateCreated
++			val="2017-2-23 16:40:52.81" />
++		<DateModified
++			val="2017-2-23 16:41:58.537" />
++		<DoNotUseForParsing
++			val="False" />
++		<Etymology>
++			<LexEtymology
++				guid="b0d7bcd3-9cca-4dac-b2fe-a52a47351112" />
++		</Etymology>
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="4b8b9ca1-5b27-4090-afd3-3bb1b71d801a">
++				<Form>
++					<AUni
++						ws="fr">lf1&lt;br/&gt;</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="eda6582e-ae0e-4658-bc07-968ad45a30d0">
++				<PartOfSpeech>
++					<objsur
++						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Pronunciations>
++			<ownseq
++				class="LexPronunciation"
++				guid="4354f4fd-63e4-418f-a65b-76df6eff34c1" />
++		</Pronunciations>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="fcab1080-000b-4393-b95e-2631310d317d">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">Word added by LF&lt;br/&gt;</Run>
++					</AStr>
++				</Definition>
++				<Examples>
++					<ownseq
++						class="LexExampleSentence"
++						guid="02544948-0bba-4034-8978-a72464955177">
++						<Example>
++							<AStr
++								ws="fr">
++								<Run
++									ws="fr">C'est un exemple&lt;br/&gt;</Run>
++							</AStr>
++						</Example>
++						<Translations>
++							<CmTranslation
++								guid="54284978-710e-49fe-9bb7-9a8176d31f69">
++								<Translation>
++									<AStr
++										ws="en">
++										<Run
++											ws="en">This is an example&lt;br/&gt;</Run>
++									</AStr>
++								</Translation>
++								<Type>
++									<objsur
++										guid="d7f7164a-e8cf-11d3-9764-00c04f186933"
++										t="r" />
++								</Type>
++							</CmTranslation>
++						</Translations>
++					</ownseq>
++				</Examples>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="eda6582e-ae0e-4658-bc07-968ad45a30d0"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++				<SemanticDomains>
++					<refcol
++						guid="999581c4-1611-4acb-ae1b-5e6c1dfe6f0c"
++						t="r" />
++				</SemanticDomains>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 6f4b26e94a95 -r 296b98c25459 WritingSystemStore/en-US.ldml
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/WritingSystemStore/en-US.ldml	Wed Mar 22 16:17:36 2017 +0100
+@@ -0,0 +1,55 @@
++<?xml version="1.0" encoding="utf-8"?>
++<ldml>
++	<identity>
++		<version
++			number="" />
++		<generation
++			date="2017-03-22T15:17:27" />
++		<language
++			type="en" />
++		<territory
++			type="US" />
++	</identity>
++	<collations>
++		<collation>
++			<base>
++				<alias
++					source="en-US" />
++			</base>
++			<special
++				xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
++				<palaso:sortRulesType
++					value="OtherLanguage" />
++			</special>
++		</collation>
++	</collations>
++	<special
++		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
++		<palaso:abbreviation
++			value="Eng" />
++		<palaso:defaultFontFamily
++			value="Charis SIL" />
++		<palaso:languageName
++			value="English" />
++		<palaso:version
++			value="2" />
++	</special>
++	<special
++		xmlns:palaso2="urn://palaso.org/ldmlExtensions/v2">
++		<palaso2:knownKeyboards>
++			<palaso2:keyboard
++				layout="English"
++				locale="en-US"
++				os="Unix" />
++		</palaso2:knownKeyboards>
++		<palaso2:version
++			value="2" />
++	</special>
++	<special
++		xmlns:fw="urn://fieldworks.sil.org/ldmlExtensions/v1">
++		<fw:graphiteEnabled
++			value="False" />
++		<fw:regionName
++			value="United States" />
++	</special>
++</ldml>
+\ No newline at end of file
+diff -r 6f4b26e94a95 -r 296b98c25459 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Tue Mar 21 18:08:21 2017 +0100
++++ b/WritingSystemStore/en.ldml	Wed Mar 22 16:17:36 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-21T16:39:40" />
++			date="2017-03-21T16:45:46" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+@@ -24,7 +24,7 @@
+ 	<special
+ 		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
+ 		<palaso:abbreviation
+-			value="Eng" />
++			value="en" />
+ 		<palaso:defaultFontFamily
+ 			value="Charis SIL" />
+ 		<palaso:languageName
+diff -r 6f4b26e94a95 -r 296b98c25459 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Tue Mar 21 18:08:21 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Mar 22 16:17:36 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-21T16:39:40" />
++			date="2017-03-21T16:45:46" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -24,7 +24,7 @@
+ 	<special
+ 		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
+ 		<palaso:abbreviation
+-			value="Fre" />
++			value="fr" />
+ 		<palaso:defaultFontFamily
+ 			value="Charis SIL" />
+ 		<palaso:languageName
+@@ -45,6 +45,10 @@
+ 				layout="fr"
+ 				locale="fr-FR"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="English"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />

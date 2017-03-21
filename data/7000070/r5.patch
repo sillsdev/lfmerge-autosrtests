@@ -1,0 +1,131 @@
+# HG changeset patch
+# User Language Forge
+# Date 1490291532 -3600
+#      Thu Mar 23 18:52:12 2017 +0100
+# Branch 7000070
+# Node ID 341a5bb19ad7e639efbf97d5aebf65f9ded43dd3
+# Parent  01f205f5e64ba77eda9390c1217c2acdcf041510
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+
+diff -r 01f205f5e64b -r 341a5bb19ad7 Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:11:19 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:52:12 2017 +0100
+@@ -1,2 +1,103 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="51fda335-51f1-46f5-abd1-9f9ce5e8f4df">
++		<DateCreated
++			val="2017-2-23 16:40:52.81" />
++		<DateModified
++			val="2017-3-23 17:13:46.832" />
++		<DoNotUseForParsing
++			val="False" />
++		<Etymology>
++			<ownseq
++				class="LexEtymology"
++				guid="9e18d6e7-24a7-49fd-ad7d-c29ad206e699" />
++		</Etymology>
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="64f6bd95-2860-465f-9927-28a36092cecc">
++				<Form>
++					<AUni
++						ws="fr">lf1modified&lt;br/&gt;</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="87c2e65b-9e6b-4a19-b2eb-c63c4fdda089">
++				<PartOfSpeech>
++					<objsur
++						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Pronunciations>
++			<ownseq
++				class="LexPronunciation"
++				guid="7348ed9c-84c2-476e-9f1c-5378fc47fe8b" />
++		</Pronunciations>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="fcab1080-000b-4393-b95e-2631310d317d">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">Word added by LF&lt;br/&gt;</Run>
++					</AStr>
++				</Definition>
++				<Examples>
++					<ownseq
++						class="LexExampleSentence"
++						guid="02544948-0bba-4034-8978-a72464955177">
++						<Example>
++							<AStr
++								ws="fr">
++								<Run
++									ws="fr">C'est un exemple&lt;br/&gt;</Run>
++							</AStr>
++						</Example>
++						<Translations>
++							<CmTranslation
++								guid="ba759de3-e6a2-4c56-94bd-d479a46e3e7c">
++								<Translation>
++									<AStr
++										ws="en">
++										<Run
++											ws="en">This is an example&lt;br/&gt;</Run>
++									</AStr>
++								</Translation>
++								<Type>
++									<objsur
++										guid="d7f7164a-e8cf-11d3-9764-00c04f186933"
++										t="r" />
++								</Type>
++							</CmTranslation>
++						</Translations>
++					</ownseq>
++				</Examples>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="87c2e65b-9e6b-4a19-b2eb-c63c4fdda089"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++				<SemanticDomains>
++					<refcol
++						guid="999581c4-1611-4acb-ae1b-5e6c1dfe6f0c"
++						t="r" />
++				</SemanticDomains>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 01f205f5e64b -r 341a5bb19ad7 WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Thu Mar 23 18:11:19 2017 +0100
++++ b/WritingSystemStore/en-US.ldml	Thu Mar 23 18:52:12 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-22T15:25:42" />
++			date="2017-03-22T16:24:34" />
+ 		<language
+ 			type="en" />
+ 		<territory

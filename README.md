@@ -68,6 +68,66 @@ language depot patch _2_ for model version 7000068 can be created by running:
 	mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
 		--ld=2 --workdir=/tmp/testdata/ --model=7000068
 
+### Steps to create a new test
+
+To create a new test you'll need to make the necessary changes in FieldWorks
+and LF, then export the changes and write the unit test.
+
+#### Create changes in LanguageDepot/Chorus
+
+1. Restore the Chorus repo:
+
+
+	mono --debug TestUtil.exe restore --ld=3 --project autosrtests \
+		--workdir /tmp/testdata --model 7000068
+
+2. Copy the `.hg` subdirectory from `/tmp/testdata/LanguageDepot` to the USB stick
+
+
+	cp -a /tmp/testdata/LanguageDepot/.hg /media/username/USBstick/test-7000068
+
+3. In FW get the testproject from the USB stick. This might involve deleting the
+   existing project in FW. If you re-use the existing project make sure that later
+   on it doesn't create extra commits in the Chorus repo.
+
+4. Make the desired changes in FW
+
+5. S/R from FLEx to the USB stick
+
+6. Copy the `test-7000068` folder from the USB stick to the `/tmp` directory
+
+7. Export the new commit of the simulated LanguageDepot by running:
+
+
+	mono --debug TestUtil.exe save --ld --workdir /tmp/test-7000068 \
+		--project autosrtests --model 7000068
+
+#### Create changes in LanguageForge
+
+1. Restore project in Mongo
+
+
+	mono --debug TestUtil.exe restore --mongo=3 --project autosrtests \
+		--workdir /tmp/testdata --model 7000068
+
+2. Make changes in local LF
+
+3. Export Mongo test data
+
+
+	mono --debug TestUtil.exe save --mongo --project autosrtests \
+		--msg "commit msg" --workdir /tmp/testdata --model 7000068
+
+#### Changes in `LfMerge.AutomatedSRTests`
+
+- create the new unit test
+- repeat the above steps for each model version
+- merge the Chorus and Mongo test data for each model version:
+
+
+		mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
+			--ld=2 --workdir=/tmp/testdata/ --model=7000068
+
 ## Creating new tests - the hard way
 
 ### Export existing Chorus repo

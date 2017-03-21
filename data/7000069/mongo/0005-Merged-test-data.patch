@@ -1,0 +1,94 @@
+From af1365f9cb79eafe6448abfde824d81279597029 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Thu, 23 Mar 2017 18:51:47 +0100
+Subject: [PATCH] Merged test data
+
+---
+ sf_autosrtests.json             |  6 +++---
+ sf_autosrtests.optionlists.json | 14 +++++++-------
+ 2 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/sf_autosrtests.json b/sf_autosrtests.json
+index 9f33f67..34d2abe 100644
+--- a/sf_autosrtests.json
++++ b/sf_autosrtests.json
+@@ -10,7 +10,7 @@
+ , "feedbackGroup" : { "name" : "Feedback Group", "items" : [], "defaultKey" : null }
+  }
+ , "userProfilePropertiesEnabled" : [] }
+-, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-23T18:01:56.518+0100" }
++, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-23T18:51:47.568+0100" }
+ , "dateCreated" : { "$date" : "2017-02-02T10:24:46.513+0100" }
+ , "inputSystems" : { "en" : { "abbreviation" : "en", "tag" : "en", "languageName" : "English", "isRightToLeft" : false }
+ , "fr" : { "abbreviation" : "fr", "tag" : "fr", "languageName" : "French", "isRightToLeft" : false }
+@@ -260,7 +260,7 @@
+ , "userViews" : {}
+  }
+ , "liftFilePath" : null, "sendReceiveProjectIdentifier" : "autosrtests", "sendReceiveProject" : { "name" : "autosrtests", "repository" : "http://public.languagedepot.org", "role" : "manager" }
+-, "lastSyncedDate" : { "$date" : "2017-03-23T16:57:57.480+0100" }
+-, "lastEntryModifiedDate" : { "$date" : "2017-03-23T18:01:56.504+0100" }
++, "lastSyncedDate" : { "$date" : "2017-03-23T18:51:47.583+0100" }
++, "lastEntryModifiedDate" : { "$date" : "2017-03-23T18:13:46.832+0100" }
+ , "languageCode" : "fr" }
+ 
+diff --git a/sf_autosrtests.optionlists.json b/sf_autosrtests.optionlists.json
+index f6cffa4..07e4bb2 100644
+--- a/sf_autosrtests.optionlists.json
++++ b/sf_autosrtests.optionlists.json
+@@ -4,13 +4,13 @@
+ , { "guid" : "a4fc78d6-7591-4fb3-8edd-82f10ae3739d", "key" : "pro-form", "value" : "Pro-form", "abbreviation" : "pro-form" }
+ , { "guid" : "a3274cfd-225f-45fd-8851-a7b1a1e1037a", "key" : "pro1", "value" : "Pronoun", "abbreviation" : "pro" }
+ , { "guid" : "86ff66f6-0774-407a-a0dc-3eeaf873daf7", "key" : "v1", "value" : "Verb", "abbreviation" : "v" }
+- ], "canDelete" : false, "dateModified" : { "$date" : "2017-03-22T16:24:02.266+0100" }
++ ], "canDelete" : false, "dateModified" : { "$date" : "2017-03-23T18:51:47.016+0100" }
+ , "dateCreated" : { "$date" : "2017-01-27T17:32:51.977+0100" }
+  }
+ 
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e1397" }
+ , "code" : "domain-type", "name" : "Academic Domains", "dateCreated" : { "$date" : "2017-03-22T16:24:02.693+0100" }
+-, "dateModified" : { "$date" : "2017-03-22T16:24:02.703+0100" }
++, "dateModified" : { "$date" : "2017-03-23T18:51:47.483+0100" }
+ , "items" : [ { "guid" : "b0add746-ea5e-11de-8c5c-0013722f8dec", "key" : "Anat", "value" : "anatomy", "abbreviation" : "Anat" }
+ , { "guid" : "b0b9c2fe-ea5e-11de-8fed-0013722f8dec", "key" : "Anthro", "value" : "anthropology", "abbreviation" : "Anthro" }
+ , { "guid" : "b0c5aeac-ea5e-11de-9463-0013722f8dec", "key" : "Cult anthro", "value" : "cultural anthropology", "abbreviation" : "Cult anthro" }
+@@ -70,12 +70,12 @@
+ 
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e1398" }
+ , "code" : "location", "name" : "Location", "dateCreated" : { "$date" : "2017-03-22T16:24:02.705+0100" }
+-, "dateModified" : { "$date" : "2017-03-22T16:24:02.705+0100" }
++, "dateModified" : { "$date" : "2017-03-23T18:51:47.485+0100" }
+ , "items" : [], "canDelete" : false }
+ 
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e1399" }
+ , "code" : "usage-type", "name" : "Usages", "dateCreated" : { "$date" : "2017-03-22T16:24:02.706+0100" }
+-, "dateModified" : { "$date" : "2017-03-22T16:24:02.712+0100" }
++, "dateModified" : { "$date" : "2017-03-23T18:51:47.492+0100" }
+ , "items" : [ { "guid" : "af600fb2-ea5e-11de-82b5-0013722f8dec", "key" : "arch", "value" : "archaic", "abbreviation" : "arch" }
+ , { "guid" : "af699910-ea5e-11de-8d20-0013722f8dec", "key" : "col", "value" : "colloquial", "abbreviation" : "col" }
+ , { "guid" : "af7584c8-ea5e-11de-82a4-0013722f8dec", "key" : "form", "value" : "formal", "abbreviation" : "form" }
+@@ -106,19 +106,19 @@
+ 
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e139a" }
+ , "code" : "sense-type", "name" : "Type", "dateCreated" : { "$date" : "2017-03-22T16:24:02.713+0100" }
+-, "dateModified" : { "$date" : "2017-03-22T16:24:02.713+0100" }
++, "dateModified" : { "$date" : "2017-03-23T18:51:47.494+0100" }
+ , "items" : [ { "guid" : "af3eaef8-ea5e-11de-80fd-0013722f8dec", "key" : "fig", "value" : "figurative", "abbreviation" : "fig" }
+ , { "guid" : "af48384c-ea5e-11de-9aef-0013722f8dec", "key" : "prim", "value" : "primary", "abbreviation" : "prim" }
+  ], "canDelete" : false }
+ 
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e139b" }
+ , "code" : "anthro-code", "name" : "Anthropology Categories", "dateCreated" : { "$date" : "2017-03-22T16:24:02.714+0100" }
+-, "dateModified" : { "$date" : "2017-03-22T16:24:02.714+0100" }
++, "dateModified" : { "$date" : "2017-03-23T18:51:47.495+0100" }
+ , "items" : [], "canDelete" : false }
+ 
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e139c" }
+ , "code" : "status", "name" : "Status", "dateCreated" : { "$date" : "2017-03-22T16:24:02.715+0100" }
+-, "dateModified" : { "$date" : "2017-03-22T16:24:02.716+0100" }
++, "dateModified" : { "$date" : "2017-03-23T18:51:47.496+0100" }
+ , "items" : [ { "guid" : "bd80cd3e-ea5e-11de-9871-0013722f8dec", "key" : "Conf", "value" : "Confirmed", "abbreviation" : "Conf" }
+ , { "guid" : "bd8a569c-ea5e-11de-87cc-0013722f8dec", "key" : "Dis", "value" : "Disproved", "abbreviation" : "Dis" }
+ , { "guid" : "bd964254-ea5e-11de-8cdf-0013722f8dec", "key" : "Pend", "value" : "Pending", "abbreviation" : "Pend" }
+-- 
+2.11.0
+
