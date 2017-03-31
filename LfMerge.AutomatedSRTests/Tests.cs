@@ -16,6 +16,7 @@ namespace LfMerge.AutomatedSRTests
 
 		private LanguageDepotHelper _languageDepot;
 		private MongoHelper _mongo;
+		private WebworkHelper _webWork;
 
 		private static string SRState
 		{
@@ -47,6 +48,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			_languageDepot = new LanguageDepotHelper();
 			_mongo = new MongoHelper($"sf_{DbName}");
+			_webWork = new WebworkHelper(DbName);
 		}
 
 		[TearDown]
@@ -54,6 +56,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			_mongo.Dispose();
 			_languageDepot.Dispose();
+			_webWork.Dispose();
 			LfMergeHelper.Cleanup();
 		}
 
@@ -63,6 +66,7 @@ namespace LfMerge.AutomatedSRTests
 			// Setup
 			_mongo.RestoreDatabase("r1", dbVersion);
 			_languageDepot.ApplyPatches(dbVersion, 1);
+			// don't setup webwork directory
 
 			// Exercise
 			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
@@ -77,9 +81,10 @@ namespace LfMerge.AutomatedSRTests
 			// Setup
 			_mongo.RestoreDatabase("r2", dbVersion);
 			_languageDepot.ApplyPatches(dbVersion, 2);
+			_webWork.ApplyPatches(dbVersion, 1);
 
 			// Exercise
-			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
+			LfMergeHelper.Run($"--project {DbName} --action=Synchronize");
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));
@@ -105,20 +110,18 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		[Test]
-		public void FlexDeletesLfEdits_EntryRemains([Range(MinVersion, MaxVersion)] int dbVersion)
+		public void EditWinsOverDelete([Range(MinVersion, MaxVersion)] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase("r4", dbVersion);
 			_languageDepot.ApplyPatches(dbVersion, 4);
+			_webWork.ApplyPatches(dbVersion, 3);
 
 			// Exercise
-			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
+			LfMergeHelper.Run($"--project {DbName} --action=Synchronize");
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));
-
-			// REVIEW: after restoring version 3 the "Part Of Speech" showed up as "Unknown" in
-			// LF. Setting it to "Noun" resulted in having it the value "n1" in mongo!
 
 			// language=json
 			const string expected = @"[
@@ -126,9 +129,9 @@ namespace LfMerge.AutomatedSRTests
 					'senses' : [ {
 						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
 						'gloss' : { 'en' : { 'value' : '' } },
-						'partOfSpeech' : { 'value' : 'n1' }
+						'partOfSpeech' : { 'value' : 'n' }
 					} ] },
-				{ 'lexeme': { 'fr' : { 'value' : 'flex' } },
+				{ 'lexeme': { 'fr' : { 'value' : 'flexmodified' } },
 					'senses' : [ {
 						/* no definition */
 						'gloss' : { 'en' : { 'value' : 'created in FLEx' } },

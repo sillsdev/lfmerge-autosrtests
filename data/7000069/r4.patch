@@ -1,213 +1,48 @@
 # HG changeset patch
 # User eberhard
-# Date 1490290318 -3600
-#      Thu Mar 23 18:31:58 2017 +0100
+# Date 1490983621 -7200
+#      Fri Mar 31 20:07:01 2017 +0200
 # Branch 7000069
-# Node ID 5f041ffb1dc2a54dfa14b70cdd13b4f4b82fc565
+# Node ID f37d3d711827bd2172538fb291d9da6fb76fe329
 # Parent  28f827a16bfb4142dc3dacef65e89b49b70453ab
 [FLEx Bridge: 2.1] sync
 
-diff -r 28f827a16bfb -r 5f041ffb1dc2 General/FLExStyles.style
---- a/General/FLExStyles.style	Wed Mar 22 16:23:53 2017 +0100
-+++ b/General/FLExStyles.style	Thu Mar 23 18:31:58 2017 +0100
-@@ -100,13 +100,18 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">In a classified dictionary, the heading giving the classification name</AUni>
-+				ws="en">In a Classified Dictionary, the heading giving the classification name</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
- 	</StStyle>
- 	<StStyle
- 		guid="23efa4cc-0347-4fc1-a33d-57b57ee852f9">
-+		<BasedOn>
-+			<objsur
-+				guid="aba229f3-ca42-4727-a903-0abc3d418607"
-+				t="r" />
-+		</BasedOn>
- 		<Context
- 			val="14" />
- 		<Function
-@@ -129,7 +134,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">Used for sense numbers in cross-references</AUni>
-+				ws="en">Used for sense numbers in cross references.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -159,7 +164,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">The reversal form at the start of a reversal entry.</AUni>
-+				ws="en">Used for the reversal form at the start of a reversal entry.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -410,7 +415,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">The main headword at the very start of the entry.</AUni>
-+				ws="en">The main headword at the start of the entry.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -494,7 +499,7 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">Each paragraph of Subentry information that is added to a reversal entry if there are subentries.</AUni>
-+				ws="en">Each paragraph of subentry information that is added to a reversal entry if there are subentries.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -531,7 +536,7 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">Each paragraph of Subsubentry information that is added to the entry if there are subsubentries.</AUni>
-+				ws="en">Each paragraph of subsubentry information that is added to the entry if there are subsubentries.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -560,7 +565,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">Used for the definition and/or gloss in a classified dictionary.</AUni>
-+				ws="en">Used for the definition and/or gloss in a Classified Dictionary.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -596,7 +601,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">Used for homograph numbers</AUni>
-+				ws="en">Used for homograph numbers, both in headwords and in references.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -969,7 +974,7 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">Each paragraph of Sense information that is added to the entry if senses are formatted as paragraphs.</AUni>
-+				ws="en">Each paragraph of sense information that is added to the entry if senses are formatted as paragraphs.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -1006,7 +1011,7 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">Each paragraph of Subentry information that is added to the entry if there are subentries.</AUni>
-+				ws="en">Each paragraph of subentry information that is added to the entry if there are subentries.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -1041,7 +1046,7 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">Each paragraph of Minor entry information that is added to the entry if there are minor entries.</AUni>
-+				ws="en">Each paragraph of minor entry information that is added to the entry if there are minor entries.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -1115,7 +1120,7 @@
- 			val="0" />
- 		<Usage>
- 			<AUni
--				ws="en">In a classified dictionary, the individual item paragraphs</AUni>
-+				ws="en">In a Classified Dictionary, the individual item paragraphs</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -1207,7 +1212,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">Used for the headword in a classified dictionary.</AUni>
-+				ws="en">Used for the headword in a Classified Dictionary.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -1237,7 +1242,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">Used for cross-references to other entries.</AUni>
-+				ws="en">Used for the headwords that occur in cross references to other entries.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-@@ -1347,6 +1352,36 @@
- 			val="1" />
- 	</StStyle>
- 	<StStyle
-+		guid="f41be047-a4ee-402b-bcfe-9458e502e682">
-+		<Context
-+			val="14" />
-+		<Function
-+			val="0" />
-+		<IsBuiltIn
-+			val="True" />
-+		<IsModified
-+			val="False" />
-+		<IsPublishedTextStyle
-+			val="False" />
-+		<Name>
-+			<Uni>Dictionary-POS</Uni>
-+		</Name>
-+		<Rules>
-+			<Prop
-+				italic="invert" />
-+		</Rules>
-+		<Structure
-+			val="0" />
-+		<Type
-+			val="1" />
-+		<Usage>
-+			<AUni
-+				ws="en">Used for Grammatical Category and other strings that need to be formatted similarly.</AUni>
-+		</Usage>
-+		<UserLevel
-+			val="1" />
-+	</StStyle>
-+	<StStyle
- 		guid="fb6450f5-626d-4fbf-ada5-4cfd5986b5b0">
- 		<Context
- 			val="14" />
-@@ -1371,7 +1406,7 @@
- 			val="1" />
- 		<Usage>
- 			<AUni
--				ws="en">Used for the grammatical information in a classified dictionary.</AUni>
-+				ws="en">Used for the grammatical information in a Classified Dictionary.</AUni>
- 		</Usage>
- 		<UserLevel
- 			val="1" />
-diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/Lexicon/Lexicon_01.lexdb
---- a/Linguistics/Lexicon/Lexicon_01.lexdb	Wed Mar 22 16:23:53 2017 +0100
-+++ b/Linguistics/Lexicon/Lexicon_01.lexdb	Thu Mar 23 18:31:58 2017 +0100
-@@ -30,7 +30,7 @@
- 						<Uni>FlexStyles</Uni>
- 					</Name>
- 					<Version
--						val="001a124e-181e-45e9-8b35-e8f695e1fbdb" />
-+						val="64eb89f8-aa7a-4408-8187-fcd451b16f32" />
- 				</CmResource>
- 			</Resources>
- 			<ReversalIndexes />
-diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/Lexicon/Lexicon_06.lexdb
+diff -r 28f827a16bfb -r f37d3d711827 General/LanguageProject.langproj
+--- a/General/LanguageProject.langproj	Wed Mar 22 16:23:53 2017 +0100
++++ b/General/LanguageProject.langproj	Fri Mar 31 20:07:01 2017 +0200
+@@ -22,7 +22,7 @@
+ 		<DateCreated
+ 			val="2017-2-3 15:24:46.523" />
+ 		<DateModified
+-			val="2017-2-3 15:24:46.523" />
++			val="2017-3-31 18:6:45.768" />
+ 		<DiscourseData />
+ 		<Education />
+ 		<FilePathsInTsStrings>
+diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/Lexicon_03.lexdb
+--- a/Linguistics/Lexicon/Lexicon_03.lexdb	Wed Mar 22 16:23:53 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_03.lexdb	Fri Mar 31 20:07:01 2017 +0200
+@@ -5,7 +5,7 @@
+ 		<DateCreated
+ 			val="2017-3-14 16:56:50.590" />
+ 		<DateModified
+-			val="2017-3-14 16:56:50.590" />
++			val="2017-3-31 18:6:47.288" />
+ 		<DoNotUseForParsing
+ 			val="False" />
+ 		<HomographNumber
+@@ -15,7 +15,7 @@
+ 				guid="5d7d3053-ae50-4ed4-ae00-354022e8ae7a">
+ 				<Form>
+ 					<AUni
+-						ws="fr">flex</AUni>
++						ws="fr">flexmodified</AUni>
+ 				</Form>
+ 				<IsAbstract
+ 					val="False" />
+diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/Lexicon_06.lexdb
 --- a/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 16:23:53 2017 +0100
-+++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:31:58 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Fri Mar 31 20:07:01 2017 +0200
 @@ -1,103 +1,2 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<Lexicon>
@@ -315,9 +150,9 @@ diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/Lexicon/Lexicon_06.lexdb
 \ No newline at end of file
 +<Lexicon />
 \ No newline at end of file
-diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/Lexicon/SemanticDomainList.list
+diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/SemanticDomainList.list
 --- a/Linguistics/Lexicon/SemanticDomainList.list	Wed Mar 22 16:23:53 2017 +0100
-+++ b/Linguistics/Lexicon/SemanticDomainList.list	Thu Mar 23 18:31:58 2017 +0100
++++ b/Linguistics/Lexicon/SemanticDomainList.list	Fri Mar 31 20:07:01 2017 +0200
 @@ -12183,7 +12183,7 @@
  									<AStr
  										ws="en">
@@ -894,9 +729,9 @@ diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/Lexicon/SemanticDomainList.list
  'Japan' is an English word and should go into an English dictionary. But 'Nihon' is not an English word and should not go in the dictionary.</Run>
  											</AStr>
  										</Description>
-diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata
+diff -r 28f827a16bfb -r f37d3d711827 Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata
 --- a/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Wed Mar 22 16:23:53 2017 +0100
-+++ b/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Thu Mar 23 18:31:58 2017 +0100
++++ b/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Fri Mar 31 20:07:01 2017 +0200
 @@ -3,13 +3,13 @@
  	<MoMorphData
  		guid="b80228bc-ea5e-11de-9d24-0013722f8dec">
@@ -918,51 +753,39 @@ diff -r 28f827a16bfb -r 5f041ffb1dc2 Linguistics/MorphologyAndSyntax/MorphAndSyn
  &lt;/XAmple&gt; &lt;/ParserParameters&gt; </Uni>
  		</ParserParameters>
  		<ProdRestrict />
-diff -r 28f827a16bfb -r 5f041ffb1dc2 WritingSystemStore/en-US.ldml
---- a/WritingSystemStore/en-US.ldml	Wed Mar 22 16:23:53 2017 +0100
-+++ b/WritingSystemStore/en-US.ldml	Thu Mar 23 18:31:58 2017 +0100
-@@ -4,7 +4,7 @@
- 		<version
- 			number="" />
- 		<generation
--			date="2017-03-22T15:23:44" />
-+			date="2017-03-22T15:25:42" />
- 		<language
- 			type="en" />
- 		<territory
-diff -r 28f827a16bfb -r 5f041ffb1dc2 WritingSystemStore/en.ldml
+diff -r 28f827a16bfb -r f37d3d711827 WritingSystemStore/en.ldml
 --- a/WritingSystemStore/en.ldml	Wed Mar 22 16:23:53 2017 +0100
-+++ b/WritingSystemStore/en.ldml	Thu Mar 23 18:31:58 2017 +0100
++++ b/WritingSystemStore/en.ldml	Fri Mar 31 20:07:01 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
  		<generation
 -			date="2017-03-21T16:45:46" />
-+			date="2017-03-23T17:08:38" />
++			date="2017-03-23T16:22:56" />
  		<language
  			type="en" />
  	</identity>
-diff -r 28f827a16bfb -r 5f041ffb1dc2 WritingSystemStore/es.ldml
+diff -r 28f827a16bfb -r f37d3d711827 WritingSystemStore/es.ldml
 --- a/WritingSystemStore/es.ldml	Wed Mar 22 16:23:53 2017 +0100
-+++ b/WritingSystemStore/es.ldml	Thu Mar 23 18:31:58 2017 +0100
++++ b/WritingSystemStore/es.ldml	Fri Mar 31 20:07:01 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
  		<generation
 -			date="2017-02-03T17:04:47" />
-+			date="2017-03-23T17:08:38" />
++			date="2017-03-23T16:22:56" />
  		<language
  			type="es" />
  	</identity>
-diff -r 28f827a16bfb -r 5f041ffb1dc2 WritingSystemStore/fr.ldml
+diff -r 28f827a16bfb -r f37d3d711827 WritingSystemStore/fr.ldml
 --- a/WritingSystemStore/fr.ldml	Wed Mar 22 16:23:53 2017 +0100
-+++ b/WritingSystemStore/fr.ldml	Thu Mar 23 18:31:58 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Fri Mar 31 20:07:01 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
  		<generation
 -			date="2017-03-21T16:45:46" />
-+			date="2017-03-23T17:08:38" />
++			date="2017-03-23T16:22:56" />
  		<language
  			type="fr" />
  	</identity>

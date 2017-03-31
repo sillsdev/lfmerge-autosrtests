@@ -1,0 +1,113 @@
+From ce0675ae1705cbc45c153f73435d6ccd45ab6c37 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 31 Mar 2017 20:10:58 +0200
+Subject: [PATCH] Modify lf1, delete flex
+
+---
+ sf_autosrtests.activity.json | 19 +++++++++++++++++++
+ sf_autosrtests.json          |  6 +++---
+ sf_autosrtests.lexicon.json  | 15 ++++++++-------
+ 3 files changed, 30 insertions(+), 10 deletions(-)
+
+diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
+index dc1b49c..7da85ed 100644
+--- a/sf_autosrtests.activity.json
++++ b/sf_autosrtests.activity.json
+@@ -57,3 +57,22 @@
+ , "dateCreated" : { "$date" : "2017-02-23T17:41:58.581+0100" }
+  }
+
++{ "_id" : { "$oid" : "58de9b8b6efc67597c2203b4" }
++, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
++, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
++, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
++, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1modified<br/>", "user" : "eberhard" }
++, "date" : { "$date" : "2017-03-31T20:10:19.000+0200" }
++, "dateModified" : { "$date" : "2017-03-31T20:10:19.181+0200" }
++, "dateCreated" : { "$date" : "2017-03-31T20:10:19.181+0200" }
++ }
++
++{ "_id" : { "$oid" : "58de9b8d6efc67597c2203b5" }
++, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
++, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
++, "userRef2" : null, "entryRef" : null, "action" : "delete_entry", "actionContent" : { "project" : "autosrtests", "entry" : "flex" }
++, "date" : { "$date" : "2017-03-31T20:10:21.000+0200" }
++, "dateModified" : { "$date" : "2017-03-31T20:10:21.228+0200" }
++, "dateCreated" : { "$date" : "2017-03-31T20:10:21.228+0200" }
++ }
++
+diff --git a/sf_autosrtests.json b/sf_autosrtests.json
+index 2135488..c10b7ba 100644
+--- a/sf_autosrtests.json
++++ b/sf_autosrtests.json
+@@ -10,7 +10,7 @@
+ , "feedbackGroup" : { "name" : "Feedback Group", "items" : [], "defaultKey" : null }
+  }
+ , "userProfilePropertiesEnabled" : [] }
+-, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-22T16:26:00.962+0100" }
++, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-31T20:10:19.166+0200" }
+ , "dateCreated" : { "$date" : "2017-02-02T10:24:46.513+0100" }
+ , "inputSystems" : { "en" : { "abbreviation" : "en", "tag" : "en", "languageName" : "English", "isRightToLeft" : false }
+ , "fr" : { "abbreviation" : "fr", "tag" : "fr", "languageName" : "French", "isRightToLeft" : false }
+@@ -260,7 +260,7 @@
+ , "userViews" : {}
+  }
+ , "liftFilePath" : null, "sendReceiveProjectIdentifier" : "autosrtests", "sendReceiveProject" : { "name" : "autosrtests", "repository" : "http://public.languagedepot.org", "role" : "manager" }
+-, "lastSyncedDate" : { "$date" : "2017-03-22T16:26:01.015+0100" }
+-, "lastEntryModifiedDate" : { "$date" : "2017-02-02T15:21:58.010+0100" }
++, "lastSyncedDate" : { "$date" : "2017-03-31T20:08:21.927+0200" }
++, "lastEntryModifiedDate" : { "$date" : "2017-03-31T20:10:19.152+0200" }
+ , "languageCode" : "fr" }
+
+diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
+index 23cd4b7..45f367b 100644
+--- a/sf_autosrtests.lexicon.json
++++ b/sf_autosrtests.lexicon.json
+@@ -1,5 +1,5 @@
+ { "_id" : { "$oid" : "58af10946efc6752d24a25e1" }
+-, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1<br/>" }
++, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1modified<br/>" }
+  }
+ , "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF<br/>" }
+  }
+@@ -57,7 +57,7 @@
+  ], "authorInfo" : { "createdByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
+ , "createdDate" : { "$date" : "2017-02-23T17:40:52.081+0100" }
+ , "modifiedByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
+-, "modifiedDate" : { "$date" : "2017-02-23T17:41:58.537+0100" }
++, "modifiedDate" : { "$date" : "2017-03-31T20:10:19.152+0200" }
+  }
+ , "citationForm" : { "fr" : { "value" : "" }
+  }
+@@ -87,22 +87,23 @@
+  }
+ , "summaryDefinition" : { "en" : { "value" : "" }
+  }
+-, "dateModified" : { "$date" : "2017-02-23T17:41:58.551+0100" }
++, "dateModified" : { "$date" : "2017-03-31T20:10:19.166+0200" }
+ , "dateCreated" : { "$date" : "2017-02-23T17:40:52.105+0100" }
+  }
+
+ { "_id" : { "$oid" : "58d29789edc5a7eae53e13a4" }
+-, "guid" : "759e6d95-31a0-441d-aa96-3dfd27aed25e", "liftId" : "flex_759e6d95-31a0-441d-aa96-3dfd27aed25e", "isDeleted" : false, "dateModified" : { "$date" : "2017-03-22T16:26:00.977+0100" }
++, "guid" : "759e6d95-31a0-441d-aa96-3dfd27aed25e", "liftId" : "flex_759e6d95-31a0-441d-aa96-3dfd27aed25e", "isDeleted" : true, "dateModified" : { "$date" : "2017-03-31T20:10:21.219+0200" }
+ , "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "flex" }
+  }
+-, "senses" : [ { "id" : null, "liftId" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "guid" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "partOfSpeech" : { "value" : "adv1" }
+-, "gloss" : { "en" : { "value" : "created in FLEx" }
++, "senses" : [ { "liftId" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "guid" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "gloss" : { "en" : { "value" : "created in FLEx" }
+  }
++, "partOfSpeech" : { "value" : "adv1" }
+  }
+  ], "authorInfo" : { "createdByUserRef" : null, "createdDate" : { "$date" : "2017-03-14T18:45:38.975+0100" }
+ , "modifiedByUserRef" : null, "modifiedDate" : { "$date" : "2017-03-14T18:45:38.975+0100" }
+  }
+ , "customFields" : {}
+ , "customFieldGuids" : {}
+-, "morphologyType" : "stem", "pronunciationGuid" : "00000000-0000-0000-0000-000000000000" }
++, "morphologyType" : "stem", "pronunciationGuid" : "00000000-0000-0000-0000-000000000000", "mercurialSha" : null, "dateCreated" : { "$date" : "2017-03-31T20:10:21.218+0200" }
++ }
+
+--
+2.11.0
+

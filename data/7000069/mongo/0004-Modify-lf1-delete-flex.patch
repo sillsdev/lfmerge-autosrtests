@@ -1,44 +1,43 @@
-From 994df52b85eac1f32ed462c93a26e1038dcdfeaa Mon Sep 17 00:00:00 2001
+From 8ab5fe14c5726d2d255ac6a95ea0dc668f90daa3 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Thu, 23 Mar 2017 18:03:17 +0100
-Subject: [PATCH] modify entry lf1
+Date: Fri, 31 Mar 2017 20:07:46 +0200
+Subject: [PATCH] Modify lf1, delete flex
 
 ---
- sf_autosrtests.activity.json | 20 ++++++++++++++++++++
+ sf_autosrtests.activity.json | 19 +++++++++++++++++++
  sf_autosrtests.json          |  6 +++---
- sf_autosrtests.lexicon.json  |  8 ++++----
- 3 files changed, 27 insertions(+), 7 deletions(-)
+ sf_autosrtests.lexicon.json  | 15 ++++++++-------
+ 3 files changed, 30 insertions(+), 10 deletions(-)
 
 diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
-index dc1b49c..a04a8fa 100644
+index dc1b49c..61fc61d 100644
 --- a/sf_autosrtests.activity.json
 +++ b/sf_autosrtests.activity.json
-@@ -57,3 +57,23 @@
+@@ -57,3 +57,22 @@
  , "dateCreated" : { "$date" : "2017-02-23T17:41:58.581+0100" }
   }
- 
-+{ "_id" : { "$oid" : "58d3ff756efc67291d179ea1" }
+
++{ "_id" : { "$oid" : "58de9ae86efc67597e25a3f1" }
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
 +, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1modified<br/>", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-03-23T18:01:41.000+0100" }
-+, "dateModified" : { "$date" : "2017-03-23T18:01:41.087+0100" }
-+, "dateCreated" : { "$date" : "2017-03-23T18:01:41.087+0100" }
++, "date" : { "$date" : "2017-03-31T20:07:36.000+0200" }
++, "dateModified" : { "$date" : "2017-03-31T20:07:36.674+0200" }
++, "dateCreated" : { "$date" : "2017-03-31T20:07:36.674+0200" }
 + }
 +
-+{ "_id" : { "$oid" : "58d3ff846efc670cb9204521" }
++{ "_id" : { "$oid" : "58de9aeb6efc67597e25a3f2" }
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1modified<br/>", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-03-23T18:01:56.000+0100" }
-+, "dateModified" : { "$date" : "2017-03-23T18:01:56.533+0100" }
-+, "dateCreated" : { "$date" : "2017-03-23T18:01:56.533+0100" }
++, "userRef2" : null, "entryRef" : null, "action" : "delete_entry", "actionContent" : { "project" : "autosrtests", "entry" : "flex" }
++, "date" : { "$date" : "2017-03-31T20:07:39.000+0200" }
++, "dateModified" : { "$date" : "2017-03-31T20:07:39.722+0200" }
++, "dateCreated" : { "$date" : "2017-03-31T20:07:39.722+0200" }
 + }
 +
 diff --git a/sf_autosrtests.json b/sf_autosrtests.json
-index 35c7ab6..9f33f67 100644
+index 35c7ab6..47b64d6 100644
 --- a/sf_autosrtests.json
 +++ b/sf_autosrtests.json
 @@ -10,7 +10,7 @@
@@ -46,7 +45,7 @@ index 35c7ab6..9f33f67 100644
   }
  , "userProfilePropertiesEnabled" : [] }
 -, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-22T16:24:02.827+0100" }
-+, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-23T18:01:56.518+0100" }
++, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-31T20:07:36.660+0200" }
  , "dateCreated" : { "$date" : "2017-02-02T10:24:46.513+0100" }
  , "inputSystems" : { "en" : { "abbreviation" : "en", "tag" : "en", "languageName" : "English", "isRightToLeft" : false }
  , "fr" : { "abbreviation" : "fr", "tag" : "fr", "languageName" : "French", "isRightToLeft" : false }
@@ -56,46 +55,59 @@ index 35c7ab6..9f33f67 100644
  , "liftFilePath" : null, "sendReceiveProjectIdentifier" : "autosrtests", "sendReceiveProject" : { "name" : "autosrtests", "repository" : "http://public.languagedepot.org", "role" : "manager" }
 -, "lastSyncedDate" : { "$date" : "2017-03-22T16:24:02.881+0100" }
 -, "lastEntryModifiedDate" : { "$date" : "2017-02-02T15:21:58.010+0100" }
-+, "lastSyncedDate" : { "$date" : "2017-03-23T16:57:57.480+0100" }
-+, "lastEntryModifiedDate" : { "$date" : "2017-03-23T18:01:56.504+0100" }
++, "lastSyncedDate" : { "$date" : "2017-03-31T20:06:04.191+0200" }
++, "lastEntryModifiedDate" : { "$date" : "2017-03-31T20:07:36.646+0200" }
  , "languageCode" : "fr" }
- 
+
 diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
-index 4b90949..8fb327a 100644
+index 4b90949..86b7269 100644
 --- a/sf_autosrtests.lexicon.json
 +++ b/sf_autosrtests.lexicon.json
-@@ -1,11 +1,11 @@
+@@ -1,5 +1,5 @@
  { "_id" : { "$oid" : "58af10946efc6752d24a25e1" }
 -, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1<br/>" }
 +, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1modified<br/>" }
   }
  , "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF<br/>" }
   }
- , "gloss" : { "en" : { "value" : "" }
-  }
--, "pictures" : [], "partOfSpeech" : { "value" : "n" }
-+, "pictures" : [], "partOfSpeech" : { "value" : "n1" }
- , "semanticDomain" : { "values" : [ "1.1" ] }
- , "examples" : [ { "liftId" : null, "sentence" : { "fr" : { "value" : "C'est un exemple<br/>" }
-  }
 @@ -57,7 +57,7 @@
   ], "authorInfo" : { "createdByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
  , "createdDate" : { "$date" : "2017-02-23T17:40:52.081+0100" }
  , "modifiedByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
 -, "modifiedDate" : { "$date" : "2017-02-23T17:41:58.537+0100" }
-+, "modifiedDate" : { "$date" : "2017-03-23T18:01:56.504+0100" }
++, "modifiedDate" : { "$date" : "2017-03-31T20:07:36.646+0200" }
   }
  , "citationForm" : { "fr" : { "value" : "" }
   }
-@@ -87,7 +87,7 @@
+@@ -87,22 +87,23 @@
   }
  , "summaryDefinition" : { "en" : { "value" : "" }
   }
 -, "dateModified" : { "$date" : "2017-02-23T17:41:58.551+0100" }
-+, "dateModified" : { "$date" : "2017-03-23T18:01:56.517+0100" }
++, "dateModified" : { "$date" : "2017-03-31T20:07:36.659+0200" }
  , "dateCreated" : { "$date" : "2017-02-23T17:40:52.105+0100" }
   }
- 
--- 
+
+ { "_id" : { "$oid" : "58d29712edc5a7eae53e139d" }
+-, "guid" : "257d2a76-bdd3-4fec-af96-2e5666366678", "liftId" : "flex_257d2a76-bdd3-4fec-af96-2e5666366678", "isDeleted" : false, "dateModified" : { "$date" : "2017-03-22T16:24:02.842+0100" }
++, "guid" : "257d2a76-bdd3-4fec-af96-2e5666366678", "liftId" : "flex_257d2a76-bdd3-4fec-af96-2e5666366678", "isDeleted" : true, "dateModified" : { "$date" : "2017-03-31T20:07:39.713+0200" }
+ , "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "flex" }
+  }
+-, "senses" : [ { "id" : null, "liftId" : "4969f40d-e160-4993-b6db-c7690312cd83", "guid" : "4969f40d-e160-4993-b6db-c7690312cd83", "partOfSpeech" : { "value" : "adv1" }
+-, "gloss" : { "en" : { "value" : "created in FLEx" }
++, "senses" : [ { "liftId" : "4969f40d-e160-4993-b6db-c7690312cd83", "guid" : "4969f40d-e160-4993-b6db-c7690312cd83", "gloss" : { "en" : { "value" : "created in FLEx" }
+  }
++, "partOfSpeech" : { "value" : "adv1" }
+  }
+  ], "authorInfo" : { "createdByUserRef" : null, "createdDate" : { "$date" : "2017-03-14T17:56:50.590+0100" }
+ , "modifiedByUserRef" : null, "modifiedDate" : { "$date" : "2017-03-14T17:56:50.590+0100" }
+  }
+ , "customFields" : {}
+ , "customFieldGuids" : {}
+-, "morphologyType" : "stem", "pronunciationGuid" : "00000000-0000-0000-0000-000000000000" }
++, "morphologyType" : "stem", "pronunciationGuid" : "00000000-0000-0000-0000-000000000000", "mercurialSha" : null, "dateCreated" : { "$date" : "2017-03-31T20:07:39.711+0200" }
++ }
+
+--
 2.11.0
 

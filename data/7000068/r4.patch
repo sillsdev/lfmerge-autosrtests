@@ -1,15 +1,48 @@
 # HG changeset patch
 # User eberhard
-# Date 1490201806 -3600
-#      Wed Mar 22 17:56:46 2017 +0100
+# Date 1490983483 -7200
+#      Fri Mar 31 20:04:43 2017 +0200
 # Branch 7000068
-# Node ID 65f9eba2be0a6547d44617f6cb70438ce2d47f08
+# Node ID f6f63a83c50b18def8f1772835a13dd8337d98f5
 # Parent  296b98c254595b8bc4b2a1bcbdc2efc03b7e013e
 [FLEx Bridge: 2.1] sync
 
-diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/Lexicon/Lexicon_06.lexdb
+diff -r 296b98c25459 -r f6f63a83c50b General/LanguageProject.langproj
+--- a/General/LanguageProject.langproj	Wed Mar 22 16:17:36 2017 +0100
++++ b/General/LanguageProject.langproj	Fri Mar 31 20:04:43 2017 +0200
+@@ -22,7 +22,7 @@
+ 		<DateCreated
+ 			val="2017-2-3 15:2:0.701" />
+ 		<DateModified
+-			val="2017-2-3 15:2:0.701" />
++			val="2017-3-31 18:4:27.112" />
+ 		<DiscourseData />
+ 		<Education />
+ 		<FilePathsInTsStrings>
+diff -r 296b98c25459 -r f6f63a83c50b Linguistics/Lexicon/Lexicon_02.lexdb
+--- a/Linguistics/Lexicon/Lexicon_02.lexdb	Wed Mar 22 16:17:36 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Mar 31 20:04:43 2017 +0200
+@@ -5,7 +5,7 @@
+ 		<DateCreated
+ 			val="2017-3-21 17:8:9.236" />
+ 		<DateModified
+-			val="2017-3-21 17:8:9.236" />
++			val="2017-3-31 18:4:28.130" />
+ 		<DoNotUseForParsing
+ 			val="False" />
+ 		<HomographNumber
+@@ -15,7 +15,7 @@
+ 				guid="a6eafc28-d389-48c8-a46b-197c9839ad89">
+ 				<Form>
+ 					<AUni
+-						ws="fr">flex</AUni>
++						ws="fr">flexmodified</AUni>
+ 				</Form>
+ 				<IsAbstract
+ 					val="False" />
+diff -r 296b98c25459 -r f6f63a83c50b Linguistics/Lexicon/Lexicon_06.lexdb
 --- a/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 16:17:36 2017 +0100
-+++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 17:56:46 2017 +0100
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Fri Mar 31 20:04:43 2017 +0200
 @@ -1,102 +1,2 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<Lexicon>
@@ -116,9 +149,9 @@ diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/Lexicon/Lexicon_06.lexdb
 \ No newline at end of file
 +<Lexicon />
 \ No newline at end of file
-diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/Lexicon/SemanticDomainList.list
+diff -r 296b98c25459 -r f6f63a83c50b Linguistics/Lexicon/SemanticDomainList.list
 --- a/Linguistics/Lexicon/SemanticDomainList.list	Wed Mar 22 16:17:36 2017 +0100
-+++ b/Linguistics/Lexicon/SemanticDomainList.list	Wed Mar 22 17:56:46 2017 +0100
++++ b/Linguistics/Lexicon/SemanticDomainList.list	Fri Mar 31 20:04:43 2017 +0200
 @@ -12183,7 +12183,7 @@
  									<AStr
  										ws="en">
@@ -695,9 +728,9 @@ diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/Lexicon/SemanticDomainList.list
  'Japan' is an English word and should go into an English dictionary. But 'Nihon' is not an English word and should not go in the dictionary.</Run>
  											</AStr>
  										</Description>
-diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata
+diff -r 296b98c25459 -r f6f63a83c50b Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata
 --- a/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Wed Mar 22 16:17:36 2017 +0100
-+++ b/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Wed Mar 22 17:56:46 2017 +0100
++++ b/Linguistics/MorphologyAndSyntax/MorphAndSynData.morphdata	Fri Mar 31 20:04:43 2017 +0200
 @@ -3,13 +3,13 @@
  	<MoMorphData
  		guid="b80228bc-ea5e-11de-9d24-0013722f8dec">
@@ -719,9 +752,9 @@ diff -r 296b98c25459 -r 65f9eba2be0a Linguistics/MorphologyAndSyntax/MorphAndSyn
  &lt;/XAmple&gt; &lt;/ParserParameters&gt; </Uni>
  		</ParserParameters>
  		<ProdRestrict />
-diff -r 296b98c25459 -r 65f9eba2be0a WritingSystemStore/en.ldml
+diff -r 296b98c25459 -r f6f63a83c50b WritingSystemStore/en.ldml
 --- a/WritingSystemStore/en.ldml	Wed Mar 22 16:17:36 2017 +0100
-+++ b/WritingSystemStore/en.ldml	Wed Mar 22 17:56:46 2017 +0100
++++ b/WritingSystemStore/en.ldml	Fri Mar 31 20:04:43 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
@@ -731,9 +764,9 @@ diff -r 296b98c25459 -r 65f9eba2be0a WritingSystemStore/en.ldml
  		<language
  			type="en" />
  	</identity>
-diff -r 296b98c25459 -r 65f9eba2be0a WritingSystemStore/fr.ldml
+diff -r 296b98c25459 -r f6f63a83c50b WritingSystemStore/fr.ldml
 --- a/WritingSystemStore/fr.ldml	Wed Mar 22 16:17:36 2017 +0100
-+++ b/WritingSystemStore/fr.ldml	Wed Mar 22 17:56:46 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Fri Mar 31 20:04:43 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />

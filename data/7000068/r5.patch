@@ -1,15 +1,77 @@
 # HG changeset patch
 # User Language Forge
-# Date 1490291364 -3600
-#      Thu Mar 23 18:49:24 2017 +0100
+# Date 1490983555 -7200
+#      Fri Mar 31 20:05:55 2017 +0200
 # Branch 7000068
-# Node ID 2f9b910fd465b559339978b03366c2193e933a4e
-# Parent  59710408f98dcd0fa6684208a54e260ffc77bc63
-[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+# Node ID 7e948bdeaa3be62f599fa781c77382a271506fd6
+# Parent  5436f177f0d75fa172135d0949a86749a4b73875
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added, 1 entry deleted
 
-diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
---- a/Linguistics/Lexicon/Lexicon_06.lexdb	Wed Mar 22 17:56:46 2017 +0100
-+++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:49:24 2017 +0100
+diff -r 5436f177f0d7 -r 7e948bdeaa3b Linguistics/Lexicon/Lexicon_02.lexdb
+--- a/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Mar 31 20:04:43 2017 +0200
++++ b/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Mar 31 20:05:55 2017 +0200
+@@ -1,55 +1,2 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon>
+-	<LexEntry
+-		guid="6e24c0b7-6b89-4097-9ddf-79a9e7281e4b">
+-		<DateCreated
+-			val="2017-3-21 17:8:9.236" />
+-		<DateModified
+-			val="2017-3-31 18:4:28.130" />
+-		<DoNotUseForParsing
+-			val="False" />
+-		<HomographNumber
+-			val="0" />
+-		<LexemeForm>
+-			<MoStemAllomorph
+-				guid="a6eafc28-d389-48c8-a46b-197c9839ad89">
+-				<Form>
+-					<AUni
+-						ws="fr">flexmodified</AUni>
+-				</Form>
+-				<IsAbstract
+-					val="False" />
+-				<MorphType>
+-					<objsur
+-						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
+-						t="r" />
+-				</MorphType>
+-			</MoStemAllomorph>
+-		</LexemeForm>
+-		<MorphoSyntaxAnalyses>
+-			<MoStemMsa
+-				guid="a8ab8713-6db3-443b-8a9e-d956bd2c4d9c">
+-				<PartOfSpeech>
+-					<objsur
+-						guid="46e4fe08-ffa0-4c8b-bf98-2c56f38904d9"
+-						t="r" />
+-				</PartOfSpeech>
+-			</MoStemMsa>
+-		</MorphoSyntaxAnalyses>
+-		<Senses>
+-			<ownseq
+-				class="LexSense"
+-				guid="6db6406c-bec9-4173-a464-29fbb5ace2e9">
+-				<Gloss>
+-					<AUni
+-						ws="en">created in FLEx</AUni>
+-				</Gloss>
+-				<MorphoSyntaxAnalysis>
+-					<objsur
+-						guid="a8ab8713-6db3-443b-8a9e-d956bd2c4d9c"
+-						t="r" />
+-				</MorphoSyntaxAnalysis>
+-			</ownseq>
+-		</Senses>
+-	</LexEntry>
+-</Lexicon>
+\ No newline at end of file
++<Lexicon />
+\ No newline at end of file
+diff -r 5436f177f0d7 -r 7e948bdeaa3b Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Fri Mar 31 20:04:43 2017 +0200
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Fri Mar 31 20:05:55 2017 +0200
 @@ -1,2 +1,102 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<Lexicon />
@@ -20,18 +82,18 @@ diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
 +		<DateCreated
 +			val="2017-2-23 16:40:52.81" />
 +		<DateModified
-+			val="2017-3-23 15:21:56.237" />
++			val="2017-3-31 18:5:18.457" />
 +		<DoNotUseForParsing
 +			val="False" />
 +		<Etymology>
 +			<LexEtymology
-+				guid="700f5eca-db76-4190-8fe2-40b0568103b5" />
++				guid="c446a56b-77c1-42e1-ae54-9118bb429533" />
 +		</Etymology>
 +		<HomographNumber
 +			val="0" />
 +		<LexemeForm>
 +			<MoStemAllomorph
-+				guid="68b845a6-d235-4289-85d8-2b2742755404">
++				guid="49a7c8fd-ebf7-4e4c-9486-0acb05f6bfe5">
 +				<Form>
 +					<AUni
 +						ws="fr">lf1modified&lt;br/&gt;</AUni>
@@ -47,7 +109,7 @@ diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
 +		</LexemeForm>
 +		<MorphoSyntaxAnalyses>
 +			<MoStemMsa
-+				guid="74dcbd48-fbbf-4145-adc7-12deb158ca07">
++				guid="a32279f0-d700-43b5-ac95-266e1ff7caa5">
 +				<PartOfSpeech>
 +					<objsur
 +						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
@@ -58,7 +120,7 @@ diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
 +		<Pronunciations>
 +			<ownseq
 +				class="LexPronunciation"
-+				guid="1699ae65-9769-4b82-9f8c-796167d93a1b" />
++				guid="5388cb7d-caa7-412f-9d73-a5315874ff2a" />
 +		</Pronunciations>
 +		<Senses>
 +			<ownseq
@@ -84,7 +146,7 @@ diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
 +						</Example>
 +						<Translations>
 +							<CmTranslation
-+								guid="2dc8ac7d-0692-4459-a2de-b11a033cc96a">
++								guid="7f6242d6-72b8-4c70-a32b-a2d9295bd26b">
 +								<Translation>
 +									<AStr
 +										ws="en">
@@ -103,7 +165,7 @@ diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
 +				</Examples>
 +				<MorphoSyntaxAnalysis>
 +					<objsur
-+						guid="74dcbd48-fbbf-4145-adc7-12deb158ca07"
++						guid="a32279f0-d700-43b5-ac95-266e1ff7caa5"
 +						t="r" />
 +				</MorphoSyntaxAnalysis>
 +				<SemanticDomains>
@@ -116,21 +178,21 @@ diff -r 59710408f98d -r 2f9b910fd465 Linguistics/Lexicon/Lexicon_06.lexdb
 +	</LexEntry>
 +</Lexicon>
 \ No newline at end of file
-diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/en-US.ldml
---- a/WritingSystemStore/en-US.ldml	Wed Mar 22 17:56:46 2017 +0100
-+++ b/WritingSystemStore/en-US.ldml	Thu Mar 23 18:49:24 2017 +0100
+diff -r 5436f177f0d7 -r 7e948bdeaa3b WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Fri Mar 31 20:04:43 2017 +0200
++++ b/WritingSystemStore/en-US.ldml	Fri Mar 31 20:05:55 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
  		<generation
 -			date="2017-03-22T15:17:27" />
-+			date="2017-03-22T16:24:34" />
++			date="2017-03-30T15:39:16" />
  		<language
  			type="en" />
  		<territory
-diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/en.ldml
---- a/WritingSystemStore/en.ldml	Wed Mar 22 17:56:46 2017 +0100
-+++ b/WritingSystemStore/en.ldml	Thu Mar 23 18:49:24 2017 +0100
+diff -r 5436f177f0d7 -r 7e948bdeaa3b WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Fri Mar 31 20:04:43 2017 +0200
++++ b/WritingSystemStore/en.ldml	Fri Mar 31 20:05:55 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
@@ -140,9 +202,9 @@ diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/en.ldml
  		<language
  			type="en" />
  	</identity>
-diff -r 59710408f98d -r 2f9b910fd465 WritingSystemStore/fr.ldml
---- a/WritingSystemStore/fr.ldml	Wed Mar 22 17:56:46 2017 +0100
-+++ b/WritingSystemStore/fr.ldml	Thu Mar 23 18:49:24 2017 +0100
+diff -r 5436f177f0d7 -r 7e948bdeaa3b WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Fri Mar 31 20:04:43 2017 +0200
++++ b/WritingSystemStore/fr.ldml	Fri Mar 31 20:05:55 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />

@@ -1,15 +1,77 @@
 # HG changeset patch
 # User Language Forge
-# Date 1490291498 -3600
-#      Thu Mar 23 18:51:38 2017 +0100
+# Date 1490983692 -7200
+#      Fri Mar 31 20:08:12 2017 +0200
 # Branch 7000069
-# Node ID 90f0610d5df909a74819932f9c611d5187313d9a
-# Parent  f668afab19ae1699248b50d82c4c298d01883408
-[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+# Node ID 161055961fba5dcab1f2220dc8f25e102000c206
+# Parent  384b935204c43c389d42a12c3add96db2a81cfa9
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added, 1 entry deleted
 
-diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
---- a/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:31:58 2017 +0100
-+++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Thu Mar 23 18:51:38 2017 +0100
+diff -r 384b935204c4 -r 161055961fba Linguistics/Lexicon/Lexicon_03.lexdb
+--- a/Linguistics/Lexicon/Lexicon_03.lexdb	Fri Mar 31 20:07:01 2017 +0200
++++ b/Linguistics/Lexicon/Lexicon_03.lexdb	Fri Mar 31 20:08:12 2017 +0200
+@@ -1,55 +1,2 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon>
+-	<LexEntry
+-		guid="257d2a76-bdd3-4fec-af96-2e5666366678">
+-		<DateCreated
+-			val="2017-3-14 16:56:50.590" />
+-		<DateModified
+-			val="2017-3-31 18:6:47.288" />
+-		<DoNotUseForParsing
+-			val="False" />
+-		<HomographNumber
+-			val="0" />
+-		<LexemeForm>
+-			<MoStemAllomorph
+-				guid="5d7d3053-ae50-4ed4-ae00-354022e8ae7a">
+-				<Form>
+-					<AUni
+-						ws="fr">flexmodified</AUni>
+-				</Form>
+-				<IsAbstract
+-					val="False" />
+-				<MorphType>
+-					<objsur
+-						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
+-						t="r" />
+-				</MorphType>
+-			</MoStemAllomorph>
+-		</LexemeForm>
+-		<MorphoSyntaxAnalyses>
+-			<MoStemMsa
+-				guid="080d54ad-ef34-4c8b-9ac9-4eb501162449">
+-				<PartOfSpeech>
+-					<objsur
+-						guid="46e4fe08-ffa0-4c8b-bf98-2c56f38904d9"
+-						t="r" />
+-				</PartOfSpeech>
+-			</MoStemMsa>
+-		</MorphoSyntaxAnalyses>
+-		<Senses>
+-			<ownseq
+-				class="LexSense"
+-				guid="4969f40d-e160-4993-b6db-c7690312cd83">
+-				<Gloss>
+-					<AUni
+-						ws="en">created in FLEx</AUni>
+-				</Gloss>
+-				<MorphoSyntaxAnalysis>
+-					<objsur
+-						guid="080d54ad-ef34-4c8b-9ac9-4eb501162449"
+-						t="r" />
+-				</MorphoSyntaxAnalysis>
+-			</ownseq>
+-		</Senses>
+-	</LexEntry>
+-</Lexicon>
+\ No newline at end of file
++<Lexicon />
+\ No newline at end of file
+diff -r 384b935204c4 -r 161055961fba Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Fri Mar 31 20:07:01 2017 +0200
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Fri Mar 31 20:08:12 2017 +0200
 @@ -1,2 +1,103 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<Lexicon />
@@ -20,19 +82,19 @@ diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
 +		<DateCreated
 +			val="2017-2-23 16:40:52.81" />
 +		<DateModified
-+			val="2017-3-23 17:1:56.504" />
++			val="2017-3-31 18:7:36.646" />
 +		<DoNotUseForParsing
 +			val="False" />
 +		<Etymology>
 +			<ownseq
 +				class="LexEtymology"
-+				guid="c663aa2b-ee6c-44c5-8185-a4bcad1f9c2e" />
++				guid="e0a9b305-dac8-4fdb-a1a3-967414aefa5a" />
 +		</Etymology>
 +		<HomographNumber
 +			val="0" />
 +		<LexemeForm>
 +			<MoStemAllomorph
-+				guid="2d3eaf61-2101-4844-9172-3bfdf990227f">
++				guid="828d0516-4d99-4388-b102-e80d8eaa288e">
 +				<Form>
 +					<AUni
 +						ws="fr">lf1modified&lt;br/&gt;</AUni>
@@ -48,7 +110,7 @@ diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
 +		</LexemeForm>
 +		<MorphoSyntaxAnalyses>
 +			<MoStemMsa
-+				guid="f9d9cc88-fe17-406e-b32c-78db22350638">
++				guid="316ca58a-0209-4708-be4a-23d624903950">
 +				<PartOfSpeech>
 +					<objsur
 +						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
@@ -59,7 +121,7 @@ diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
 +		<Pronunciations>
 +			<ownseq
 +				class="LexPronunciation"
-+				guid="7c2cb7db-dab1-4332-9ca7-295e80393d83" />
++				guid="8ddc322f-2867-4442-a293-0e044e7ebb9f" />
 +		</Pronunciations>
 +		<Senses>
 +			<ownseq
@@ -85,7 +147,7 @@ diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
 +						</Example>
 +						<Translations>
 +							<CmTranslation
-+								guid="ded66ab2-bb8d-4544-bb32-238d2adda29d">
++								guid="4d4f6fdf-f70b-49af-87be-1ecd74537c55">
 +								<Translation>
 +									<AStr
 +										ws="en">
@@ -104,7 +166,7 @@ diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
 +				</Examples>
 +				<MorphoSyntaxAnalysis>
 +					<objsur
-+						guid="f9d9cc88-fe17-406e-b32c-78db22350638"
++						guid="316ca58a-0209-4708-be4a-23d624903950"
 +						t="r" />
 +				</MorphoSyntaxAnalysis>
 +				<SemanticDomains>
@@ -117,15 +179,51 @@ diff -r f668afab19ae -r 90f0610d5df9 Linguistics/Lexicon/Lexicon_06.lexdb
 +	</LexEntry>
 +</Lexicon>
 \ No newline at end of file
-diff -r f668afab19ae -r 90f0610d5df9 WritingSystemStore/en-US.ldml
---- a/WritingSystemStore/en-US.ldml	Thu Mar 23 18:31:58 2017 +0100
-+++ b/WritingSystemStore/en-US.ldml	Thu Mar 23 18:51:38 2017 +0100
+diff -r 384b935204c4 -r 161055961fba WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Fri Mar 31 20:07:01 2017 +0200
++++ b/WritingSystemStore/en-US.ldml	Fri Mar 31 20:08:12 2017 +0200
 @@ -4,7 +4,7 @@
  		<version
  			number="" />
  		<generation
--			date="2017-03-22T15:25:42" />
-+			date="2017-03-22T16:24:34" />
+-			date="2017-03-22T15:23:44" />
++			date="2017-03-30T15:39:16" />
  		<language
  			type="en" />
  		<territory
+diff -r 384b935204c4 -r 161055961fba WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Fri Mar 31 20:07:01 2017 +0200
++++ b/WritingSystemStore/en.ldml	Fri Mar 31 20:08:12 2017 +0200
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-23T16:22:56" />
++			date="2017-03-23T17:08:38" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 384b935204c4 -r 161055961fba WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Fri Mar 31 20:07:01 2017 +0200
++++ b/WritingSystemStore/es.ldml	Fri Mar 31 20:08:12 2017 +0200
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-23T16:22:56" />
++			date="2017-03-23T17:08:38" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+diff -r 384b935204c4 -r 161055961fba WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Fri Mar 31 20:07:01 2017 +0200
++++ b/WritingSystemStore/fr.ldml	Fri Mar 31 20:08:12 2017 +0200
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-03-23T16:22:56" />
++			date="2017-03-23T17:08:38" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
