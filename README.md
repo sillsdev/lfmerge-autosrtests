@@ -9,6 +9,34 @@ and the mongo database will be restored during a test run.
 The data is stored as patch files rather than in binary format so that it is
 possible to easily see the difference between two versions of the test data.
 
+## Creating new tests - using guided tool
+
+### Prerequisites
+
+- local LanguageForge accessible at `http://languageforge.local/`
+- FieldWorks executable for all model versions: checkout FW source code for
+  _modelVersion_, build FW, then copy the `Output_x86_64/` and `DistFiles`
+  directories to `Output<modelVersion>/`, e.g. `Output7000068/` (you can omit
+  `DistFiles/{ReleaseData,Helps,Projects,Language Explorer/Movies}`)
+- Install `flexbridge` either in `/usr/lib/flexbridge`, or create a symlink
+  named `flexbridge` in `Ouput<modelVersion>/Output_$(uname -m)` that points
+  to your `flexbridge` directory
+
+NOTE: in order to be able to run multiple FW versions from different directories
+without having to checkout the corresponding source code version, I had to delete
+various `values.xml` files in `~/.mono/registry/CurrentUser/software/sil` and
+manually add an entry for `RootCodeDir` pointing to `Output<modelVersion>/DistFiles`
+to `Output<modelVersion>/Output_x86_64/registry/LocalMachine/software/sil/fieldworks/8/values.xml`
+
+### Creating new test data
+
+The `TestUtil` test utility has a wizard mode that guides through the steps
+necessary to create test data for a new unit test (with a USB stick mounted at
+`/media/$USER/MyUsbStick`):
+
+	mono --debug TestUtil.exe wizard --mongo=2 --ld=2 --project autosrtests \
+		--fwroot=$HOME/fwrepo/fw --usb /media/$USER/MyUsbStick --msg "new test"
+
 ## Creating new tests - semi-automated way
 
 ### Restore existing Chorus repo
@@ -84,7 +112,7 @@ and LF, then export the changes and write the unit test.
 2. Copy the `.hg` subdirectory from `/tmp/testdata/LanguageDepot` to the USB stick
 
 
-	cp -a /tmp/testdata/LanguageDepot/.hg /media/username/USBstick/test-7000068
+	cp -a /tmp/testdata/LanguageDepot/.hg /media/$USER/USBstick/test-7000068
 
 3. In FW get the testproject from the USB stick. This might involve deleting the
    existing project in FW. If you re-use the existing project make sure that later

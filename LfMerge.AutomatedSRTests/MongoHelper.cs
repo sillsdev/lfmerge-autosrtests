@@ -185,7 +185,7 @@ namespace LfMerge.AutomatedSRTests
 
 		private string DbName { get; }
 
-		private static string Run(string command, string args, string workDir, bool throwException = true)
+		private static string Run(string command, string args, string workDir, bool throwException = true, bool ignoreErrors = false)
 		{
 			//Console.WriteLine();
 			//Console.WriteLine($"Running command: {command} {args}");
@@ -233,7 +233,10 @@ namespace LfMerge.AutomatedSRTests
 					if (process.ExitCode == 0)
 						return output.ToString();
 
-					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n{stderr}";
+					if (ignoreErrors)
+						return string.Empty;
+
+					var msg = $"Running '{command} {args}'\nreturned {process.ExitCode}.\nStderr:\n{stderr}\nOutput:\n{output}";
 					if (throwException)
 						throw new ApplicationException(msg);
 
@@ -247,11 +250,11 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var projectCode = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
 			var workDir = Path.Combine(Settings.TempDir, "patches");
-			Run("mongo", $"{DbName} --eval 'db.dropDatabase()'", workDir, false);
+			Run("mongo", $"{DbName} --eval 'db.dropDatabase()'", workDir, false, true);
 			Run("mongo",
 				$"--host {Settings.MongoHostName} --port {Settings.MongoPort} " +
 				$"scriptureforge --eval 'db.projects.remove({{ \"projectName\" : \"{projectCode}\" }})'",
-				workDir, false);
+				workDir, false, true);
 		}
 	}
 }

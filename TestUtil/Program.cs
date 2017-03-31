@@ -5,7 +5,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
-using CommandLine;
 using LfMerge.AutomatedSRTests;
 using Palaso.IO;
 using Palaso.Linq;
@@ -29,7 +28,8 @@ namespace LfMerge.TestUtil
 				case "restore":
 					var restoreOptions = tuple.Item2 as Options.RestoreOptions;
 					if (restoreOptions.LanguageDepotVersion.HasValue &&
-						string.IsNullOrEmpty(restoreOptions.WorkDir))
+						(string.IsNullOrEmpty(restoreOptions.WorkDir) ||
+							string.IsNullOrEmpty(restoreOptions.ModelVersion)))
 					{
 						Console.WriteLine(restoreOptions.GetUsage());
 						return;
@@ -40,7 +40,8 @@ namespace LfMerge.TestUtil
 				case "save":
 					var saveOptions = tuple.Item2 as Options.SaveOptions;
 					if (saveOptions.SaveLanguageDepot &&
-						string.IsNullOrEmpty(saveOptions.WorkDir))
+						(string.IsNullOrEmpty(saveOptions.WorkDir) ||
+							string.IsNullOrEmpty(saveOptions.ModelVersion)))
 					{
 						Console.WriteLine(saveOptions.GetUsage());
 						return;
@@ -50,7 +51,8 @@ namespace LfMerge.TestUtil
 					break;
 				case "merge":
 					var mergeOptions = tuple.Item2 as Options.MergeOptions;
-					if (string.IsNullOrEmpty(mergeOptions.WorkDir))
+					if (string.IsNullOrEmpty(mergeOptions.WorkDir) ||
+						string.IsNullOrEmpty(mergeOptions.ModelVersion))
 					{
 						{
 							Console.WriteLine(mergeOptions.GetUsage());
@@ -59,6 +61,11 @@ namespace LfMerge.TestUtil
 					}
 
 					Merge(mergeOptions);
+					break;
+				case "wizard":
+					var wizardOptions = tuple.Item2 as Options.WizardOptions;
+
+					Wizard(wizardOptions);
 					break;
 			}
 
@@ -112,6 +119,89 @@ namespace LfMerge.TestUtil
 			};
 			SaveLanguageDepot(saveOptions);
 			SaveMongoDb(saveOptions);
+		}
+
+		private static void Wizard(Options.WizardOptions wizardOptions)
+		{
+			var workdir = wizardOptions.WorkDir;
+			for (var modelVersion = Tests.MinVersion; modelVersion <= Tests.MaxVersion; modelVersion++)
+			{
+				Console.WriteLine("--------------------------------------------------------------");
+				Console.WriteLine($"Processing model version {modelVersion}");
+
+				if (string.IsNullOrEmpty(workdir))
+				{
+					wizardOptions.WorkDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+					Settings.TempDir = wizardOptions.WorkDir;
+					Directory.CreateDirectory(wizardOptions.WorkDir);
+				}
+
+				wizardOptions.ModelVersion = modelVersion.ToString();
+				var outputDir = Path.Combine(wizardOptions.FwRoot, $"Output{modelVersion}");
+				if (!Directory.Exists(outputDir))
+				{
+					Console.WriteLine($"Can't find FW output directory {outputDir}");
+					continue;
+				}
+				if (!File.Exists(Path.Combine(outputDir, "fwenviron")))
+					File.Copy(Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location),
+						"fwenviron"), Path.Combine(outputDir, "fwenviron"));
+
+				Console.WriteLine($"Restoring version {wizardOptions.LanguageDepotVersion} " +
+					$"of chorus repo for model {modelVersion}");
+				RestoreLanguageDepot(new Options.RestoreOptions(wizardOptions));
+				DirectoryUtilities.CopyDirectoryWithException(Path.Combine(wizardOptions.WorkDir, "LanguageDepot", ".hg"),
+					Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"), true);
+				// Delete FW project
+				DirectoryUtilities.DeleteDirectoryRobust(
+					Path.Combine(wizardOptions.FwProjectDirectory, $"test-{modelVersion}"));
+
+				Console.WriteLine($"Now get project 'test-{modelVersion}' from USB stick and make changes and afterwards do a s/r with the USB stick.");
+				// for whatever reason we have to pass -i, otherwise 7000069 won't be able to bring
+				// up the s/r dialog!
+				Run("/bin/bash", $"-i -c \"cd {outputDir} && . fwenviron && env && cd Output_$(uname -m)/Debug && mono --debug FieldWorks.exe > /dev/null\"",
+					outputDir);
+
+				Console.WriteLine($"Saving chorus repo test data for {modelVersion}");
+				DirectoryUtilities.CopyDirectoryWithException(
+					Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"),
+					Path.Combine(wizardOptions.WorkDir, "LanguageDepot", ".hg"), true);
+				SaveLanguageDepot(new Options.SaveOptions(wizardOptions)
+				{
+					WorkDir = null,
+					CommitMsg = wizardOptions.CommitMsg ?? "New test data"
+				});
+
+				Console.WriteLine($"Restoring LanguageForge mongo data version {wizardOptions.MongoVersion} for model {modelVersion}");
+				RestoreMongoDb(new Options.RestoreOptions(wizardOptions));
+
+				Console.WriteLine("Now make the changes in your local LanguageForge, then press" +
+					" return. Don't do a send/receive!");
+				Console.WriteLine("(You might have to empty the cached IndexedDB data in your " +
+					"browser's developer tools)");
+				Run("/bin/bash", "-c \"xdg-open http://languageforge.local/app/projects\"", outputDir);
+				Console.ReadLine();
+
+				Console.WriteLine($"Saving LanguageForge test data for {modelVersion}");
+				SaveMongoDb(new Options.SaveOptions(wizardOptions)
+				{
+					CommitMsg = wizardOptions.CommitMsg ?? "New test data"
+				});
+
+				// Merge the data we just created
+				Console.WriteLine($"Merge test data for {modelVersion}");
+				Merge(new Options.MergeOptions(wizardOptions)
+				{
+					LanguageDepotVersion = wizardOptions.LanguageDepotVersion + 1,
+					MongoVersion = wizardOptions.MongoVersion + 1
+				});
+
+				if (string.IsNullOrEmpty(workdir))
+				{
+					// we created a temporary workdir, so delete it again
+					DirectoryUtilities.DeleteDirectoryRobust(wizardOptions.WorkDir);
+				}
+			}
 		}
 
 		private static void SaveLanguageDepot(Options.SaveOptions options)
@@ -234,7 +324,7 @@ namespace LfMerge.TestUtil
 					if (process.ExitCode == 0)
 						return output.ToString();
 
-					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n${stderr}";
+					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n{stderr}\nOutput:\n{output}";
 					throw new ApplicationException(msg);
 				}
 			}

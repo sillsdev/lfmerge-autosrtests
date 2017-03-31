@@ -1,6 +1,7 @@
 // Copyright (c) 2017 SIL International
 // This software is licensed under the MIT License (http://opensource.org/licenses/MIT)
 using System;
+using System.IO;
 using CommandLine;
 using CommandLine.Text;
 
@@ -25,7 +26,7 @@ namespace LfMerge.TestUtil
 			[Option("workdir", HelpText = "Where to create/find the test repo")]
 			public string WorkDir { get; set; }
 
-			[Option("model", HelpText = "FW model version", Required = true)]
+			[Option("model", HelpText = "FW model version")]
 			public string ModelVersion { get; set; }
 
 			[Option("project", HelpText = "Project name", Required = true)]
@@ -89,6 +90,17 @@ namespace LfMerge.TestUtil
 
 		public class MergeOptions : CommonOptions
 		{
+			public MergeOptions()
+			{
+			}
+
+			public MergeOptions(MergeOptions other) : base(other)
+			{
+				LanguageDepotVersion = other.LanguageDepotVersion;
+				MongoVersion = other.MongoVersion;
+				CommitMsg = other.CommitMsg;
+			}
+
 			[Option("ld", Required = true, HelpText = "Version of simulated LD repo to restore")]
 			public int LanguageDepotVersion { get; set; }
 
@@ -104,6 +116,33 @@ namespace LfMerge.TestUtil
 			}
 		}
 
+		public class WizardOptions : MergeOptions
+		{
+			private string _fwProjectDirectory;
+
+			[Option("usb", Required = true, HelpText = "Directory where USB stick is mounted, e.g. /media/$USER/MyUsbStick")]
+			public string UsbDirectory { get; set; }
+
+			[Option("fwprojects", HelpText = "Directory where FW projects are stored. Default: $FWROOT/DistFiles/Projects")]
+			public string FwProjectDirectory
+			{
+				get
+				{
+					return string.IsNullOrEmpty(_fwProjectDirectory) ?
+						Path.Combine(FwRoot, "DistFiles", "Projects") : _fwProjectDirectory;
+				}
+				set { _fwProjectDirectory = value; }
+			}
+
+			[Option("fwroot", Required = true, HelpText = "FW root directory, e.g. $HOME/fwrepo/fw")]
+			public string FwRoot { get; set; }
+
+			public override string GetUsage()
+			{
+				return Parent.GetUsage("wizard");
+			}
+		}
+
 		[VerbOption("restore", HelpText = "Restore the test data")]
 		public RestoreOptions RestoreVerb { get; set;  }
 
@@ -112,6 +151,9 @@ namespace LfMerge.TestUtil
 
 		[VerbOption("merge", HelpText = "Merge the test data and save new patches for the merged version for both LD and Mongo data")]
 		public MergeOptions MergeVerb { get; set;  }
+
+		[VerbOption("wizard", HelpText = "Guide through the steps necessary to create test data for all supported model versions")]
+		public WizardOptions WizardVerb { get; set;  }
 
 		[HelpOption("help")]
 		public string GetUsage()
