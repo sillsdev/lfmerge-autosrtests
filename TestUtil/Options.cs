@@ -18,6 +18,7 @@ namespace LfMerge.TestUtil
 			protected CommonOptions(CommonOptions other)
 			{
 				WorkDir = other.WorkDir;
+				DataDir = other.DataDir;
 				ModelVersion = other.ModelVersion;
 				Project = other.Project;
 				Parent = other.Parent;
