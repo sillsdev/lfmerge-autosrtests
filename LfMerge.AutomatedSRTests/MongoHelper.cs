@@ -116,10 +116,15 @@ namespace LfMerge.AutomatedSRTests
 				$"--db scriptureforge --collection projects --query '{{ \"projectName\" : \"{project}\" }}'",
 				mongoSourceDir);
 			WriteJson(file, content);
+			Run("git", $"add {file}", mongoSourceDir);
 
 			ExportCollection("activity", modelVersion);
 			ExportCollection("lexicon", modelVersion);
 			ExportCollection("optionlists", modelVersion);
+
+			AddCollectionToGit("activity", modelVersion);
+			AddCollectionToGit("lexicon", modelVersion);
+			AddCollectionToGit("optionlists", modelVersion);
 
 			Run("git", $"commit -a -m \"{msg}\"", mongoSourceDir);
 			Run("git", $"format-patch -1 -o {patchDir} --start-number {startNumber}", mongoSourceDir);
@@ -158,6 +163,13 @@ namespace LfMerge.AutomatedSRTests
 				$"--collection {collection}",
 				mongoSourceDir);
 			WriteJson(file, content);
+		}
+
+		private void AddCollectionToGit(string collection, string modelVersion)
+		{
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			var file = Path.Combine(mongoSourceDir, $"{DbName}.{collection}.json");
+			Run("git", $"add {file}", mongoSourceDir);
 		}
 
 		public static string GetMongoPatchDir(string modelVersion)
