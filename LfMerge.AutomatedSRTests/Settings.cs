@@ -23,8 +23,16 @@ namespace LfMerge.AutomatedSRTests
 			set { _tempDir = value; }
 		}
 
+		private static string _dataDirName;
+
+		public static string DataDirName
+		{
+			get { return string.IsNullOrEmpty(_dataDirName) ? "data" : _dataDirName; }
+			set { _dataDirName = value; }
+		}
+
 		public static string DataDir =>
-			Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, "data");
+			Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, DataDirName);
 
 		public static void Cleanup()
 		{

@@ -21,6 +21,12 @@ namespace LfMerge.TestUtil
 			if (tuple.Item1 == null)
 				return;
 
+			var commonOptions = tuple.Item2 as Options.CommonOptions;
+			if (commonOptions?.DataDir != null)
+			{
+				Settings.DataDirName = commonOptions.DataDir;
+			}
+
 			var verb = tuple.Item1;
 
 			switch (verb)
