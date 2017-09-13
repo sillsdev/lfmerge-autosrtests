@@ -26,6 +26,9 @@ namespace LfMerge.TestUtil
 			[Option("workdir", HelpText = "Where to create/find the test repo")]
 			public string WorkDir { get; set; }
 
+			[Option("datadir", HelpText = "Where to store/find the split-up revision files (default \"data\")")]
+			public string WorkDir { get; set; }
+
 			[Option("model", HelpText = "FW model version")]
 			public string ModelVersion { get; set; }
 
