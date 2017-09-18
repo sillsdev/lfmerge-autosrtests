@@ -1,0 +1,447 @@
+From e961971ec2774fbfc26b87336e1235d1ed2c23f0 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 25 Sep 2017 13:11:21 +0700
+Subject: [PATCH] Initial commit of Mongo data
+
+---
+ sf_test-comment-sr.activity.json        |   9 ++
+ sf_test-comment-sr.json                 | 266 ++++++++++++++++++++++++++++++++
+ sf_test-comment-sr.lexicon.json         |   0
+ sf_test-comment-sr.lexiconComments.json |   0
+ sf_test-comment-sr.optionlists.json     | 127 +++++++++++++++
+ 5 files changed, 402 insertions(+)
+ create mode 100644 sf_test-comment-sr.activity.json
+ create mode 100644 sf_test-comment-sr.json
+ create mode 100644 sf_test-comment-sr.lexicon.json
+ create mode 100644 sf_test-comment-sr.lexiconComments.json
+ create mode 100644 sf_test-comment-sr.optionlists.json
+
+diff --git a/sf_test-comment-sr.activity.json b/sf_test-comment-sr.activity.json
+new file mode 100644
+index 0000000..e60a15d
+--- /dev/null
++++ b/sf_test-comment-sr.activity.json
+@@ -0,0 +1,9 @@
++{"_id":{"$oid":"59c89d56973e3162f531d594"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"userRef2":null,"entryRef":null,"action":"add_user_to_project","actionContent":{"project":"test-comment-sr","user":"rmunn"}
++,"date":{"$date":"2017-09-25T06:08:22.000Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:22.655Z"}
++,"dateCreated":{"$date":"2017-09-25T06:08:22.655Z"}
++}
++
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+new file mode 100644
+index 0000000..9871249
+--- /dev/null
++++ b/sf_test-comment-sr.json
+@@ -0,0 +1,266 @@
++{"_id":{"$oid":"59c89d56973e3162f531d592"}
++,"ownerRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"projectName":"test-comment-sr","interfaceLanguageCode":"en","language":null,"users":{"526a114756dd858f3955a9e7":{"role":"project_manager"}
++}
++,"userJoinRequests":{}
++,"projectCode":"test-comment-sr","featured":null,"allowAudioDownload":true,"allowInviteAFriend":true,"isArchived":false,"userProperties":{"userProfilePickLists":{"city":{"name":"Location","items":[],"defaultKey":null}
++,"preferredBibleVersion":{"name":"Preferred Bible Version","items":[],"defaultKey":null}
++,"religiousAffiliation":{"name":"Religious Affiliation","items":[],"defaultKey":null}
++,"studyGroup":{"name":"Study Group","items":[],"defaultKey":null}
++,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
++}
++,"userProfilePropertiesEnabled":[]}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T06:08:52.893Z"}
++,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
++,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
++,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
++}
++,"config":{"tasks":{"view":{"visible":true,"type":""}
++,"dashboard":{"visible":true,"type":""}
++,"gatherTexts":{"visible":true,"type":""}
++,"semdom":{"visible":true,"type":""}
++,"wordlist":{"visible":true,"type":""}
++,"dbe":{"visible":true,"type":""}
++,"addMeanings":{"visible":true,"type":""}
++,"addGrammar":{"visible":true,"type":""}
++,"addExamples":{"visible":true,"type":""}
++,"review":{"visible":true,"type":""}
++,"importExport":{"visible":true,"type":""}
++,"configuration":{"visible":true,"type":""}
++}
++,"entry":{"fieldOrder":["lexeme","citationForm","pronunciation","cvPattern","tone","location","etymology","etymologyGloss","etymologyComment","etymologySource","note","literalMeaning","entryBibliography","entryRestrictions","summaryDefinition","entryImportResidue","senses"],"fields":{"lexeme":{"width":20,"inputSystems":["fr"],"displayMultiline":false,"type":"multitext","label":"Word","hideIfEmpty":false}
++,"senses":{"fieldOrder":["definition","gloss","pictures","partOfSpeech","semanticDomain","scientificName","anthropologyNote","senseBibliography","discourseNote","encyclopedicNote","generalNote","grammarNote","phonologyNote","senseRestrictions","semanticsNote","sociolinguisticsNote","source","usages","senseType","academicDomains","anthropologyCategories","senseImportResidue","status","examples"],"fields":{"definition":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Definition","hideIfEmpty":false}
++,"partOfSpeech":{"listCode":"grammatical-info","type":"optionlist","label":"Part of Speech","hideIfEmpty":null}
++,"semanticDomain":{"listCode":"semantic-domain-ddp4","type":"multioptionlist","label":"Semantic Domain","hideIfEmpty":null}
++,"examples":{"fieldOrder":["sentence","translation","reference"],"fields":{"sentence":{"width":20,"inputSystems":["fr"],"displayMultiline":false,"type":"multitext","label":"Sentence","hideIfEmpty":false}
++,"translation":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Translation","hideIfEmpty":false}
++,"reference":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Reference","hideIfEmpty":true}
++}
++,"type":"fields","label":"","hideIfEmpty":false}
++,"gloss":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Gloss","hideIfEmpty":true}
++,"pictures":{"captionLabel":"Captions","captionHideIfEmpty":true,"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"pictures","label":"Pictures","hideIfEmpty":true}
++,"scientificName":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Scientific Name","hideIfEmpty":true}
++,"anthropologyNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Anthropology Note","hideIfEmpty":true}
++,"senseBibliography":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Bibliography","hideIfEmpty":true}
++,"discourseNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Discourse Note","hideIfEmpty":true}
++,"encyclopedicNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Encyclopedic Note","hideIfEmpty":true}
++,"generalNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"General Note","hideIfEmpty":true}
++,"grammarNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Grammar Note","hideIfEmpty":true}
++,"phonologyNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Phonology Note","hideIfEmpty":true}
++,"senseRestrictions":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Restrictions","hideIfEmpty":true}
++,"semanticsNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Semantics Note","hideIfEmpty":true}
++,"sociolinguisticsNote":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Sociolinguistics Note","hideIfEmpty":true}
++,"source":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Source","hideIfEmpty":true}
++,"usages":{"listCode":"usage-type","type":"multioptionlist","label":"Usages","hideIfEmpty":true}
++,"senseType":{"listCode":"sense-type","type":"optionlist","label":"Type","hideIfEmpty":true}
++,"academicDomains":{"listCode":"domain-type","type":"multioptionlist","label":"Academic Domains","hideIfEmpty":true}
++,"anthropologyCategories":{"listCode":"anthro-code","type":"multioptionlist","label":"Anthropology Categories","hideIfEmpty":true}
++,"senseImportResidue":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Import Residue","hideIfEmpty":true}
++,"status":{"listCode":"status","type":"optionlist","label":"Status","hideIfEmpty":true}
++}
++,"type":"fields","label":"","hideIfEmpty":false}
++,"citationForm":{"width":20,"inputSystems":["fr"],"displayMultiline":false,"type":"multitext","label":"Citation Form","hideIfEmpty":true}
++,"pronunciation":{"width":20,"inputSystems":["fr"],"displayMultiline":false,"type":"multitext","label":"Pronunciation","hideIfEmpty":true}
++,"cvPattern":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"CV Pattern","hideIfEmpty":true}
++,"tone":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Tone","hideIfEmpty":true}
++,"location":{"listCode":"location","type":"optionlist","label":"Location","hideIfEmpty":true}
++,"etymology":{"width":20,"inputSystems":["fr"],"displayMultiline":false,"type":"multitext","label":"Etymology","hideIfEmpty":true}
++,"etymologyGloss":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Etymology Gloss","hideIfEmpty":true}
++,"etymologyComment":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Etymology Comment","hideIfEmpty":true}
++,"etymologySource":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Etymology Source","hideIfEmpty":true}
++,"note":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Note","hideIfEmpty":true}
++,"literalMeaning":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Literal Meaning","hideIfEmpty":true}
++,"entryBibliography":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Bibliography","hideIfEmpty":true}
++,"entryRestrictions":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Restrictions","hideIfEmpty":true}
++,"summaryDefinition":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Summary Definition","hideIfEmpty":true}
++,"entryImportResidue":{"width":20,"inputSystems":["en"],"displayMultiline":false,"type":"multitext","label":"Import Residue","hideIfEmpty":true}
++}
++,"type":"fields","label":"","hideIfEmpty":false}
++,"roleViews":{"observer":{"fields":{"lexeme":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"definition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"partOfSpeech":{"show":true,"type":"basic"}
++,"semanticDomain":{"show":true,"type":"basic"}
++,"sentence":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"translation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"gloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pictures":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"citationForm":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pronunciation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"cvPattern":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"tone":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"location":{"show":true,"type":"basic"}
++,"etymology":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyGloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyComment":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologySource":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"note":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"literalMeaning":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"summaryDefinition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"scientificName":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"anthropologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"discourseNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"encyclopedicNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"generalNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"grammarNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"phonologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"semanticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"sociolinguisticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"source":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"usages":{"show":true,"type":"basic"}
++,"senseType":{"show":true,"type":"basic"}
++,"academicDomains":{"show":true,"type":"basic"}
++,"anthropologyCategories":{"show":true,"type":"basic"}
++,"senseImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"status":{"show":true,"type":"basic"}
++,"reference":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++}
++,"showTasks":{"view":true,"dashboard":true,"gatherTexts":false,"semdom":false,"wordlist":false,"dbe":true,"addMeanings":false,"addGrammar":false,"addExamples":false,"review":false}
++}
++,"observer_with_comment":{"fields":{"lexeme":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"definition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"partOfSpeech":{"show":true,"type":"basic"}
++,"semanticDomain":{"show":true,"type":"basic"}
++,"sentence":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"translation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"gloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pictures":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"citationForm":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pronunciation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"cvPattern":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"tone":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"location":{"show":true,"type":"basic"}
++,"etymology":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyGloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyComment":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologySource":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"note":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"literalMeaning":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"summaryDefinition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"scientificName":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"anthropologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"discourseNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"encyclopedicNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"generalNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"grammarNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"phonologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"semanticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"sociolinguisticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"source":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"usages":{"show":true,"type":"basic"}
++,"senseType":{"show":true,"type":"basic"}
++,"academicDomains":{"show":true,"type":"basic"}
++,"anthropologyCategories":{"show":true,"type":"basic"}
++,"senseImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"status":{"show":true,"type":"basic"}
++,"reference":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++}
++,"showTasks":{"view":true,"dashboard":true,"gatherTexts":false,"semdom":false,"wordlist":false,"dbe":true,"addMeanings":false,"addGrammar":false,"addExamples":false,"review":false}
++}
++,"contributor":{"fields":{"lexeme":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"definition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"partOfSpeech":{"show":true,"type":"basic"}
++,"semanticDomain":{"show":true,"type":"basic"}
++,"sentence":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"translation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"gloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pictures":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"citationForm":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pronunciation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"cvPattern":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"tone":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"location":{"show":true,"type":"basic"}
++,"etymology":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyGloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyComment":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologySource":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"note":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"literalMeaning":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"summaryDefinition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"scientificName":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"anthropologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"discourseNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"encyclopedicNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"generalNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"grammarNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"phonologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"semanticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"sociolinguisticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"source":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"usages":{"show":true,"type":"basic"}
++,"senseType":{"show":true,"type":"basic"}
++,"academicDomains":{"show":true,"type":"basic"}
++,"anthropologyCategories":{"show":true,"type":"basic"}
++,"senseImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"status":{"show":true,"type":"basic"}
++,"reference":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++}
++,"showTasks":{"view":true,"dashboard":true,"gatherTexts":false,"semdom":false,"wordlist":false,"dbe":true,"addMeanings":true,"addGrammar":true,"addExamples":true,"review":false}
++}
++,"project_manager":{"fields":{"lexeme":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"definition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"partOfSpeech":{"show":true,"type":"basic"}
++,"semanticDomain":{"show":true,"type":"basic"}
++,"sentence":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"translation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"gloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pictures":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"citationForm":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"pronunciation":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"cvPattern":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"tone":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"location":{"show":true,"type":"basic"}
++,"etymology":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyGloss":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologyComment":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"etymologySource":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"note":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"literalMeaning":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"summaryDefinition":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"entryImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"scientificName":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"anthropologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseBibliography":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"discourseNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"encyclopedicNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"generalNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"grammarNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"phonologyNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"senseRestrictions":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"semanticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"sociolinguisticsNote":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"source":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"usages":{"show":true,"type":"basic"}
++,"senseType":{"show":true,"type":"basic"}
++,"academicDomains":{"show":true,"type":"basic"}
++,"anthropologyCategories":{"show":true,"type":"basic"}
++,"senseImportResidue":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++,"status":{"show":true,"type":"basic"}
++,"reference":{"overrideInputSystems":false,"inputSystems":[],"show":true,"type":"multitext"}
++}
++,"showTasks":{"view":true,"dashboard":true,"gatherTexts":true,"semdom":true,"wordlist":true,"dbe":true,"addMeanings":true,"addGrammar":true,"addExamples":true,"review":true}
++}
++}
++,"userViews":{}
++}
++,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
++,"lastSyncedDate":{"$date":"2017-09-25T06:08:52.923Z"}
++,"lastEntryModifiedDate":{"$date":"1970-01-01T00:00:01.000Z"}
++,"languageCode":"fr"}
++
+diff --git a/sf_test-comment-sr.lexicon.json b/sf_test-comment-sr.lexicon.json
+new file mode 100644
+index 0000000..e69de29
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+new file mode 100644
+index 0000000..e69de29
+diff --git a/sf_test-comment-sr.optionlists.json b/sf_test-comment-sr.optionlists.json
+new file mode 100644
+index 0000000..7682168
+--- /dev/null
++++ b/sf_test-comment-sr.optionlists.json
+@@ -0,0 +1,127 @@
++{"_id":{"$oid":"59c89d56973e3162f531d593"}
++,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
++,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
++,{"guid":"a4fc78d6-7591-4fb3-8edd-82f10ae3739d","key":"pro-form","value":"Pro-form","abbreviation":"pro-form"}
++,{"guid":"a3274cfd-225f-45fd-8851-a7b1a1e1037a","key":"pro1","value":"Pronoun","abbreviation":"pro"}
++,{"guid":"86ff66f6-0774-407a-a0dc-3eeaf873daf7","key":"v1","value":"Verb","abbreviation":"v"}
++],"canDelete":false,"dateModified":{"$date":"2017-09-25T06:08:51.962Z"}
++,"dateCreated":{"$date":"2017-09-25T06:08:22.544Z"}
++}
++
++{"_id":{"$oid":"59c89d74ef72839b2c0b6246"}
++,"code":"domain-type","name":"Academic Domains","dateCreated":{"$date":"2017-09-25T06:08:52.650Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.667Z"}
++,"items":[{"guid":"b0add746-ea5e-11de-8c5c-0013722f8dec","key":"Anat","value":"anatomy","abbreviation":"Anat"}
++,{"guid":"b0b9c2fe-ea5e-11de-8fed-0013722f8dec","key":"Anthro","value":"anthropology","abbreviation":"Anthro"}
++,{"guid":"b0c5aeac-ea5e-11de-9463-0013722f8dec","key":"Cult anthro","value":"cultural anthropology","abbreviation":"Cult anthro"}
++,{"guid":"b0cf380a-ea5e-11de-898a-0013722f8dec","key":"crclt adapt","value":"cross cultural adaptation","abbreviation":"crclt adapt"}
++,{"guid":"b0db23c2-ea5e-11de-9597-0013722f8dec","key":"Artintel","value":"artificial intelligence","abbreviation":"Artintel"}
++,{"guid":"b0e70f70-ea5e-11de-9907-0013722f8dec","key":"Comp sci","value":"computer science","abbreviation":"Comp sci"}
++,{"guid":"b0f098ce-ea5e-11de-84f4-0013722f8dec","key":"Ed","value":"education","abbreviation":"Ed"}
++,{"guid":"b0fc847c-ea5e-11de-85e8-0013722f8dec","key":"Graph","value":"graphology","abbreviation":"Graph"}
++,{"guid":"b1087034-ea5e-11de-940d-0013722f8dec","key":"lang lrn","value":"language learning","abbreviation":"lang lrn"}
++,{"guid":"b111f992-ea5e-11de-98c0-0013722f8dec","key":"Leg","value":"legal","abbreviation":"Leg"}
++,{"guid":"b11de540-ea5e-11de-885c-0013722f8dec","key":"Ling","value":"linguistics","abbreviation":"Ling"}
++,{"guid":"b129d0f8-ea5e-11de-89f6-0013722f8dec","key":"App ling","value":"applied linguistics","abbreviation":"App ling"}
++,{"guid":"b1335a56-ea5e-11de-89ea-0013722f8dec","key":"Comp ling","value":"comparative linguistics","abbreviation":"Comp ling"}
++,{"guid":"b13f4604-ea5e-11de-8579-0013722f8dec","key":"Gramm","value":"grammar","abbreviation":"Gramm"}
++,{"guid":"b14b31bc-ea5e-11de-8e9e-0013722f8dec","key":"Disc","value":"discourse","abbreviation":"Disc"}
++,{"guid":"b154bb10-ea5e-11de-8787-0013722f8dec","key":"Morph","value":"morphology","abbreviation":"Morph"}
++,{"guid":"b160a6c8-ea5e-11de-96ff-0013722f8dec","key":"Synt","value":"syntax","abbreviation":"Synt"}
++,{"guid":"b16c9276-ea5e-11de-9805-0013722f8dec","key":"Hist ling","value":"historical linguistics","abbreviation":"Hist ling"}
++,{"guid":"b1787e2e-ea5e-11de-89d9-0013722f8dec","key":"Lexicog","value":"lexicography","abbreviation":"Lexicog"}
++,{"guid":"b182078c-ea5e-11de-990d-0013722f8dec","key":"Lexicol","value":"lexicology","abbreviation":"Lexicol"}
++,{"guid":"b18df33a-ea5e-11de-94f0-0013722f8dec","key":"Phon","value":"phonetics","abbreviation":"Phon"}
++,{"guid":"b199def2-ea5e-11de-8f70-0013722f8dec","key":"Acous phon","value":"acoustic phonetics","abbreviation":"Acous phon"}
++,{"guid":"b1a36846-ea5e-11de-9137-0013722f8dec","key":"Art phon","value":"articulatory phonetics","abbreviation":"Art phon"}
++,{"guid":"b1af53fe-ea5e-11de-8ec4-0013722f8dec","key":"Phono","value":"phonology","abbreviation":"Phono"}
++,{"guid":"b1bb3fac-ea5e-11de-81e4-0013722f8dec","key":"Autoseg phono","value":"autosegmental phonology","abbreviation":"Autoseg phono"}
++,{"guid":"b1c4c90a-ea5e-11de-902c-0013722f8dec","key":"Gen phono","value":"generative phonology","abbreviation":"Gen phono"}
++,{"guid":"b1d0b4c2-ea5e-11de-862b-0013722f8dec","key":"Lex phono","value":"lexical phonology","abbreviation":"Lex phono"}
++,{"guid":"b1dca070-ea5e-11de-8613-0013722f8dec","key":"Met phono","value":"metrical phonology","abbreviation":"Met phono"}
++,{"guid":"b1e629ce-ea5e-11de-8550-0013722f8dec","key":"Non-lin phono","value":"non-linear phonology","abbreviation":"Non-lin phono"}
++,{"guid":"b1f21586-ea5e-11de-8120-0013722f8dec","key":"Phonm","value":"phonemics","abbreviation":"Phonm"}
++,{"guid":"b1fe0134-ea5e-11de-8756-0013722f8dec","key":"Prag","value":"pragmatics","abbreviation":"Prag"}
++,{"guid":"b2078a92-ea5e-11de-9a1a-0013722f8dec","key":"Sem","value":"semantics","abbreviation":"Sem"}
++,{"guid":"b2137640-ea5e-11de-8742-0013722f8dec","key":"Semiot","value":"semiotics","abbreviation":"Semiot"}
++,{"guid":"b21f61f8-ea5e-11de-907d-0013722f8dec","key":"Lit","value":"literacy","abbreviation":"Lit"}
++,{"guid":"b228eb56-ea5e-11de-9e54-0013722f8dec","key":"newitem","value":"newitem","abbreviation":"newitem"}
++,{"guid":"b234d704-ea5e-11de-9211-0013722f8dec","key":"Lit1","value":"literature","abbreviation":"Lit"}
++,{"guid":"b240c2bc-ea5e-11de-9d83-0013722f8dec","key":"Poet","value":"poetry","abbreviation":"Poet"}
++,{"guid":"b24a4c10-ea5e-11de-9bcb-0013722f8dec","key":"Rhet","value":"rhetoric","abbreviation":"Rhet"}
++,{"guid":"b25637c8-ea5e-11de-98ce-0013722f8dec","key":"styl","value":"stylistics","abbreviation":"styl"}
++,{"guid":"b2622376-ea5e-11de-8274-0013722f8dec","key":"Log","value":"logic","abbreviation":"Log"}
++,{"guid":"b26bacd4-ea5e-11de-8beb-0013722f8dec","key":"Math","value":"mathematics","abbreviation":"Math"}
++,{"guid":"b277988c-ea5e-11de-957d-0013722f8dec","key":"Med","value":"media","abbreviation":"Med"}
++,{"guid":"b283843a-ea5e-11de-9232-0013722f8dec","key":"Medi","value":"medicine","abbreviation":"Medi"}
++,{"guid":"b28d0d98-ea5e-11de-8bcb-0013722f8dec","key":"Phil","value":"philosophy","abbreviation":"Phil"}
++,{"guid":"b298f950-ea5e-11de-8179-0013722f8dec","key":"Psycholing","value":"psycholinguistics","abbreviation":"Psycholing"}
++,{"guid":"b2a4e4fe-ea5e-11de-96a2-0013722f8dec","key":"Psycho","value":"psychology","abbreviation":"Psycho"}
++,{"guid":"b2b0d0b6-ea5e-11de-8b58-0013722f8dec","key":"Rel","value":"religion","abbreviation":"Rel"}
++,{"guid":"b2ba5a0a-ea5e-11de-825a-0013722f8dec","key":"Rit","value":"ritual","abbreviation":"Rit"}
++,{"guid":"b2c645c2-ea5e-11de-8a97-0013722f8dec","key":"Socio ling","value":"sociolinguistics","abbreviation":"Socio ling"}
++,{"guid":"b2d23170-ea5e-11de-83d9-0013722f8dec","key":"App ling1","value":"applied linguistics","abbreviation":"App ling"}
++,{"guid":"b2dbbace-ea5e-11de-9923-0013722f8dec","key":"Comp ling1","value":"comparative linguistics","abbreviation":"Comp ling"}
++,{"guid":"b2e7a686-ea5e-11de-92ba-0013722f8dec","key":"Hist ling1","value":"historical linguistics","abbreviation":"Hist ling"}
++,{"guid":"b2f39234-ea5e-11de-9345-0013722f8dec","key":"Surv","value":"survey","abbreviation":"Surv"}
++,{"guid":"b2fd1b92-ea5e-11de-8fa9-0013722f8dec","key":"Socio","value":"sociology","abbreviation":"Socio"}
++,{"guid":"b3090740-ea5e-11de-901c-0013722f8dec","key":"Trans","value":"translation","abbreviation":"Trans"}
++],"canDelete":false}
++
++{"_id":{"$oid":"59c89d74ef72839b2c0b6247"}
++,"code":"location","name":"Location","dateCreated":{"$date":"2017-09-25T06:08:52.670Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.670Z"}
++,"items":[],"canDelete":false}
++
++{"_id":{"$oid":"59c89d74ef72839b2c0b6248"}
++,"code":"usage-type","name":"Usages","dateCreated":{"$date":"2017-09-25T06:08:52.672Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.681Z"}
++,"items":[{"guid":"af600fb2-ea5e-11de-82b5-0013722f8dec","key":"arch","value":"archaic","abbreviation":"arch"}
++,{"guid":"af699910-ea5e-11de-8d20-0013722f8dec","key":"col","value":"colloquial","abbreviation":"col"}
++,{"guid":"af7584c8-ea5e-11de-82a4-0013722f8dec","key":"form","value":"formal","abbreviation":"form"}
++,{"guid":"af817076-ea5e-11de-9a46-0013722f8dec","key":"hist","value":"historical","abbreviation":"hist"}
++,{"guid":"af8af9d4-ea5e-11de-932a-0013722f8dec","key":"hon","value":"honorific","abbreviation":"hon"}
++,{"guid":"af96e582-ea5e-11de-910f-0013722f8dec","key":"inform","value":"informal","abbreviation":"inform"}
++,{"guid":"afa2d13a-ea5e-11de-94da-0013722f8dec","key":"non std","value":"non-standard","abbreviation":"non std"}
++,{"guid":"afaebce8-ea5e-11de-97b5-0013722f8dec","key":"obso","value":"obsolete","abbreviation":"obso"}
++,{"guid":"afb84646-ea5e-11de-94e6-0013722f8dec","key":"oldfash","value":"old-fashioned","abbreviation":"oldfash"}
++,{"guid":"afc431fe-ea5e-11de-8921-0013722f8dec","key":"rare","value":"rare","abbreviation":"rare"}
++,{"guid":"afd01dac-ea5e-11de-9787-0013722f8dec","key":"reg","value":"register","abbreviation":"reg"}
++,{"guid":"afd9a70a-ea5e-11de-9e37-0013722f8dec","key":"bas reg","value":"basic","abbreviation":"bas reg"}
++,{"guid":"afe592c2-ea5e-11de-9d77-0013722f8dec","key":"hi reg","value":"high","abbreviation":"hi reg"}
++,{"guid":"aff17e70-ea5e-11de-94be-0013722f8dec","key":"low reg","value":"low","abbreviation":"low reg"}
++,{"guid":"affb07ce-ea5e-11de-997d-0013722f8dec","key":"mid reg","value":"mid","abbreviation":"mid reg"}
++,{"guid":"b006f37c-ea5e-11de-8cd8-0013722f8dec","key":"rest","value":"restrictive","abbreviation":"rest"}
++,{"guid":"b012df34-ea5e-11de-833e-0013722f8dec","key":"anml","value":"animal","abbreviation":"anml"}
++,{"guid":"b01c6892-ea5e-11de-9e52-0013722f8dec","key":"hum","value":"human","abbreviation":"hum"}
++,{"guid":"b0285440-ea5e-11de-894b-0013722f8dec","key":"f","value":"female","abbreviation":"f"}
++,{"guid":"b0343ff8-ea5e-11de-9132-0013722f8dec","key":"m","value":"male","abbreviation":"m"}
++,{"guid":"b03dc94c-ea5e-11de-87b4-0013722f8dec","key":"sib","value":"same sex sibling","abbreviation":"sib"}
++,{"guid":"b049b504-ea5e-11de-9bb7-0013722f8dec","key":"obsc","value":"obscene","abbreviation":"obsc"}
++,{"guid":"b055a0b2-ea5e-11de-9b16-0013722f8dec","key":"off","value":"offensive","abbreviation":"off"}
++,{"guid":"b05f2a10-ea5e-11de-8593-0013722f8dec","key":"tab","value":"taboo","abbreviation":"tab"}
++,{"guid":"b06b15c8-ea5e-11de-8d8b-0013722f8dec","key":"slg","value":"slang","abbreviation":"slg"}
++,{"guid":"b0770176-ea5e-11de-88f6-0013722f8dec","key":"trad","value":"traditional","abbreviation":"trad"}
++],"canDelete":false}
++
++{"_id":{"$oid":"59c89d74ef72839b2c0b6249"}
++,"code":"sense-type","name":"Type","dateCreated":{"$date":"2017-09-25T06:08:52.684Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.684Z"}
++,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
++,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
++],"canDelete":false}
++
++{"_id":{"$oid":"59c89d74ef72839b2c0b624a"}
++,"code":"anthro-code","name":"Anthropology Categories","dateCreated":{"$date":"2017-09-25T06:08:52.687Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.687Z"}
++,"items":[],"canDelete":false}
++
++{"_id":{"$oid":"59c89d74ef72839b2c0b624b"}
++,"code":"status","name":"Status","dateCreated":{"$date":"2017-09-25T06:08:52.689Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.690Z"}
++,"items":[{"guid":"bd80cd3e-ea5e-11de-9871-0013722f8dec","key":"Conf","value":"Confirmed","abbreviation":"Conf"}
++,{"guid":"bd8a569c-ea5e-11de-87cc-0013722f8dec","key":"Dis","value":"Disproved","abbreviation":"Dis"}
++,{"guid":"bd964254-ea5e-11de-8cdf-0013722f8dec","key":"Pend","value":"Pending","abbreviation":"Pend"}
++,{"guid":"b098623a-ea5e-11de-8126-0013722f8dec","key":"Tent","value":"Tentative","abbreviation":"Tent"}
++],"canDelete":false}
++
+-- 
+2.7.4
+

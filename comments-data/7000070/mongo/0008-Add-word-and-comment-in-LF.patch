@@ -1,0 +1,162 @@
+From 28c890762661051cfbd8597a470429ee54f04a4b Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Tue, 26 Sep 2017 09:54:50 +0700
+Subject: [PATCH] Add word and comment in LF
+
+---
+ sf_test-comment-sr.activity.json        | 10 +++++
+ sf_test-comment-sr.json                 |  6 +--
+ sf_test-comment-sr.lexicon.json         | 78 +++++++++++++++++++++++++++++++++
+ sf_test-comment-sr.lexiconComments.json | 12 +++++
+ 4 files changed, 103 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.activity.json b/sf_test-comment-sr.activity.json
+index 7d7e169..d0198dc 100644
+--- a/sf_test-comment-sr.activity.json
++++ b/sf_test-comment-sr.activity.json
+@@ -17,3 +17,13 @@
+ ,"dateCreated":{"$date":"2017-09-25T06:45:17.992Z"}
+ }
+ 
++{"_id":{"$oid":"59c9c16a973e31285b4d2aa7"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"userRef2":null,"entryRef":{"$oid":"59c9c16a973e31285b4d2aa6"}
++,"action":"add_entry","actionContent":{"project":"test-comment-sr","entry":"D","user":"rmunn"}
++,"date":{"$date":"2017-09-26T02:54:34.000Z"}
++,"dateModified":{"$date":"2017-09-26T02:54:34.871Z"}
++,"dateCreated":{"$date":"2017-09-26T02:54:34.871Z"}
++}
++
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 6791c4b..f01b51f 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T09:38:05.878Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T02:54:34.845Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-25T09:38:06.245Z"}
+-,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
++,"lastSyncedDate":{"$date":"2017-09-26T02:53:13.873Z"}
++,"lastEntryModifiedDate":{"$date":"2017-09-26T02:54:34.822Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexicon.json b/sf_test-comment-sr.lexicon.json
+index 5ed6c9f..3ce95be 100644
+--- a/sf_test-comment-sr.lexicon.json
++++ b/sf_test-comment-sr.lexicon.json
+@@ -104,3 +104,81 @@
+ ,"customFieldGuids":{}
+ ,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
+ 
++{"_id":{"$oid":"59c9c16a973e31285b4d2aa6"}
++,"isDeleted":false,"guid":"58a7b7f9-e49a-4f46-9502-8ecd10c47c99","dirtySR":0,"lexeme":{"fr":{"value":"D"}
++}
++,"senses":[{"liftId":null,"guid":"6130bd53-fd6a-461e-bcb5-c3f63f742659","definition":{"en":{"value":"D"}
++}
++,"gloss":{"en":{"value":""}
++}
++,"pictures":[],"partOfSpeech":{"value":""}
++,"semanticDomain":{"values":[]}
++,"examples":[],"scientificName":{"en":{"value":""}
++}
++,"anthropologyNote":{"en":{"value":""}
++}
++,"senseBibliography":{"en":{"value":""}
++}
++,"discourseNote":{"en":{"value":""}
++}
++,"encyclopedicNote":{"en":{"value":""}
++}
++,"generalNote":{"en":{"value":""}
++}
++,"grammarNote":{"en":{"value":""}
++}
++,"phonologyNote":{"en":{"value":""}
++}
++,"senseRestrictions":{"en":{"value":""}
++}
++,"semanticsNote":{"en":{"value":""}
++}
++,"sociolinguisticsNote":{"en":{"value":""}
++}
++,"source":{"en":{"value":""}
++}
++,"usages":{"values":[]}
++,"senseType":{"value":""}
++,"academicDomains":{"values":[]}
++,"anthropologyCategories":{"values":[]}
++,"senseImportResidue":{"en":{"value":""}
++}
++,"status":{"values":[]}
++}
++],"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"createdDate":{"$date":"2017-09-26T02:54:34.822Z"}
++,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"modifiedDate":{"$date":"2017-09-26T02:54:34.822Z"}
++}
++,"citationForm":{"fr":{"value":""}
++}
++,"customFields":{}
++,"entryBibliography":{"en":{"value":""}
++}
++,"entryRestrictions":{"en":{"value":""}
++}
++,"etymology":{"fr":{"value":""}
++}
++,"etymologyGloss":{"en":{"value":""}
++}
++,"etymologyComment":{"en":{"value":""}
++}
++,"etymologySource":{"en":{"value":""}
++}
++,"literalMeaning":{"en":{"value":""}
++}
++,"location":{"value":""}
++,"mercurialSha":null,"note":{"en":{"value":""}
++}
++,"pronunciation":{"fr":{"value":""}
++}
++,"cvPattern":{"en":{"value":""}
++}
++,"tone":{"en":{"value":""}
++}
++,"summaryDefinition":{"en":{"value":""}
++}
++,"dateModified":{"$date":"2017-09-26T02:54:34.844Z"}
++,"dateCreated":{"$date":"2017-09-26T02:54:34.844Z"}
++}
++
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 8925e63..d226d5e 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -30,3 +30,15 @@
+ ,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-25T09:38:06.206Z"}
+ }
+ 
++{"_id":{"$oid":"59c9c173973e3128592fbd03"}
++,"entryRef":{"$oid":"59c9c16a973e31285b4d2aa6"}
++,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"D","meaning":"D"}
++,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"createdDate":{"$date":"2017-09-26T02:54:43.442Z"}
++,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"modifiedDate":{"$date":"2017-09-26T02:54:43.442Z"}
++}
++,"content":"Comment on word D","dateModified":{"$date":"2017-09-26T02:54:43.442Z"}
++,"dateCreated":{"$date":"2017-09-26T02:54:43.442Z"}
++}
++
+-- 
+2.7.4
+

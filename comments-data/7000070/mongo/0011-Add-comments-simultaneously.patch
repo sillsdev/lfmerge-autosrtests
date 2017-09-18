@@ -1,0 +1,55 @@
+From 5c9b9bd75bb20b3c6b1b4de4c9d659adac92a392 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Tue, 26 Sep 2017 13:08:48 +0700
+Subject: [PATCH] Add comments simultaneously
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++++
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 0f8cc7d..264e460 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T06:05:08.864Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T06:08:47.660Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-26T06:05:09.190Z"}
++,"lastSyncedDate":{"$date":"2017-09-26T06:08:47.988Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-26T02:54:34.822Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 1e298a7..10e11c5 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -52,5 +52,15 @@
+ }
+ ,"content":"Comment on A, LF second","dateModified":{"$date":"2017-09-26T06:08:11.663Z"}
+ ,"dateCreated":{"$date":"2017-09-26T06:08:11.663Z"}
++,"guid":"295f24ca-4d28-4cd6-8211-21f0a1ef9cc1"}
++
++{"_id":{"$oid":"59c9eeefef72839b2c0b625a"}
++,"guid":"b250f47a-eda9-47e2-bbd7-04edaa430645","authorNameAlternate":"rmunn","content":"Comment on A, FW first","entryRef":{"$oid":"59c8a620ef72839b2c0b624e"}
++,"dateModified":{"$date":"2017-09-26T06:08:47.972Z"}
++,"authorInfo":{"createdDate":{"$date":"2017-09-26T13:06:35.000Z"}
++,"modifiedDate":{"$date":"2017-09-26T13:06:35.000Z"}
++}
++,"regarding":{"targetGuid":"c5813c07-75bb-4946-a260-a431a8e7d2f1","word":"A","meaning":"***"}
++,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-26T06:08:47.972Z"}
+ }
+ 
+-- 
+2.7.4
+

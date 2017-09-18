@@ -1,0 +1,56 @@
+From 3532b4180ab0cb9e3057ab3c7dec4cfebc3c05dd Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Tue, 26 Sep 2017 13:04:28 +0700
+Subject: [PATCH] Add comments simultaneously
+
+---
+ sf_test-comment-sr.json                 |  6 +++---
+ sf_test-comment-sr.lexiconComments.json | 12 ++++++++++++
+ 2 files changed, 15 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 29d42b8..e75b143 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T02:53:13.723Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T06:02:06.195Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-26T02:53:13.873Z"}
+-,"lastEntryModifiedDate":{"$date":"2017-09-26T02:49:22.584Z"}
++,"lastSyncedDate":{"$date":"2017-09-26T06:02:06.515Z"}
++,"lastEntryModifiedDate":{"$date":"2017-09-26T02:54:34.822Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 8c7bdfa..810c61d 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -42,3 +42,15 @@
+ ,"dateCreated":{"$date":"2017-09-26T02:49:29.567Z"}
+ ,"guid":"12c99d77-3ebd-423d-b0c1-b291ca4f473f"}
+ 
++{"_id":{"$oid":"59c9ede4973e31285b4d2aac"}
++,"entryRef":{"$oid":"59c8a56fef72839b2c0b624d"}
++,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"A","meaning":"A"}
++,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"createdDate":{"$date":"2017-09-26T06:04:20.836Z"}
++,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"modifiedDate":{"$date":"2017-09-26T06:04:20.836Z"}
++}
++,"content":"Comment on A, LF second","dateModified":{"$date":"2017-09-26T06:04:20.836Z"}
++,"dateCreated":{"$date":"2017-09-26T06:04:20.836Z"}
++}
++
+-- 
+2.7.4
+

@@ -102,6 +102,7 @@ namespace LfMerge.AutomatedSRTests
 
 			ImportCollection("activity", modelVersion);
 			ImportCollection("lexicon", modelVersion);
+			ImportCollection("lexiconComments", modelVersion);
 			ImportCollection("optionlists", modelVersion);
 		}
 
@@ -120,10 +121,12 @@ namespace LfMerge.AutomatedSRTests
 
 			ExportCollection("activity", modelVersion);
 			ExportCollection("lexicon", modelVersion);
+			ExportCollection("lexiconComments", modelVersion);
 			ExportCollection("optionlists", modelVersion);
 
 			AddCollectionToGit("activity", modelVersion);
 			AddCollectionToGit("lexicon", modelVersion);
+			AddCollectionToGit("lexiconComments", modelVersion);
 			AddCollectionToGit("optionlists", modelVersion);
 
 			Run("git", $"commit -a -m \"{msg}\"", mongoSourceDir);

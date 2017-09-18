@@ -1,0 +1,55 @@
+From 7835cb58ef2bba58435159023c3a1db10207b997 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 25 Sep 2017 15:10:18 +0700
+Subject: [PATCH] Comment on A in FW, comment on B in LF
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++++
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 6d5fd0e..09b281b 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T08:06:19.081Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T08:10:18.172Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-25T08:06:19.296Z"}
++,"lastSyncedDate":{"$date":"2017-09-25T08:10:18.524Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index edae485..fa85470 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -8,5 +8,15 @@
+ }
+ ,"content":"Comment on word B","dateModified":{"$date":"2017-09-25T08:09:31.145Z"}
+ ,"dateCreated":{"$date":"2017-09-25T08:09:31.145Z"}
++,"guid":"69cc7019-97c3-4031-9a35-e660b854792a"}
++
++{"_id":{"$oid":"59c8b9eaef72839b2c0b6250"}
++,"guid":"fdbde9bc-782a-4b5a-9155-3798b5640d91","authorNameAlternate":"rmunn","content":"FW comment about word A","entryRef":{"$oid":"59c8a56fef72839b2c0b624d"}
++,"dateModified":{"$date":"2017-09-25T08:10:18.506Z"}
++,"authorInfo":{"createdDate":{"$date":"2017-09-25T15:08:38.000Z"}
++,"modifiedDate":{"$date":"2017-09-25T15:08:38.000Z"}
++}
++,"regarding":{"targetGuid":"74e7bb30-68d1-4bd8-b842-f7c3d5dfa407","word":"A","meaning":"***"}
++,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-25T08:10:18.506Z"}
+ }
+ 
+-- 
+2.7.4
+

@@ -1,0 +1,83 @@
+# HG changeset patch
+# User rmunn
+# Date 1506331983 -25200
+#      Mon Sep 25 16:33:03 2017 +0700
+# Branch 7000069
+# Node ID 92824ef35b7f06a1ac98da2bd641c6c0ad6d13ce
+# Parent  85612f093fee74495c07af1e2ebeb988d354c1f0
+[FLEx Bridge: 2.1] sync Comment about new word C
+
+diff -r 85612f093fee -r 92824ef35b7f Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:10:07 2017 +0700
++++ b/Lexicon.fwstub.ChorusNotes	Mon Sep 25 16:33:03 2017 +0700
+@@ -21,4 +21,14 @@
+ 			date="2017-09-25T15:09:57Z"
+ 			guid="8f0d49e4-0a39-45b3-925d-bed838f968e1">Comment on word B</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=7885cff2-24ce-4bcc-9d6f-36946652d62d&amp;tag=&amp;id=7885cff2-24ce-4bcc-9d6f-36946652d62d&amp;label=C"
++		guid="274466cb-824a-4115-ab2f-385682fdc04f">
++		<message
++			author="rmunn"
++			status=""
++			date="2017-09-25T16:32:51Z"
++			guid="0b981639-50c0-4819-919c-94f0262c4cee">Comment about new word C</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 85612f093fee -r 92824ef35b7f Linguistics/Lexicon/Lexicon_03.lexdb
+--- a/Linguistics/Lexicon/Lexicon_03.lexdb	Mon Sep 25 15:10:07 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_03.lexdb	Mon Sep 25 16:33:03 2017 +0700
+@@ -46,4 +46,50 @@
+ 			</ownseq>
+ 		</Senses>
+ 	</LexEntry>
++	<LexEntry
++		guid="7885cff2-24ce-4bcc-9d6f-36946652d62d">
++		<DateCreated
++			val="2017-9-25 9:32:37.649" />
++		<DateModified
++			val="2017-9-25 9:32:37.649" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="8ab74d13-0b7d-4b87-972a-731ca5851fde">
++				<Form>
++					<AUni
++						ws="fr">C</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="835c6d05-665c-4ac4-9aa2-fe50db9cedbb" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="6f41e434-a753-4ece-a3b5-6d2c6aa36314">
++				<Gloss>
++					<AUni
++						ws="en">C</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="835c6d05-665c-4ac4-9aa2-fe50db9cedbb"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
+ </Lexicon>
+\ No newline at end of file

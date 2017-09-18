@@ -1,0 +1,52 @@
+From f4967e3f9422bf8fb46e143972759be8bd1447b3 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 25 Sep 2017 15:12:18 +0700
+Subject: [PATCH] Comment on A in FW, comment on B in LF
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 12 ++++++++++++
+ 2 files changed, 14 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index c34a540..09b281b 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T06:45:52.158Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T08:10:18.172Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-25T06:45:52.223Z"}
++,"lastSyncedDate":{"$date":"2017-09-25T08:10:18.524Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index e69de29..a32ed17 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -0,0 +1,12 @@
++{"_id":{"$oid":"59c8ba5e973e311d086c4772"}
++,"entryRef":{"$oid":"59c8a5fd973e3149b43f9e32"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"B","inputSystem":"French","inputSystemAbbreviation":"Frn","word":"B","meaning":"B"}
++,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"createdDate":{"$date":"2017-09-25T08:12:14.390Z"}
++,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
++,"modifiedDate":{"$date":"2017-09-25T08:12:14.390Z"}
++}
++,"content":"Comment on word B","dateModified":{"$date":"2017-09-25T08:12:14.390Z"}
++,"dateCreated":{"$date":"2017-09-25T08:12:14.390Z"}
++}
++
+-- 
+2.7.4
+

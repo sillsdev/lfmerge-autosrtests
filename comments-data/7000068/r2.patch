@@ -1,0 +1,71 @@
+# HG changeset patch
+# User rmunn
+# Date 1506321551 -25200
+#      Mon Sep 25 13:39:11 2017 +0700
+# Branch 7000068
+# Node ID 6d2dee44553d7259cad23cd57d1dc5018c24080c
+# Parent  58d716921ca0d6e56d3f7fe86cbe85a0f84ad320
+[FLEx Bridge: 2.1] sync Added A
+
+diff -r 58d716921ca0 -r 6d2dee44553d Lexicon.fwstub.ChorusNotes
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/Lexicon.fwstub.ChorusNotes	Mon Sep 25 13:39:11 2017 +0700
+@@ -0,0 +1,1 @@
++<notes version='0'/>
+\ No newline at end of file
+diff -r 58d716921ca0 -r 6d2dee44553d Linguistics/Lexicon/Lexicon_07.lexdb
+--- a/Linguistics/Lexicon/Lexicon_07.lexdb	Mon Sep 25 08:58:30 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_07.lexdb	Mon Sep 25 13:39:11 2017 +0700
+@@ -1,2 +1,49 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="be1c7330-4201-41aa-9243-54d37f3e7fb0">
++		<DateCreated
++			val="2017-9-25 6:38:54.364" />
++		<DateModified
++			val="2017-9-25 6:38:54.364" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="769388c0-7c70-4d5e-9fba-436362d2bfe3">
++				<Form>
++					<AUni
++						ws="fr">A</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="6f6e5db2-f9d3-4da3-9751-b802b4ee74ac" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="8e455a00-a7da-4092-b76e-b205dc7e37bb">
++				<Gloss>
++					<AUni
++						ws="en">A</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="6f6e5db2-f9d3-4da3-9751-b802b4ee74ac"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file

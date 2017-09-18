@@ -1,0 +1,14 @@
+# HG changeset patch
+# User rmunn
+# Date 1506399572 -25200
+#      Tue Sep 26 11:19:32 2017 +0700
+# Branch 7000070
+# Node ID f8e0bc5114e215b7d041aff9133b46dbefded491
+# Parent  1317901e2193e4ac2748f48bcdbe41c2dfdd48b4
+Bump patch number
+
+diff -r 1317901e2193 -r f8e0bc5114e2 delete-me.txt
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/delete-me.txt	Tue Sep 26 11:19:32 2017 +0700
+@@ -0,0 +1,1 @@
++Delete this file

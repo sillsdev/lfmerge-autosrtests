@@ -1,0 +1,30 @@
+# HG changeset patch
+# User rmunn
+# Date 1506326931 -25200
+#      Mon Sep 25 15:08:51 2017 +0700
+# Branch 7000069
+# Node ID ce592f6b32ceb0a2947641883b1905decbc71f3c
+# Parent  a355fbe28f326a2f1b91fc9f0e24c0bc4443069d
+[FLEx Bridge: 2.1] sync Comment on A
+
+diff -r a355fbe28f32 -r ce592f6b32ce Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 13:42:44 2017 +0700
++++ b/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:08:51 2017 +0700
+@@ -1,1 +1,14 @@
+-<notes version='0'/>
+\ No newline at end of file
++<?xml version="1.0" encoding="utf-8"?>
++<notes
++	version="0">
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=74e7bb30-68d1-4bd8-b842-f7c3d5dfa407&amp;tag=&amp;id=74e7bb30-68d1-4bd8-b842-f7c3d5dfa407&amp;label=A"
++		guid="fdbde9bc-782a-4b5a-9155-3798b5640d91">
++		<message
++			author="rmunn"
++			status=""
++			date="2017-09-25T15:08:38Z"
++			guid="bbb9075f-c2e1-4278-a2b0-0b945de07f04">FW comment about word A</message>
++	</annotation>
++</notes>
+\ No newline at end of file

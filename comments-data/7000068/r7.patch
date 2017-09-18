@@ -1,0 +1,78 @@
+# HG changeset patch
+# User Language Forge
+# Date 1506394130 -25200
+#      Tue Sep 26 09:48:50 2017 +0700
+# Branch 7000068
+# Node ID a8e9317fff400a79ac2818212e94f95141abe4a9
+# Parent  8be8ef66698c7da587b06ccaa4507551921b9516
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+
+diff -r 8be8ef66698c -r a8e9317fff40 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 16:24:56 2017 +0700
++++ b/Lexicon.fwstub.ChorusNotes	Tue Sep 26 09:48:50 2017 +0700
+@@ -31,4 +31,14 @@
+ 			date="2017-09-25T16:23:50Z"
+ 			guid="08794b20-fdcc-44bf-843a-b979aa2ed716">Comment about new word C</message>
+ 	</annotation>
++	<annotation
++		class="note"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=a0e2bb21-71c6-4280-8ecc-0ee4664bdf8f&amp;tag=&amp;id=a0e2bb21-71c6-4280-8ecc-0ee4664bdf8f&amp;label=D"
++		guid="4b1e7faa-83f8-4e4c-ae8c-80b0dcd02af9">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2017-09-26T09:48:39Z"
++			guid="8e0578c7-facb-4a52-8cb4-802cb0726f17">Comment on word D</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 8be8ef66698c -r a8e9317fff40 Linguistics/Lexicon/Lexicon_02.lexdb
+--- a/Linguistics/Lexicon/Lexicon_02.lexdb	Mon Sep 25 16:24:56 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_02.lexdb	Tue Sep 26 09:48:50 2017 +0700
+@@ -1,2 +1,43 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="a0e2bb21-71c6-4280-8ecc-0ee4664bdf8f">
++		<DateCreated
++			val="2017-9-26 2:48:4.678" />
++		<DateModified
++			val="2017-9-26 2:48:4.678" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="bf6e9039-19ab-40fa-b043-5686e0eff9d7">
++				<Form>
++					<AUni
++						ws="fr">D</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="c658336c-bf4c-4898-bbee-a7c620a33cac">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">D</Run>
++					</AStr>
++				</Definition>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file

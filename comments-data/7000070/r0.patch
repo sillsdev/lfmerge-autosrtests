@@ -1,0 +1,15 @@
+# HG changeset patch
+# User rmunn
+# Date 1506305882 -25200
+#      Mon Sep 25 09:18:02 2017 +0700
+# Node ID 652a38a0d51bc5a744e28ace42014f8eb99590be
+# Parent  0000000000000000000000000000000000000000
+ Add FLExProject.CustomProperties
+
+diff -r 000000000000 -r 652a38a0d51b FLExProject.CustomProperties
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/FLExProject.CustomProperties	Mon Sep 25 09:18:02 2017 +0700
+@@ -0,0 +1,2 @@
++<?xml version="1.0" encoding="utf-8"?>
++<AdditionalFields />
+\ No newline at end of file

@@ -1,0 +1,122 @@
+# HG changeset patch
+# User Language Forge
+# Date 1506321942 -25200
+#      Mon Sep 25 13:45:42 2017 +0700
+# Branch 7000070
+# Node ID d94f4e7daa9aac346b0ae5497b4244a3d509a3f6
+# Parent  fc8cc779762e9b85c7128cb0ca6846c66432cc9e
+[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+
+diff -r fc8cc779762e -r d94f4e7daa9a Linguistics/Lexicon/Lexicon_01.lexdb
+--- a/Linguistics/Lexicon/Lexicon_01.lexdb	Mon Sep 25 13:44:41 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_01.lexdb	Mon Sep 25 13:45:42 2017 +0700
+@@ -39,4 +39,44 @@
+ 			<VariantEntryTypes />
+ 		</LexDb>
+ 	</header>
++	<LexEntry
++		guid="bc53c4b2-3c3f-4367-87d6-b04afe88aece">
++		<DateCreated
++			val="2017-9-25 6:45:17.942" />
++		<DateModified
++			val="2017-9-25 6:45:17.942" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="ca64592a-42d0-4c4e-a09c-59fd8718408a">
++				<Form>
++					<AUni
++						ws="fr">B</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="0dbad72c-2a9d-414a-9d70-01c4fc033224">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">B</Run>
++					</AStr>
++				</Definition>
++			</ownseq>
++		</Senses>
++	</LexEntry>
+ </Lexicon>
+\ No newline at end of file
+diff -r fc8cc779762e -r d94f4e7daa9a WritingSystemStore/en-US.ldml
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/WritingSystemStore/en-US.ldml	Mon Sep 25 13:45:42 2017 +0700
+@@ -0,0 +1,59 @@
++<?xml version="1.0" encoding="utf-8"?>
++<ldml>
++	<identity>
++		<version
++			number="" />
++		<generation
++			date="2017-09-25T06:45:32" />
++		<language
++			type="en" />
++		<territory
++			type="US" />
++	</identity>
++	<collations>
++		<collation>
++			<base>
++				<alias
++					source="en-US" />
++			</base>
++			<special
++				xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
++				<palaso:sortRulesType
++					value="OtherLanguage" />
++			</special>
++		</collation>
++	</collations>
++	<special
++		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
++		<palaso:abbreviation
++			value="Eng" />
++		<palaso:defaultFontFamily
++			value="Charis SIL" />
++		<palaso:languageName
++			value="English" />
++		<palaso:version
++			value="2" />
++	</special>
++	<special
++		xmlns:palaso2="urn://palaso.org/ldmlExtensions/v2">
++		<palaso2:knownKeyboards>
++			<palaso2:keyboard
++				layout="English"
++				locale="en-US"
++				os="Unix" />
++			<palaso2:keyboard
++				layout="US"
++				locale="en-US"
++				os="Win32NT" />
++		</palaso2:knownKeyboards>
++		<palaso2:version
++			value="2" />
++	</special>
++	<special
++		xmlns:fw="urn://fieldworks.sil.org/ldmlExtensions/v1">
++		<fw:graphiteEnabled
++			value="False" />
++		<fw:regionName
++			value="United States" />
++	</special>
++</ldml>
+\ No newline at end of file

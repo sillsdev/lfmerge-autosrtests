@@ -1,0 +1,28 @@
+# HG changeset patch
+# User Language Forge
+# Date 1506326767 -25200
+#      Mon Sep 25 15:06:07 2017 +0700
+# Branch 7000068
+# Node ID 747a08e1b983274084f837cb6134f1c0442500c9
+# Parent  21f55eb05488e8b23c78008872f837092f6d27ed
+[LfMergeBridge: 2.5.1.0] Language Forge S/R
+
+diff -r 21f55eb05488 -r 747a08e1b983 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:04:23 2017 +0700
++++ b/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:06:07 2017 +0700
+@@ -11,4 +11,14 @@
+ 			date="2017-09-25T15:04:09Z"
+ 			guid="3f7772a5-e101-4701-8be7-1b93b331e696">FW comment about word A</message>
+ 	</annotation>
++	<annotation
++		class="note"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=f43d7d34-6a5d-4f60-89c2-03c173b47225&amp;tag=&amp;id=f43d7d34-6a5d-4f60-89c2-03c173b47225&amp;label=B"
++		guid="0b35d4ce-4b38-4043-9b79-b7ace1aa73ee">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2017-09-25T15:05:57Z"
++			guid="5cb5a042-3617-45ee-926b-6fdf6579aa99">Comment on word B</message>
++	</annotation>
+ </notes>
+\ No newline at end of file

@@ -1,0 +1,57 @@
+From 2af6a1d12f439384827ac672ffd0a9e83980dcb4 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 25 Sep 2017 13:42:55 +0700
+Subject: [PATCH] Add A in FW, add B in LF
+
+---
+ sf_test-comment-sr.json         |  4 ++--
+ sf_test-comment-sr.lexicon.json | 14 ++++++++++++++
+ 2 files changed, 16 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index bfc8a35..ca66b64 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T06:42:09.737Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T06:42:55.062Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-25T06:40:41.801Z"}
++,"lastSyncedDate":{"$date":"2017-09-25T06:42:55.129Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:42:09.714Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexicon.json b/sf_test-comment-sr.lexicon.json
+index 62010fb..8db2ea3 100644
+--- a/sf_test-comment-sr.lexicon.json
++++ b/sf_test-comment-sr.lexicon.json
+@@ -76,3 +76,17 @@
+ ,"dateCreated":{"$date":"2017-09-25T06:42:09.736Z"}
+ }
+ 
++{"_id":{"$oid":"59c8a56fef72839b2c0b624d"}
++,"guid":"74e7bb30-68d1-4bd8-b842-f7c3d5dfa407","liftId":"A_74e7bb30-68d1-4bd8-b842-f7c3d5dfa407","isDeleted":false,"dateModified":{"$date":"2017-09-25T06:42:55.080Z"}
++,"dirtySR":0,"lexeme":{"fr":{"value":"A"}
++}
++,"senses":[{"id":null,"liftId":"914f9293-f4ba-46e5-ae86-7f2cfda445c2","guid":"914f9293-f4ba-46e5-ae86-7f2cfda445c2","gloss":{"en":{"value":"A"}
++}
++}
++],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-09-25T06:41:19.902Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-09-25T06:41:19.902Z"}
++}
++,"customFields":{}
++,"customFieldGuids":{}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++
+-- 
+2.7.4
+
