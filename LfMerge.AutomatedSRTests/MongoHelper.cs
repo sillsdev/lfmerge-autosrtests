@@ -113,7 +113,7 @@ namespace LfMerge.AutomatedSRTests
 			var file = Path.Combine(mongoSourceDir, $"{DbName}.json");
 			var content = Run("mongoexport",
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} " +
-				$"--db scriptureforge --collection projects --query '{{ \"projectName\" : \"{project}\" }}'",
+				$"--db scriptureforge --collection projects --query '{{ \"projectCode\" : \"{project}\" }}'",
 				mongoSourceDir);
 			WriteJson(file, content);
 			Run("git", $"add {file}", mongoSourceDir);
