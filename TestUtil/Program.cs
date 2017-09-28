@@ -130,7 +130,7 @@ namespace LfMerge.TestUtil
 		private static void Wizard(Options.WizardOptions wizardOptions)
 		{
 			var workdir = wizardOptions.WorkDir;
-			for (var modelVersion = Tests.MinVersion; modelVersion <= Tests.MaxVersion; modelVersion++)
+			for (var modelVersion = wizardOptions.MinModel; modelVersion <= wizardOptions.MaxModel; modelVersion++)
 			{
 				Console.WriteLine("--------------------------------------------------------------");
 				Console.WriteLine($"Processing model version {modelVersion}");

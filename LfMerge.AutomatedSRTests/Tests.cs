@@ -11,8 +11,8 @@ namespace LfMerge.AutomatedSRTests
 	public class Tests
 	{
 		public const string DbName = "autosrtests";
-		public const int MinVersion = 7000068;
-		public const int MaxVersion = 7000070;
+		public const int MinVersion = Settings.MinModelVersion;
+		public const int MaxVersion = Settings.MaxModelVersion;
 
 		private LanguageDepotHelper _languageDepot;
 		private MongoHelper _mongo;

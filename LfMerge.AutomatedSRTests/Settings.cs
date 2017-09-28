@@ -10,6 +10,9 @@ namespace LfMerge.AutomatedSRTests
 {
 	public static class Settings
 	{
+		public const int MinModelVersion = 7000068;
+		public const int MaxModelVersion = 7000070;
+
 		private static string _tempDir;
 
 		public static string TempDir

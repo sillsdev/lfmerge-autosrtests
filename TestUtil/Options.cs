@@ -141,6 +141,12 @@ namespace LfMerge.TestUtil
 			[Option("fwroot", Required = true, HelpText = "FW root directory, e.g. $HOME/fwrepo/fw")]
 			public string FwRoot { get; set; }
 
+			[Option("minmodel", DefaultValue = LfMerge.AutomatedSRTests.Settings.MinModelVersion, HelpText = "Model version to start with (useful if something crashes)")]
+			public int MinModel { get; set; }
+
+			[Option("maxmodel", DefaultValue = LfMerge.AutomatedSRTests.Settings.MaxModelVersion, HelpText = "Model version to finish with (useful if something crashes)")]
+			public int MaxModel { get; set; }
+
 			public override string GetUsage()
 			{
 				return Parent.GetUsage("wizard");
