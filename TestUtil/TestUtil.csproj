@@ -56,10 +56,11 @@
     <None Include="fwenviron">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\GitVersionTask.4.0.0-beta0009\build\GitVersionTask.targets" Condition="Exists('..\packages\GitVersionTask.4.0.0-beta0009\build\GitVersionTask.targets')" />
+  <Import Project="..\packages\GitVersionTask.4.0.0-beta0012\build\GitVersionTask.targets"
+          Condition="Exists('..\packages\GitVersionTask.4.0.0-beta0012\build\GitVersionTask.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
