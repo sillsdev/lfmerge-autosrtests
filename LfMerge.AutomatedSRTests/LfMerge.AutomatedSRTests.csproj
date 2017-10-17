@@ -66,7 +66,7 @@
     <Compile Include="LanguageDepotHelper.cs" />
     <Compile Include="LfMergeHelper.cs" />
     <Compile Include="MongoHelper.cs" />
-    <Compile Include="Tests.cs" />
+    <Compile Include="Tests\BasicDataTests.cs" />
     <Compile Include="VerifyLanguageDepot.cs" />
     <Compile Include="VerifyMongo.cs" />
     <Compile Include="WebworkHelper.cs" />

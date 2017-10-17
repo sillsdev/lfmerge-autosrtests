@@ -5,15 +5,11 @@ using System.IO;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
-namespace LfMerge.AutomatedSRTests
+namespace LfMerge.AutomatedSRTests.Tests
 {
 	[TestFixture]
-	public class Tests
+	public class BasicDataTests
 	{
-		public const string DbName = "autosrtests";
-		public const int MinVersion = Settings.MinModelVersion;
-		public const int MaxVersion = Settings.MaxModelVersion;
-
 		private LanguageDepotHelper _languageDepot;
 		private MongoHelper _mongo;
 		private WebworkHelper _webWork;
@@ -22,7 +18,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			get
 			{
-				var stateFile = Path.Combine(LfMergeHelper.BaseDir, "state", $"{DbName}.state");
+				var stateFile = Path.Combine(LfMergeHelper.BaseDir, "state", $"{Settings.DbName}.state");
 				Assert.That(File.Exists(stateFile), Is.True, $"Statefile '{stateFile}' doesn't exist");
 				var stateFileContent = JObject.Parse(File.ReadAllText(stateFile));
 				var state = stateFileContent["SRState"].ToString();
@@ -47,8 +43,8 @@ namespace LfMerge.AutomatedSRTests
 		public void Setup()
 		{
 			_languageDepot = new LanguageDepotHelper();
-			_mongo = new MongoHelper($"sf_{DbName}");
-			_webWork = new WebworkHelper(DbName);
+			_mongo = new MongoHelper($"sf_{Settings.DbName}");
+			_webWork = new WebworkHelper(Settings.DbName);
 		}
 
 		[TearDown]
@@ -61,7 +57,7 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		[Test]
-		public void Clone([Range(MinVersion, MaxVersion)] int dbVersion)
+		public void Clone([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase("r1", dbVersion);
@@ -69,14 +65,14 @@ namespace LfMerge.AutomatedSRTests
 			// don't setup webwork directory
 
 			// Exercise
-			LfMergeHelper.Run($"--project {DbName} --clone --action=Synchronize");
+			LfMergeHelper.Run($"--project {Settings.DbName} --clone --action=Synchronize");
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));
 		}
 
 		[Test]
-		public void NoConflicts([Range(MinVersion, MaxVersion)] int dbVersion)
+		public void NoConflicts([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase("r2", dbVersion);
@@ -84,7 +80,7 @@ namespace LfMerge.AutomatedSRTests
 			_webWork.ApplyPatches(dbVersion, 1);
 
 			// Exercise
-			LfMergeHelper.Run($"--project {DbName} --action=Synchronize");
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));
@@ -110,7 +106,7 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		[Test]
-		public void EditWinsOverDelete([Range(MinVersion, MaxVersion)] int dbVersion)
+		public void EditWinsOverDelete([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase("r4", dbVersion);
@@ -118,7 +114,7 @@ namespace LfMerge.AutomatedSRTests
 			_webWork.ApplyPatches(dbVersion, 3);
 
 			// Exercise
-			LfMergeHelper.Run($"--project {DbName} --action=Synchronize");
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
 
 			// Verify
 			Assert.That(SRState, Is.EqualTo("IDLE"));

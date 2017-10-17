@@ -31,7 +31,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			if (_mongoclient == null)
 				_mongoclient = new MongoClient($"mongodb://{Settings.MongoHostName}:{Settings.MongoPort}");
-			var db = _mongoclient.GetDatabase($"sf_{Tests.DbName}");
+			var db = _mongoclient.GetDatabase($"sf_{Settings.DbName}");
 			var collection = db.GetCollection<BsonDocument>("lexicon");
 			var list = collection.Find(_ => true).ToListAsync();
 			list.Wait();

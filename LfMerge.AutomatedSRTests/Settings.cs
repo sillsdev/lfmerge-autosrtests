@@ -12,26 +12,24 @@ namespace LfMerge.AutomatedSRTests
 	{
 		public const int MinModelVersion = 7000068;
 		public const int MaxModelVersion = 7000070;
+		public const string DbName = "autosrtests";
 
 		private static string _tempDir;
 
 		public static string TempDir
 		{
-			get
-			{
-				return string.IsNullOrEmpty(_tempDir)
-					? Path.Combine(Path.GetTempPath(), Process.GetCurrentProcess().Id.ToString())
-					: _tempDir;
-			}
-			set { _tempDir = value; }
+			get => String.IsNullOrEmpty(_tempDir)
+				? Path.Combine(Path.GetTempPath(), Process.GetCurrentProcess().Id.ToString())
+				: _tempDir;
+			set => _tempDir = value;
 		}
 
 		private static string _dataDirName;
 
 		public static string DataDirName
 		{
-			get { return string.IsNullOrEmpty(_dataDirName) ? "data" : _dataDirName; }
-			set { _dataDirName = value; }
+			get => String.IsNullOrEmpty(_dataDirName) ? "data" : _dataDirName;
+			set => _dataDirName = value;
 		}
 
 		public static string DataDir =>
@@ -95,6 +93,5 @@ LanguageDepotRepoUri = {LanguageDepotHelper.LdDirectory}
 			var configFile = Path.Combine(TempDir, "sendreceive.conf");
 			File.WriteAllText(configFile, settings);
 		}
-
 	}
 }
