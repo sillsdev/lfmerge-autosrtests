@@ -14,53 +14,35 @@ namespace LfMerge.AutomatedSRTests.Tests
 		private MongoHelper _mongo;
 		private WebworkHelper _webWork;
 
-		private static string SRState
-		{
-			get
-			{
-				var stateFile = Path.Combine(LfMergeHelper.BaseDir, "state", $"{Settings.DbName}.state");
-				Assert.That(File.Exists(stateFile), Is.True, $"Statefile '{stateFile}' doesn't exist");
-				var stateFileContent = JObject.Parse(File.ReadAllText(stateFile));
-				var state = stateFileContent["SRState"].ToString();
-				return state;
-			}
-		}
-
 		[TestFixtureSetUp]
 		public void FixtureSetup()
 		{
-			MongoHelper.Initialize();
+			TestHelper.SetupFixture("data", "autosrtests");
 		}
 
 		[TestFixtureTearDown]
 		public void FixtureTearDown()
 		{
-			MongoHelper.Cleanup();
-			Settings.Cleanup();
+			TestHelper.TearDownFixture();
 		}
 
 		[SetUp]
 		public void Setup()
 		{
-			_languageDepot = new LanguageDepotHelper();
-			_mongo = new MongoHelper($"sf_{Settings.DbName}");
-			_webWork = new WebworkHelper(Settings.DbName);
+			TestHelper.InitializeTestEnvironment(out _languageDepot, out _mongo, out _webWork);
 		}
 
 		[TearDown]
 		public void TearDown()
 		{
-			_mongo.Dispose();
-			_languageDepot.Dispose();
-			_webWork.Dispose();
-			LfMergeHelper.Cleanup();
+			TestHelper.ShutdownTestEnvironment(_languageDepot, _mongo, _webWork);
 		}
 
 		[Test]
 		public void Clone([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
 		{
 			// Setup
-			_mongo.RestoreDatabase("r1", dbVersion);
+			_mongo.RestoreDatabase(dbVersion, 1);
 			_languageDepot.ApplyPatches(dbVersion, 1);
 			// don't setup webwork directory
 
@@ -68,14 +50,14 @@ namespace LfMerge.AutomatedSRTests.Tests
 			LfMergeHelper.Run($"--project {Settings.DbName} --clone --action=Synchronize");
 
 			// Verify
-			Assert.That(SRState, Is.EqualTo("IDLE"));
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 		}
 
 		[Test]
 		public void NoConflicts([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
 		{
 			// Setup
-			_mongo.RestoreDatabase("r2", dbVersion);
+			_mongo.RestoreDatabase(dbVersion, 2);
 			_languageDepot.ApplyPatches(dbVersion, 2);
 			_webWork.ApplyPatches(dbVersion, 1);
 
@@ -83,9 +65,9 @@ namespace LfMerge.AutomatedSRTests.Tests
 			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
 
 			// Verify
-			Assert.That(SRState, Is.EqualTo("IDLE"));
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 			// language=json
-			const string expected = @"[
+			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'lf1<br/>' } },
 					'senses' : [ {
 						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
@@ -98,7 +80,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'gloss' : { 'en' : { 'value' : 'created in FLEx' } },
 						'partOfSpeech' : { 'value' : 'adv1' }
 					} ] },
-				]";
+				]}]";
 			VerifyMongo.AssertData(expected);
 
 			var expectedXml = JsonToXml.Convert(expected);
@@ -109,7 +91,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		public void EditWinsOverDelete([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
 		{
 			// Setup
-			_mongo.RestoreDatabase("r4", dbVersion);
+			_mongo.RestoreDatabase(dbVersion, 4);
 			_languageDepot.ApplyPatches(dbVersion, 4);
 			_webWork.ApplyPatches(dbVersion, 3);
 
@@ -117,10 +99,10 @@ namespace LfMerge.AutomatedSRTests.Tests
 			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
 
 			// Verify
-			Assert.That(SRState, Is.EqualTo("IDLE"));
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 
 			// language=json
-			const string expected = @"[
+			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'lf1modified<br/>' } },
 					'senses' : [ {
 						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
@@ -133,7 +115,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'gloss' : { 'en' : { 'value' : 'created in FLEx' } },
 						'partOfSpeech' : { 'value' : 'adv1' }
 					} ] },
-				]";
+				]}]";
 			VerifyMongo.AssertData(expected);
 
 			var expectedXml = JsonToXml.Convert(expected);

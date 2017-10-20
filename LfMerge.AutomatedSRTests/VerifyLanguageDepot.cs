@@ -22,7 +22,10 @@ namespace LfMerge.AutomatedSRTests
 				using (var streamReader = new StreamReader(filename))
 				{
 					var actualLexicon = XElement.Load(streamReader);
-					VerifyTree(expectedLexeme, actualLexicon.Element("LexEntry"));
+					var actualLexeme = actualLexicon.Element("LexEntry");
+					if (actualLexeme == null)
+						continue;
+					VerifyTree(expectedLexeme, actualLexeme);
 				}
 			}
 		}

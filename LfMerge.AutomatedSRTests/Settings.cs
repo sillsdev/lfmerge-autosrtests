@@ -12,8 +12,6 @@ namespace LfMerge.AutomatedSRTests
 	{
 		public const int MinModelVersion = 7000068;
 		public const int MaxModelVersion = 7000070;
-		public const string DbName = "autosrtests";
-
 		private static string _tempDir;
 
 		public static string TempDir
@@ -25,6 +23,8 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		private static string _dataDirName;
+
+		public static string DbName {get; set; }
 
 		public static string DataDirName
 		{

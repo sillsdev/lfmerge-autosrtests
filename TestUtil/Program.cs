@@ -279,7 +279,7 @@ namespace LfMerge.TestUtil
 			MongoHelper.Initialize(options.ModelVersion, options.MongoVersion);
 			if (_mongoHelper == null)
 				_mongoHelper = new MongoHelper(options.Project, true);
-			_mongoHelper.RestoreDatabase("master", options.ModelVersion);
+			_mongoHelper.RestoreDatabase(options.ModelVersion, "master");
 
 			Console.WriteLine($"Successfully restored mongo database at version {options.MongoVersion}");
 		}

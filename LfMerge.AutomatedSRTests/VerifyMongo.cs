@@ -32,18 +32,44 @@ namespace LfMerge.AutomatedSRTests
 			if (_mongoclient == null)
 				_mongoclient = new MongoClient($"mongodb://{Settings.MongoHostName}:{Settings.MongoPort}");
 			var db = _mongoclient.GetDatabase($"sf_{Settings.DbName}");
-			var collection = db.GetCollection<BsonDocument>("lexicon");
-			var list = collection.Find(_ => true).ToListAsync();
-			list.Wait();
-			var actualRecords = list.Result.ToList();
 			var expectedReader = new JsonTextReader(new StringReader(expected));
-			expectedReader.Read();
-			Debug.Assert(expectedReader.TokenType == JsonToken.StartArray, "Expected data should be an array");
-			_recordNo = 0;
-			foreach (var actual in actualRecords)
+			while (expectedReader.Read())
 			{
-				VerifyField(expectedReader, actual.AsBsonValue);
-				_recordNo++;
+				switch (expectedReader.TokenType)
+				{
+					case JsonToken.StartArray:
+						VerifyCollection(db, expectedReader);
+						break;
+					case JsonToken.EndArray:
+						return;
+				}
+			}
+		}
+
+		private void VerifyCollection(IMongoDatabase db, JsonReader expected)
+		{
+			while (expected.Read())
+			{
+				switch (expected.TokenType)
+				{
+					case JsonToken.StartObject:
+						break;
+					case JsonToken.PropertyName:
+						var collectionName = expected.Value as string;
+						var collection = db.GetCollection<BsonDocument>(collectionName);
+						var list = collection.Find(_ => true).ToListAsync();
+						list.Wait();
+						var actualRecords = list.Result.ToList();
+						_recordNo = 0;
+						foreach (var actual in actualRecords)
+						{
+							VerifyField(expected, actual.AsBsonValue);
+							_recordNo++;
+						}
+						break;
+					case JsonToken.EndObject:
+						return;
+				}
 			}
 		}
 

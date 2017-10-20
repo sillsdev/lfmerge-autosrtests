@@ -17,6 +17,8 @@ namespace LfMerge.AutomatedSRTests
 	public class JsonToXml
 	{
 		private JsonTextReader _reader;
+		private readonly Stack<XElement> _popStack;
+		private readonly XElement _root;
 
 		public static XElement Convert(string expected)
 		{
@@ -25,41 +27,38 @@ namespace LfMerge.AutomatedSRTests
 
 		private JsonToXml()
 		{
+			_popStack = new Stack<XElement>();
+			_root = new XElement("root");
+			_popStack.Push(_root);
 		}
 
 		private XElement Translate(string expected)
 		{
 			_reader = new JsonTextReader(new StringReader(expected));
-			var popStack = new Stack<XElement>();
 			while (_reader.Read())
 			{
 				switch (_reader.TokenType)
 				{
 					case JsonToken.StartArray:
-					{
-						if (popStack.Count == 0)
-							popStack.Push(AddChildElement(null, "Lexicon"));
 						break;
-					}
 					case JsonToken.StartObject:
-					{
-						if (popStack.Count == 1)
-							popStack.Push(AddChildElement(popStack.Peek(), "LexEntry"));
 						break;
-					}
 					case JsonToken.EndObject:
-						popStack.Pop();
+						_popStack.Pop();
 						break;
 					case JsonToken.EndArray:
-						if (popStack.Count == 1)
-							return popStack.Pop();
-
+						if (_popStack.Count == 1)
+							return _popStack.Pop();
 						break;
 					case JsonToken.PropertyName:
-						popStack.Peek().Add(ProcessPropertyName());
+					{
+						var element = ProcessPropertyName();
+						if (element != null)
+							_popStack.Peek().Add(element);
 						break;
+					}
 					case JsonToken.Comment:
-						popStack.Peek().Add(ProcessComment());
+						_popStack.Peek().Add(ProcessComment());
 						break;
 					case JsonToken.Date:
 					case JsonToken.Bytes:
@@ -78,7 +77,9 @@ namespace LfMerge.AutomatedSRTests
 				}
 			}
 
-			throw new InvalidDataException("JSON data didn't end with an end-of-array token");
+			if (_popStack.Count > 0)
+				throw new InvalidDataException("JSON data didn't end with an end-of-array token");
+			throw new InvalidDataException("JSON data doesn't have an array as outermost element");
 		}
 
 		private XElement ProcessComment()
@@ -104,11 +105,18 @@ namespace LfMerge.AutomatedSRTests
 			XElement element = null;
 			switch (_reader.Value as string)
 			{
+				case "lexicon":
+					// 'lexicon': [ { 'lexeme': {  } } ]
+					_popStack.Push(AddChildElement(_root, "Lexicon"));
+					return null;
 				case "lexeme":
+				{
 					// "lexeme": { "fr" : { "value" : "lf1<br/>" } }
+					_popStack.Push(AddChildElement(_popStack.Peek(), "LexEntry"));
 					element = new XElement("LexemeForm");
 					element.Add(ProcessLexeme());
 					break;
+				}
 				case "senses":
 					element = new XElement("Senses");
 					element.Add(ProcessSenses());
@@ -143,6 +151,14 @@ namespace LfMerge.AutomatedSRTests
 					Read(JsonToken.String); // "adv1"
 					Read(JsonToken.EndObject); // }
 					break;
+				case "notes":
+				{
+					// 'notes': [ { 'class': {  } } ]
+					var notes = ProcessNotes();
+					Read(JsonToken.EndObject);
+					_root.Add(notes);
+					return null;
+				}
 			}
 
 			return element;
@@ -162,7 +178,9 @@ namespace LfMerge.AutomatedSRTests
 					case JsonToken.PropertyName:
 						ownseq.Add(ProcessPropertyName());
 						break;
+					case JsonToken.StartObject:
 					case JsonToken.EndObject:
+						break;
 					case JsonToken.EndArray:
 						return ownseq;
 					case JsonToken.Comment:
@@ -241,6 +259,85 @@ namespace LfMerge.AutomatedSRTests
 			var element = new XElement(name);
 			parent?.Add(element);
 			return element;
+		}
+
+		private XElement ProcessNotes()
+		{
+			var notes = new XElement("notes");
+			Read(JsonToken.StartArray);
+
+			XElement currentNote = null;
+			while (_reader.Read())
+			{
+				switch (_reader.TokenType)
+				{
+					case JsonToken.PropertyName:
+					{
+						XAttribute attr;
+						switch (_reader.Value as string)
+						{
+							case "class":
+								attr = new XAttribute("class", true);
+								Read(JsonToken.String);
+								attr.Value = (string)_reader.Value;
+								currentNote.Add(attr);
+								break;
+							case "ref":
+								attr = new XAttribute("ref", true);
+								Read(JsonToken.String);
+								attr.Value = $"label={_reader.Value}";
+								currentNote.Add(attr);
+								break;
+							case "message":
+								currentNote.Add(ProcessMessage());
+								break;
+						}
+						break;
+					}
+					case JsonToken.StartObject:
+						currentNote = new XElement("annotation");
+						notes.Add(currentNote);
+						break;
+					case JsonToken.EndObject:
+						break;
+					case JsonToken.EndArray:
+						return notes;
+				}
+			}
+			return null;
+		}
+
+		private XElement ProcessMessage()
+		{
+			var message = new XElement("message");
+			Read(JsonToken.StartObject);
+
+			while (_reader.Read())
+			{
+				switch (_reader.TokenType)
+				{
+					case JsonToken.PropertyName:
+					{
+						switch (_reader.Value as string)
+						{
+							case "status":
+								var attr = new XAttribute("status", true);
+								Read(JsonToken.String);
+								attr.Value = (string) _reader.Value;
+								message.Add(attr);
+								break;
+							case "value":
+								Read(JsonToken.String);
+								message.Add((string) _reader.Value);
+								break;
+						}
+						break;
+					}
+					case JsonToken.EndObject:
+						return message;
+				}
+			}
+			return null;
 		}
 	}
 }

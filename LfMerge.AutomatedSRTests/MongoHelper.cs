@@ -78,12 +78,12 @@ namespace LfMerge.AutomatedSRTests
 
 		#endregion
 
-		public void RestoreDatabase(string tag, int modelVersion)
+		public void RestoreDatabase(int modelVersion, int tag)
 		{
-			RestoreDatabase(tag, modelVersion.ToString());
+			RestoreDatabase(modelVersion.ToString(), $"r{tag}");
 		}
 
-		public void RestoreDatabase(string tag, string modelVersion)
+		public void RestoreDatabase(string modelVersion, string tag)
 		{
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
 			Run("git", $"checkout {tag}", mongoSourceDir);

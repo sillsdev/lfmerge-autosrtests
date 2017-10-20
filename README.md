@@ -9,6 +9,15 @@ and the mongo database will be restored during a test run.
 The data is stored as patch files rather than in binary format so that it is
 possible to easily see the difference between two versions of the test data.
 
+## Understanding the tests
+
+The existing tests use three different objects: `_mongo` is the mongo database and contains
+the data that a user would see on the _Language Forge_ website, `_languageDepot` represents
+the Chorus repo on Language Depot and contains the data after FW did a send/receive. And
+finally `_webwork` which represents the Chorus repo that _lfmerge_ will work with. It contains
+the data after the last s/r happened, before any changes were made in either _Language Forge_
+(i.e. `_mongo`) or FW (i.e. `_languageDepot`).
+
 ## Creating new tests - using guided tool
 
 ### Prerequisites
