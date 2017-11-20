@@ -24,7 +24,7 @@ diff -r c98178b9fee4 -r 21f55eb05488 Lexicon.fwstub.ChorusNotes
 +			author="rmunn"
 +			status=""
 +			date="2017-09-25T15:04:09Z"
-+			guid="3f7772a5-e101-4701-8be7-1b93b331e696">FW comment about word A</message>
++			guid="3f7772a5-e101-4701-8be7-1b93b331e696">FW comment on word A</message>
 +	</annotation>
 +</notes>
 \ No newline at end of file

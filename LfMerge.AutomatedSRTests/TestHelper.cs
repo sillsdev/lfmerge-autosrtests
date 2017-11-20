@@ -1,7 +1,10 @@
 // Copyright (c) 2017 SIL International
 // This software is licensed under the MIT License (http://opensource.org/licenses/MIT)
 using System;
+using System.Diagnostics;
 using System.IO;
+using System.Text;
+using System.Threading;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
@@ -49,6 +52,71 @@ namespace LfMerge.AutomatedSRTests
 			languageDepot.Dispose();
 			webwork.Dispose();
 			LfMergeHelper.Cleanup();
+		}
+
+		/// <summary>
+		/// Run a command with the given arguments. Returns standard output.
+		/// </summary>
+		public static string Run(string command, string args, string workDir,
+			bool throwException = true, bool ignoreErrors = false)
+		{
+			//Console.WriteLine();
+			//Console.WriteLine($"Running command: {command} {args}");
+			using (var process = new Process())
+			{
+				process.StartInfo.UseShellExecute = false;
+				process.StartInfo.CreateNoWindow = true;
+				process.StartInfo.WorkingDirectory = workDir;
+				process.StartInfo.FileName = command;
+				process.StartInfo.Arguments = args;
+				process.StartInfo.RedirectStandardOutput = true;
+				process.StartInfo.RedirectStandardError = true;
+
+				var output = new StringBuilder();
+				var stderr = new StringBuilder();
+
+				using (var outputWaitHandle = new AutoResetEvent(false))
+				using (var errorWaitHandle = new AutoResetEvent(false))
+				{
+					process.OutputDataReceived += (sender, e) =>
+					{
+						if (e.Data == null)
+							outputWaitHandle.Set();
+						else
+							output.AppendLine(e.Data);
+					};
+					process.ErrorDataReceived += (sender, e) =>
+					{
+						if (e.Data == null)
+							errorWaitHandle.Set();
+						else
+							stderr.AppendLine(e.Data);
+					};
+
+					process.Start();
+
+					process.BeginErrorReadLine();
+					process.BeginOutputReadLine();
+					process.WaitForExit();
+					errorWaitHandle.WaitOne();
+					outputWaitHandle.WaitOne();
+					//Console.WriteLine($"Output: {output}");
+					//Console.WriteLine($"Stderr: {stderr}");
+
+					if (process.ExitCode == 0)
+						return output.ToString();
+
+					if (ignoreErrors)
+						return string.Empty;
+
+					var msg = $"Running '{command} {args}'\nreturned {process.ExitCode}.\nStderr:\n{stderr}\nOutput:\n{output}";
+					if (throwException)
+						throw new ApplicationException(msg);
+
+					Console.WriteLine(msg);
+					return stderr.ToString();
+				}
+			}
 		}
 	}
 }

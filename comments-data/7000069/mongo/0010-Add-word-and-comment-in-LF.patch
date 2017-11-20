@@ -1,0 +1,46 @@
+From 1855d5c4fb54f63dd77b137f5dd38f0e1434dff7 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Tue, 26 Sep 2017 09:53:14 +0700
+Subject: [PATCH] Add word and comment in LF
+
+---
+ sf_test-comment-sr.json                 | 4 ++--
+ sf_test-comment-sr.lexiconComments.json | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 0aa5c5b..29d42b8 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T02:49:22.604Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T02:53:13.723Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-26T02:49:00.624Z"}
++,"lastSyncedDate":{"$date":"2017-09-26T02:53:13.873Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-26T02:49:22.584Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 7471f99..8c7bdfa 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -40,5 +40,5 @@
+ }
+ ,"content":"Comment on word D","dateModified":{"$date":"2017-09-26T02:49:29.567Z"}
+ ,"dateCreated":{"$date":"2017-09-26T02:49:29.567Z"}
+-}
++,"guid":"12c99d77-3ebd-423d-b0c1-b291ca4f473f"}
+ 
+-- 
+2.7.4
+

@@ -1,0 +1,76 @@
+From 8980fc01b631769df9c252546c0bacc1da895f66 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 25 Sep 2017 16:38:06 +0700
+Subject: [PATCH] Add word and comment in FW
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexicon.json         | 14 ++++++++++++++
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++++
+ 3 files changed, 26 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 743d98a..6791c4b 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T09:34:50.477Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-25T09:38:05.878Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-25T09:34:50.791Z"}
++,"lastSyncedDate":{"$date":"2017-09-25T09:38:06.245Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexicon.json b/sf_test-comment-sr.lexicon.json
+index ca67ee5..5ed6c9f 100644
+--- a/sf_test-comment-sr.lexicon.json
++++ b/sf_test-comment-sr.lexicon.json
+@@ -90,3 +90,17 @@
+ ,"customFieldGuids":{}
+ ,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
+ 
++{"_id":{"$oid":"59c8ce7eef72839b2c0b6256"}
++,"guid":"0ae86d59-9bfc-4704-b306-c488f37b2c43","liftId":"C_0ae86d59-9bfc-4704-b306-c488f37b2c43","isDeleted":false,"dateModified":{"$date":"2017-09-25T09:38:05.912Z"}
++,"dirtySR":0,"lexeme":{"fr":{"value":"C"}
++}
++,"senses":[{"id":null,"liftId":"d452c67b-b836-4281-b2cc-2f510cfb52e0","guid":"d452c67b-b836-4281-b2cc-2f510cfb52e0","gloss":{"en":{"value":"C"}
++}
++}
++],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-09-25T09:35:30.262Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-09-25T09:35:30.262Z"}
++}
++,"customFields":{}
++,"customFieldGuids":{}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 79a5620..8925e63 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -20,3 +20,13 @@
+ ,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-25T08:12:52.236Z"}
+ }
+ 
++{"_id":{"$oid":"59c8ce7eef72839b2c0b6257"}
++,"guid":"7f40d27f-bb6e-43d5-92bc-d126351947b8","authorNameAlternate":"rmunn","content":"Comment about new word C","entryRef":{"$oid":"59c8ce7eef72839b2c0b6256"}
++,"dateModified":{"$date":"2017-09-25T09:38:06.206Z"}
++,"authorInfo":{"createdDate":{"$date":"2017-09-25T16:35:38.000Z"}
++,"modifiedDate":{"$date":"2017-09-25T16:35:38.000Z"}
++}
++,"regarding":{"targetGuid":"0ae86d59-9bfc-4704-b306-c488f37b2c43","word":"C","meaning":"***"}
++,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-25T09:38:06.206Z"}
++}
++
+-- 
+2.7.4
+

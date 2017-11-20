@@ -1,13 +1,11 @@
 // Copyright (c) 2017 SIL International
 // This software is licensed under the MIT License (http://opensource.org/licenses/MIT)
-using System;
+
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using MongoDB.Bson;
 using MongoDB.Driver;
-using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
 namespace LfMerge.AutomatedSRTests
@@ -21,7 +19,6 @@ namespace LfMerge.AutomatedSRTests
 
 		private int _recordNo;
 		private MongoClient _mongoclient;
-		private readonly Stack<BsonDocument> _stack = new Stack<BsonDocument>();
 
 		private VerifyMongo()
 		{
@@ -32,121 +29,208 @@ namespace LfMerge.AutomatedSRTests
 			if (_mongoclient == null)
 				_mongoclient = new MongoClient($"mongodb://{Settings.MongoHostName}:{Settings.MongoPort}");
 			var db = _mongoclient.GetDatabase($"sf_{Settings.DbName}");
-			var expectedReader = new JsonTextReader(new StringReader(expected));
-			while (expectedReader.Read())
+			var expectedObjects = JArray.Parse(expected, new JsonLoadSettings {CommentHandling = CommentHandling.Load});
+			foreach (JObject obj in expectedObjects)
 			{
-				switch (expectedReader.TokenType)
-				{
-					case JsonToken.StartArray:
-						VerifyCollection(db, expectedReader);
-						break;
-					case JsonToken.EndArray:
-						return;
-				}
+				VerifyCollection(db, obj);
 			}
 		}
 
-		private void VerifyCollection(IMongoDatabase db, JsonReader expected)
+		private void VerifyCollection(IMongoDatabase db, JObject expectedCollection)
 		{
-			while (expected.Read())
-			{
-				switch (expected.TokenType)
-				{
-					case JsonToken.StartObject:
-						break;
-					case JsonToken.PropertyName:
-						var collectionName = expected.Value as string;
-						var collection = db.GetCollection<BsonDocument>(collectionName);
-						var list = collection.Find(_ => true).ToListAsync();
-						list.Wait();
-						var actualRecords = list.Result.ToList();
-						_recordNo = 0;
-						foreach (var actual in actualRecords)
-						{
-							VerifyField(expected, actual.AsBsonValue);
-							_recordNo++;
-						}
-						break;
-					case JsonToken.EndObject:
-						return;
-				}
-			}
+			var property = expectedCollection.Properties().First();
+
+			var collectionName = property.Name;
+			if (collectionName == "notes")
+				collectionName = "lexiconComments";
+			var collection = db.GetCollection<BsonDocument>(collectionName);
+			var list = collection.Find(_ => true).ToListAsync();
+			list.Wait();
+			var actualRecords = list.Result.ToList();
+			var expectedValues = property.Value.ToList();
+			Assert.That(actualRecords.Count, Is.GreaterThanOrEqualTo(expectedValues.Count), $"Mongo: unexpected number of records for collection {collectionName}");
+			if (collectionName == "lexiconComments")
+				VerifyNotes(expectedValues, actualRecords);
+			else
+				VerifyLexicon(expectedValues, actualRecords);
 		}
 
-		private void VerifyField(JsonReader expected, BsonValue actualValue)
+		private void VerifyLexicon(List<JToken> expectedValues, List<BsonDocument> actualRecords)
 		{
-			while (expected.Read())
+			// The order in which the entries appear can be different of what Chorus has, so we
+			// deal with that here
+			var actualRecordsByName = new Dictionary<string, BsonDocument>();
+			foreach (var entry in actualRecords)
 			{
-				switch (expected.TokenType)
+				if (entry.GetElement("isDeleted").Value.AsBoolean)
+					continue;
+
+				var lexeme = entry.GetElement("lexeme");
+				var word = lexeme.Value.ToBsonDocument().Elements.First().Value.ToBsonDocument().
+					GetElement("value").Value.AsString;
+				if (actualRecordsByName.ContainsKey(word))
+					Assert.Fail($"Mongo: Multiple lexEntries for '{word}'");
+				else
+					actualRecordsByName.Add(word, entry);
+			}
+
+			Assert.That(actualRecordsByName.Count, Is.GreaterThanOrEqualTo(expectedValues.Count), "Mongo: Different number of lexentries");
+
+			for (_recordNo = 0; _recordNo < expectedValues.Count; _recordNo++)
+			{
+				var expected = expectedValues[_recordNo] as JObject;
+				var lexeme = expected.Property("lexeme").Value as JObject;
+				var ws = lexeme.Properties().First().Value as JObject;
+				var value = ws.Property("value").Value as JValue;
+				var word = value.Value as string;
+				Assert.That(actualRecordsByName.ContainsKey(word), Is.True, $"Mongo: Can't find lexEntry for '{word}' (record {_recordNo})");
+				var actual = actualRecordsByName[word];
+				foreach (var prop in expected.Properties())
 				{
-					case JsonToken.StartArray:
-						break;
-					case JsonToken.StartObject:
-						break;
-					case JsonToken.PropertyName:
-						var field = expected.Value as string;
-						switch (actualValue.BsonType)
-						{
-							case BsonType.Document:
-							{
-								VerifyObject(expected, actualValue, field);
-								break;
-							}
-							case BsonType.Array:
-							{
-								var array = actualValue.AsBsonArray;
-								foreach (var element in array)
-									VerifyObject(expected, element, field);
-
-								break;
-							}
-						}
-
-						break;
-					case JsonToken.String:
-					case JsonToken.Integer:
-					case JsonToken.Float:
-					case JsonToken.Boolean:
-					case JsonToken.Date:
-					case JsonToken.Bytes:
-						Assert.That(actualValue.AsString, Is.EqualTo(expected.Value));
-						return;
-					case JsonToken.EndArray:
-						break;
-					case JsonToken.EndObject:
-						return;
-					case JsonToken.Comment:
-						// we use the comment to specify fields that should not exist;
-						// format: "no <fieldname>"
-						var parts = expected.Value.ToString().Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-						if (parts.Length > 1)
-						{
-							var noField = parts[1];
-							var doc = _stack.Peek();
-							Assert.That(doc.Elements.Count(s => s.Name == noField), Is.EqualTo(0),
-								$"Field '{noField}' for record {_recordNo} exists but shouldn't");
-						}
-						break;
-					case JsonToken.None:
-					case JsonToken.Raw:
-					case JsonToken.Null:
-					case JsonToken.Undefined:
-					case JsonToken.StartConstructor:
-					case JsonToken.EndConstructor:
-						break;
+					VerifyValue(prop.Name, prop.Value, actual);
 				}
 			}
 		}
 
-		private void VerifyObject(JsonReader expected, BsonValue actualValue, string field)
+		private static void VerifySingleValue(string field, JToken expected, BsonElement actual)
+		{
+			var expectedValue = expected as JValue;
+			Assert.That(expectedValue, Is.Not.Null);
+			Assert.That(actual.Name, Is.EqualTo(field));
+			Assert.That(actual.Value.AsString, Is.EqualTo(expectedValue.Value));
+		}
+
+		private void VerifyValue(string field, JToken expectedValue, BsonValue actualValue)
 		{
 			var actual = actualValue.AsBsonDocument;
-			_stack.Push(actual);
-			Assert.That(actual.Elements.Count(s => s.Name == field), Is.EqualTo(1),
-				$"Unexpected count of elements of '{field}' for record {_recordNo}");
-			VerifyField(expected, actual.Elements.First(s => s.Name == field).Value);
-			_stack.Pop();
+			switch (expectedValue)
+			{
+				case JArray _:
+					Assert.That(actual.Elements.Count(s => s.Name == field), Is.EqualTo(1),
+						$"Mongo: Unexpected count of elements of '{field}' for record {_recordNo}");
+					var child = actual.Elements.First(s => s.Name == field);
+					foreach (JObject obj in expectedValue)
+					{
+						foreach (var prop in obj.Properties())
+						{
+							VerifyValue(prop.Name, prop.Value, child.Value.AsBsonArray[0]);
+						}
+					}
+					return;
+				case JValue val:
+					Assert.That(actual.ElementCount, Is.EqualTo(1));
+					var element = actual.Elements.First();
+					VerifySingleValue(field, val, element);
+					return;
+				case JObject expectedObj:
+					Assert.That(actual.Elements.Count(s => s.Name == field), Is.EqualTo(1),
+						$"Mongo: Unexpected count of elements of '{field}' for record {_recordNo}");
+					Assert.That(expectedObj, Is.Not.Null);
+					var actualProps = actual.Elements;
+					Assert.That(actualProps.Count(),
+						Is.GreaterThanOrEqualTo(expectedObj.Properties().ToList().Count));
+					foreach (var prop in expectedObj.Properties())
+					{
+						VerifyValue(prop.Name, prop.Value, actual.First(s => s.Name == field).Value);
+					}
+					return;
+				default:
+					Assert.Fail($"Mongo: Unexpected object type {expectedValue.GetType()}");
+					return;
+			}
 		}
 
+		private void VerifyNotes(List<JToken> expectedValues, List<BsonDocument> actualRecords)
+		{
+			Assert.That(actualRecords.Count, Is.EqualTo(expectedValues.Count), "Mongo: Different number of notes");
+
+			// The order in which the notes appear can be different of what Chorus has, so we
+			// deal with that here
+			var actualNotesByRef = new Dictionary<string, List<BsonDocument>>();
+			foreach (var note in actualRecords)
+			{
+				var regarding = note.GetElement("regarding");
+				var word = regarding.Value.ToBsonDocument().GetElement("word").Value.AsString;
+				if (actualNotesByRef.ContainsKey(word))
+					actualNotesByRef[word].Add(note);
+				else
+					actualNotesByRef.Add(word, new List<BsonDocument>(new[] { note }));
+			}
+
+			for (_recordNo = 0; _recordNo < expectedValues.Count; _recordNo++)
+			{
+				var expected = expectedValues[_recordNo] as JObject;
+				var noteRef = ((JValue) expected.Property("ref").Value).Value as string;
+				var content =
+					((JValue) ((JObject) expected.Property("message").Value).Property("value").Value)
+					.Value as string;
+				Assert.That(actualNotesByRef.ContainsKey(noteRef), Is.True, $"Mongo: Can't find note for '{noteRef}' (record {_recordNo})");
+				var actual = actualNotesByRef[noteRef].FirstOrDefault(n => n.GetElement("content").Value.AsString == content);
+				Assert.That(actual, Is.Not.Null, $"Mongo: Can't find note for '{noteRef}' with content '{content}' (record {_recordNo})");
+				VerifyNote(expected, actual);
+			}
+		}
+
+		private void VerifyNote(JObject expected, BsonDocument actual)
+		{
+			foreach (var prop in expected.Properties())
+			{
+				switch (prop.Name)
+				{
+					case "class":
+						// LanguageForge doesn't distinguish between different kinds of notes, so
+						// we ignore it here.
+						break;
+					case "ref":
+						VerifyNotesRef(prop.Value as JValue, actual);
+						break;
+					case "message":
+						VerifyNotesMessage(prop.Value as JObject, actual);
+						break;
+					default:
+						Assert.Fail($"Mongo: Unhandled property {prop.Name} in 'notes' element of expected data");
+						break;
+				}
+			}
+		}
+
+		private void VerifyNotesMessage(JObject expectedObj, BsonDocument actual)
+		{
+			Assert.That(expectedObj, Is.Not.Null);
+			var actualProps = actual.Elements;
+			Assert.That(actualProps.Count(),
+				Is.GreaterThanOrEqualTo(expectedObj.Properties().ToList().Count));
+			foreach (var prop in expectedObj.Properties())
+			{
+				switch (prop.Name)
+				{
+					case "status":
+					{
+						var expectedValue = prop.Value as JValue;
+						var expectedString = (string) expectedValue.Value;
+						if (string.IsNullOrEmpty(expectedString))
+							expectedString = "open";
+						var actualValue = actual.GetElement(prop.Name);
+						Assert.That(actualValue.Name, Is.EqualTo(prop.Name));
+						Assert.That(actualValue.Value.AsString, Is.EqualTo(expectedString));
+						break;
+					}
+					case "value":
+						VerifySingleValue("content", prop.Value, actual.GetElement("content"));
+						break;
+					default:
+						Assert.Fail($"Mongo: Unhandled property {prop.Name} in 'message' element of expected data");
+						break;
+				}
+
+			}
+		}
+
+		private static void VerifyNotesRef(JValue expectedValue, BsonDocument actualValue)
+		{
+			var regarding = actualValue.Elements.First(s => s.Name == "regarding");
+			var word = regarding.Value.ToBsonDocument().First(s => s.Name == "word");
+			VerifySingleValue("word", expectedValue, word);
+		}
 	}
 }

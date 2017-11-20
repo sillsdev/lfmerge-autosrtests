@@ -34,6 +34,7 @@
     <Reference Include="LibChorus">
       <HintPath>..\lib\LibChorus.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="MongoDB.Bson">
       <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
     </Reference>
@@ -67,7 +68,10 @@
     <Compile Include="LfMergeHelper.cs" />
     <Compile Include="MongoHelper.cs" />
     <Compile Include="TestHelper.cs" />
+    <Compile Include="TestInfrastructureTests\ChorusHelperTests.cs" />
     <Compile Include="TestInfrastructureTests\JsonToXmlTests.cs" />
+    <Compile Include="TestInfrastructureTests\VerifyLanguageDepotTests.cs" />
+    <Compile Include="TestInfrastructureTests\VerifyMongoTests.cs" />
     <Compile Include="Tests\BasicDataTests.cs" />
     <Compile Include="Tests\CommentsTests.cs" />
     <Compile Include="VerifyLanguageDepot.cs" />

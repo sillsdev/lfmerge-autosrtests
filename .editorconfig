@@ -25,3 +25,6 @@ indent_size = 2
 # Generated file
 [*.sln]
 end_of_line = crlf
+
+[*.patch]
+trim_trailing_whitespace = false

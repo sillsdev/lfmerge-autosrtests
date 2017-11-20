@@ -9,7 +9,7 @@
 		<!-- Determines if package restore consent is required to restore packages -->
 		<RequireRestoreConsent Condition=" '$(RequireRestoreConsent)' != 'false' ">false</RequireRestoreConsent>
 
-		<!-- Download NuGet.exe if it does not already exist -->
+		<!-- Download nuget.exe if it does not already exist -->
 		<DownloadNuGetExe Condition=" '$(DownloadNuGetExe)' == '' ">true</DownloadNuGetExe>
 	</PropertyGroup>
 
@@ -24,14 +24,14 @@
 		<NuGetToolsPath>$(MSBuildThisFileDirectory)</NuGetToolsPath>
 
 		<!-- NuGet command -->
-		<NuGetExePath Condition=" '$(NuGetExePath)' == '' ">$(NuGetToolsPath)/NuGet.exe</NuGetExePath>
+		<NuGetExePath Condition=" '$(NuGetExePath)' == '' ">$(NuGetToolsPath)/nuget.exe</NuGetExePath>
 
 		<PackageSources Condition=" $(PackageSources) == '' ">@(PackageSource)</PackageSources>
 
 		<NuGetCommand Condition=" '$(OS)' == 'Windows_NT'">"$(NuGetExePath)"</NuGetCommand>
 		<NuGetCommand Condition=" '$(OS)' != 'Windows_NT' ">mono --runtime=v4.0.30319 $(NuGetExePath)</NuGetCommand>
 
-		<NuGetDownload>https://www.dropbox.com/s/j8kvxbg9506p21j/NuGet.exe</NuGetDownload>
+		<NuGetDownload>https://dist.nuget.org/win-x86-commandline/latest/nuget.exe</NuGetDownload>
 	</PropertyGroup>
 
 	<Target Name="CheckPrerequisites">
@@ -48,7 +48,7 @@
 	</Target>
 
 	<Target Name="_DownloadNuGet" Condition=" '$(DownloadNuGetExe)' == 'true' AND !Exists('$(NuGetExePath)')">
-		<DownloadNuGet OutputFilename="$(NuGetExePath)"
+		<DownloadNuGet OutputFilename="$(NuGetExePath)" ExeFilename="$(NuGetDownload)"
 			Condition="'$(OS)' == 'Windows_NT'" />
 		<Exec Command="wget $(NuGetDownload) || curl -O -L $(NuGetDownload)"
 			WorkingDirectory="$(NuGetToolsPath)"
@@ -64,6 +64,7 @@
 		Condition=" '$(OS)' == 'Windows_NT' ">
 		<ParameterGroup>
 			<OutputFilename ParameterType="System.String" Required="true" />
+			<ExeFilename ParameterType="System.String" Required="true" />
 		</ParameterGroup>
 		<Task>
 			<Reference Include="System.Core" />
@@ -77,9 +78,9 @@
 				try {
 					OutputFilename = Path.GetFullPath(OutputFilename);
 
-					Log.LogMessage("Downloading latest version of NuGet.exe...");
+					Log.LogMessage("Downloading latest version of nuget.exe...");
 					WebClient webClient = new WebClient();
-					webClient.DownloadFile("https://nuget.org/NuGet.exe", OutputFilename);
+					webClient.DownloadFile(ExeFilename, OutputFilename);
 
 					return true;
 				}

@@ -241,7 +241,7 @@ namespace LfMerge.TestUtil
 			{
 				for (var i = 0; i <= options.LanguageDepotVersion.Value; i++)
 				{
-					ld.ApplyPatch(Path.Combine(options.ModelVersion, $"r{i}.patch"));
+					ld.ApplySinglePatch(options.ModelVersion, i);
 				}
 			}
 

@@ -56,7 +56,7 @@ files (up to revision _rev_; in the example below this would be `r0.patch` and `
 `/tmp/testdata/LanguageDepot`.
 
 	mono --debug TestUtil.exe restore --ld=1 --workdir=/tmp/testdata/ \
-		--project=autosrtests --model=7000068
+		--project=autosrtests --model=7000068 --datadir=data
 
 ### Export existing Chorus repo
 
@@ -67,9 +67,9 @@ your hard drive (e.g. /tmp/ld) to speed up processing.
 The new changes can be exported by running:
 
 	mono --debug TestUtil.exe save --ld --workdir /tmp/ld --project autosrtests \
-		--model 7000068
+		--model 7000068 --datadir=otherdata
 
-This will save the new patches in `data/7000068`.
+This will save the new patches in `otherdata/7000068`.
 
 **NOTE:** When doing a S/R in FLEx to the USB stick be aware that _flexbridge_ identifies
 the correct directory by checking the hash of the first commit. If multiple repos
@@ -83,14 +83,14 @@ The patches for the test project in the mongo database are located as patches in
 _7000068_ run the following command:
 
 	mono --debug TestUtil.exe restore --mongo=2 --project autosrtests \
-		--workdir /tmp/testdata --model 7000068
+		--workdir /tmp/testdata --model 7000068 --datadir=data
 
 ### Export test project in Mongo
 
 Make the changes in _LanguageForge_, then run:
 
 	mono --debug TestUtil.exe save --mongo --project autosrtests --msg "commit msg" \
-		--workdir /tmp/testdata --model 7000068
+		--workdir /tmp/testdata --model 7000068 --datadir=data
 
 ### Merge Chorus and Mongo test data
 
@@ -103,7 +103,7 @@ The merged data based on mongo patch _2_ and
 language depot patch _2_ for model version 7000068 can be created by running:
 
 	mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
-		--ld=2 --workdir=/tmp/testdata/ --model=7000068
+		--ld=2 --workdir=/tmp/testdata/ --model=7000068 --datadir=data
 
 ### Steps to create a new test
 
@@ -116,7 +116,7 @@ and LF, then export the changes and write the unit test.
 
 
 	mono --debug TestUtil.exe restore --ld=3 --project autosrtests \
-		--workdir /tmp/testdata --model 7000068
+		--workdir /tmp/testdata --model 7000068 --datadir=data
 
 2. Copy the `.hg` subdirectory from `/tmp/testdata/LanguageDepot` to the USB stick
 
@@ -137,7 +137,7 @@ and LF, then export the changes and write the unit test.
 
 
 	mono --debug TestUtil.exe save --ld --workdir /tmp/test-7000068 \
-		--project autosrtests --model 7000068
+		--project autosrtests --model 7000068 --datadir=data
 
 #### Create changes in LanguageForge
 
@@ -145,7 +145,7 @@ and LF, then export the changes and write the unit test.
 
 
 	mono --debug TestUtil.exe restore --mongo=3 --project autosrtests \
-		--workdir /tmp/testdata --model 7000068
+		--workdir /tmp/testdata --model 7000068 --datadir=data
 
 2. Make changes in local LF
 
@@ -153,7 +153,8 @@ and LF, then export the changes and write the unit test.
 
 
 	mono --debug TestUtil.exe save --mongo --project autosrtests \
-		--msg "commit msg" --workdir /tmp/testdata --model 7000068
+		--msg "commit msg" --workdir /tmp/testdata --model 7000068 \
+		--datadir=data
 
 #### Changes in `LfMerge.AutomatedSRTests`
 
@@ -162,8 +163,8 @@ and LF, then export the changes and write the unit test.
 - merge the Chorus and Mongo test data for each model version:
 
 
-		mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
-			--ld=2 --workdir=/tmp/testdata/ --model=7000068
+	mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
+		--ld=2 --workdir=/tmp/testdata/ --model=7000068 --datadir=data
 
 ## Creating new tests - the hard way
 

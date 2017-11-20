@@ -1,0 +1,23 @@
+From e587c2ebfa96fed0bdc3a6b9edd6d343ba8ed646 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Tue, 26 Sep 2017 13:05:09 +0700
+Subject: [PATCH] Add comments simultaneously (Sync LF data with LD)
+
+---
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++++
+ 1 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 810c61d..d0b9616 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -54,5 +54,5 @@
+ }
+ ,"content":"Comment on A, LF second","dateModified":{"$date":"2017-09-26T06:04:20.836Z"}
+ ,"dateCreated":{"$date":"2017-09-26T06:04:20.836Z"}
+-}
++,"guid":"e87ca545-8c3d-40b9-9f69-5afb8859331a"}
+ 
+-- 
+2.7.4
+

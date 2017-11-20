@@ -1,55 +1,55 @@
 # HG changeset patch
-# User Language Forge
-# Date 1506394513 -25200
-#      Tue Sep 26 09:55:13 2017 +0700
+# User rmunn
+# Date 1506332149 -25200
+#      Mon Sep 25 16:35:49 2017 +0700
 # Branch 7000070
-# Node ID 1317901e2193e4ac2748f48bcdbe41c2dfdd48b4
-# Parent  d68f89dad14c0c00fdf898a5fcc851b60d610834
-[LfMergeBridge: 2.5.1.0] Language Forge: 1 entry added
+# Node ID d68f89dad14c0c00fdf898a5fcc851b60d610834
+# Parent  b3b73c4f017e936e6331b2c05c5fe907ef2abf65
+[FLEx Bridge: 2.1] sync Comment about new word C
 
-diff -r d68f89dad14c -r 1317901e2193 Lexicon.fwstub.ChorusNotes
---- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 16:35:49 2017 +0700
-+++ b/Lexicon.fwstub.ChorusNotes	Tue Sep 26 09:55:13 2017 +0700
-@@ -31,4 +31,14 @@
- 			date="2017-09-25T16:35:38Z"
- 			guid="9e33c9c6-cacd-45c5-815a-450ba1e64b50">Comment about new word C</message>
+diff -r b3b73c4f017e -r d68f89dad14c Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:12:40 2017 +0700
++++ b/Lexicon.fwstub.ChorusNotes	Mon Sep 25 16:35:49 2017 +0700
+@@ -21,4 +21,14 @@
+ 			date="2017-09-25T15:12:30Z"
+ 			guid="825eb17c-200a-4718-8493-4c714c707cee">Comment on word B</message>
  	</annotation>
 +	<annotation
-+		class="note"
-+		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=58a7b7f9-e49a-4f46-9502-8ecd10c47c99&amp;tag=&amp;id=58a7b7f9-e49a-4f46-9502-8ecd10c47c99&amp;label=D"
-+		guid="5accfaa7-7d86-4fa1-8775-46f23c89d8a5">
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=0ae86d59-9bfc-4704-b306-c488f37b2c43&amp;tag=&amp;id=0ae86d59-9bfc-4704-b306-c488f37b2c43&amp;label=C"
++		guid="7f40d27f-bb6e-43d5-92bc-d126351947b8">
 +		<message
-+			author="Language Forge"
-+			status="open"
-+			date="2017-09-26T09:55:03Z"
-+			guid="2c6ac40c-9857-4829-8b67-2f9dad21064a">Comment on word D</message>
++			author="rmunn"
++			status=""
++			date="2017-09-25T16:35:38Z"
++			guid="9e33c9c6-cacd-45c5-815a-450ba1e64b50">Comment about new word C</message>
 +	</annotation>
  </notes>
 \ No newline at end of file
-diff -r d68f89dad14c -r 1317901e2193 Linguistics/Lexicon/Lexicon_08.lexdb
---- a/Linguistics/Lexicon/Lexicon_08.lexdb	Mon Sep 25 16:35:49 2017 +0700
-+++ b/Linguistics/Lexicon/Lexicon_08.lexdb	Tue Sep 26 09:55:13 2017 +0700
-@@ -1,2 +1,43 @@
+diff -r b3b73c4f017e -r d68f89dad14c Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Mon Sep 25 15:12:40 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Mon Sep 25 16:35:49 2017 +0700
+@@ -1,2 +1,49 @@
  <?xml version="1.0" encoding="utf-8"?>
 -<Lexicon />
 \ No newline at end of file
 +<Lexicon>
 +	<LexEntry
-+		guid="58a7b7f9-e49a-4f46-9502-8ecd10c47c99">
++		guid="0ae86d59-9bfc-4704-b306-c488f37b2c43">
 +		<DateCreated
-+			val="2017-9-26 2:54:34.822" />
++			val="2017-9-25 9:35:30.262" />
 +		<DateModified
-+			val="2017-9-26 2:54:34.822" />
++			val="2017-9-25 9:35:30.262" />
 +		<DoNotUseForParsing
 +			val="False" />
 +		<HomographNumber
 +			val="0" />
 +		<LexemeForm>
 +			<MoStemAllomorph
-+				guid="ee89138b-bdd3-4a9a-8f8c-ca4ce9e6821c">
++				guid="abe5907a-4fd9-423f-9f4a-bd4bb19726b4">
 +				<Form>
 +					<AUni
-+						ws="fr">D</AUni>
++						ws="fr">C</AUni>
 +				</Form>
 +				<IsAbstract
 +					val="False" />
@@ -60,17 +60,23 @@ diff -r d68f89dad14c -r 1317901e2193 Linguistics/Lexicon/Lexicon_08.lexdb
 +				</MorphType>
 +			</MoStemAllomorph>
 +		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="9d03bfd9-20c8-43ec-8414-8174fbf65bf0" />
++		</MorphoSyntaxAnalyses>
 +		<Senses>
 +			<ownseq
 +				class="LexSense"
-+				guid="6130bd53-fd6a-461e-bcb5-c3f63f742659">
-+				<Definition>
-+					<AStr
-+						ws="en">
-+						<Run
-+							ws="en">D</Run>
-+					</AStr>
-+				</Definition>
++				guid="d452c67b-b836-4281-b2cc-2f510cfb52e0">
++				<Gloss>
++					<AUni
++						ws="en">C</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="9d03bfd9-20c8-43ec-8414-8174fbf65bf0"
++						t="r" />
++				</MorphoSyntaxAnalysis>
 +			</ownseq>
 +		</Senses>
 +	</LexEntry>

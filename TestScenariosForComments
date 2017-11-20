@@ -1,0 +1,26 @@
+SETUP: Empty project, add entry A in FW, add entry B in LF. S/R so both sides have both entries.
+
+(✓ means implemented in CommentsTests.cs)
+
+✓ TEST  1: FW deletes B while LF adds a comment on B. What should happen: B gets deleted.
+✓ TEST  2: LF deletes B while FW adds a comment on B. What should happen: B remains, with a comment on it.
+✓ TEST  3: FW adds comment on B, LF adds comment on B at the same time (five seconds later). FW does S/R first, then LF does. Both comments appear.
+✓ TEST  4: FW adds comment on B, LF adds comment on B at the same time (five seconds later). LF does S/R first, then FW does. Both comments appear.
+TEST  5: FW adds comment on B, LF adds comment on B at the same time (five seconds earlier). FW does S/R first, then LF does. Both comments appear.
+TEST  6: FW adds comment on B, LF adds comment on B at the same time (five seconds earlier). LF does S/R first, then FW does. Both comments appear.
+✓ TEST  7: FW adds comment on A, LF adds comment on B. FW does S/R first, then LF does. Both comments appear.
+✓ TEST  8: FW adds comment on A, LF adds comment on B. LF does S/R first, then FW does. Both comments appear.
+TEST  9: FW adds comment on A. S/R. LF replies. S/R. FW replies. S/R. LF should see all three comments.
+TEST 10: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF should see new status as resolved.
+TEST 11: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF reopens the comment. S/R. FW should see new status as open.
+TEST 12: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.
+TEST 13: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped earlier. FW does S/R first. LF then does S/R. LF should see both comments, status resolved. So should FW.
+TEST 14: LF adds comment. S/R. LF adds new comment while FW is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status resolved. So should FW.
+TEST 15: LF adds comment. S/R. LF adds new comment while FW is marking status as resolved; FW activity timestamped earlier. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.
+TEST 16: LF marks comment as "todo". What does FW show? (What should it show?)
+TEST 17: FW adds comment to particular field (say, Definition field). LF should see the comment on the Meaning field.
+TEST 18: LF adds comment to Meaning field. LF should see the comment on the Definition field.
+TEST 19: FW adds comment on a custom field. LF sees it on the same custom field. (May not work yet).
+TEST 20: LF adds comment on a custom field. FW sees it on the same custom field. (May not work yet).
+✓ TEST 21: FW adds an entry C and a comment on C at the same time. S/R, LF sees both the comment and the entry show up.
+✓ TEST 22: LF adds an entry D and a comment on D at the same time. S/R, FW sees both the comment and the entry show up.
