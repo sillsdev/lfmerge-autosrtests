@@ -8,7 +8,7 @@ using Palaso.Progress;
 
 namespace LfMerge.AutomatedSRTests
 {
-	public abstract class ChorusHelper: IDisposable
+	public abstract class ChorusHelper : IDisposable
 	{
 		#region Dispose functionality
 		protected virtual void Dispose(bool disposing)

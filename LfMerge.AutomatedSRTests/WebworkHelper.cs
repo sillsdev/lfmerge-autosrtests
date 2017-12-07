@@ -5,7 +5,7 @@ using Palaso.IO;
 
 namespace LfMerge.AutomatedSRTests
 {
-	public class WebworkHelper: ChorusHelper
+	public class WebworkHelper : ChorusHelper
 	{
 		public WebworkHelper(string dbName)
 		{
