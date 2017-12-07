@@ -7,12 +7,6 @@
 # Parent  3a0246ea943dde56be94274ad5100007ef5c3596
 [FLEx Bridge: 2.1] sync
 
-diff -r 3a0246ea943d -r c7bd53707af8 Lexicon.fwstub.ChorusNotes
---- /dev/null	Thu Jan 01 00:00:00 1970 +0000
-+++ b/Lexicon.fwstub.ChorusNotes	Tue Mar 14 17:57:04 2017 +0100
-@@ -0,0 +1,1 @@
-+<notes version='0'/>
-\ No newline at end of file
 diff -r 3a0246ea943d -r c7bd53707af8 Linguistics/Lexicon/Lexicon_03.lexdb
 --- a/Linguistics/Lexicon/Lexicon_03.lexdb	Fri Feb 03 17:52:38 2017 +0100
 +++ b/Linguistics/Lexicon/Lexicon_03.lexdb	Tue Mar 14 17:57:04 2017 +0100

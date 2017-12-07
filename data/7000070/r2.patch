@@ -1917,12 +1917,6 @@ diff -r 8ef0c79918e9 -r 55a9ea7fd85c General/FLExStyles.style
  		</Usage>
  		<UserLevel
  			val="1" />
-diff -r 8ef0c79918e9 -r 55a9ea7fd85c Lexicon.fwstub.ChorusNotes
---- /dev/null	Thu Jan 01 00:00:00 1970 +0000
-+++ b/Lexicon.fwstub.ChorusNotes	Tue Mar 14 18:45:50 2017 +0100
-@@ -0,0 +1,1 @@
-+<notes version='0'/>
-\ No newline at end of file
 diff -r 8ef0c79918e9 -r 55a9ea7fd85c Linguistics/Lexicon/Lexicon_01.lexdb
 --- a/Linguistics/Lexicon/Lexicon_01.lexdb	Fri Feb 03 18:05:08 2017 +0100
 +++ b/Linguistics/Lexicon/Lexicon_01.lexdb	Tue Mar 14 18:45:50 2017 +0100
