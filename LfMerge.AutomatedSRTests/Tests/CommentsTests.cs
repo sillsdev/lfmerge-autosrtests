@@ -64,7 +64,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'gloss' : { 'en' : { 'value' : 'A' } }
 				} ] }
 			]}, { 'notes': [
-				{ 'class' : 'note',
+				{ 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -164,7 +164,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'FW comment on word A'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -176,13 +176,13 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'Comment about new word C'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'D',
 					'message' : {
 						'status': 'open',
 						'value': 'Comment on word D'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'A',
 					'message' : {
 						'status': 'open',
@@ -251,7 +251,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'FW comment on word A'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -263,13 +263,13 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'Comment about new word C'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'D',
 					'message' : {
 						'status': 'open',
 						'value': 'Comment on word D'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'A',
 					'message' : {
 						'status': 'open',
@@ -321,7 +321,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'gloss' : { 'en' : { 'value' : 'A' } }
 					} ] }
 			]}, { 'notes': [
-				{ 'class' : 'note',
+				{ 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -384,7 +384,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'gloss' : { 'en' : { 'value' : 'A' } }
 					} ] }
 			]}, { 'notes': [
-				{ 'class' : 'note',
+				{ 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -447,7 +447,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'FW comment on word A'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -515,7 +515,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'FW comment on word A'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'B',
 					'message' : {
 						'status': 'open',
@@ -527,7 +527,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': '',
 						'value': 'Comment about new word C'
 					}
-				}, { 'class' : 'note',
+				}, { 'class' : 'question',
 					'ref' : 'D',
 					'message' : {
 						'status': 'open',

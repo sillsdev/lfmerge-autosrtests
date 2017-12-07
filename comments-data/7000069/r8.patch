@@ -15,7 +15,7 @@ diff -r 92824ef35b7f -r c924ff0309a3 Lexicon.fwstub.ChorusNotes
  			guid="0b981639-50c0-4819-919c-94f0262c4cee">Comment about new word C</message>
  	</annotation>
 +	<annotation
-+		class="note"
++		class="question"
 +		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=226bd99c-317c-474b-8a6b-35d7fd620788&amp;tag=&amp;id=226bd99c-317c-474b-8a6b-35d7fd620788&amp;label=D"
 +		guid="12c99d77-3ebd-423d-b0c1-b291ca4f473f">
 +		<message

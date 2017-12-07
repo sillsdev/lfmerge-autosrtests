@@ -15,7 +15,7 @@ diff -r 7485388c6cad -r 1d6df3fc24df Lexicon.fwstub.ChorusNotes
  			guid="3022f674-2824-4c1f-a1bf-403373005e05">Comment on A, FW first</message>
  	</annotation>
 +	<annotation
-+		class="note"
++		class="question"
 +		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=74e7bb30-68d1-4bd8-b842-f7c3d5dfa407&amp;tag=&amp;id=74e7bb30-68d1-4bd8-b842-f7c3d5dfa407&amp;label=A"
 +		guid="e87ca545-8c3d-40b9-9f69-5afb8859331a">
 +		<message
