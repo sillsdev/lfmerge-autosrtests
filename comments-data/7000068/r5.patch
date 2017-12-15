@@ -7,12 +7,9 @@
 # Parent  a960ef7bab408dd1a1cc66f501f6bce62faa9192
 No-op patch
 
-diff -r a960ef7bab40 -r b3b73c4f017e Lexicon.fwstub.ChorusNotes
---- a/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:11:10 2017 +0700
-+++ b/Lexicon.fwstub.ChorusNotes	Mon Sep 25 15:12:40 2017 +0700
-@@ -11,4 +11,4 @@
- 			date="2017-09-25T15:10:59Z"
- 			guid="e3702c53-4dba-4725-8fd8-104fe32a5a81">FW comment on word A</message>
- 	</annotation>
- </notes>
+diff -r a960ef7bab40 -r b3b73c4f017e no-op
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/no-op	Mon Sep 25 13:39:11 2017 +0700
+@@ -0,0 +1,1 @@
++dummy file
 \ No newline at end of file
