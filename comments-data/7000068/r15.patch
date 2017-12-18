@@ -1,0 +1,53 @@
+# HG changeset patch
+# User Language Forge
+# Date 1513614806 -3600
+#      Mon Dec 18 17:33:26 2017 +0100
+# Branch 7000068
+# Node ID a1b86f534b2e150a90998fe3a743f4b6c8de890c
+# Parent  7e8eabc8bd75a338be10405fb5ab0a8f4cedb3b6
+[LfMergeBridge: 2.6.0.0] Language Forge S/R
+
+diff -r 7e8eabc8bd75 -r a1b86f534b2e WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Mon Dec 18 15:20:11 2017 +0100
++++ b/WritingSystemStore/en-US.ldml	Mon Dec 18 17:33:26 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T06:40:22" />
++			date="2017-12-07T18:36:10" />
+ 		<language
+ 			type="en" />
+ 		<territory
+@@ -41,10 +41,6 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
+-			<palaso2:keyboard
+-				layout="US"
+-				locale="en-US"
+-				os="Win32NT" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r 7e8eabc8bd75 -r a1b86f534b2e WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Dec 18 15:20:11 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Dec 18 17:33:26 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-15T16:00:46" />
++			date="2017-12-18T14:21:00" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -24,7 +24,7 @@
+ 	<special
+ 		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
+ 		<palaso:abbreviation
+-			value="Frn" />
++			value="fr" />
+ 		<palaso:defaultFontFamily
+ 			value="Times New Roman" />
+ 		<palaso:languageName

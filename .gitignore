@@ -7,7 +7,7 @@
 [Oo]utput/
 packages/
 TestResults/
-build/NuGet.exe
+build/[Nn]u[Gg]et.exe
 build/*.files
 
 # globs

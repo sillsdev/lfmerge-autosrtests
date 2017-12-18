@@ -1,0 +1,39 @@
+From 9e921c46501f5fc8f5d994b572657c0290ab2f87 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 18 Dec 2017 16:32:59 +0000
+Subject: [PATCH] Additional entries for tests
+
+---
+ sf_test-comment-sr.json | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index e75b143..23c5494 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,10 +10,10 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-09-26T06:02:06.195Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T14:21:18.349Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+-,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
++,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+ }
+ ,"config":{"tasks":{"view":{"visible":true,"type":""}
+ ,"dashboard":{"visible":true,"type":""}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-09-26T06:02:06.515Z"}
+-,"lastEntryModifiedDate":{"$date":"2017-09-26T02:54:34.822Z"}
++,"lastSyncedDate":{"$date":"2017-12-18T14:21:18.557Z"}
++,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+-- 
+2.15.1
+

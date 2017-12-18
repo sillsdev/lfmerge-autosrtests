@@ -1,0 +1,114 @@
+# HG changeset patch
+# User Language Forge
+# Date 1513619940 -3600
+#      Mon Dec 18 18:59:00 2017 +0100
+# Branch 7000070
+# Node ID 02bdfa6325cfffc268a670ebf833214d38647925
+# Parent  1204cf96b205f6fc30448d1e4345cf90e3ced811
+[LfMergeBridge: 2.6.0.0] Language Forge S/R
+
+diff -r 1204cf96b205 -r 02bdfa6325cf WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Mon Dec 18 18:58:09 2017 +0100
++++ b/WritingSystemStore/en-US.ldml	Mon Dec 18 18:59:00 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T06:45:32" />
++			date="2017-12-07T18:36:10" />
+ 		<language
+ 			type="en" />
+ 		<territory
+@@ -41,10 +41,6 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
+-			<palaso2:keyboard
+-				layout="US"
+-				locale="en-US"
+-				os="Win32NT" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r 1204cf96b205 -r 02bdfa6325cf WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Mon Dec 18 18:58:09 2017 +0100
++++ b/WritingSystemStore/en.ldml	Mon Dec 18 18:59:00 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T02:17:41" />
++			date="2017-12-15T16:00:59" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+@@ -33,6 +33,10 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="us"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r 1204cf96b205 -r 02bdfa6325cf WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Mon Dec 18 18:58:09 2017 +0100
++++ b/WritingSystemStore/es.ldml	Mon Dec 18 18:59:00 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T02:17:41" />
++			date="2017-12-07T17:16:16" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+@@ -39,6 +39,10 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="us"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r 1204cf96b205 -r 02bdfa6325cf WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Dec 18 18:58:09 2017 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Dec 18 18:59:00 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T02:17:41" />
++			date="2017-12-18T14:21:00" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -24,7 +24,7 @@
+ 	<special
+ 		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
+ 		<palaso:abbreviation
+-			value="Frn" />
++			value="fr" />
+ 		<palaso:defaultFontFamily
+ 			value="Times New Roman" />
+ 		<palaso:languageName
+@@ -97,6 +97,14 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="th"
++				locale="th-TH"
++				os="Unix" />
++			<palaso2:keyboard
++				layout="us"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />

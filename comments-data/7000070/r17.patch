@@ -1,0 +1,16 @@
+# HG changeset patch
+# User eberhard
+# Date 1513620639 -3600
+#      Mon Dec 18 19:10:39 2017 +0100
+# Branch 7000070
+# Node ID b3bba64f6836cb9cbebef5892b65df80624bdb7a
+# Parent  9519e371822589d1630034e972cd5ea6b159c95e
+# Parent  02bdfa6325cfffc268a670ebf833214d38647925
+Merged with Language Forge (no changes)
+
+diff -r 9519e3718225 -r b3bba64f6836 no-op
+--- a/no-op Tue Dec 19 09:14:34 2017 +0100
++++ b/no-op Tue Dec 19 09:15:05 2017 +0100
+@@ -1,1 +1,1 @@
+-no-op patch
++dummy file

@@ -1,0 +1,272 @@
+# HG changeset patch
+# User eberhard
+# Date 1513606811 -3600
+#      Mon Dec 18 15:20:11 2017 +0100
+# Branch 7000068
+# Node ID 7e8eabc8bd75a338be10405fb5ab0a8f4cedb3b6
+# Parent  9d86060584561d1f5458c47f3ef09b2c24484473
+[FLEx Bridge: 2.6.0.0] sync
+
+diff -r 9d8606058456 -r 7e8eabc8bd75 Linguistics/Lexicon/Lexicon_01.lexdb
+--- a/Linguistics/Lexicon/Lexicon_01.lexdb	Tue Sep 26 13:01:56 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_01.lexdb	Mon Dec 18 15:20:11 2017 +0100
+@@ -36,4 +36,50 @@
+ 			<VariantEntryTypes />
+ 		</LexDb>
+ 	</header>
++	<LexEntry
++		guid="db613b50-612f-4650-b709-93479b0bee0e">
++		<DateCreated
++			val="2017-12-18 14:19:53.654" />
++		<DateModified
++			val="2017-12-18 14:19:53.654" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="60302e81-2085-4db5-a022-3cbce7418c13">
++				<Form>
++					<AUni
++						ws="fr">F</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="72276b68-2fba-41c5-9b7b-76ae69d75df7" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="1839e6e5-8bd4-48be-a098-127f45790b14">
++				<Gloss>
++					<AUni
++						ws="en">F</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="72276b68-2fba-41c5-9b7b-76ae69d75df7"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
+ </Lexicon>
+\ No newline at end of file
+diff -r 9d8606058456 -r 7e8eabc8bd75 Linguistics/Lexicon/Lexicon_06.lexdb
+--- a/Linguistics/Lexicon/Lexicon_06.lexdb	Tue Sep 26 13:01:56 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_06.lexdb	Mon Dec 18 15:20:11 2017 +0100
+@@ -1,2 +1,95 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="19f39959-682d-4191-ab09-41933ded687d">
++		<DateCreated
++			val="2017-12-18 14:19:58.230" />
++		<DateModified
++			val="2017-12-18 14:19:58.230" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="b728fa31-6efb-4655-b52c-f3a45189e4ab">
++				<Form>
++					<AUni
++						ws="fr">G</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="ca513b9f-84e0-4dea-a7d4-e7540b41969d" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="3e0ba27b-925c-4efa-8927-c658bfdead36">
++				<Gloss>
++					<AUni
++						ws="en">G</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="ca513b9f-84e0-4dea-a7d4-e7540b41969d"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++	<LexEntry
++		guid="3f970899-d977-4308-90f1-91bc584871fb">
++		<DateCreated
++			val="2017-12-18 14:19:44.371" />
++		<DateModified
++			val="2017-12-18 14:19:44.371" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="e898000e-2ca1-4ecb-936e-fa60120f7ff0">
++				<Form>
++					<AUni
++						ws="fr">E</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="252871b1-098f-4035-b139-26ffee1204dc" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="6785e842-f1f1-4862-adc6-888f963cf4b7">
++				<Gloss>
++					<AUni
++						ws="en">E</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="252871b1-098f-4035-b139-26ffee1204dc"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 9d8606058456 -r 7e8eabc8bd75 Linguistics/Lexicon/Lexicon_07.lexdb
+--- a/Linguistics/Lexicon/Lexicon_07.lexdb	Tue Sep 26 13:01:56 2017 +0700
++++ b/Linguistics/Lexicon/Lexicon_07.lexdb	Mon Dec 18 15:20:11 2017 +0100
+@@ -1,6 +1,52 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <Lexicon>
+ 	<LexEntry
++		guid="3af99884-c800-4236-a8a4-db011a1be902">
++		<DateCreated
++			val="2017-12-18 14:20:2.790" />
++		<DateModified
++			val="2017-12-18 14:20:2.790" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="5bddfe46-0456-4269-a1f7-00a83d40fe4d">
++				<Form>
++					<AUni
++						ws="fr">H</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="249b492e-dac7-41f7-86ab-0e29f7391345" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="c6df3168-134d-494b-a9bf-b51ff9c0e54b">
++				<Gloss>
++					<AUni
++						ws="en">H</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="249b492e-dac7-41f7-86ab-0e29f7391345"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++	<LexEntry
+ 		guid="be1c7330-4201-41aa-9243-54d37f3e7fb0">
+ 		<DateCreated
+ 			val="2017-9-25 6:38:54.364" />
+diff -r 9d8606058456 -r 7e8eabc8bd75 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Tue Sep 26 13:01:56 2017 +0700
++++ b/WritingSystemStore/en.ldml	Mon Dec 18 15:20:11 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T01:58:05" />
++			date="2017-12-15T16:00:59" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+@@ -33,6 +33,10 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="us"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r 9d8606058456 -r 7e8eabc8bd75 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Tue Sep 26 13:01:56 2017 +0700
++++ b/WritingSystemStore/fr.ldml	Mon Dec 18 15:20:11 2017 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-09-25T01:58:05" />
++			date="2017-12-15T16:00:46" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -97,6 +97,14 @@
+ 				layout="English"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="th"
++				locale="th-TH"
++				os="Unix" />
++			<palaso2:keyboard
++				layout="us"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />

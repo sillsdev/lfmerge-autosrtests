@@ -1,0 +1,99 @@
+From b8559d06741f87318bc4f0909fecb8c2ea0368eb Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 18 Dec 2017 16:33:36 +0000
+Subject: [PATCH] Additional entries for tests
+
+---
+ sf_test-comment-sr.json         |  4 +--
+ sf_test-comment-sr.lexicon.json | 56 +++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 58 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 23c5494..c3fa233 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -10,7 +10,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T14:21:18.349Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T16:33:35.538Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -260,7 +260,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-12-18T14:21:18.557Z"}
++,"lastSyncedDate":{"$date":"2017-12-18T16:33:35.756Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexicon.json b/sf_test-comment-sr.lexicon.json
+index 3dcc8c4..03d14b6 100644
+--- a/sf_test-comment-sr.lexicon.json
++++ b/sf_test-comment-sr.lexicon.json
+@@ -182,3 +182,59 @@
+ ,"dateCreated":{"$date":"2017-09-26T02:48:04.700Z"}
+ }
+ 
++{"_id":{"$oid":"5a37eddf511fd55d813e1f6d"}
++,"guid":"19f39959-682d-4191-ab09-41933ded687d","liftId":"G_19f39959-682d-4191-ab09-41933ded687d","isDeleted":false,"dateModified":{"$date":"2017-12-18T16:33:35.553Z"}
++,"dirtySR":0,"lexeme":{"fr":{"value":"G"}
++}
++,"senses":[{"id":null,"liftId":"3e0ba27b-925c-4efa-8927-c658bfdead36","guid":"3e0ba27b-925c-4efa-8927-c658bfdead36","gloss":{"en":{"value":"G"}
++}
++}
++],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-12-18T14:19:58.230Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-12-18T14:19:58.230Z"}
++}
++,"customFields":{}
++,"customFieldGuids":{}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++
++{"_id":{"$oid":"5a37eddf511fd55d813e1f6e"}
++,"guid":"3af99884-c800-4236-a8a4-db011a1be902","liftId":"H_3af99884-c800-4236-a8a4-db011a1be902","isDeleted":false,"dateModified":{"$date":"2017-12-18T16:33:35.622Z"}
++,"dirtySR":0,"lexeme":{"fr":{"value":"H"}
++}
++,"senses":[{"id":null,"liftId":"c6df3168-134d-494b-a9bf-b51ff9c0e54b","guid":"c6df3168-134d-494b-a9bf-b51ff9c0e54b","gloss":{"en":{"value":"H"}
++}
++}
++],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-12-18T14:20:02.790Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-12-18T14:20:02.790Z"}
++}
++,"customFields":{}
++,"customFieldGuids":{}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++
++{"_id":{"$oid":"5a37eddf511fd55d813e1f6f"}
++,"guid":"3f970899-d977-4308-90f1-91bc584871fb","liftId":"E_3f970899-d977-4308-90f1-91bc584871fb","isDeleted":false,"dateModified":{"$date":"2017-12-18T16:33:35.624Z"}
++,"dirtySR":0,"lexeme":{"fr":{"value":"E"}
++}
++,"senses":[{"id":null,"liftId":"6785e842-f1f1-4862-adc6-888f963cf4b7","guid":"6785e842-f1f1-4862-adc6-888f963cf4b7","gloss":{"en":{"value":"E"}
++}
++}
++],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-12-18T14:19:44.371Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-12-18T14:19:44.371Z"}
++}
++,"customFields":{}
++,"customFieldGuids":{}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++
++{"_id":{"$oid":"5a37eddf511fd55d813e1f70"}
++,"guid":"db613b50-612f-4650-b709-93479b0bee0e","liftId":"F_db613b50-612f-4650-b709-93479b0bee0e","isDeleted":false,"dateModified":{"$date":"2017-12-18T16:33:35.629Z"}
++,"dirtySR":0,"lexeme":{"fr":{"value":"F"}
++}
++,"senses":[{"id":null,"liftId":"1839e6e5-8bd4-48be-a098-127f45790b14","guid":"1839e6e5-8bd4-48be-a098-127f45790b14","gloss":{"en":{"value":"F"}
++}
++}
++],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-12-18T14:19:53.654Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-12-18T14:19:53.654Z"}
++}
++,"customFields":{}
++,"customFieldGuids":{}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++
+-- 
+2.15.1
+

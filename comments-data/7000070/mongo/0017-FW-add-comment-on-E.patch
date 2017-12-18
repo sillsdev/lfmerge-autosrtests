@@ -1,0 +1,53 @@
+From 6f41038d3a08ad8196ba005346f10093ffdefd18 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 18 Dec 2017 18:11:27 +0000
+Subject: [PATCH] FW add comment on E
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++++
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 203c8f1..87f6dc0 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T18:09:36.059Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T18:11:27.112Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-12-18T18:09:36.254Z"}
++,"lastSyncedDate":{"$date":"2017-12-18T18:11:27.338Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 10e11c5..83aac96 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -64,3 +64,13 @@
+ ,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-26T06:08:47.972Z"}
+ }
+ 
++{"_id":{"$oid":"5a3804cf511fd55d813e1f7b"}
++,"guid":"e8ff7eef-73a3-43ba-ace6-c30cb061e2bd","authorNameAlternate":"eberhard","content":"FW comment on E","entryRef":{"$oid":"5a3801ee511fd55d813e1f78"}
++,"dateModified":{"$date":"2017-12-18T18:11:27.306Z"}
++,"authorInfo":{"createdDate":{"$date":"2017-12-18T19:10:20.000Z"}
++,"modifiedDate":{"$date":"2017-12-18T19:10:20.000Z"}
++}
++,"regarding":{"targetGuid":"a37163e0-5fde-4f8a-aa35-1b930898ad48","word":"E","meaning":"***"}
++,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:11:27.306Z"}
++}
++
+-- 
+2.15.1
+
