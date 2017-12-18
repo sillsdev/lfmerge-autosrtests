@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Text;
 using System.Threading;
+using Newtonsoft.Json;
 using Palaso.IO;
 
 namespace LfMerge.AutomatedSRTests
@@ -41,7 +42,7 @@ namespace LfMerge.AutomatedSRTests
 				var patchNo = int.Parse(patchNoStr);
 				if (version.HasValue && patchNo > version.Value)
 					break;
-				TestHelper.Run("git", $"am {file}", mongoSourceDir);
+				TestHelper.Run("git", $"am {file} --ignore-whitespace", mongoSourceDir);
 				TestHelper.Run("git", $"tag r{patchNo}", mongoSourceDir);
 			}
 		}
@@ -130,12 +131,34 @@ namespace LfMerge.AutomatedSRTests
 			AddCollectionToGit("optionlists", modelVersion);
 
 			TestHelper.Run("git", $"commit -a -m \"{msg}\"", mongoSourceDir);
-			TestHelper.Run("git", $"format-patch -1 -o {patchDir} --start-number {startNumber}", mongoSourceDir);
+			TestHelper.Run("git",
+				$"format-patch -1 -o {patchDir} --start-number {startNumber} --ignore-all-space",
+				mongoSourceDir);
 		}
 
 		private static void WriteJson(string file, string content)
 		{
-			File.WriteAllText(file, content.Replace("}", "}\n"));
+			// Normalize JSON file (mainly removing spaces between keys and values).
+			// We do this by deserializing and serializing the objects.
+			// Mongo gives us multiple objects (one on a line), but Json.NET doesn't like that,
+			// so we process them line by line.
+			var strBldr = new StringBuilder();
+			foreach (var line in content.Split('\n'))
+			{
+				if (string.IsNullOrEmpty(line))
+					continue;
+				strBldr.AppendLine(JsonConvert.SerializeObject(
+					JsonConvert.DeserializeObject(line),
+					new JsonSerializerSettings
+					{
+						DateFormatHandling = DateFormatHandling.IsoDateFormat,
+						DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+						DateFormatString = "yyyy-MM-ddTHH:mm:ss.fffZ",
+						Formatting = Formatting.None
+					}));
+			}
+			strBldr.Replace("}", "}\n");
+			File.WriteAllText(file, strBldr.ToString());
 		}
 
 		private static string ReadJson(string file)

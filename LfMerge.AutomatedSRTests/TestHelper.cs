@@ -71,6 +71,7 @@ namespace LfMerge.AutomatedSRTests
 				process.StartInfo.Arguments = args;
 				process.StartInfo.RedirectStandardOutput = true;
 				process.StartInfo.RedirectStandardError = true;
+				process.StartInfo.EnvironmentVariables.Add("TZ", "UTC");
 
 				var output = new StringBuilder();
 				var stderr = new StringBuilder();
