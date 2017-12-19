@@ -35,7 +35,7 @@ namespace LfMerge.TestUtil
 					var restoreOptions = tuple.Item2 as Options.RestoreOptions;
 					if (restoreOptions.LanguageDepotVersion.HasValue &&
 						(string.IsNullOrEmpty(restoreOptions.WorkDir) ||
-							string.IsNullOrEmpty(restoreOptions.ModelVersion)))
+							restoreOptions.ModelVersion <= 0))
 					{
 						Console.WriteLine(restoreOptions.GetUsage());
 						return;
@@ -47,7 +47,7 @@ namespace LfMerge.TestUtil
 					var saveOptions = tuple.Item2 as Options.SaveOptions;
 					if (saveOptions.SaveLanguageDepot &&
 						(string.IsNullOrEmpty(saveOptions.WorkDir) ||
-							string.IsNullOrEmpty(saveOptions.ModelVersion)))
+							saveOptions.ModelVersion <= 0))
 					{
 						Console.WriteLine(saveOptions.GetUsage());
 						return;
@@ -58,7 +58,7 @@ namespace LfMerge.TestUtil
 				case "merge":
 					var mergeOptions = tuple.Item2 as Options.MergeOptions;
 					if (string.IsNullOrEmpty(mergeOptions.WorkDir) ||
-						string.IsNullOrEmpty(mergeOptions.ModelVersion))
+						mergeOptions.ModelVersion <= 0)
 					{
 						{
 							Console.WriteLine(mergeOptions.GetUsage());
@@ -99,7 +99,7 @@ namespace LfMerge.TestUtil
 			if (!options.SaveMongoDb)
 				return;
 
-			MongoHelper.Initialize(options.ModelVersion);
+			MongoHelper.Initialize(options.ModelVersion.ToString());
 			SaveMongoDb(options);
 		}
 
@@ -124,6 +124,7 @@ namespace LfMerge.TestUtil
 				CommitMsg = options.CommitMsg ?? "Merged test data"
 			};
 			SaveLanguageDepot(saveOptions);
+			SaveLanguageDepotNoOpPatchIfNecessary(options.ModelVersion, options.LanguageDepotVersion + 1);
 			SaveMongoDb(saveOptions);
 		}
 
@@ -142,7 +143,7 @@ namespace LfMerge.TestUtil
 					Directory.CreateDirectory(wizardOptions.WorkDir);
 				}
 
-				wizardOptions.ModelVersion = modelVersion.ToString();
+				wizardOptions.ModelVersion = modelVersion;
 				var outputDir = Path.Combine(wizardOptions.FwRoot, $"Output{modelVersion}");
 				if (!Directory.Exists(outputDir))
 				{
@@ -178,6 +179,8 @@ namespace LfMerge.TestUtil
 					CommitMsg = wizardOptions.CommitMsg ?? "New test data"
 				});
 
+				SaveLanguageDepotNoOpPatchIfNecessary(modelVersion, wizardOptions.LanguageDepotVersion + 1);
+
 				Console.WriteLine($"Restoring LanguageForge mongo data version {wizardOptions.MongoVersion} for model {modelVersion}");
 				RestoreMongoDb(new Options.RestoreOptions(wizardOptions));
 
@@ -210,9 +213,34 @@ namespace LfMerge.TestUtil
 			}
 		}
 
+		private static void SaveLanguageDepotNoOpPatchIfNecessary(int modelVersion, int patchVersion)
+		{
+			if (ChorusHelper.PatchExists(modelVersion, patchVersion))
+				return;
+
+			// add no-op patch
+			var oldContent = File.ReadAllText(Path.Combine(LanguageDepotHelper.LdDirectory, "no-op"))
+				.TrimEnd('\n');
+			File.WriteAllText(Path.Combine(Settings.DataDir, modelVersion.ToString(),
+					$"r{patchVersion}.patch"),
+				$@"# HG changeset patch
+# User No-op
+# Branch {modelVersion}
+no-op to keep LD/Mongo patches balanced
+
+diff no-op
+--- a/no-op
++++ b/no-op
+@@ -1,1 +1,1 @@
+-{oldContent}
++{Guid.NewGuid().ToString()}
+");
+			Console.WriteLine($"Added no-op patch r{patchVersion}.patch");
+		}
+
 		private static void SaveLanguageDepot(Options.SaveOptions options)
 		{
-			var patchDir = Path.Combine(Settings.DataDir, options.ModelVersion);
+			var patchDir = Path.Combine(Settings.DataDir, options.ModelVersion.ToString());
 			var hgDir = string.IsNullOrEmpty(options.WorkDir)
 				? Path.Combine(Settings.TempDir, "LanguageDepot")
 				: options.WorkDir;
@@ -220,6 +248,7 @@ namespace LfMerge.TestUtil
 
 			var output = Run("hg", "log --template \"{rev} \"", hgDir);
 			var revs = output.Trim().Trim('\r', '\n').Split(' ').Reverse();
+			var count = 0;
 			foreach (var rev in revs)
 			{
 				var patchFile = Path.Combine(patchDir, $"r{rev}.patch");
@@ -228,9 +257,11 @@ namespace LfMerge.TestUtil
 
 				Run("hg", $"export -r {rev} --output {patchFile}", hgDir);
 				Console.WriteLine($"Saved file {patchFile}");
+				count++;
 			}
 
-			Console.WriteLine($"Successfully saved language depot patches in {patchDir}");
+			if (count > 0)
+				Console.WriteLine($"Successfully saved language depot patches in {patchDir}");
 		}
 
 		private static void RestoreLanguageDepot(Options.RestoreOptions options)
@@ -255,7 +286,7 @@ namespace LfMerge.TestUtil
 			if (!options.Project.StartsWith("sf_"))
 				options.Project = "sf_" + options.Project;
 
-			var patchFiles = Directory.GetFiles(MongoHelper.GetMongoPatchDir(options.ModelVersion), "*.patch");
+			var patchFiles = Directory.GetFiles(MongoHelper.GetMongoPatchDir(options.ModelVersion.ToString()), "*.patch");
 			var lastNumber = 0;
 			if (patchFiles != null && patchFiles.Length > 0)
 			{
@@ -265,8 +296,8 @@ namespace LfMerge.TestUtil
 			}
 			if (_mongoHelper == null)
 				_mongoHelper = new MongoHelper(options.Project, true, false);
-			_mongoHelper.SaveDatabase(MongoHelper.GetMongoPatchDir(options.ModelVersion), options.ModelVersion,
-				 options.CommitMsg, lastNumber + 1);
+			_mongoHelper.SaveDatabase(MongoHelper.GetMongoPatchDir(options.ModelVersion.ToString()),
+				options.ModelVersion.ToString(), options.CommitMsg, lastNumber + 1);
 
 			Console.WriteLine("Successfully saved mongo database");
 		}
@@ -276,10 +307,10 @@ namespace LfMerge.TestUtil
 			if (!options.Project.StartsWith("sf_"))
 				options.Project = "sf_" + options.Project;
 
-			MongoHelper.Initialize(options.ModelVersion, options.MongoVersion);
+			MongoHelper.Initialize(options.ModelVersion.ToString(), options.MongoVersion);
 			if (_mongoHelper == null)
 				_mongoHelper = new MongoHelper(options.Project, true);
-			_mongoHelper.RestoreDatabase(options.ModelVersion, "master");
+			_mongoHelper.RestoreDatabase(options.ModelVersion.ToString(), "master");
 
 			Console.WriteLine($"Successfully restored mongo database at version {options.MongoVersion}");
 		}

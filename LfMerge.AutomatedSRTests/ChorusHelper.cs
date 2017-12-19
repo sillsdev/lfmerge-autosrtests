@@ -54,6 +54,11 @@ namespace LfMerge.AutomatedSRTests
 			ApplyPatch(Path.Combine(dbVersion, $"r{patch}.patch"), commit);
 		}
 
+		public static bool PatchExists(int dbVersion, int patch)
+		{
+			return File.Exists(Path.Combine(Settings.DataDir, dbVersion.ToString(), $"r{patch}.patch"));
+		}
+
 		/// <summary>
 		/// Applies a patch to the mock hg repo
 		/// </summary>

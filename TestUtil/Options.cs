@@ -31,7 +31,7 @@ namespace LfMerge.TestUtil
 			public string DataDir { get; set; }
 
 			[Option("model", HelpText = "FW model version")]
-			public string ModelVersion { get; set; }
+			public int ModelVersion { get; set; }
 
 			[Option("project", HelpText = "Project name", Required = true)]
 			public string Project { get; set; }
