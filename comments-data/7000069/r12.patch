@@ -10,7 +10,6 @@ No-op patch
 diff -r a960ef7bab40 -r b3b73c4f017e no-op
 --- /dev/null	Thu Jan 01 00:00:00 1970 +0000
 +++ b/no-op	Mon Sep 25 13:39:11 2017 +0700
-@@ -1,1 +1,2 @@
- dummy file
+@@ -1,1 +1,1 @@
+-dummy file
 +no-op patch
-\ No newline at end of file

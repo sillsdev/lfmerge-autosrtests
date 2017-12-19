@@ -12,4 +12,3 @@ diff -r a960ef7bab40 -r b3b73c4f017e no-op
 +++ b/no-op	Mon Sep 25 13:39:11 2017 +0700
 @@ -0,0 +1,1 @@
 +dummy file
-\ No newline at end of file
