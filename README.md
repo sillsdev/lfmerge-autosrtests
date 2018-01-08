@@ -44,7 +44,8 @@ necessary to create test data for a new unit test (with a USB stick mounted at
 `/media/$USER/MyUsbStick`):
 
 	mono --debug TestUtil.exe wizard --mongo=2 --ld=2 --project autosrtests \
-		--fwroot=$HOME/fwrepo/fw --usb /media/$USER/MyUsbStick --msg "new test"
+		--fwroot=$HOME/fwrepo/fw --usb /media/$USER/MyUsbStick --datadir=data \
+		--msg "new test"
 
 ## Creating new tests - semi-automated way
 

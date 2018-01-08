@@ -1,0 +1,24 @@
+# HG changeset patch
+# User Language Forge
+# Date 1515432403 -3600
+#      Mon Jan 08 18:26:43 2018 +0100
+# Branch 7000070
+# Node ID ae0786005effb547cf791c755a4ccd000ebe5a7d
+# Parent  67c66cea7824194aec9d04992d5daba97767b1db
+[LfMergeBridge: 2.6.0.0] Language Forge S/R
+
+diff -r 67c66cea7824 -r ae0786005eff Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Jan 08 18:26:27 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Mon Jan 08 18:26:43 2018 +0100
+@@ -70,5 +70,10 @@
+ 			status=""
+ 			date="2017-12-18T19:10:20Z"
+ 			guid="58951533-17eb-43fa-831b-4ff488140b05">FW comment on E</message>
++		<message
++			author=""
++			status="open"
++			date="2018-01-08T18:26:35Z"
++			guid="4477d8a1-1313-4a51-83ae-206b6c4c9fc2">LF reply on E</message>
+ 	</annotation>
+ </notes>
+\ No newline at end of file

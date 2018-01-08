@@ -1,0 +1,59 @@
+From c34acc76a3d6f5247310018161d0277762cea72b Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 8 Jan 2018 17:32:54 +0000
+Subject: [PATCH] FW replies on E
+
+---
+ sf_test-comment-sr.json                 | 4 ++--
+ sf_test-comment-sr.lexiconComments.json | 6 +++++-
+ 2 files changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 3de76a6..6026831 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-01-08T17:26:52.773Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-01-08T17:32:54.380Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-01-08T17:26:52.913Z"}
++,"lastSyncedDate":{"$date":"2018-01-08T17:32:54.549Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index ea3df4a..e74f69b 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -66,7 +66,7 @@
+ 
+ {"_id":{"$oid":"5a3803cd511fd55d813e1f79"}
+ ,"guid":"011e7c98-97e0-4d2f-a695-9784ceea8b9c","authorNameAlternate":"eberhard","content":"FW comment on E","entryRef":{"$oid":"5a37eddf511fd55d813e1f6f"}
+-,"dateModified":{"$date":"2018-01-08T17:15:09.491Z"}
++,"dateModified":{"$date":"2018-01-08T17:32:54.526Z"}
+ ,"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-12-18T19:02:01.000Z"}
+ ,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-12-18T19:02:01.000Z"}
+ }
+@@ -77,6 +77,10 @@
+ ,"modifiedDate":{"$date":"2018-01-08T17:15:09.491Z"}
+ }
+ ,"content":"LF reply on E","id":"5a53a71d77fee","isDeleted":false,"guid":"68405e21-6d8b-4d03-ad02-33ec0ef475da"}
++,{"guid":"b960a251-a98e-4768-a80e-fc4fd3eb86c3","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2018-01-08T18:31:28.000Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2018-01-08T18:31:28.000Z"}
++}
++,"authorNameAlternate":"eberhard","content":"FW reply on E","id":"5a53ab46803e4","isDeleted":false}
+ ],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:07:09.690Z"}
+ ,"score":0}
+ 
+-- 
+2.15.1
+

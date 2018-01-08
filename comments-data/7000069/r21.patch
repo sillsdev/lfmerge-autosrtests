@@ -1,0 +1,11 @@
+# HG changeset patch
+# User No-op
+# Branch 7000069
+no-op to keep LD/Mongo patches balanced
+
+diff -r 4adbd7721929 -r 09b2ccd0f368 no-op
+--- a/no-op
++++ b/no-op
+@@ -1,1 +1,1 @@
+-dummy file
++no-op patch

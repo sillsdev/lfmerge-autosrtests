@@ -1,0 +1,48 @@
+From 1483f284928d446698172f383b200856d7923532 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 8 Jan 2018 17:16:00 +0000
+Subject: [PATCH] LF replies on E
+
+---
+ sf_test-comment-sr.json                 | 4 ++--
+ sf_test-comment-sr.lexiconComments.json | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 87f6dc0..883883e 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T18:11:27.112Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-01-08T17:16:00.387Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-12-18T18:11:27.338Z"}
++,"lastSyncedDate":{"$date":"2018-01-08T17:16:00.528Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index e550b24..ea3df4a 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -76,7 +76,7 @@
+ ,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"modifiedDate":{"$date":"2018-01-08T17:15:09.491Z"}
+ }
+-,"content":"LF reply on E","id":"5a53a71d77fee","isDeleted":false}
++,"content":"LF reply on E","id":"5a53a71d77fee","isDeleted":false,"guid":"68405e21-6d8b-4d03-ad02-33ec0ef475da"}
+ ],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:07:09.690Z"}
+ ,"score":0}
+ 
+-- 
+2.15.1
+

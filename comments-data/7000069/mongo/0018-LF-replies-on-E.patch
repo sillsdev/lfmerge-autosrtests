@@ -1,0 +1,62 @@
+From d911878bf1833839d9f80e3ab737681bad862a3d Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 8 Jan 2018 17:24:33 +0000
+Subject: [PATCH] LF replies on E
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 16 +++++++++++-----
+ 2 files changed, 13 insertions(+), 7 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 203c8f1..883883e 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2017-12-18T18:09:36.059Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-01-08T17:16:00.387Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2017-12-18T18:09:36.254Z"}
++,"lastSyncedDate":{"$date":"2018-01-08T17:16:00.528Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 1732da5..6957e45 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -66,11 +66,17 @@
+ 
+ {"_id":{"$oid":"5a380460511fd55d813e1f7a"}
+ ,"guid":"5e666e09-3672-4560-a123-3efa71e3e60f","authorNameAlternate":"eberhard","content":"FW comment on E","entryRef":{"$oid":"5a37ee78511fd55d813e1f73"}
+-,"dateModified":{"$date":"2017-12-18T18:09:36.223Z"}
+-,"authorInfo":{"createdDate":{"$date":"2017-12-18T19:08:27.000Z"}
+-,"modifiedDate":{"$date":"2017-12-18T19:08:27.000Z"}
++,"dateModified":{"$date":"2018-01-08T17:24:09.347Z"}
++,"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-12-18T19:08:27.000Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-12-18T19:08:27.000Z"}
+ }
+-,"regarding":{"targetGuid":"cd854578-4f50-411b-a157-f7fd8bda9299","word":"E","meaning":"***"}
+-,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:09:36.223Z"}
++,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"E","meaning":"***"}
++,"replies":[{"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"createdDate":{"$date":"2018-01-08T17:24:09.347Z"}
++,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"modifiedDate":{"$date":"2018-01-08T17:24:09.347Z"}
+ }
++,"content":"LF reply on E","id":"5a53a93954c73","isDeleted":false}
++],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:09:36.223Z"}
++,"score":0}
+ 
+-- 
+2.15.1
+
