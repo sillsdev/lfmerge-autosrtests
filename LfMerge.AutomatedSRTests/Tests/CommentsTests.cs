@@ -8,6 +8,105 @@ namespace LfMerge.AutomatedSRTests.Tests
 	[TestFixture]
 	public class CommentsTests
 	{
+		private const string LexemeA =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'A' } },
+				'senses' : [ {
+					/* no definition */
+					'gloss' : { 'en' : { 'value' : 'A' } }
+				} ] }";
+
+		private const string LexemeB =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'B' } },
+				'senses' : [ {
+					'definition' : { 'en' : { 'value' : 'B' } },
+					'gloss' : { 'en' : { 'value' : '' } }
+				} ] }";
+
+		private const string LexemeC =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'C' } },
+				'senses' : [ {
+					/* no definition */
+					'gloss' : { 'en' : { 'value' : 'C' } }
+				} ] }";
+
+		private const string LexemeD =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'D' } },
+				'senses' : [ {
+					'definition' : { 'en' : { 'value' : 'D' } },
+					'gloss' : { 'en' : { 'value' : '' } }
+			} ] }";
+
+		private const string LexemeE =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'E' } },
+				'senses' : [ {
+					'gloss' : { 'en' : { 'value' : 'E' } }
+			} ] }";
+
+		private const string LexemeF =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'F' } },
+				'senses' : [ {
+					'gloss' : { 'en' : { 'value' : 'F' } }
+			} ] }";
+
+		private const string LexemeG =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'G' } },
+				'senses' : [ {
+					'gloss' : { 'en' : { 'value' : 'G' } }
+			} ] }";
+
+		private const string LexemeH =
+			// language=json
+			@"{ 'lexeme': { 'fr' : { 'value' : 'H' } },
+				'senses' : [ {
+					'gloss' : { 'en' : { 'value' : 'H' } }
+			} ] }";
+
+		private const string CommentsA_D =
+			// language=json
+			@"{ 'class' : 'question',
+				'ref' : 'A',
+				'message' : {
+					'status': '',
+					'value': 'FW comment on word A'
+				} },
+			{ 'class' : 'question',
+				'ref' : 'B',
+				'message' : {
+					'status': 'open',
+					'value': 'Comment on word B'
+				} },
+			{ 'class' : 'question',
+				'ref' : 'C',
+				'message' : {
+					'status': '',
+					'value': 'Comment about new word C'
+				} },
+			{ 'class' : 'question',
+				'ref' : 'D',
+				'message' : {
+					'status': 'open',
+					'value': 'Comment on word D'
+				} },
+			{ 'class' : 'question',
+				'ref' : 'A',
+				'message' : {
+					'status': '',
+					'value': 'Comment on A, FW first'
+				} },
+			{ 'class' : 'question',
+				'ref' : 'A',
+				'message' : {
+					'status': 'open',
+					'value': 'Comment on A, LF second'
+				} }";
+
 		private LanguageDepotHelper _FieldWorks;
 		private MongoHelper _LanguageForge;
 		private WebworkHelper _webwork;
@@ -405,6 +504,95 @@ namespace LfMerge.AutomatedSRTests.Tests
 		}
 
 		/// <summary>
+		/// TEST  9a: FW adds comment on E, S/R. LF replies. S/R.
+		///
+		/// What should happen: LF and FW should see both comments.
+		/// </summary>
+		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
+		/// in after FW did the S/R.</remarks>
+		[Test]
+		public void Test09a_FwAddsCommentOnE_LfReplies([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		{
+			// Setup
+			_webwork.ApplyPatches(dbVersion, 17);
+			_FieldWorks.ApplyPatches(dbVersion, 17);
+			_LanguageForge.RestoreDatabase(dbVersion, 18);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
+
+			// Verify
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
+
+			// NOTE: although Chorus stores a status on every comment when we have replies,
+			// only the last status determines the overall status of the comment!
+
+			// language=json
+			var expected = $"[ {{ 'notes': [ {CommentsA_D}, " +
+				@"{ 'class' : 'question',
+				'ref' : 'E',
+				'message' : {
+					'status': '',
+					'value': 'FW comment on E'
+				}, 'replies': [
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} }
+				] }
+			]}]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
+		/// <summary>
+		/// TEST  9b: FW adds comment on E, S/R. LF replies. S/R. FW replies. S/R.
+		///
+		/// What should happen: LF and FW should see all three comments.
+		/// </summary>
+		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
+		/// in after FW did the S/R.</remarks>
+		[Test]
+		public void Test09b_FwAddsCommentOnE_LfReplies_FwReplies([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		{
+			// Setup
+			_webwork.ApplyPatches(dbVersion, 19);
+			_LanguageForge.RestoreDatabase(dbVersion, 19);
+			_FieldWorks.ApplyPatches(dbVersion, 20);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
+
+			// Verify
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
+
+			// language=json
+			var expected = $"[ {{ 'notes': [ {CommentsA_D}, " +
+			@"{ 'class' : 'question',
+				'ref' : 'E',
+				'message' : {
+					'status': '',
+					'value': 'FW comment on E'
+				}, 'replies': [
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} },
+					{ 'message': {
+						'status': 'open',
+						'value': 'FW reply on E'
+					} }
+				] }
+			]}]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
+		/// <summary>
 		/// TEST 21: FW adds an entry C and a comment on C at the same time.
 		///
 		/// What should happen: Both the comment and the entry show up.
@@ -487,28 +675,8 @@ namespace LfMerge.AutomatedSRTests.Tests
 			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 
 			// language=json
-			const string expected = @"[ { 'lexicon': [
-				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
-					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
-					} ] },
-				{ 'lexeme': { 'fr' : { 'value' : 'C' } },
-					'senses' : [ {
-						/* no definition */
-						'gloss' : { 'en' : { 'value' : 'C' } }
-					} ] },
-				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
-					'senses' : [ {
-						/* no definition */
-						'gloss' : { 'en' : { 'value' : 'A' } }
-					} ] },
-				{ 'lexeme': { 'fr' : { 'value' : 'D' } },
-		  			'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'D' } },
-						'gloss' : { 'en' : { 'value' : '' } }
-				} ] }
-			]}, { 'notes': [
+			var expected = @"[ { 'lexicon': [ " + $"{LexemeB}, {LexemeC}, {LexemeA}, {LexemeD}" +
+			@"]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
 					'message' : {

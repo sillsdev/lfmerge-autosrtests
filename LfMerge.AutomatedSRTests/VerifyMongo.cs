@@ -187,14 +187,64 @@ namespace LfMerge.AutomatedSRTests
 					case "message":
 						VerifyNotesMessage(prop.Value as JObject, actual);
 						break;
+					case "replies":
+						VerifyReplies(prop.Value as JArray, actual);
+						break;
 					default:
-						Assert.Fail($"Mongo: Unhandled property {prop.Name} in 'notes' element of expected data");
+						Assert.Fail($"Mongo: Unhandled property '{prop.Name}' in 'notes' element of expected data");
 						break;
 				}
 			}
 		}
 
-		private void VerifyNotesMessage(JObject expectedObj, BsonDocument actual)
+		private static void VerifyReplies(JArray expectedObjs, BsonDocument actual)
+		{
+			Assert.That(expectedObjs, Is.Not.Null);
+			var actualObjs = actual.GetElement("replies").Value as BsonArray;
+			Assert.That(actualObjs.Count, Is.GreaterThanOrEqualTo(expectedObjs.Count));
+			for (var i = 0; i < expectedObjs.Count; i++)
+			{
+				var expectedObj = expectedObjs[i] as JObject;
+				var actualObj = actualObjs[i];
+				VerifyReply(expectedObj, actualObj.ToBsonDocument());
+			}
+		}
+
+		private static void VerifyReply(JObject expected, BsonDocument actual)
+		{
+			foreach (var prop in expected.Properties())
+			{
+				switch (prop.Name)
+				{
+					case "message":
+						var expectedObj = prop.Value as JObject;
+						var actualProps = actual.Elements;
+						Assert.That(actualProps.Count(),
+							Is.GreaterThanOrEqualTo(expectedObj.Properties().ToList().Count));
+						foreach (var messageProp in expectedObj.Properties())
+						{
+							switch (messageProp.Name)
+							{
+								case "status":
+									// we ignore that for Mongo
+									break;
+								case "value":
+									VerifySingleValue("content", messageProp.Value, actual.GetElement("content"));
+									break;
+								default:
+									Assert.Fail($"Mongo: Unhandled property '{messageProp.Name}' in 'message' reply element of expected data");
+									break;
+							}
+						}
+						break;
+					default:
+						Assert.Fail($"Mongo: Unhandled property '{prop.Name}' in 'notes' element of expected data");
+						break;
+				}
+			}
+		}
+
+		private static void VerifyNotesMessage(JObject expectedObj, BsonDocument actual)
 		{
 			Assert.That(expectedObj, Is.Not.Null);
 			var actualProps = actual.Elements;
@@ -219,10 +269,9 @@ namespace LfMerge.AutomatedSRTests
 						VerifySingleValue("content", prop.Value, actual.GetElement("content"));
 						break;
 					default:
-						Assert.Fail($"Mongo: Unhandled property {prop.Name} in 'message' element of expected data");
+						Assert.Fail($"Mongo: Unhandled property '{prop.Name}' in 'message' element of expected data");
 						break;
 				}
-
 			}
 		}
 

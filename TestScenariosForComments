@@ -10,7 +10,7 @@ TEST  5: FW adds comment on B, LF adds comment on B at the same time (five secon
 TEST  6: FW adds comment on B, LF adds comment on B at the same time (five seconds earlier). LF does S/R first, then FW does. Both comments appear.
 ✓ TEST  7: FW adds comment on A, LF adds comment on B. FW does S/R first, then LF does. Both comments appear.
 ✓ TEST  8: FW adds comment on A, LF adds comment on B. LF does S/R first, then FW does. Both comments appear.
-TEST  9: FW adds comment on A. S/R. LF replies. S/R. FW replies. S/R. LF should see all three comments.
+✓ TEST  9: FW adds comment on A. S/R. LF replies. S/R. FW replies. S/R. LF should see all three comments.
 TEST 10: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF should see new status as resolved.
 TEST 11: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF reopens the comment. S/R. FW should see new status as open.
 TEST 12: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.

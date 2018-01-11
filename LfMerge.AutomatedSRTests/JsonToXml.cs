@@ -291,6 +291,9 @@ namespace LfMerge.AutomatedSRTests
 							case "message":
 								currentNote.Add(ProcessMessage());
 								break;
+							case "replies":
+								ProcessReplies(currentNote);
+								break;
 						}
 						break;
 					}
@@ -305,6 +308,30 @@ namespace LfMerge.AutomatedSRTests
 				}
 			}
 			return null;
+		}
+
+		private void ProcessReplies(XContainer currentNote)
+		{
+			Read(JsonToken.StartArray);
+			while (_reader.Read())
+			{
+				switch (_reader.TokenType)
+				{
+					case JsonToken.PropertyName:
+					{
+						Debug.Assert((string) _reader.Value == "message");
+						currentNote.Add(ProcessMessage());
+						break;
+					}
+					case JsonToken.EndArray:
+						return;
+					case JsonToken.StartObject:
+					case JsonToken.EndObject:
+						break;
+					default:
+						throw new Exception($"Unexpected token of type {_reader.TokenType}");
+				}
+			}
 		}
 
 		private XElement ProcessMessage()

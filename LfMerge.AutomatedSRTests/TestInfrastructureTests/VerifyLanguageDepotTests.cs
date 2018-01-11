@@ -474,6 +474,32 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		[Test]
+		public void AssertFilesContain_NotesWithReplies()
+		{
+			// Setup
+			CreateNotesTestData(@"
+			<notes>
+				<annotation class=""question"" ref=""silfw://localhost/link?app=flex&amp;id=ff1c7330-4202-4bea-9243-54d3beefdead&amp;label=E"">
+					<message status="""">FW comment on E</message>
+					<message status=""open"">LF reply on E</message>
+					<message status=""open"">FW reply on E</message>
+				</annotation>
+			</notes>");
+
+			// SUT/Verify
+			Assert.That(() => VerifyLanguageDepot.AssertFilesContain(XElement.Parse(@"
+			<root>
+				<notes>
+					<annotation class=""question"" ref=""id=ff1c7330-4202-4bea-9243-54d3beefdead&amp;label=E"">
+						<message status="""">FW comment on E</message>
+						<message status=""open"">LF reply on E</message>
+						<message status=""open"">FW reply on E</message>
+					</annotation>
+				</notes>
+			</root>")), Throws.Nothing);
+		}
+
+		[Test]
 		public void FindXmlFile()
 		{
 			// Setup

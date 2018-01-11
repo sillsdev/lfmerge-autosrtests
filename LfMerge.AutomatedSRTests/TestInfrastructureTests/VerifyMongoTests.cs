@@ -64,5 +64,70 @@ namespace LfMerge.AutomatedSRTests
 			// Execute/Verify
 			VerifyMongo.AssertData(expected);
 		}
+
+		[Test]
+		public void AssertData_CommentsWithReplies()
+		{
+			// Setup
+
+			// language=json
+			const string expected = @"[ { 'notes': [
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'message' : {
+					'status': '',
+					'value': 'FW comment on word A'
+				} },
+				{ 'class' : 'question',
+					'ref' : 'B',
+					'message' : {
+					'status': 'open',
+					'value': 'Comment on word B'
+				} },
+				{ 'class' : 'question',
+					'ref' : 'C',
+					'message' : {
+					'status': '',
+					'value': 'Comment about new word C'
+				} },
+				{ 'class' : 'question',
+					'ref' : 'D',
+					'message' : {
+					'status': 'open',
+					'value': 'Comment on word D'
+				} },
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'message' : {
+					'status': '',
+					'value': 'Comment on A, FW first'
+				} },
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'message' : {
+					'status': 'open',
+					'value': 'Comment on A, LF second'
+				} },
+				{ 'class' : 'question',
+				'ref' : 'E',
+				'message' : {
+					'status': '',
+					'value': 'FW comment on E'
+				}, 'replies': [
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} },
+					{ 'message': {
+						'status': '',
+						'value': 'FW reply on E'
+					} }
+				] }
+			]}]";
+			_mongo.RestoreDatabase(Settings.MaxModelVersion, 21);
+
+			// Execute/Verify
+			VerifyMongo.AssertData(expected);
+		}
 	}
 }

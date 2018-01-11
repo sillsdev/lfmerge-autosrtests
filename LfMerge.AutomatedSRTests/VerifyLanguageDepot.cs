@@ -58,7 +58,8 @@ namespace LfMerge.AutomatedSRTests
 			using (var streamReader = new StreamReader(filename))
 			{
 				var actualLexicon = XElement.Load(streamReader);
-				var actualLexeme = actualLexicon.Element("LexEntry");
+				var actualLexeme = actualLexicon.Elements("LexEntry").
+					First(element => NormalizeString(GetLexEntrySearchString(element)) == NormalizeString(GetLexEntrySearchString(expectedLexEntry)));
 				Assert.That(actualLexeme, Is.Not.Null, "Missing LexEntry");
 				VerifyTree(expectedLexEntry, actualLexeme);
 			}
@@ -119,8 +120,27 @@ namespace LfMerge.AutomatedSRTests
 				return;
 			}
 
+			var processedMessage = false;
 			foreach (var expectedChild in expectedElement.Elements())
 			{
+				if (expectedChild.Name == "message")
+				{
+					if (processedMessage)
+						continue;
+
+					var expectedChildren = expectedElement.Elements(expectedChild.Name).ToList();
+					var actualChildren = actualElement.Elements().Where(element => element.Name == expectedChild.Name).ToList();
+					for (var i = 0; i < expectedChildren.Count; i++)
+					{
+						var expectedMessage = expectedChildren[i];
+						var actualMessage = actualChildren[i];
+						VerifyTree(expectedMessage, actualMessage);
+					}
+
+					processedMessage = true;
+					continue;
+				}
+
 				var actualChild = actualElement.Element(expectedChild.Name);
 				if (expectedChild.Attribute("expectAbsence") != null)
 				{

@@ -195,5 +195,50 @@ namespace LfMerge.AutomatedSRTests.TestInfrastructureTests
 	</notes>
 </root>"));
 		}
+
+		[Test]
+		public void CommentsAndReplies()
+		{
+			// language=json
+			var json = @"[ { 'notes': [
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'message' : {
+					'status': '',
+					'value': 'FW comment on word A'
+				} },
+				{ 'class' : 'question',
+				'ref' : 'E',
+				'message' : {
+					'status': '',
+					'value': 'FW comment on E'
+				}, 'replies': [
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} },
+					{ 'message': {
+						'status': '',
+						'value': 'FW reply on E'
+					} }
+				] }
+			]}]";
+
+			var xElement = JsonToXml.Convert(json);
+			VerifyTree(xElement, XElement.Parse(
+				// language=xml
+				@"<root>
+	<notes>
+		<annotation class=""question"" ref=""label=A"">
+			<message status="""">FW comment on word A</message>
+		</annotation>
+		<annotation class=""question"" ref=""label=E"">
+			<message status="""">FW comment on E</message>
+			<message status=""open"">LF reply on E</message>
+			<message status="""">FW reply on E</message>
+		</annotation>
+	</notes>
+</root>"));
+		}
 	}
 }
