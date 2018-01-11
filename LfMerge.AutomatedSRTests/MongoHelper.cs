@@ -14,6 +14,10 @@ namespace LfMerge.AutomatedSRTests
 	public class MongoHelper : IDisposable
 	{
 		private bool _keepDatabase;
+		private const string Git = "/usr/bin/git";
+		private const string Mongo = "/usr/bin/mongo";
+		private const string MongoImport = "/usr/bin/mongoimport";
+		private const string MongoExport = "/usr/bin/mongoexport";
 
 		public static void Initialize()
 		{
@@ -42,8 +46,8 @@ namespace LfMerge.AutomatedSRTests
 				var patchNo = int.Parse(patchNoStr);
 				if (version.HasValue && patchNo > version.Value)
 					break;
-				TestHelper.Run("git", $"am {file} --ignore-whitespace", mongoSourceDir);
-				TestHelper.Run("git", $"tag r{patchNo}", mongoSourceDir);
+				TestHelper.Run(Git, $"am {file} --ignore-whitespace", mongoSourceDir);
+				TestHelper.Run(Git, $"tag r{patchNo}", mongoSourceDir);
 			}
 		}
 
@@ -87,7 +91,7 @@ namespace LfMerge.AutomatedSRTests
 		public void RestoreDatabase(string modelVersion, string tag)
 		{
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
-			TestHelper.Run("git", $"checkout {tag}", mongoSourceDir);
+			TestHelper.Run(Git, $"checkout {tag}", mongoSourceDir);
 			var projectEntryFile = Path.Combine(mongoSourceDir, DbName + ".json");
 			if (!File.Exists(projectEntryFile))
 			{
@@ -95,7 +99,7 @@ namespace LfMerge.AutomatedSRTests
 			}
 
 			var tempFile = ReadJson(projectEntryFile);
-			TestHelper.Run("mongoimport",
+			TestHelper.Run(MongoImport,
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db scriptureforge " +
 				$"--collection projects --file {tempFile}",
 				GetMongoPatchDir(modelVersion));
@@ -113,12 +117,12 @@ namespace LfMerge.AutomatedSRTests
 			InitSourceDir(mongoSourceDir);
 			var project = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
 			var file = Path.Combine(mongoSourceDir, $"{DbName}.json");
-			var content = TestHelper.Run("mongoexport",
+			var content = TestHelper.Run(MongoExport,
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} " +
 				$"--db scriptureforge --collection projects --query '{{ \"projectCode\" : \"{project}\" }}'",
 				mongoSourceDir);
 			WriteJson(file, content);
-			TestHelper.Run("git", $"add {file}", mongoSourceDir);
+			TestHelper.Run(Git, $"add {file}", mongoSourceDir);
 
 			ExportCollection("activity", modelVersion);
 			ExportCollection("lexicon", modelVersion);
@@ -130,8 +134,8 @@ namespace LfMerge.AutomatedSRTests
 			AddCollectionToGit("lexiconComments", modelVersion);
 			AddCollectionToGit("optionlists", modelVersion);
 
-			TestHelper.Run("git", $"commit -a -m \"{msg}\"", mongoSourceDir);
-			TestHelper.Run("git",
+			TestHelper.Run(Git, $"commit -a -m \"{msg}\"", mongoSourceDir);
+			TestHelper.Run(Git,
 				$"format-patch -1 -o {patchDir} --start-number {startNumber} --ignore-all-space",
 				mongoSourceDir);
 		}
@@ -175,7 +179,7 @@ namespace LfMerge.AutomatedSRTests
 			if (!File.Exists(file))
 				return;
 			var tempFile = ReadJson(file);
-			TestHelper.Run("mongoimport",
+			TestHelper.Run(MongoImport,
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db {DbName} " +
 				$"--drop --collection {collection} --file {tempFile}",
 				mongoSourceDir);
@@ -186,7 +190,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
 			var file = Path.Combine(mongoSourceDir, $"{DbName}.{collection}.json");
-			var content = TestHelper.Run("mongoexport",
+			var content = TestHelper.Run(MongoExport,
 				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db {DbName} " +
 				$"--collection {collection}",
 				mongoSourceDir);
@@ -197,7 +201,7 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
 			var file = Path.Combine(mongoSourceDir, $"{DbName}.{collection}.json");
-			TestHelper.Run("git", $"add {file}", mongoSourceDir);
+			TestHelper.Run(Git, $"add {file}", mongoSourceDir);
 		}
 
 		public static string GetMongoPatchDir(string modelVersion)
@@ -213,9 +217,9 @@ namespace LfMerge.AutomatedSRTests
 		private static void InitSourceDir(string gitDir)
 		{
 			Directory.CreateDirectory(gitDir);
-			TestHelper.Run("git", "init .", gitDir);
-			TestHelper.Run("git", "config user.email \"you@example.com\"", gitDir);
-			TestHelper.Run("git", "config user.name \"Your Name\"", gitDir);
+			TestHelper.Run(Git, "init .", gitDir);
+			TestHelper.Run(Git, "config user.email \"you@example.com\"", gitDir);
+			TestHelper.Run(Git, "config user.name \"Your Name\"", gitDir);
 		}
 
 		public static void Cleanup()
@@ -229,8 +233,8 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var projectCode = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
 			var workDir = Path.Combine(Settings.TempDir, "patches");
-			TestHelper.Run("mongo", $"{DbName} --eval 'db.dropDatabase()'", workDir, false, true);
-			TestHelper.Run("mongo",
+			TestHelper.Run(Mongo, $"{DbName} --eval 'db.dropDatabase()'", workDir, false, true);
+			TestHelper.Run(Mongo,
 				$"--host {Settings.MongoHostName} --port {Settings.MongoPort} " +
 				$"scriptureforge --eval 'db.projects.remove({{ \"projectName\" : \"{projectCode}\" }})'",
 				workDir, false, true);

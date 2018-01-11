@@ -12,6 +12,8 @@ namespace LfMerge.AutomatedSRTests
 {
 	public abstract class ChorusHelper: IDisposable
 	{
+		private const string Patch = "/usr/bin/patch";
+
 		#region Dispose functionality
 		protected virtual void Dispose(bool disposing)
 		{
@@ -97,7 +99,7 @@ namespace LfMerge.AutomatedSRTests
 			if (!File.Exists(patchPath))
 				throw new FileNotFoundException("Can't find patchfile", patchPath);
 
-			TestHelper.Run("patch", $"--reverse -p 1 -i {patchPath}", RepoDir);
+			TestHelper.Run(Patch, $"--reverse -p 1 -i {patchPath}", RepoDir);
 			var hgCommand = $"hg commit --message \"{commitMsg}\"";
 			var result = HgRunner.Run(hgCommand, RepoDir, 10, new NullProgress());
 			if (result.ExitCode != 0)
