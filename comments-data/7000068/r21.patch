@@ -7,5 +7,5 @@ diff -r 4adbd7721929 -r 09b2ccd0f368 no-op
 --- a/no-op
 +++ b/no-op
 @@ -1,1 +1,1 @@
--dummy file
+-e568ae9e-6c25-4751-81a1-7a9e783eab90
 +no-op patch
