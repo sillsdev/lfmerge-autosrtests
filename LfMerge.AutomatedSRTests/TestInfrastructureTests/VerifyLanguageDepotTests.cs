@@ -212,7 +212,7 @@ namespace LfMerge.AutomatedSRTests
 						</Senses>
 					</LexEntry>
 				</Lexicon>
-			</root>")), Throws.Exception.With.Message.StartsWith("  LanguageDepot: Different values for element 'AUni'"));
+			</root>")), Throws.Exception.With.Message.StartsWith("  LanguageDepot: Missing LexEntry: '<Form>  <AUni ws=\"fr2\">A3</AUni></Form>'"));
 		}
 
 		[Test]

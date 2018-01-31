@@ -59,8 +59,8 @@ namespace LfMerge.AutomatedSRTests
 			{
 				var actualLexicon = XElement.Load(streamReader);
 				var actualLexeme = actualLexicon.Elements("LexEntry").
-					First(element => NormalizeString(GetLexEntrySearchString(element)) == NormalizeString(GetLexEntrySearchString(expectedLexEntry)));
-				Assert.That(actualLexeme, Is.Not.Null, "Missing LexEntry");
+					FirstOrDefault(element => NormalizeString(GetLexEntrySearchString(element)) == NormalizeString(GetLexEntrySearchString(expectedLexEntry)));
+				Assert.That(actualLexeme, Is.Not.Null, $"LanguageDepot: Missing LexEntry: '{NormalizeStringForMessage(GetLexEntrySearchString(expectedLexEntry))}'");
 				VerifyTree(expectedLexEntry, actualLexeme);
 			}
 		}
@@ -69,6 +69,11 @@ namespace LfMerge.AutomatedSRTests
 		{
 			return input.Replace("\r", "").Replace("\n", "").Replace(" ", "").Replace("\t", "")
 				.Replace("<", "&lt;").Replace(">", "&gt;");
+		}
+
+		private static string NormalizeStringForMessage(string input)
+		{
+			return input.Replace("\r", "").Replace("\n", "").Replace("\t", "");
 		}
 
 		protected virtual string FindXmlFile(XElement lexEntry)
