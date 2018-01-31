@@ -1,0 +1,53 @@
+From 516ddf3674a01622a48a523247bf20e1ddc99d60 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 23 Feb 2018 14:46:33 +0000
+Subject: [PATCH] FW add comment on G
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++++
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 7a80e17..ffb4d5d 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-23T14:36:11.807Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-23T14:46:32.347Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-23T14:36:12.007Z"}
++,"lastSyncedDate":{"$date":"2018-02-23T14:46:32.552Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 8e4ac45..4719cc7 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -96,3 +96,13 @@
+ ,"dateCreated":{"$date":"2018-01-31T16:43:08.474Z"}
+ ,"guid":"e8a03b36-2c36-4647-b879-24dbcd5a9ac4","statusGuid":"fa03d0e3-cc2b-48cc-8f4b-1854f6652192","contextGuid":null}
+ 
++{"_id":{"$oid":"5a902948d80d1212a9a23188"}
++,"guid":"f338b58d-2901-4eb6-9104-c76424003c22","authorNameAlternate":"eberhard","content":"FW comment on G","entryRef":{"$oid":"5a3801ee511fd55d813e1f75"}
++,"dateModified":{"$date":"2018-02-23T14:46:32.518Z"}
++,"authorInfo":{"createdDate":{"$date":"2018-02-23T15:43:22.000Z"}
++,"modifiedDate":{"$date":"2018-02-23T15:43:22.000Z"}
++}
++,"regarding":{"targetGuid":"12f360f9-6cc5-45b0-ae17-cc37f749c80c","word":"G","meaning":"***"}
++,"replies":[],"isDeleted":false,"status":"open","statusGuid":"c7fd26fe-a20a-49a5-899d-7156c9491c03","contextGuid":null,"dateCreated":{"$date":"2018-02-23T14:46:32.518Z"}
++}
++
+-- 
+2.16.2
+

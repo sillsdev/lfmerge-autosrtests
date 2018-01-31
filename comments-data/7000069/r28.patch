@@ -1,0 +1,28 @@
+# HG changeset patch
+# User eberhard
+# Date 1519396498 -3600
+#      Fri Feb 23 15:34:58 2018 +0100
+# Branch 7000069
+# Node ID 29b6f4f1a5f4adb7ef963ea6aeb90a553f47212d
+# Parent  91b461e1823cd79557a0ac3338cae101ed274111
+[FLEx Bridge: 2.6.0.0] sync
+
+diff -r 91b461e1823c -r 29b6f4f1a5f4 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Fri Feb 23 15:27:43 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Fri Feb 23 15:34:58 2018 +0100
+@@ -103,4 +103,14 @@
+ 			guid="3f0048a0-26d5-4a51-80e9-57bbb2940944">
+ 		</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=9b6807fc-fb31-46fc-a73d-31df3c52e0d6&amp;tag=&amp;id=9b6807fc-fb31-46fc-a73d-31df3c52e0d6&amp;label=G"
++		guid="21a88d05-3539-4d42-b5e6-fbbf8b84f6b4">
++		<message
++			author="eberhard"
++			status=""
++			date="2018-02-23T15:34:47Z"
++			guid="26f73282-9532-4881-987a-7895537e4a7d">FW comment on G</message>
++	</annotation>
+ </notes>
+\ No newline at end of file

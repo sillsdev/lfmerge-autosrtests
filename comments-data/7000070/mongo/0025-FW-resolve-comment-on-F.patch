@@ -1,0 +1,54 @@
+From c17f7bb46ab57f255a09c9f6c73420952a752ec1 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Wed, 21 Feb 2018 17:06:47 +0000
+Subject: [PATCH] FW resolve comment on F
+
+---
+ sf_test-comment-sr.json                 | 4 ++--
+ sf_test-comment-sr.lexiconComments.json | 4 ++--
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index cf1bcfc..082ca31 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-20T15:06:30.547Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-21T17:06:46.209Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-20T15:06:30.809Z"}
++,"lastSyncedDate":{"$date":"2018-02-21T17:06:46.487Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 45b9ac1..2abad0d 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -87,12 +87,12 @@
+ {"_id":{"$oid":"5a71f21c6efc676a612eb76f"}
+ ,"entryRef":{"$oid":"5a3801ee511fd55d813e1f76"}
+ ,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"F","meaning":"F"}
+-,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"score":0,"replies":[],"status":"resolved","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"createdDate":{"$date":"2018-01-31T16:43:08.474Z"}
+ ,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"modifiedDate":{"$date":"2018-01-31T16:43:08.474Z"}
+ }
+ ,"content":"LF comment on F","dateModified":{"$date":"2018-01-31T16:43:08.474Z"}
+ ,"dateCreated":{"$date":"2018-01-31T16:43:08.474Z"}
+-,"guid":"e8a03b36-2c36-4647-b879-24dbcd5a9ac4"}
++,"guid":"e8a03b36-2c36-4647-b879-24dbcd5a9ac4","statusGuid":"f48f33bd-c6b4-4416-b71c-e6565c9d7145"}
+ 
+-- 
+2.16.2
+

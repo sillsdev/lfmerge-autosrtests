@@ -1,0 +1,71 @@
+# HG changeset patch
+# User eberhard
+# Date 1519641144 -3600
+#      Mon Feb 26 11:32:24 2018 +0100
+# Branch 7000070
+# Node ID fa568c72ec755c10f4f22fe8ac87caca3f8d395c
+# Parent  0bedb0ffc950e4343c4bc4203e894b62e6df1818
+[FLEx Bridge: 2.6.0.0] sync
+
+diff -r 0bedb0ffc950 -r fa568c72ec75 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Feb 26 11:29:52 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Mon Feb 26 11:32:24 2018 +0100
+@@ -112,5 +112,10 @@
+ 			status=""
+ 			date="2018-02-23T15:43:22Z"
+ 			guid="c7fd26fe-a20a-49a5-899d-7156c9491c03">FW comment on G</message>
++		<message
++			author="eberhard"
++			status=""
++			date="2018-02-26T11:32:09Z"
++			guid="2c299e5a-8f29-4edd-beca-91affce00fef">FW reply on G</message>
+ 	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 0bedb0ffc950 -r fa568c72ec75 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Mon Feb 26 11:29:52 2018 +0100
++++ b/WritingSystemStore/en.ldml	Mon Feb 26 11:32:24 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-21T14:32:25" />
++			date="2018-02-21T14:32:44" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+@@ -63,6 +63,10 @@
+ 				layout="Devanagari"
+ 				locale=""
+ 				os="Win32NT" />
++			<palaso2:keyboard
++				layout="us"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r 0bedb0ffc950 -r fa568c72ec75 WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Mon Feb 26 11:29:52 2018 +0100
++++ b/WritingSystemStore/es.ldml	Mon Feb 26 11:32:24 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-01-19T03:52:36" />
++			date="2018-01-19T03:52:45" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+diff -r 0bedb0ffc950 -r fa568c72ec75 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Feb 26 11:29:52 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Feb 26 11:32:24 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-01T16:36:48" />
++			date="2018-02-01T16:37:07" />
+ 		<language
+ 			type="fr" />
+ 	</identity>

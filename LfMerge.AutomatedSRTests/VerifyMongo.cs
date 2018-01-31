@@ -162,8 +162,8 @@ namespace LfMerge.AutomatedSRTests
 				var expected = expectedValues[_recordNo] as JObject;
 				var noteRef = ((JValue) expected.Property("ref").Value).Value as string;
 				var content =
-					((JValue) ((JObject) expected.Property("message").Value).Property("value").Value)
-					.Value as string;
+					((JValue) ((JObject) ((JObject) ((JArray) expected.Property("messages").Value).First())
+					.Property("message").Value).Property("value").Value).Value as string;
 				Assert.That(actualNotesByRef.ContainsKey(noteRef), Is.True, $"Mongo: Can't find note for '{noteRef}' (record {_recordNo})");
 				var actual = actualNotesByRef[noteRef].FirstOrDefault(n => n.GetElement("content").Value.AsString == content);
 				Assert.That(actual, Is.Not.Null, $"Mongo: Can't find note for '{noteRef}' with content '{content}' (record {_recordNo})");
@@ -171,7 +171,7 @@ namespace LfMerge.AutomatedSRTests
 			}
 		}
 
-		private void VerifyNote(JObject expected, BsonDocument actual)
+		private static void VerifyNote(JObject expected, BsonDocument actual)
 		{
 			foreach (var prop in expected.Properties())
 			{
@@ -184,12 +184,16 @@ namespace LfMerge.AutomatedSRTests
 					case "ref":
 						VerifyNotesRef(prop.Value as JValue, actual);
 						break;
-					case "message":
-						VerifyNotesMessage(prop.Value as JObject, actual);
+					case "messages":
+					{
+						var first = ((JArray) prop.Value).First() as JObject;
+						VerifyNotesContent(first.Property("message").Value as JObject, actual);
+						var last = ((JArray) prop.Value).Last() as JObject;
+						VerifyNotesStatus(last.Property("message").Value as JObject, actual);
+						VerifyReplies(((JArray)prop.Value).SelectTokens("$..message[1:]").
+							Where(o => ((JObject)o).Property("value") != null).ToList(), actual);
 						break;
-					case "replies":
-						VerifyReplies(prop.Value as JArray, actual);
-						break;
+					}
 					default:
 						Assert.Fail($"Mongo: Unhandled property '{prop.Name}' in 'notes' element of expected data");
 						break;
@@ -197,7 +201,7 @@ namespace LfMerge.AutomatedSRTests
 			}
 		}
 
-		private static void VerifyReplies(JArray expectedObjs, BsonDocument actual)
+		private static void VerifyReplies(List<JToken> expectedObjs, BsonDocument actual)
 		{
 			Assert.That(expectedObjs, Is.Not.Null);
 			var actualObjs = actual.GetElement("replies").Value as BsonArray;
@@ -210,72 +214,48 @@ namespace LfMerge.AutomatedSRTests
 			}
 		}
 
-		private static void VerifyReply(JObject expected, BsonDocument actual)
+		private static void VerifyReply(JObject expectedObj, BsonDocument actual)
 		{
-			foreach (var prop in expected.Properties())
-			{
-				switch (prop.Name)
-				{
-					case "message":
-						var expectedObj = prop.Value as JObject;
-						var actualProps = actual.Elements;
-						Assert.That(actualProps.Count(),
-							Is.GreaterThanOrEqualTo(expectedObj.Properties().ToList().Count));
-						foreach (var messageProp in expectedObj.Properties())
-						{
-							switch (messageProp.Name)
-							{
-								case "status":
-									// we ignore that for Mongo
-									break;
-								case "value":
-									VerifySingleValue("content", messageProp.Value, actual.GetElement("content"));
-									break;
-								default:
-									Assert.Fail($"Mongo: Unhandled property '{messageProp.Name}' in 'message' reply element of expected data");
-									break;
-							}
-						}
-						break;
-					default:
-						Assert.Fail($"Mongo: Unhandled property '{prop.Name}' in 'notes' element of expected data");
-						break;
-				}
-			}
-		}
-
-		private static void VerifyNotesMessage(JObject expectedObj, BsonDocument actual)
-		{
-			Assert.That(expectedObj, Is.Not.Null);
 			var actualProps = actual.Elements;
 			Assert.That(actualProps.Count(),
 				Is.GreaterThanOrEqualTo(expectedObj.Properties().ToList().Count));
-			foreach (var prop in expectedObj.Properties())
+			foreach (var messageProp in expectedObj.Properties())
 			{
-				switch (prop.Name)
+				switch (messageProp.Name)
 				{
 					case "status":
-					{
-						var expectedValue = prop.Value as JValue;
-						var expectedString = (string) expectedValue.Value;
-						if (string.IsNullOrEmpty(expectedString))
-							expectedString = "open";
-						var actualValue = actual.GetElement(prop.Name);
-						Assert.That(actualValue.Name, Is.EqualTo(prop.Name));
-						Assert.That(actualValue.Value.AsString, Is.EqualTo(expectedString));
+						// we ignore that for Mongo
 						break;
-					}
 					case "value":
-						VerifySingleValue("content", prop.Value, actual.GetElement("content"));
+						VerifySingleValue("content", messageProp.Value, actual.GetElement("content"));
 						break;
 					default:
-						Assert.Fail($"Mongo: Unhandled property '{prop.Name}' in 'message' element of expected data");
+						Assert.Fail($"Mongo: Unhandled property '{messageProp.Name}' in 'message' reply element of expected data");
 						break;
 				}
 			}
 		}
 
-		private static void VerifyNotesRef(JValue expectedValue, BsonDocument actualValue)
+		private static void VerifyNotesContent(JObject expectedMessage, BsonDocument actual)
+		{
+			VerifySingleValue("content", expectedMessage.Property("value").Value,
+				actual.GetElement("content"));
+		}
+
+		private static void VerifyNotesStatus(JObject expectedMessage, BsonDocument actual)
+		{
+			var expectedValue = expectedMessage.Property("status").Value as JValue;
+			var expectedString = (string) expectedValue.Value;
+			if (string.IsNullOrEmpty(expectedString))
+				expectedString = "open";
+			var actualValue = actual.GetElement("status");
+			Assert.That(actualValue.Name, Is.EqualTo("status"));
+			Assert.That(actualValue.Value.AsString, Is.EqualTo(expectedString),
+				$"Mongo: Unexpected status for entry " +
+				$"'{((JObject)(((JArray)expectedMessage.Parent.Parent.Parent).First() as JObject).Property("message").Value).Property("value").Value}'");
+		}
+
+		private static void VerifyNotesRef(JToken expectedValue, BsonDocument actualValue)
 		{
 			var regarding = actualValue.Elements.First(s => s.Name == "regarding");
 			var word = regarding.Value.ToBsonDocument().First(s => s.Name == "word");

@@ -1,0 +1,46 @@
+From e92fa97664309bc6fbcc90357348af6e9f50f1e8 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 26 Feb 2018 16:27:56 +0000
+Subject: [PATCH] LF add comment on H
+
+---
+ sf_test-comment-sr.json                 | 4 ++--
+ sf_test-comment-sr.lexiconComments.json | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index dfb11a4..d7c072a 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-26T15:05:07.927Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-26T16:27:55.429Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-26T15:05:08.112Z"}
++,"lastSyncedDate":{"$date":"2018-02-26T16:27:55.576Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index fda35d6..609eff8 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -120,5 +120,5 @@
+ }
+ ,"content":"LF comment on H","dateModified":{"$date":"2018-02-26T16:27:07.308Z"}
+ ,"dateCreated":{"$date":"2018-02-26T16:27:07.308Z"}
+-}
++,"guid":"be5a9897-554b-403a-a137-aa3edf7aa264","statusGuid":"e2cb4d2f-882e-470f-b64f-f30577877a42"}
+ 
+-- 
+2.16.2
+

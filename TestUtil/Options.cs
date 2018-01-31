@@ -130,12 +130,9 @@ namespace LfMerge.TestUtil
 			[Option("fwprojects", HelpText = "Directory where FW projects are stored. Default: $FWROOT/DistFiles/Projects")]
 			public string FwProjectDirectory
 			{
-				get
-				{
-					return string.IsNullOrEmpty(_fwProjectDirectory) ?
-						Path.Combine(FwRoot, "DistFiles", "Projects") : _fwProjectDirectory;
-				}
-				set { _fwProjectDirectory = value; }
+				get => string.IsNullOrEmpty(_fwProjectDirectory) ?
+					Path.Combine(FwRoot, "DistFiles", "Projects") : _fwProjectDirectory;
+				set => _fwProjectDirectory = value;
 			}
 
 			[Option("fwroot", Required = true, HelpText = "FW root directory, e.g. $HOME/fwrepo/fw")]

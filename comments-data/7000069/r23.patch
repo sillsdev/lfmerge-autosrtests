@@ -1,0 +1,87 @@
+# HG changeset patch
+# User Language Forge
+# Date 1517416932 -3600
+#      Wed Jan 31 17:42:12 2018 +0100
+# Branch 7000069
+# Node ID cff36befd7ac01ceaa902c85733bac23e64c51cc
+# Parent  fef5bfc8af1ba61e4fe2db751507e93a28923d48
+[LfMergeBridge: 2.6.0.0] Language Forge S/R
+
+diff -r fef5bfc8af1b -r cff36befd7ac Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Wed Jan 31 17:41:45 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Wed Jan 31 17:42:12 2018 +0100
+@@ -81,4 +81,14 @@
+ 			date="2018-01-08T18:33:51Z"
+ 			guid="de10dfd4-9fee-461f-81e9-f4f62164b6df">FW reply on E</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=fb4d78a4-8bfc-4763-96a0-15941ba17af6&amp;tag=&amp;id=fb4d78a4-8bfc-4763-96a0-15941ba17af6&amp;label=F"
++		guid="b6e34ff2-fca1-4a02-99e7-9f0973e80d1c">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2018-01-31T17:42:04Z"
++			guid="912a3817-c99f-4dae-aa4c-2e9d4f9bb7f4">LF comment on F</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r fef5bfc8af1b -r cff36befd7ac WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Wed Jan 31 17:41:45 2018 +0100
++++ b/WritingSystemStore/en-US.ldml	Wed Jan 31 17:42:12 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-07T18:36:10" />
++			date="2018-01-31T10:15:48" />
+ 		<language
+ 			type="en" />
+ 		<territory
+diff -r fef5bfc8af1b -r cff36befd7ac WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Wed Jan 31 17:41:45 2018 +0100
++++ b/WritingSystemStore/en.ldml	Wed Jan 31 17:42:12 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-15T16:00:59" />
++			date="2017-12-15T16:01:03" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r fef5bfc8af1b -r cff36befd7ac WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Wed Jan 31 17:41:45 2018 +0100
++++ b/WritingSystemStore/es.ldml	Wed Jan 31 17:42:12 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-07T17:16:16" />
++			date="2017-12-07T17:16:18" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+diff -r fef5bfc8af1b -r cff36befd7ac WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Jan 31 17:41:45 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Jan 31 17:42:12 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-18T14:21:00" />
++			date="2017-12-18T14:21:05" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -102,6 +102,10 @@
+ 				locale="th-TH"
+ 				os="Unix" />
+ 			<palaso2:keyboard
++				layout="fr"
++				locale="fr-FR"
++				os="Unix" />
++			<palaso2:keyboard
+ 				layout="us"
+ 				locale="en-US"
+ 				os="Unix" />

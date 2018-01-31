@@ -1,0 +1,74 @@
+From 22245230e11016c3ab8f2f349d5799126448c0e5 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 23 Feb 2018 14:28:42 +0000
+Subject: [PATCH] LF reopen comment on F
+
+---
+ sf_test-comment-sr.activity.json        | 10 ++++++++++
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json |  6 +++---
+ 3 files changed, 15 insertions(+), 5 deletions(-)
+
+diff --git a/sf_test-comment-sr.activity.json b/sf_test-comment-sr.activity.json
+index d0198dc..35de253 100644
+--- a/sf_test-comment-sr.activity.json
++++ b/sf_test-comment-sr.activity.json
+@@ -27,3 +27,13 @@
+ ,"dateCreated":{"$date":"2017-09-26T02:54:34.871Z"}
+ }
+ 
++{"_id":{"$oid":"5a9025116efc673d517b752c"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"userRef2":null,"entryRef":{"$oid":"5a3801ee511fd55d813e1f76"}
++,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"","lexCommentStatus":"open","user":"admin"}
++,"date":{"$date":"2018-02-23T14:28:33.000Z"}
++,"dateModified":{"$date":"2018-02-23T14:28:33.161Z"}
++,"dateCreated":{"$date":"2018-02-23T14:28:33.161Z"}
++}
++
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 082ca31..5b074f4 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-21T17:06:46.209Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-23T14:27:52.914Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-21T17:06:46.487Z"}
++,"lastSyncedDate":{"$date":"2018-02-23T14:27:53.084Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 2abad0d..9e1488d 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -87,12 +87,12 @@
+ {"_id":{"$oid":"5a71f21c6efc676a612eb76f"}
+ ,"entryRef":{"$oid":"5a3801ee511fd55d813e1f76"}
+ ,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"F","meaning":"F"}
+-,"score":0,"replies":[],"status":"resolved","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"createdDate":{"$date":"2018-01-31T16:43:08.474Z"}
+ ,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"modifiedDate":{"$date":"2018-01-31T16:43:08.474Z"}
+ }
+-,"content":"LF comment on F","dateModified":{"$date":"2018-01-31T16:43:08.474Z"}
++,"content":"LF comment on F","dateModified":{"$date":"2018-02-23T14:28:33.162Z"}
+ ,"dateCreated":{"$date":"2018-01-31T16:43:08.474Z"}
+-,"guid":"e8a03b36-2c36-4647-b879-24dbcd5a9ac4","statusGuid":"f48f33bd-c6b4-4416-b71c-e6565c9d7145"}
++,"guid":"e8a03b36-2c36-4647-b879-24dbcd5a9ac4","statusGuid":"f48f33bd-c6b4-4416-b71c-e6565c9d7145","contextGuid":null}
+ 
+-- 
+2.16.2
+

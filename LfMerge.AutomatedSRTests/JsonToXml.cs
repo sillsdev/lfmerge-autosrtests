@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using Newtonsoft.Json;
 using Palaso.Extensions;
@@ -288,11 +289,8 @@ namespace LfMerge.AutomatedSRTests
 								attr.Value = $"label={_reader.Value}";
 								currentNote.Add(attr);
 								break;
-							case "message":
-								currentNote.Add(ProcessMessage());
-								break;
-							case "replies":
-								ProcessReplies(currentNote);
+							case "messages":
+								ProcessMessagesAndReplies(currentNote);
 								break;
 						}
 						break;
@@ -310,7 +308,7 @@ namespace LfMerge.AutomatedSRTests
 			return null;
 		}
 
-		private void ProcessReplies(XContainer currentNote)
+		private void ProcessMessagesAndReplies(XContainer currentNote)
 		{
 			Read(JsonToken.StartArray);
 			while (_reader.Read())
@@ -319,8 +317,13 @@ namespace LfMerge.AutomatedSRTests
 				{
 					case JsonToken.PropertyName:
 					{
-						Debug.Assert((string) _reader.Value == "message");
-						currentNote.Add(ProcessMessage());
+						switch (_reader.Value)
+						{
+							case "message":
+								currentNote.Add(ProcessMessage());
+								break;
+						}
+
 						break;
 					}
 					case JsonToken.EndArray:
@@ -351,6 +354,8 @@ namespace LfMerge.AutomatedSRTests
 								var attr = new XAttribute("status", true);
 								Read(JsonToken.String);
 								attr.Value = (string) _reader.Value;
+								if (attr.Value == "resolved")
+									attr.Value = "closed";
 								message.Add(attr);
 								break;
 							case "value":

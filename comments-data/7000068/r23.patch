@@ -1,0 +1,75 @@
+# HG changeset patch
+# User Language Forge
+# Date 1517416826 -3600
+#      Wed Jan 31 17:40:26 2018 +0100
+# Branch 7000068
+# Node ID ebc2d53f87bbe96e0c26857232294e1e857210c3
+# Parent  01f74d25538f622ffc92b6c86b1365c1916f4516
+[LfMergeBridge: 2.6.0.0] Language Forge S/R
+
+diff -r 01f74d25538f -r ebc2d53f87bb Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Wed Jan 31 17:39:58 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Wed Jan 31 17:40:26 2018 +0100
+@@ -81,4 +81,14 @@
+ 			date="2018-01-08T18:31:28Z"
+ 			guid="b960a251-a98e-4768-a80e-fc4fd3eb86c3">FW reply on E</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=db613b50-612f-4650-b709-93479b0bee0e&amp;tag=&amp;id=db613b50-612f-4650-b709-93479b0bee0e&amp;label=F"
++		guid="7ee75528-7f98-4e7f-a211-0021877f041b">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2018-01-31T17:40:17Z"
++			guid="91806b7e-ca41-4c37-b195-ed6ff07a0611">LF comment on F</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 01f74d25538f -r ebc2d53f87bb WritingSystemStore/en-US.ldml
+--- a/WritingSystemStore/en-US.ldml	Wed Jan 31 17:39:58 2018 +0100
++++ b/WritingSystemStore/en-US.ldml	Wed Jan 31 17:40:26 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-07T18:36:10" />
++			date="2018-01-31T10:15:48" />
+ 		<language
+ 			type="en" />
+ 		<territory
+diff -r 01f74d25538f -r ebc2d53f87bb WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Wed Jan 31 17:39:58 2018 +0100
++++ b/WritingSystemStore/en.ldml	Wed Jan 31 17:40:26 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-15T16:00:59" />
++			date="2017-12-15T16:01:03" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 01f74d25538f -r ebc2d53f87bb WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Jan 31 17:39:58 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Jan 31 17:40:26 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-18T14:21:00" />
++			date="2017-12-18T14:21:05" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -102,6 +102,10 @@
+ 				locale="th-TH"
+ 				os="Unix" />
+ 			<palaso2:keyboard
++				layout="fr"
++				locale="fr-FR"
++				os="Unix" />
++			<palaso2:keyboard
+ 				layout="us"
+ 				locale="en-US"
+ 				os="Unix" />

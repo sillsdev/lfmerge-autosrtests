@@ -4,9 +4,12 @@
 DBVERSION=$(basename $(find /usr/lib/lfmerge -maxdepth 1 -type d -name [0-9]\* | sort | tail -n 1))
 LIB=/usr/lib/lfmerge/$DBVERSION
 SHARE=/usr/share/lfmerge/$DBVERSION
+RUNMODE=INSTALLED
+#LIB=$HOME/Develop/LfMerge/output/Debug/7000070
+#SHARE=$HOME/Develop/LfMerge
+#RUNMODE=DEVELOP
 
 cd "$SHARE"
-RUNMODE=INSTALLED
 . ./environ
 cd "$LIB"
 

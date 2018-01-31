@@ -1,0 +1,86 @@
+# HG changeset patch
+# User Language Forge
+# Date 1519662643 -3600
+#      Mon Feb 26 17:30:43 2018 +0100
+# Branch 7000070
+# Node ID b6d070cc4fc87846fd8c62d2af253efe00de7272
+# Parent  da29f794d38bb9c97f2979add21573dc621d50d0
+[LfMergeBridge: 2.6.1.0] Language Forge S/R
+
+diff -r da29f794d38b -r b6d070cc4fc8 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Feb 26 17:30:25 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Mon Feb 26 17:30:43 2018 +0100
+@@ -124,4 +124,14 @@
+ 			guid="a6ba6623-e7a5-4383-ae84-1a1a67c62945">
+ 		</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=983b6ee7-159c-465a-acda-f55e13694878&amp;tag=&amp;id=983b6ee7-159c-465a-acda-f55e13694878&amp;label=H"
++		guid="9d0406cb-6ee5-4e7c-b79b-719706e1afa8">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2018-02-26T17:30:34Z"
++			guid="72ad3687-67ad-449f-971e-e37a95b42967">LF comment on H</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r da29f794d38b -r b6d070cc4fc8 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Mon Feb 26 17:30:25 2018 +0100
++++ b/WritingSystemStore/en.ldml	Mon Feb 26 17:30:43 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-21T14:32:44" />
++			date="2018-02-21T14:32:51" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+@@ -63,10 +63,6 @@
+ 				layout="Devanagari"
+ 				locale=""
+ 				os="Win32NT" />
+-			<palaso2:keyboard
+-				layout="us"
+-				locale="en-US"
+-				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r da29f794d38b -r b6d070cc4fc8 WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Mon Feb 26 17:30:25 2018 +0100
++++ b/WritingSystemStore/es.ldml	Mon Feb 26 17:30:43 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-01-19T03:52:45" />
++			date="2018-01-19T03:52:47" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+@@ -43,6 +43,10 @@
+ 				layout="us"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="English"
++				locale="en-US"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+diff -r da29f794d38b -r b6d070cc4fc8 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Feb 26 17:30:25 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Feb 26 17:30:43 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-01T16:37:07" />
++			date="2018-02-01T16:37:14" />
+ 		<language
+ 			type="fr" />
+ 	</identity>

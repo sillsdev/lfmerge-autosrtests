@@ -140,10 +140,11 @@ namespace LfMerge.AutomatedSRTests.TestInfrastructureTests
 			]}, { 'notes': [ {
 				'class' : 'question' ,
 				'ref' : 'A3',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': 'open',
 					'value': 'comment about word A'
-				}
+				}}]
 			}]}]";
 
 			var xElement = JsonToXml.Convert(json);
@@ -203,26 +204,27 @@ namespace LfMerge.AutomatedSRTests.TestInfrastructureTests
 			var json = @"[ { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{'message' : {
 					'status': '',
 					'value': 'FW comment on word A'
-				} },
+				}}] },
 				{ 'class' : 'question',
 				'ref' : 'E',
-				'message' : {
-					'status': '',
-					'value': 'FW comment on E'
-				}, 'replies': [
-					{ 'message': {
-						'status': 'open',
-						'value': 'LF reply on E'
-					} },
-					{ 'message': {
-						'status': '',
-						'value': 'FW reply on E'
-					} }
-				] }
-			]}]";
+					'messages': [
+						{ 'message' : {
+							'status': '',
+							'value': 'FW comment on E'
+						} },
+						{ 'message': {
+							'status': 'open',
+							'value': 'LF reply on E'
+						} },
+						{ 'message': {
+							'status': '',
+							'value': 'FW reply on E'
+						} }
+				]}]}]";
 
 			var xElement = JsonToXml.Convert(json);
 			VerifyTree(xElement, XElement.Parse(
@@ -240,5 +242,71 @@ namespace LfMerge.AutomatedSRTests.TestInfrastructureTests
 	</notes>
 </root>"));
 		}
+
+		[Test]
+		public void ResolvedComment()
+		{
+			// language=json
+			var json = @"[ { 'notes': [
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+						{'message' : {
+							'status': 'open',
+							'value': 'FW comment on word A'}},
+						{'message' : {
+							'status': 'resolved'
+					} }]
+				}
+			]}]";
+
+			var xElement = JsonToXml.Convert(json);
+			VerifyTree(xElement, XElement.Parse(
+				// language=xml
+				@"<root>
+	<notes>
+		<annotation class=""question"" ref=""label=A"">
+			<message status=""open"">FW comment on word A</message>
+			<message status=""closed""/>
+		</annotation>
+	</notes>
+</root>"));
+		}
+
+		[Test]
+		public void ResolvedCommentsMixedWithReplies()
+		{
+			// language=json
+			var json = @"[ { 'notes': [
+				{ 'class' : 'question',
+				'ref' : 'E',
+					'messages': [
+						{ 'message' : {
+							'status': '',
+							'value': 'FW comment on E'
+						} },
+						{ 'message': {
+							'status': 'open',
+							'value': 'LF reply on E'
+						} },
+						{ 'message': {
+							'status': 'resolved'
+						} }
+				]}]}]";
+
+			var xElement = JsonToXml.Convert(json);
+			VerifyTree(xElement, XElement.Parse(
+				// language=xml
+				@"<root>
+	<notes>
+		<annotation class=""question"" ref=""label=E"">
+			<message status="""">FW comment on E</message>
+			<message status=""open"">LF reply on E</message>
+			<message status=""closed""/>
+		</annotation>
+	</notes>
+</root>"));
+		}
+
 	}
 }

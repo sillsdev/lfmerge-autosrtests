@@ -33,7 +33,7 @@ namespace LfMerge.AutomatedSRTests
 			// Setup
 
 			// language=json
-			const string expected = @"[ { 'lexicon': [
+			const string testData = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
 						'definition' : { 'en' : { 'value' : 'B' } },
@@ -47,22 +47,24 @@ namespace LfMerge.AutomatedSRTests
 				]}, { 'notes': [
 				{ 'class' : 'note',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{'message' : {
 						'status': 'open',
 						'value': 'FW comment on word A'
-					}
-				}
-			]}]";
+					}} ]
+				}]}]
+			";
 			_mongo.RestoreDatabase(Settings.MaxModelVersion, 6);
 
 			// Execute/Verify
-			VerifyMongo.AssertData(expected);
+			VerifyMongo.AssertData(testData);
 		}
 
 		[Test]
@@ -71,49 +73,56 @@ namespace LfMerge.AutomatedSRTests
 			// Setup
 
 			// language=json
-			const string expected = @"[ { 'notes': [
+			const string testData = @"[ { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{'message' : {
 					'status': '',
 					'value': 'FW comment on word A'
-				} },
+				} }] },
 				{ 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+					{'message' : {
 					'status': 'open',
 					'value': 'Comment on word B'
-				} },
+				} }]},
 				{ 'class' : 'question',
 					'ref' : 'C',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 					'status': '',
 					'value': 'Comment about new word C'
-				} },
+				} } ] },
 				{ 'class' : 'question',
 					'ref' : 'D',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 					'status': 'open',
 					'value': 'Comment on word D'
-				} },
+				} }]},
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{'message' : {
 					'status': '',
 					'value': 'Comment on A, FW first'
-				} },
+				} } ]},
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{'message' : {
 					'status': 'open',
 					'value': 'Comment on A, LF second'
-				} },
+				} }]},
 				{ 'class' : 'question',
 				'ref' : 'E',
-				'message' : {
+				'messages': [
+					{ 'message' : {
 					'status': '',
 					'value': 'FW comment on E'
-				}, 'replies': [
+					} },
 					{ 'message': {
 						'status': 'open',
 						'value': 'LF reply on E'
@@ -122,12 +131,208 @@ namespace LfMerge.AutomatedSRTests
 						'status': '',
 						'value': 'FW reply on E'
 					} }
-				] }
-			]}]";
+				]}]}]";
 			_mongo.RestoreDatabase(Settings.MaxModelVersion, 21);
 
 			// Execute/Verify
-			VerifyMongo.AssertData(expected);
+			VerifyMongo.AssertData(testData);
+		}
+
+		[Test]
+		public void AssertData_ResolvedComment()
+		{
+			// Setup
+
+			// language=json
+			const string testData = @"[ { 'notes': [
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+					{'message' : {
+					'status': '',
+					'value': 'FW comment on word A'
+				} }] },
+				{ 'class' : 'question',
+					'ref' : 'B',
+					'messages': [
+					{'message' : {
+					'status': 'open',
+					'value': 'Comment on word B'
+				} }]},
+				{ 'class' : 'question',
+					'ref' : 'C',
+					'messages': [
+					{ 'message' : {
+					'status': '',
+					'value': 'Comment about new word C'
+				} } ] },
+				{ 'class' : 'question',
+					'ref' : 'D',
+					'messages': [
+					{ 'message' : {
+					'status': 'open',
+					'value': 'Comment on word D'
+				} }]},
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+					{'message' : {
+					'status': '',
+					'value': 'Comment on A, FW first'
+				} } ]},
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+					{'message' : {
+					'status': 'open',
+					'value': 'Comment on A, LF second'
+				} }]},
+				{ 'class' : 'question',
+				'ref' : 'E',
+				'messages': [
+					{ 'message' : {
+					'status': '',
+					'value': 'FW comment on E'
+					} },
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} },
+					{ 'message': {
+						'status': '',
+						'value': 'FW reply on E'
+					} }
+				]},
+				{ 'class' : 'question',
+				'ref' : 'F',
+				'messages': [
+					{ 'message' : {
+					'status': '',
+					'value': 'LF comment on F'
+					} },
+					{ 'message': {
+						'status': 'resolved'
+					} }
+				]}]}]";
+			_mongo.RestoreDatabase(Settings.MaxModelVersion, 25);
+
+			// Execute/Verify
+			VerifyMongo.AssertData(testData);
+		}
+
+		[Test]
+		public void AssertData_ReopenedCommentWithReply()
+		{
+			// Setup
+
+			// language=json
+			const string testData = @"[ { 'notes': [
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+					{'message' : {
+					'status': '',
+					'value': 'FW comment on word A'
+				} }] },
+				{ 'class' : 'question',
+					'ref' : 'B',
+					'messages': [
+					{'message' : {
+					'status': 'open',
+					'value': 'Comment on word B'
+				} }]},
+				{ 'class' : 'question',
+					'ref' : 'C',
+					'messages': [
+					{ 'message' : {
+					'status': '',
+					'value': 'Comment about new word C'
+				} } ] },
+				{ 'class' : 'question',
+					'ref' : 'D',
+					'messages': [
+					{ 'message' : {
+					'status': 'open',
+					'value': 'Comment on word D'
+				} }]},
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+					{'message' : {
+					'status': '',
+					'value': 'Comment on A, FW first'
+				} } ]},
+				{ 'class' : 'question',
+					'ref' : 'A',
+					'messages': [
+					{'message' : {
+					'status': 'open',
+					'value': 'Comment on A, LF second'
+				} }]},
+				{ 'class' : 'question',
+				'ref' : 'E',
+				'messages': [
+					{ 'message' : {
+					'status': '',
+					'value': 'FW comment on E'
+					} },
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} },
+					{ 'message': {
+						'status': '',
+						'value': 'FW reply on E'
+					} }
+				]},
+				{ 'class' : 'question',
+				'ref' : 'F',
+				'messages': [
+					{ 'message' : {
+					'status': '',
+					'value': 'LF comment on F'
+					} },
+					{ 'message': {
+						'status': 'resolved'
+					} },
+					{ 'message': {
+						'status': 'open'
+					} }
+				]},
+				{ 'class' : 'question',
+				'ref' : 'G',
+				'messages': [
+					{ 'message' : {
+						'status': '',
+						'value': 'FW comment on G'
+					} },
+					{ 'message': {
+						'status': '',
+						'value': 'FW reply on G'
+					} },
+					{ 'message': {
+						'status': 'resolved'
+					} }
+				]},
+				{ 'class' : 'question',
+				'ref' : 'H',
+				'messages': [
+					{ 'message' : {
+						'status': '',
+						'value': 'LF comment on H'
+					} },
+					{ 'message': {
+						'status': 'resolved'
+					} },
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on H'
+					} }
+				]}]}]";
+			_mongo.RestoreDatabase(Settings.MaxModelVersion, 35);
+
+			// Execute/Verify
+			VerifyMongo.AssertData(testData);
 		}
 	}
 }

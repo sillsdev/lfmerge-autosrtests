@@ -184,8 +184,8 @@ namespace LfMerge.TestUtil
 				Console.WriteLine($"Restoring LanguageForge mongo data version {wizardOptions.MongoVersion} for model {modelVersion}");
 				RestoreMongoDb(new Options.RestoreOptions(wizardOptions));
 
-				Console.WriteLine("Now make the changes in your local LanguageForge, then press" +
-					" return. Don't do a send/receive!");
+				Console.WriteLine($"Now make the changes to '{wizardOptions.Project}' in your local" +
+					" LanguageForge, then press return. Don't do a send/receive!");
 				Console.WriteLine("(You might have to empty the cached IndexedDB data in your " +
 					"browser's developer tools)");
 				Run("/bin/bash", "-c \"xdg-open http://languageforge.local/app/projects\"", outputDir);

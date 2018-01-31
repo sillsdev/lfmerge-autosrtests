@@ -1,0 +1,72 @@
+# HG changeset patch
+# User eberhard
+# Date 1519232749 -3600
+#      Wed Feb 21 18:05:49 2018 +0100
+# Branch 7000070
+# Node ID 02a35bfd43d054a524b5f1bf3db81ee1eeca0d2b
+# Parent  570c61f8b63664be5af3e2b19530ce9c149bd786
+[FLEx Bridge: 2.6.0.0] sync
+
+diff -r 570c61f8b636 -r 02a35bfd43d0 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Wed Jan 31 17:43:39 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Wed Feb 21 18:05:49 2018 +0100
+@@ -90,5 +90,11 @@
+ 			status="open"
+ 			date="2018-01-31T17:43:30Z"
+ 			guid="c4f4df11-8dda-418e-8124-66406d67a2d1">LF comment on F</message>
++		<message
++			author="eberhard"
++			status="closed"
++			date="2018-02-21T18:05:38Z"
++			guid="f48f33bd-c6b4-4416-b71c-e6565c9d7145">
++		</message>
+ 	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 570c61f8b636 -r 02a35bfd43d0 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Wed Jan 31 17:43:39 2018 +0100
++++ b/WritingSystemStore/en.ldml	Wed Feb 21 18:05:49 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-15T16:01:03" />
++			date="2018-02-01T16:36:48" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 570c61f8b636 -r 02a35bfd43d0 WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Wed Jan 31 17:43:39 2018 +0100
++++ b/WritingSystemStore/es.ldml	Wed Feb 21 18:05:49 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-07T17:16:18" />
++			date="2017-12-07T17:16:21" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+diff -r 570c61f8b636 -r 02a35bfd43d0 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Jan 31 17:43:39 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Feb 21 18:05:49 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-18T14:21:05" />
++			date="2018-02-01T16:36:48" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -109,6 +109,10 @@
+ 				layout="us"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="m17n:da:post"
++				locale="da"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />

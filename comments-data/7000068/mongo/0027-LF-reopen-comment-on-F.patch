@@ -1,0 +1,109 @@
+From c7a7b2b182395cf35552a50d02acea3dd26a5c5c Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Fri, 23 Feb 2018 14:26:06 +0000
+Subject: [PATCH] LF reopen comment on F
+
+---
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 16 ++++++++--------
+ 2 files changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 145e3b1..a5129ba 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-22T15:00:42.600Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-23T14:26:06.221Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-22T15:00:42.851Z"}
++,"lastSyncedDate":{"$date":"2018-02-23T14:26:06.390Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 0907cee..8c8756e 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -8,7 +8,7 @@
+ }
+ ,"content":"Comment on word B","dateModified":{"$date":"2017-09-25T08:05:27.646Z"}
+ ,"dateCreated":{"$date":"2017-09-25T08:05:27.646Z"}
+-,"guid":"0b35d4ce-4b38-4043-9b79-b7ace1aa73ee"}
++,"guid":"0b35d4ce-4b38-4043-9b79-b7ace1aa73ee","statusGuid":"5cb5a042-3617-45ee-926b-6fdf6579aa99"}
+ 
+ {"_id":{"$oid":"59c8b8fbef72839b2c0b624f"}
+ ,"guid":"c0da2fab-0f28-4738-a5fa-bd1649d16b5e","authorNameAlternate":"rmunn","content":"FW comment on word A","entryRef":{"$oid":"59c8a4e9ef72839b2c0b624c"}
+@@ -18,7 +18,7 @@
+ }
+ ,"regarding":{"targetGuid":"be1c7330-4201-41aa-9243-54d37f3e7fb0","word":"A","meaning":"***"}
+ ,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-25T08:06:19.281Z"}
+-}
++,"statusGuid":"3f7772a5-e101-4701-8be7-1b93b331e696"}
+ 
+ {"_id":{"$oid":"59c8cc2cef72839b2c0b6253"}
+ ,"guid":"55de415a-7bbb-4b26-9614-208a27901e6d","authorNameAlternate":"rmunn","content":"Comment about new word C","entryRef":{"$oid":"59c8cc2cef72839b2c0b6252"}
+@@ -28,7 +28,7 @@
+ }
+ ,"regarding":{"targetGuid":"d4d0afdf-9d01-42a0-b781-e27678e6bd69","word":"C","meaning":"***"}
+ ,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-25T09:28:12.339Z"}
+-}
++,"statusGuid":"08794b20-fdcc-44bf-843a-b979aa2ed716"}
+ 
+ {"_id":{"$oid":"59c9bfeb973e310fb24363a2"}
+ ,"entryRef":{"$oid":"59c9bfe4973e31285713bc02"}
+@@ -40,7 +40,7 @@
+ }
+ ,"content":"Comment on word D","dateModified":{"$date":"2017-09-26T02:48:11.008Z"}
+ ,"dateCreated":{"$date":"2017-09-26T02:48:11.008Z"}
+-,"guid":"4b1e7faa-83f8-4e4c-ae8c-80b0dcd02af9"}
++,"guid":"4b1e7faa-83f8-4e4c-ae8c-80b0dcd02af9","statusGuid":"8e0578c7-facb-4a52-8cb4-802cb0726f17"}
+ 
+ {"_id":{"$oid":"59c9ed26973e31357965a2f2"}
+ ,"entryRef":{"$oid":"59c8a4e9ef72839b2c0b624c"}
+@@ -52,7 +52,7 @@
+ }
+ ,"content":"Comment on A, LF second","dateModified":{"$date":"2017-09-26T06:01:10.843Z"}
+ ,"dateCreated":{"$date":"2017-09-26T06:01:10.843Z"}
+-,"guid":"3b34a2d1-0740-4f7c-b5f3-140607fd114f"}
++,"guid":"3b34a2d1-0740-4f7c-b5f3-140607fd114f","statusGuid":"9c36d498-8e30-4e82-b6ed-d82555e5280f"}
+ 
+ {"_id":{"$oid":"59c9ed5eef72839b2c0b6258"}
+ ,"guid":"c2420760-b520-4b97-8ceb-70d161857a55","authorNameAlternate":"rmunn","content":"Comment on A, FW first","entryRef":{"$oid":"59c8a4e9ef72839b2c0b624c"}
+@@ -62,7 +62,7 @@
+ }
+ ,"regarding":{"targetGuid":"be1c7330-4201-41aa-9243-54d37f3e7fb0","word":"A","meaning":"***"}
+ ,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-09-26T06:02:06.499Z"}
+-}
++,"statusGuid":"4a80ca9c-5dde-4bbd-a7ec-8d980472e40b"}
+ 
+ {"_id":{"$oid":"5a3803cd511fd55d813e1f79"}
+ ,"guid":"011e7c98-97e0-4d2f-a695-9784ceea8b9c","authorNameAlternate":"eberhard","content":"FW comment on E","entryRef":{"$oid":"5a37eddf511fd55d813e1f6f"}
+@@ -82,7 +82,7 @@
+ }
+ ,"authorNameAlternate":"eberhard","content":"FW reply on E","id":"5a53ab46803e4","isDeleted":false}
+ ],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:07:09.690Z"}
+-,"score":0}
++,"score":0,"statusGuid":"b960a251-a98e-4768-a80e-fc4fd3eb86c3"}
+ 
+ {"_id":{"$oid":"5a71f14f6efc676d8b279880"}
+ ,"entryRef":{"$oid":"5a37eddf511fd55d813e1f70"}
+@@ -94,5 +94,5 @@
+ }
+ ,"content":"LF comment on F","dateModified":{"$date":"2018-02-23T14:25:15.708Z"}
+ ,"dateCreated":{"$date":"2018-01-31T16:39:43.380Z"}
+-,"guid":"7ee75528-7f98-4e7f-a211-0021877f041b","statusGuid":"a0202df1-72f8-4205-927c-5b101cca63e4","contextGuid":null}
++,"guid":"7ee75528-7f98-4e7f-a211-0021877f041b","statusGuid":"1eefed80-b6d8-4de9-9cc3-da0b3661c891","contextGuid":null}
+ 
+-- 
+2.16.2
+

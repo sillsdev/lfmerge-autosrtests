@@ -72,40 +72,96 @@ namespace LfMerge.AutomatedSRTests.Tests
 			// language=json
 			@"{ 'class' : 'question',
 				'ref' : 'A',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': '',
 					'value': 'FW comment on word A'
-				} },
+				} }]},
 			{ 'class' : 'question',
 				'ref' : 'B',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': 'open',
 					'value': 'Comment on word B'
-				} },
+				} }]},
 			{ 'class' : 'question',
 				'ref' : 'C',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': '',
 					'value': 'Comment about new word C'
-				} },
+				} }]},
 			{ 'class' : 'question',
 				'ref' : 'D',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': 'open',
 					'value': 'Comment on word D'
-				} },
+				} }]},
 			{ 'class' : 'question',
 				'ref' : 'A',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': '',
 					'value': 'Comment on A, FW first'
-				} },
+				} }]},
 			{ 'class' : 'question',
 				'ref' : 'A',
-				'message' : {
+				'messages': [
+				{'message' : {
 					'status': 'open',
 					'value': 'Comment on A, LF second'
-				} }";
+				} }]}";
+
+		private const string CommentE =
+			// language=json
+			@"{ 'class' : 'question',
+				'ref' : 'E',
+				'messages': [
+					{'message' : {
+						'status': '',
+						'value': 'FW comment on E'
+					} },
+					{ 'message': {
+						'status': 'open',
+						'value': 'LF reply on E'
+					} },
+					{ 'message': {
+						'status': 'open',
+						'value': 'FW reply on E'
+					} }
+				] }";
+
+		private const string CommentF =
+			// language=json
+			@"{ 'class' : 'question',
+				'ref' : 'F',
+				'messages': [
+					{ 'message' : {
+						'status': 'open',
+						'value': 'LF comment on F',
+				}}, { 'message': {
+						'status': 'resolved'
+				}}, { 'message': {
+						'status': 'open'
+				}}] }";
+
+		private const string CommentG =
+			// language=json
+			@"{ 'class' : 'question',
+				'ref' : 'G',
+				'messages': [
+					{ 'message' : {
+						'status': '',
+						'value': 'FW comment on G'
+					}}, { 'message': {
+						'status': '',
+						'value': 'FW reply on G'
+					}}, { 'message': {
+						'status': 'resolved'
+					}}
+				]}";
+
 
 		private LanguageDepotHelper _FieldWorks;
 		private MongoHelper _LanguageForge;
@@ -165,10 +221,11 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -211,10 +268,12 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
-						'status': '',
-						'value': 'FW comment on word A'
-					}
+					'messages': [
+						{'message' : {
+							'status': '',
+							'value': 'FW comment on word A'
+						}}
+					]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -259,40 +318,46 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': '',
 						'value': 'FW comment on word A'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
-						'status': 'open',
-						'value': 'Comment on word B'
-					}
+					'messages': [
+						{'message' : {
+							'status': 'open',
+							'value': 'Comment on word B'
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'C',
-					'message' : {
-						'status': '',
-						'value': 'Comment about new word C'
-					}
+					'messages': [
+						{'message' : {
+							'status': '',
+							'value': 'Comment about new word C'
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'D',
-					'message' : {
-						'status': 'open',
-						'value': 'Comment on word D'
-					}
+					'messages': [
+						{'message' : {
+							'status': 'open',
+							'value': 'Comment on word D'
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
-						'status': 'open',
-						'value': 'Comment on A, LF second'
-					}
+					'messages': [
+						{'message' : {
+							'status': 'open',
+							'value': 'Comment on A, LF second'
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
-						'status': '',
-						'value': 'Comment on A, FW first'
-					}
+					'messages': [
+						{'message' : {
+							'status': '',
+							'value': 'Comment on A, FW first'
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -346,40 +411,46 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': '',
 						'value': 'FW comment on word A'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'C',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': '',
 						'value': 'Comment about new word C'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'D',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': 'open',
 						'value': 'Comment on word D'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{'message' : {
 						'status': 'open',
 						'value': 'Comment on A, LF second'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': '',
 						'value': 'Comment on A, FW first'
-					}
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -422,16 +493,18 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': '',
 						'value': 'FW comment on word A'
-					}
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -485,16 +558,18 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+						{'message' : {
 						'status': '',
 						'value': 'FW comment on word A'
-					}
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -527,14 +602,15 @@ namespace LfMerge.AutomatedSRTests.Tests
 			// NOTE: although Chorus stores a status on every comment when we have replies,
 			// only the last status determines the overall status of the comment!
 
-			// language=json
 			var expected = $"[ {{ 'notes': [ {CommentsA_D}, " +
+				// language=json
 				@"{ 'class' : 'question',
 				'ref' : 'E',
-				'message' : {
-					'status': '',
-					'value': 'FW comment on E'
-				}, 'replies': [
+				'messages': [
+					{'message' : {
+						'status': '',
+						'value': 'FW comment on E'
+					} },
 					{ 'message': {
 						'status': 'open',
 						'value': 'LF reply on E'
@@ -568,14 +644,15 @@ namespace LfMerge.AutomatedSRTests.Tests
 			// Verify
 			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 
-			// language=json
 			var expected = $"[ {{ 'notes': [ {CommentsA_D}, " +
+			// language=json
 			@"{ 'class' : 'question',
 				'ref' : 'E',
-				'message' : {
-					'status': '',
-					'value': 'FW comment on E'
-				}, 'replies': [
+				'messages': [
+					{ 'message' : {
+						'status': '',
+						'value': 'FW comment on E'
+					} },
 					{ 'message': {
 						'status': 'open',
 						'value': 'LF reply on E'
@@ -584,6 +661,178 @@ namespace LfMerge.AutomatedSRTests.Tests
 						'status': 'open',
 						'value': 'FW reply on E'
 					} }
+				] }
+			]}]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
+		/// <summary>
+		/// TEST  10: LF adds comment on F. S/R. FW marks comment as resolved. S/R.
+		///
+		/// What should happen: LF should see new status as resolved.
+		/// </summary>
+		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
+		/// in after FW made the change and did the S/R.</remarks>
+		[Test]
+		public void Test10_LfAddsCommentOnF_FwResolves([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		{
+			// Setup
+			_webwork.ApplyPatches(dbVersion, 23);
+			_LanguageForge.RestoreDatabase(dbVersion, 23);
+			_FieldWorks.ApplyPatches(dbVersion, 24);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
+
+			// Verify
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
+
+			var expected = $"[ {{ 'notes': [ {CommentsA_D}, {CommentE}, " +
+				// language=json
+				@"{ 'class' : 'question',
+				'ref' : 'F',
+				'messages': [
+					{ 'message' : {
+						'status': 'open',
+						'value': 'LF comment on F'
+					}},
+					{ 'message': {
+						'status': 'resolved'
+					}}
+				]}
+			]}]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
+		/// <summary>
+		/// TEST  11: LF adds comment on F. S/R. FW marks comment as resolved. S/R. LF reopens
+		/// the comment. S/R.
+		///
+		/// What should happen: FW should see new status as open.
+		/// </summary>
+		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
+		/// in after FW made the change and did the S/R.</remarks>
+		[Test]
+		public void Test11_LfAddsCommentOnF_FwResolves_LfReopens([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		{
+			// Setup
+			_webwork.ApplyPatches(dbVersion, 25);
+			_LanguageForge.RestoreDatabase(dbVersion, 26);
+			_FieldWorks.ApplyPatches(dbVersion, 25);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
+
+			// Verify
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
+
+			var expected = $"[ {{ 'notes': [ {CommentsA_D}, {CommentE}, " +
+				// language=json
+				@"{ 'class' : 'question',
+				'ref' : 'F',
+				'messages': [
+					{ 'message' : {
+						'status': 'open',
+						'value': 'LF comment on F',
+					}}, { 'message': {
+						'status': 'resolved'
+					}}, { 'message': {
+						'status': 'open'
+					}}
+				] }
+			]}]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
+		/// <summary>
+		/// TEST  12: FW adds comment. S/R. FW adds new reply while LF is marking status as
+		/// resolved; FW does S/R first. LF then does S/R.
+		///
+		/// What should happen: LF should see comment as resolved. So should FW.
+		/// </summary>
+		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
+		/// in after FW made the change and did the S/R.</remarks>
+		[Test]
+		public void Test12_FwAddsCommentOnG_FwAddsNewCommentLfResolves_FwSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		{
+			// Setup
+			_webwork.ApplyPatches(dbVersion, 29);
+			_LanguageForge.RestoreDatabase(dbVersion, 30);
+			_FieldWorks.ApplyPatches(dbVersion, 30);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
+
+			// Verify
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
+
+			var expected = $"[ {{ 'notes': [ {CommentsA_D}, {CommentE}, {CommentF}, " +
+			// language=json
+			@"{ 'class' : 'question',
+				'ref' : 'G',
+				'messages': [
+					{ 'message' : {
+						'status': '',
+						'value': 'FW comment on G'
+					}}, { 'message': {
+						'status': '',
+						'value': 'FW reply on G'
+					}}, { 'message': {
+						'status': 'resolved'
+					}}
+				]}
+			]}]";
+			VerifyMongo.AssertData(expected);
+
+			var expectedXml = JsonToXml.Convert(expected);
+			VerifyLanguageDepot.AssertFilesContain(expectedXml);
+		}
+
+		/// <summary>
+		/// TEST  14: LF adds comment. S/R. LF adds new comment while FW is marking status as
+		/// resolved. FW does S/R first. LF then does S/R.
+		///
+		/// What should happen: LF should see both comments, status open. So should FW.
+		/// </summary>
+		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
+		/// in after FW made the change and did the S/R.</remarks>
+		[Test]
+		public void Test14_LfAddsCommentOnH_LfAddsNewReplyFwResolves_LfSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		{
+			// Setup
+			_webwork.ApplyPatches(dbVersion, 33);
+			_LanguageForge.RestoreDatabase(dbVersion, 34);
+			_FieldWorks.ApplyPatches(dbVersion, 34);
+
+			// Exercise
+			LfMergeHelper.Run($"--project {Settings.DbName} --action=Synchronize");
+
+			// Verify
+			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
+
+			var expected = $"[ {{ 'notes': [ {CommentsA_D}, {CommentE}, {CommentF}, {CommentG}, " +
+			// language=json
+			@"{ 'class' : 'question',
+				'ref' : 'H',
+				'messages': [
+					{ 'message' : {
+						'status': 'open',
+						'value': 'LF comment on H'
+					}}, { 'message': {
+						'status': 'resolved'
+					}}, { 'message': {
+						'status': 'open',
+						'value': 'LF reply on H'
+					}}
 				] }
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -631,22 +880,25 @@ namespace LfMerge.AutomatedSRTests.Tests
 			]}, { 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+						{ 'message' : {
 						'status': '',
 						'value': 'FW comment on word A'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'C',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': '',
 						'value': 'Comment about new word C'
-					}
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);
@@ -674,33 +926,37 @@ namespace LfMerge.AutomatedSRTests.Tests
 			// Verify
 			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 
+			var expected = $"[ {{ 'lexicon': [ {LexemeB}, {LexemeC}, {LexemeA}, {LexemeD} ]}}," +
 			// language=json
-			var expected = @"[ { 'lexicon': [ " + $"{LexemeB}, {LexemeC}, {LexemeA}, {LexemeD}" +
-			@"]}, { 'notes': [
+			@"{ 'notes': [
 				{ 'class' : 'question',
 					'ref' : 'A',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': '',
 						'value': 'FW comment on word A'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'B',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': 'open',
 						'value': 'Comment on word B'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'C',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': '',
 						'value': 'Comment about new word C'
-					}
+					}}]
 				}, { 'class' : 'question',
 					'ref' : 'D',
-					'message' : {
+					'messages': [
+					{ 'message' : {
 						'status': 'open',
 						'value': 'Comment on word D'
-					}
+					}}]
 				}
 			]}]";
 			VerifyMongo.AssertData(expected);

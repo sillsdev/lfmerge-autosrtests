@@ -1,0 +1,74 @@
+From 39a07b50784bf3cdca6edcbd28df505f832ab183 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 26 Feb 2018 16:27:15 +0000
+Subject: [PATCH] LF add comment on H
+
+---
+ sf_test-comment-sr.activity.json        | 10 ++++++++++
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 12 ++++++++++++
+ 3 files changed, 24 insertions(+), 2 deletions(-)
+
+diff --git a/sf_test-comment-sr.activity.json b/sf_test-comment-sr.activity.json
+index 4ca6dd2..b025e6f 100644
+--- a/sf_test-comment-sr.activity.json
++++ b/sf_test-comment-sr.activity.json
+@@ -64,3 +64,13 @@
+ ,"dateCreated":{"$date":"2018-02-26T10:25:11.692Z"}
+ }
+ 
++{"_id":{"$oid":"5a94355b6efc6701b42f518c"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"userRef2":null,"entryRef":{"$oid":"5a37eddf511fd55d813e1f6e"}
++,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"H","lexComment":"LF comment on H","lexCommentContext":"lexeme.fr","user":"admin"}
++,"date":{"$date":"2018-02-26T16:27:07.000Z"}
++,"dateModified":{"$date":"2018-02-26T16:27:07.305Z"}
++,"dateCreated":{"$date":"2018-02-26T16:27:07.305Z"}
++}
++
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 929cbfa..dfb11a4 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-26T10:26:04.601Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-26T15:05:07.927Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-26T10:26:04.779Z"}
++,"lastSyncedDate":{"$date":"2018-02-26T15:05:08.112Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 59c2fde..fda35d6 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -110,3 +110,15 @@
+ ],"isDeleted":false,"status":"resolved","statusGuid":"afe166de-5b33-464b-a0c5-42124dd50431","contextGuid":null,"dateCreated":{"$date":"2018-02-23T14:34:00.378Z"}
+ ,"score":0}
+ 
++{"_id":{"$oid":"5a94355b6efc6701b42f518d"}
++,"entryRef":{"$oid":"5a37eddf511fd55d813e1f6e"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"fr","word":"H","meaning":"H"}
++,"contextGuid":"lexeme.fr","score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"createdDate":{"$date":"2018-02-26T16:27:07.302Z"}
++,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"modifiedDate":{"$date":"2018-02-26T16:27:07.302Z"}
++}
++,"content":"LF comment on H","dateModified":{"$date":"2018-02-26T16:27:07.308Z"}
++,"dateCreated":{"$date":"2018-02-26T16:27:07.308Z"}
++}
++
+-- 
+2.16.2
+

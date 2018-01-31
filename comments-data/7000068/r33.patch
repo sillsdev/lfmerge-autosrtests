@@ -1,0 +1,52 @@
+# HG changeset patch
+# User Language Forge
+# Date 1519662466 -3600
+#      Mon Feb 26 17:27:46 2018 +0100
+# Branch 7000068
+# Node ID c20dcd377a0a73e77a9e9fbc2ae0711e1b6d471a
+# Parent  61d822d072773086eed875f79ae95c504baaf740
+[LfMergeBridge: 2.6.1.0] Language Forge S/R
+
+diff -r 61d822d07277 -r c20dcd377a0a Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Feb 26 17:27:19 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Mon Feb 26 17:27:46 2018 +0100
+@@ -124,4 +124,14 @@
+ 			guid="afe166de-5b33-464b-a0c5-42124dd50431">
+ 		</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=3af99884-c800-4236-a8a4-db011a1be902&amp;tag=&amp;id=3af99884-c800-4236-a8a4-db011a1be902&amp;label=H"
++		guid="be5a9897-554b-403a-a137-aa3edf7aa264">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2018-02-26T17:27:37Z"
++			guid="e2cb4d2f-882e-470f-b64f-f30577877a42">LF comment on H</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 61d822d07277 -r c20dcd377a0a WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Mon Feb 26 17:27:19 2018 +0100
++++ b/WritingSystemStore/en.ldml	Mon Feb 26 17:27:46 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-21T14:32:44" />
++			date="2018-02-21T14:32:51" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 61d822d07277 -r c20dcd377a0a WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Feb 26 17:27:19 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Feb 26 17:27:46 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-01T16:37:07" />
++			date="2018-02-01T16:37:14" />
+ 		<language
+ 			type="fr" />
+ 	</identity>

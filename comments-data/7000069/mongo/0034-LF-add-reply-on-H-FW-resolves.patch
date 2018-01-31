@@ -1,0 +1,80 @@
+From 7798ad35b5145b83728b9fc4b46839d49a4bcccd Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Mon, 26 Feb 2018 16:48:54 +0000
+Subject: [PATCH] LF add reply on H, FW resolves
+
+---
+ sf_test-comment-sr.activity.json        | 11 +++++++++++
+ sf_test-comment-sr.json                 |  4 ++--
+ sf_test-comment-sr.lexiconComments.json | 10 ++++++++--
+ 3 files changed, 21 insertions(+), 4 deletions(-)
+
+diff --git a/sf_test-comment-sr.activity.json b/sf_test-comment-sr.activity.json
+index e259c16..6ccd198 100644
+--- a/sf_test-comment-sr.activity.json
++++ b/sf_test-comment-sr.activity.json
+@@ -65,3 +65,14 @@
+ ,"dateCreated":{"$date":"2018-02-26T16:28:31.015Z"}
+ }
+ 
++{"_id":{"$oid":"5a943a6a6efc6752a74731c0"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"userRef2":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"entryRef":{"$oid":"5a37ee78511fd55d813e1f71"}
++,"action":"add_lex_reply","actionContent":{"project":"test-comment-sr","entry":"H","lexComment":"LF comment on H","lexCommentContext":"lexeme.fr","lexReply":"LF reply on H","user":"admin","user2":"admin"}
++,"date":{"$date":"2018-02-26T16:48:42.000Z"}
++,"dateModified":{"$date":"2018-02-26T16:48:42.962Z"}
++,"dateCreated":{"$date":"2018-02-26T16:48:42.962Z"}
++}
++
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index f818d5d..6d38bf9 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-26T16:29:15.894Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-02-26T16:43:16.675Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-02-26T16:29:16.048Z"}
++,"lastSyncedDate":{"$date":"2018-02-26T16:43:16.827Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 9588ecf..a6ff6e6 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -113,12 +113,18 @@
+ {"_id":{"$oid":"5a9435af6efc67528b10fbff"}
+ ,"entryRef":{"$oid":"5a37ee78511fd55d813e1f71"}
+ ,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"fr","word":"H","meaning":"H"}
+-,"contextGuid":"lexeme.fr","score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"contextGuid":"lexeme.fr","score":0,"replies":[{"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"createdDate":{"$date":"2018-02-26T16:48:42.960Z"}
++,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
++,"modifiedDate":{"$date":"2018-02-26T16:48:42.960Z"}
++}
++,"content":"LF reply on H","id":"5a943a6aea676","isDeleted":false}
++],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"createdDate":{"$date":"2018-02-26T16:28:31.013Z"}
+ ,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
+ ,"modifiedDate":{"$date":"2018-02-26T16:28:31.013Z"}
+ }
+-,"content":"LF comment on H","dateModified":{"$date":"2018-02-26T16:28:31.017Z"}
++,"content":"LF comment on H","dateModified":{"$date":"2018-02-26T16:48:42.960Z"}
+ ,"dateCreated":{"$date":"2018-02-26T16:28:31.017Z"}
+ ,"guid":"daff07dd-7a71-4349-bff8-08794e4c2d7c","statusGuid":"31e52590-6b3a-44dd-9dab-02dcf29915ae"}
+ 
+-- 
+2.16.2
+

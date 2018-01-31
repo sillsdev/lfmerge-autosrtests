@@ -11,16 +11,22 @@ TEST  6: FW adds comment on B, LF adds comment on B at the same time (five secon
 ✓ TEST  7: FW adds comment on A, LF adds comment on B. FW does S/R first, then LF does. Both comments appear.
 ✓ TEST  8: FW adds comment on A, LF adds comment on B. LF does S/R first, then FW does. Both comments appear.
 ✓ TEST  9: FW adds comment on A. S/R. LF replies. S/R. FW replies. S/R. LF should see all three comments.
-TEST 10: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF should see new status as resolved.
-TEST 11: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF reopens the comment. S/R. FW should see new status as open.
-TEST 12: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.
-TEST 13: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped earlier. FW does S/R first. LF then does S/R. LF should see both comments, status resolved. So should FW.
-TEST 14: LF adds comment. S/R. LF adds new comment while FW is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status resolved. So should FW.
-TEST 15: LF adds comment. S/R. LF adds new comment while FW is marking status as resolved; FW activity timestamped earlier. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.
+✓ TEST 10: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF should see new status as resolved.
+✓ TEST 11: LF adds comment on A. S/R. FW marks comment as resolved. S/R. LF reopens the comment. S/R. FW should see new status as open.
+(Original test scenario: TEST 12: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.)
+✓ TEST 12: FW adds comment. S/R. FW adds new reply while LF is marking status as resolved; FW does S/R first. LF then does S/R. LF should see comment as resolved. So should FW.
+(Original test scenario: TEST 13: FW adds comment. S/R. FW adds new comment while LF is marking status as resolved; FW activity timestamped earlier. FW does S/R first. LF then does S/R. LF should see both comments, status resolved. So should FW.)
+(The corresponding test to our test 12 would be the following, but it doesn't make sense to test this because the conflict resolution happens on the FW side: TEST 13: FW adds comment. S/R. FW adds new reply while LF is marking status as resolved; LF does S/R first. FW then does S/R. LF should see comment as open. So should FW.
+(Original test scenarios: TEST 14: LF adds comment. S/R. LF adds new comment while FW is marking status as resolved; FW activity timestamped later. FW does S/R first. LF then does S/R. LF should see both comments, status resolved. So should FW.)
+✓ TEST 14: LF adds comment. S/R. LF adds new reply while FW is marking status as resolved. FW does S/R first. LF then does S/R. LF should see comment, status open. So should FW.
+(Original test scenario: TEST 15: LF adds comment. S/R. LF adds new comment while FW is marking status as resolved; FW activity timestamped earlier. FW does S/R first. LF then does S/R. LF should see both comments, status open. So should FW.)
+(Test scenario corresponding to new TEST 14 doesn't make sense to test because the conflict resolution happens on FW side)
 TEST 16: LF marks comment as "todo". What does FW show? (What should it show?)
-TEST 17: FW adds comment to particular field (say, Definition field). LF should see the comment on the Meaning field.
-TEST 18: LF adds comment to Meaning field. LF should see the comment on the Definition field.
-TEST 19: FW adds comment on a custom field. LF sees it on the same custom field. (May not work yet).
-TEST 20: LF adds comment on a custom field. FW sees it on the same custom field. (May not work yet).
+(FW doesn't allow comments on individual fields
+	TEST 17: FW adds comment to particular field (say, Definition field). LF should see the comment on the Meaning field.
+	TEST 18: LF adds comment to Meaning field. LF should see the comment on the Definition field.
+	TEST 19: FW adds comment on a custom field. LF sees it on the same custom field. (May not work yet).
+	TEST 20: LF adds comment on a custom field. FW sees it on the same custom field. (May not work yet).
+)
 ✓ TEST 21: FW adds an entry C and a comment on C at the same time. S/R, LF sees both the comment and the entry show up.
 ✓ TEST 22: LF adds an entry D and a comment on D at the same time. S/R, FW sees both the comment and the entry show up.

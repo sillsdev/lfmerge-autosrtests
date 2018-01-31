@@ -1,0 +1,126 @@
+# HG changeset patch
+# User Language Forge
+# Date 1519236902 -3600
+#      Wed Feb 21 19:15:02 2018 +0100
+# Branch 7000068
+# Node ID 15f442b1f0da364a81bb86e33ba066c773c466ad
+# Parent  196e8b47230faf89edb69a68cc9c7b11f0dbe992
+[LfMergeBridge: 2.6.0.0] Language Forge S/R
+
+diff -r 196e8b47230f -r 15f442b1f0da WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Wed Feb 21 19:13:48 2018 +0100
++++ b/WritingSystemStore/en.ldml	Wed Feb 21 19:15:02 2018 +0100
+@@ -4,21 +4,31 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-15T16:01:03" />
++			date="2018-02-21T14:32:25" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+-	<collations />
++	<collations>
++		<collation>
++			<base>
++				<alias
++					source="en" />
++			</base>
++			<special
++				xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
++				<palaso:sortRulesType
++					value="OtherLanguage" />
++			</special>
++		</collation>
++	</collations>
+ 	<special
+ 		xmlns:palaso="urn://palaso.org/ldmlExtensions/v1">
+ 		<palaso:abbreviation
+ 			value="en" />
+ 		<palaso:defaultFontFamily
+-			value="Arial Unicode MS" />
++			value="Doulos SIL" />
+ 		<palaso:languageName
+ 			value="English" />
+-		<palaso:spellCheckingId
+-			value="en" />
+ 		<palaso:version
+ 			value="2" />
+ 	</special>
+@@ -26,6 +36,22 @@
+ 		xmlns:palaso2="urn://palaso.org/ldmlExtensions/v2">
+ 		<palaso2:knownKeyboards>
+ 			<palaso2:keyboard
++				layout="United States-International"
++				locale="en-US"
++				os="Win32NT" />
++			<palaso2:keyboard
++				layout="United Kingdom"
++				locale="en-GB"
++				os="Win32NT" />
++			<palaso2:keyboard
++				layout="IPA Unicode 6.2 (ver 1.4 US) MSK"
++				locale="is-IS"
++				os="Win32NT" />
++			<palaso2:keyboard
++				layout="IPA Unicode 1.1.1"
++				locale="is-IS"
++				os="Win32NT" />
++			<palaso2:keyboard
+ 				layout="US"
+ 				locale="en-US"
+ 				os="Win32NT" />
+@@ -34,9 +60,9 @@
+ 				locale="en-US"
+ 				os="Unix" />
+ 			<palaso2:keyboard
+-				layout="us"
+-				locale="en-US"
+-				os="Unix" />
++				layout="Devanagari"
++				locale=""
++				os="Win32NT" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />
+@@ -45,7 +71,15 @@
+ 		xmlns:fw="urn://fieldworks.sil.org/ldmlExtensions/v1">
+ 		<fw:graphiteEnabled
+ 			value="False" />
++		<fw:matchedPairs
++			value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &lt;MatchedPairs&gt; &lt;pair open=&quot;(&quot; close=&quot;)&quot; permitParaSpanning=&quot;false&quot; /&gt; &lt;pair open=&quot;[&quot; close=&quot;]&quot; permitParaSpanning=&quot;true&quot; /&gt; &lt;pair open=&quot;{&quot; close=&quot;}&quot; permitParaSpanning=&quot;false&quot; /&gt; &lt;/MatchedPairs&gt; " />
++		<fw:punctuationPatterns
++			value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &lt;PunctuationPatterns&gt; &lt;pattern value=&quot;, &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;. &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; “&quot; context=&quot;WordInitial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;; &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;&amp;#x27;&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;: &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;? &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ‘&quot; context=&quot;WordInitial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;–&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;! &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;-&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;?” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;,” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; (&quot; context=&quot;WordInitial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.’ &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;– &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; “ &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;!” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;) &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ” &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;,&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;,’ &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; / &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;.”&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?’ &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;&amp;#x27; &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.) &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;); &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;!’ &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ); &quot; context=&quot;Isolated&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.’&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;), &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;/&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; . &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;). &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;;&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ; &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ) &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; , &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;’? &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;’ &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ’ &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ”&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; // &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;,”&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;’?” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;’&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;”; &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ? &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;): &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;”–&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;’–&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;:&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;”? &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;’; &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;?”&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;”– &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;,’&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; –&quot; context=&quot;WordInitial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ’&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;”&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;!”&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ). &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?’&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;)– &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;–“&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; //&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ! &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; – &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;., &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;!&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;’– &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; : &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ?” &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ‘ &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; .” &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?”– &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;....” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.)&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;,, &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;.”) &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;!’&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; ), &quot; context=&quot;Isolated&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ,&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; [&quot; context=&quot;WordInitial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.] &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; ( &quot; context=&quot;Isolated&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;!’: &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;!– &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; )/ &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; “(&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;)–&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;)&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;’!” &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;),&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?”) &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; .&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;–‘&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?”–&quot; context=&quot;WordMedial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;?’– &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;’. &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;!”–&quot; context=&quot;WordMedial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; (“&quot; context=&quot;WordInitial&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;?– &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;- &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; “. &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot; !’ &quot; context=&quot;Isolated&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;?) &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;.)” &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot; &amp;#x27;&quot; context=&quot;WordInitial&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;!”? &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;.)– &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;pattern value=&quot;”), &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;”: &quot; context=&quot;WordFinal&quot; valid=&quot;true&quot; /&gt; &lt;pattern value=&quot;;) &quot; context=&quot;WordFinal&quot; valid=&quot;false&quot; /&gt; &lt;/PunctuationPatterns&gt; " />
++		<fw:quotationMarks
++			value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &lt;QuotationMarks LangUsedFrom=&quot;en&quot; ContinuationType=&quot;RequireAll&quot; ContinuationMark=&quot;Opening&quot;&gt; &lt;Levels&gt; &lt;Pair Opening=&quot;“&quot; Closing=&quot;”&quot; /&gt; &lt;Pair Opening=&quot;‘&quot; Closing=&quot;’&quot; /&gt; &lt;/Levels&gt; &lt;/QuotationMarks&gt; " />
+ 		<fw:validChars
+-			value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &lt;ValidCharacters&gt;   &lt;WordForming&gt;‌￼‍￼-￼'￼་￼༌￼⁰￼¹￼²￼³￼⁴￼⁵￼⁶￼⁷￼⁸￼⁹￼ꞌ￼Ꞌ&lt;/WordForming&gt;   &lt;Numeric /&gt;   &lt;Other /&gt; &lt;/ValidCharacters&gt;" />
++			value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt; &lt;ValidCharacters&gt; &lt;WordForming&gt;a￼A￼b￼B￼c￼C￼d￼D￼e￼E￼f￼F￼g￼G￼h￼H￼i￼I￼j￼J￼k￼K￼l￼L￼m￼M￼n￼N￼o￼O￼p￼P￼q￼Q￼r￼R￼s￼S￼t￼T￼u￼U￼v￼V￼w￼W￼x￼X￼y￼Y￼z￼Z￼-￼'&lt;/WordForming&gt; &lt;Numeric&gt;0￼1￼2￼3￼4￼5￼6￼7￼8￼9&lt;/Numeric&gt; &lt;Other&gt;U+0020￼–￼,￼;￼:￼!￼?￼.￼‘￼’￼&quot;￼“￼”￼(￼)￼[￼]￼{￼}￼/￼&amp;amp;&lt;/Other&gt; &lt;/ValidCharacters&gt;" />
++		<fw:windowsLCID
++			value="1033" />
+ 	</special>
+ </ldml>
+\ No newline at end of file
+diff -r 196e8b47230f -r 15f442b1f0da WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Feb 21 19:13:48 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Feb 21 19:15:02 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2017-12-18T14:21:05" />
++			date="2018-02-01T16:36:48" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
+@@ -109,6 +109,10 @@
+ 				layout="us"
+ 				locale="en-US"
+ 				os="Unix" />
++			<palaso2:keyboard
++				layout="m17n:da:post"
++				locale="da"
++				os="Unix" />
+ 		</palaso2:knownKeyboards>
+ 		<palaso2:version
+ 			value="2" />

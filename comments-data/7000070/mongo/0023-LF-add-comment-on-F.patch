@@ -1,0 +1,46 @@
+From a76f73c9a0d4e70bc817852188d073b5f451b955 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Wed, 31 Jan 2018 16:43:49 +0000
+Subject: [PATCH] LF add comment on F
+
+---
+ sf_test-comment-sr.json                 | 4 ++--
+ sf_test-comment-sr.lexiconComments.json | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 2be8971..fbeab8e 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -11,7 +11,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group","items":[],"defaultKey":null}
+ }
+ ,"userProfilePropertiesEnabled":[]}
+-,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-01-31T16:42:22.043Z"}
++,"siteName":"languageforge.local","appName":"lexicon","usersRequestingAccess":null,"dateModified":{"$date":"2018-01-31T16:43:48.346Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -261,7 +261,7 @@
+ ,"userViews":{}
+ }
+ ,"liftFilePath":null,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2018-01-31T16:42:22.303Z"}
++,"lastSyncedDate":{"$date":"2018-01-31T16:43:48.618Z"}
+ ,"lastEntryModifiedDate":{"$date":"2017-09-25T06:45:17.942Z"}
+ ,"languageCode":"fr"}
+ 
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 1b8e919..45b9ac1 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -94,5 +94,5 @@
+ }
+ ,"content":"LF comment on F","dateModified":{"$date":"2018-01-31T16:43:08.474Z"}
+ ,"dateCreated":{"$date":"2018-01-31T16:43:08.474Z"}
+-}
++,"guid":"e8a03b36-2c36-4647-b879-24dbcd5a9ac4"}
+ 
+-- 
+2.16.1
+

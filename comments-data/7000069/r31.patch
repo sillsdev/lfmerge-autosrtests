@@ -1,0 +1,61 @@
+# HG changeset patch
+# User Language Forge
+# Date 1519640978 -3600
+#      Mon Feb 26 11:29:38 2018 +0100
+# Branch 7000069
+# Node ID 14fce76f355d129a37ddf1472d6fb8e8aff38453
+# Parent  8e4facc6894d077cb0b9cfa9d8bce94ccb4370bf
+[LfMergeBridge: 2.6.1.0] Language Forge S/R
+
+diff -r 8e4facc6894d -r 14fce76f355d Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Feb 26 11:28:21 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Mon Feb 26 11:29:38 2018 +0100
+@@ -117,5 +117,11 @@
+ 			status=""
+ 			date="2018-02-26T11:28:07Z"
+ 			guid="2ab3bee3-c168-47b5-a7ea-e4334fdf6e7d">FW reply on G</message>
++		<message
++			author="Language Forge"
++			status="closed"
++			date="2018-02-26T11:29:30Z"
++			guid="d4e387af-c01b-407b-8912-13b682b215e7">
++		</message>
+ 	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 8e4facc6894d -r 14fce76f355d WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Mon Feb 26 11:28:21 2018 +0100
++++ b/WritingSystemStore/en.ldml	Mon Feb 26 11:29:38 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-21T14:32:25" />
++			date="2018-02-21T14:32:44" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 8e4facc6894d -r 14fce76f355d WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Mon Feb 26 11:28:21 2018 +0100
++++ b/WritingSystemStore/es.ldml	Mon Feb 26 11:29:38 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-01-19T03:52:36" />
++			date="2018-01-19T03:52:45" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+diff -r 8e4facc6894d -r 14fce76f355d WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Feb 26 11:28:21 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Feb 26 11:29:38 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-01T16:36:48" />
++			date="2018-02-01T16:37:07" />
+ 		<language
+ 			type="fr" />
+ 	</identity>

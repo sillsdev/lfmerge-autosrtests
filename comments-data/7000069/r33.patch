@@ -1,0 +1,64 @@
+# HG changeset patch
+# User Language Forge
+# Date 1519662546 -3600
+#      Mon Feb 26 17:29:06 2018 +0100
+# Branch 7000069
+# Node ID b94270570d03090c7f00e45cdebfa9a48626f36e
+# Parent  4edddfa1b4ede8b1b1c695cce81da105f59c20bd
+[LfMergeBridge: 2.6.1.0] Language Forge S/R
+
+diff -r 4edddfa1b4ed -r b94270570d03 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Mon Feb 26 17:28:40 2018 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Mon Feb 26 17:29:06 2018 +0100
+@@ -124,4 +124,14 @@
+ 			guid="d4e387af-c01b-407b-8912-13b682b215e7">
+ 		</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=7fd96551-5283-45b2-b751-20cbe824905a&amp;tag=&amp;id=7fd96551-5283-45b2-b751-20cbe824905a&amp;label=H"
++		guid="daff07dd-7a71-4349-bff8-08794e4c2d7c">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2018-02-26T17:28:58Z"
++			guid="31e52590-6b3a-44dd-9dab-02dcf29915ae">LF comment on H</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 4edddfa1b4ed -r b94270570d03 WritingSystemStore/en.ldml
+--- a/WritingSystemStore/en.ldml	Mon Feb 26 17:28:40 2018 +0100
++++ b/WritingSystemStore/en.ldml	Mon Feb 26 17:29:06 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-21T14:32:44" />
++			date="2018-02-21T14:32:51" />
+ 		<language
+ 			type="en" />
+ 	</identity>
+diff -r 4edddfa1b4ed -r b94270570d03 WritingSystemStore/es.ldml
+--- a/WritingSystemStore/es.ldml	Mon Feb 26 17:28:40 2018 +0100
++++ b/WritingSystemStore/es.ldml	Mon Feb 26 17:29:06 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-01-19T03:52:45" />
++			date="2018-01-19T03:52:47" />
+ 		<language
+ 			type="es" />
+ 	</identity>
+diff -r 4edddfa1b4ed -r b94270570d03 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Mon Feb 26 17:28:40 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Mon Feb 26 17:29:06 2018 +0100
+@@ -4,7 +4,7 @@
+ 		<version
+ 			number="" />
+ 		<generation
+-			date="2018-02-01T16:37:07" />
++			date="2018-02-01T16:37:14" />
+ 		<language
+ 			type="fr" />
+ 	</identity>
