@@ -134,7 +134,7 @@ namespace LfMerge.AutomatedSRTests
 			AddCollectionToGit("lexiconComments", modelVersion);
 			AddCollectionToGit("optionlists", modelVersion);
 
-			TestHelper.Run(Git, $"commit -a -m \"{msg}\"", mongoSourceDir);
+			TestHelper.Run(Git, $"commit -a --allow-empty -m \"{msg}\"", mongoSourceDir);
 			TestHelper.Run(Git,
 				$"format-patch -1 -o {patchDir} --start-number {startNumber} --ignore-all-space",
 				mongoSourceDir);
