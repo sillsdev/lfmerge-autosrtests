@@ -40,7 +40,7 @@ index 604687a..1e298a7 100644
  
 +{"_id":{"$oid":"59c9eecb973e313a2e33cc46"}
 +,"entryRef":{"$oid":"59c8a620ef72839b2c0b624e"}
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"A","meaning":"A"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"A","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
 +,"createdDate":{"$date":"2017-09-26T06:08:11.663Z"}
 +,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}

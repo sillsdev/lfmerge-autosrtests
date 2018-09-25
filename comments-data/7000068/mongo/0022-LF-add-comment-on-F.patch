@@ -40,7 +40,7 @@ index e74f69b..b36a4d7 100644
  
 +{"_id":{"$oid":"5a71f14f6efc676d8b279880"}
 +,"entryRef":{"$oid":"5a37eddf511fd55d813e1f70"}
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"F","meaning":"F"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"F","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
 +,"createdDate":{"$date":"2018-01-31T16:39:43.380Z"}
 +,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}

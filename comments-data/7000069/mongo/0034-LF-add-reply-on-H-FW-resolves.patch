@@ -57,7 +57,7 @@ index 9588ecf..a6ff6e6 100644
 @@ -113,12 +113,18 @@
  {"_id":{"$oid":"5a9435af6efc67528b10fbff"}
  ,"entryRef":{"$oid":"5a37ee78511fd55d813e1f71"}
- ,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"fr","word":"H","meaning":"H"}
+ ,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"fr"}
 -,"contextGuid":"lexeme.fr","score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
 +,"contextGuid":"lexeme.fr","score":0,"replies":[{"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
 +,"createdDate":{"$date":"2018-02-26T16:48:42.960Z"}

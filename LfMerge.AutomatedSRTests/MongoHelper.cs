@@ -220,6 +220,7 @@ namespace LfMerge.AutomatedSRTests
 			TestHelper.Run(Git, "init .", gitDir);
 			TestHelper.Run(Git, "config user.email \"you@example.com\"", gitDir);
 			TestHelper.Run(Git, "config user.name \"Your Name\"", gitDir);
+			TestHelper.Run(Git, "config commit.gpgSign false", gitDir);
 		}
 
 		public static void Cleanup()

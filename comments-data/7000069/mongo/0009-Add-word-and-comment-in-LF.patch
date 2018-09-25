@@ -147,7 +147,7 @@ index 3d1d8c1..7471f99 100644
  
 +{"_id":{"$oid":"59c9c039973e3128592fbd02"}
 +,"entryRef":{"$oid":"59c9c032973e310fb120be6c"}
-+,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"D","inputSystem":"French","inputSystemAbbreviation":"Frn","word":"D","meaning":"D"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"D","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
 +,"createdDate":{"$date":"2017-09-26T02:49:29.567Z"}
 +,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}

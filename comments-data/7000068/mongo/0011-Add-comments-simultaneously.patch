@@ -41,7 +41,7 @@ index efad2a6..31bf558 100644
  
 +{"_id":{"$oid":"59c9ed26973e31357965a2f2"}
 +,"entryRef":{"$oid":"59c8a4e9ef72839b2c0b624c"}
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"A","meaning":"A"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"A","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
 +,"createdDate":{"$date":"2017-09-26T06:01:10.843Z"}
 +,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}

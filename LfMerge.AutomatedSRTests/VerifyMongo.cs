@@ -50,7 +50,7 @@ namespace LfMerge.AutomatedSRTests
 			var expectedValues = property.Value.ToList();
 			Assert.That(actualRecords.Count, Is.GreaterThanOrEqualTo(expectedValues.Count), $"Mongo: unexpected number of records for collection {collectionName}");
 			if (collectionName == "lexiconComments")
-				VerifyNotes(expectedValues, actualRecords);
+				VerifyNotes(expectedValues, actualRecords, db.GetCollection<BsonDocument>("lexicon"));
 			else
 				VerifyLexicon(expectedValues, actualRecords);
 		}
@@ -140,7 +140,8 @@ namespace LfMerge.AutomatedSRTests
 			}
 		}
 
-		private void VerifyNotes(List<JToken> expectedValues, List<BsonDocument> actualRecords)
+		private void VerifyNotes(List<JToken> expectedValues, List<BsonDocument> actualRecords,
+			IMongoCollection<BsonDocument> lexEntries)
 		{
 			Assert.That(actualRecords.Count, Is.EqualTo(expectedValues.Count), "Mongo: Different number of notes");
 
@@ -150,11 +151,38 @@ namespace LfMerge.AutomatedSRTests
 			foreach (var note in actualRecords)
 			{
 				var regarding = note.GetElement("regarding");
-				var word = regarding.Value.ToBsonDocument().GetElement("word").Value.AsString;
-				if (actualNotesByRef.ContainsKey(word))
-					actualNotesByRef[word].Add(note);
+				var word = string.Empty;
+				var field = string.Empty;
+				var regardingBsonDoc = regarding.Value.ToBsonDocument();
+				if (regardingBsonDoc.TryGetElement("word", out var wordElement))
+					word = wordElement.Value.AsString;
+				if (regardingBsonDoc.TryGetElement("field", out var fieldElement))
+					field = fieldElement.Value.AsString;
+				Assert.That(!string.IsNullOrEmpty(word) && !string.IsNullOrEmpty(field), Is.False, "Mongo: both 'word' and 'field' have a value in 'regarding'");
+				Assert.That(string.IsNullOrEmpty(word) && string.IsNullOrEmpty(field), Is.False, "Mongo: neither 'word' nor 'field' have a value in 'regarding'");
+
+				var key = word;
+				if (string.IsNullOrEmpty(word))
+				{
+					key = null;
+					var targetEntryId = note.GetElement("entryRef").Value.AsObjectId;
+					var filter = Builders<BsonDocument>.Filter.Eq("_id", targetEntryId);
+
+					var lexEntry = lexEntries.Find(filter).FirstOrDefaultAsync();
+					lexEntry.Wait();
+					if (lexEntry != null)
+					{
+						var lexeme = lexEntry.Result.GetElement("lexeme").Value.AsBsonDocument;
+						var firstWs = lexeme.Elements.First().Value.AsBsonDocument;
+						key = firstWs.GetElement("value").Value.AsString;
+					}
+					Assert.That(key, Is.Not.Null, "Mongo: Can't find LexEntry that comment refers to");
+				}
+
+				if (actualNotesByRef.ContainsKey(key))
+					actualNotesByRef[key].Add(note);
 				else
-					actualNotesByRef.Add(word, new List<BsonDocument>(new[] { note }));
+					actualNotesByRef.Add(key, new List<BsonDocument>(new[] { note }));
 			}
 
 			for (_recordNo = 0; _recordNo < expectedValues.Count; _recordNo++)
@@ -257,9 +285,27 @@ namespace LfMerge.AutomatedSRTests
 
 		private static void VerifyNotesRef(JToken expectedValue, BsonDocument actualValue)
 		{
-			var regarding = actualValue.Elements.First(s => s.Name == "regarding");
-			var word = regarding.Value.ToBsonDocument().First(s => s.Name == "word");
-			VerifySingleValue("word", expectedValue, word);
+			var regarding = actualValue.GetElement("regarding");
+			if (regarding.Value.AsBsonDocument.TryGetElement("word", out var word))
+			{
+				VerifySingleValue("word", expectedValue, word);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("meaning"), Is.True);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("field"), Is.False);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("fieldNameForDisplay"), Is.False);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("fieldValue"), Is.False);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("inputSystem"), Is.False);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("inputSystemAbbreviation"), Is.False);
+			}
+			else
+			{
+				Assert.That(regarding.Value.AsBsonDocument.Contains("field"), Is.True);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("fieldNameForDisplay"), Is.True);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("fieldValue"), Is.True);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("inputSystem"), Is.True);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("inputSystemAbbreviation"), Is.True);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("word"), Is.False);
+				Assert.That(regarding.Value.AsBsonDocument.Contains("meaning"), Is.False);
+			}
 		}
 	}
 }

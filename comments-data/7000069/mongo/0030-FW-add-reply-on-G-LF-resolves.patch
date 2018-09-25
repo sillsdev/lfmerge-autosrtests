@@ -75,7 +75,7 @@ index 7842723..39b1fe2 100644
 +,"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2018-02-23T15:34:47.000Z"}
 +,"modifiedByUserRef":null,"modifiedDate":{"$date":"2018-02-23T15:34:47.000Z"}
  }
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"G","meaning":"***"}
++,"regarding":{"word":"G","meaning":"***"}
 +,"replies":[],"isDeleted":false,"status":"resolved","statusGuid":"26f73282-9532-4881-987a-7895537e4a7d","contextGuid":null,"dateCreated":{"$date":"2018-02-23T14:36:11.977Z"}
 +,"score":0}
  

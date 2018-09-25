@@ -59,7 +59,7 @@ index 3d4edfb..b3e2a6f 100644
  
 +{"_id":{"$oid":"5a9436156efc6717d609f769"}
 +,"entryRef":{"$oid":"5a3801ee511fd55d813e1f77"}
-+,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"fr","word":"H","meaning":"H"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"fr"}
 +,"contextGuid":"lexeme.fr","score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
 +,"createdDate":{"$date":"2018-02-26T16:30:13.321Z"}
 +,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}

@@ -37,7 +37,7 @@ index 3276ad0..788193b 100644
 @@ -87,12 +87,12 @@
  {"_id":{"$oid":"5a71f1bc6efc673d4e54798d"}
  ,"entryRef":{"$oid":"5a37ee78511fd55d813e1f74"}
- ,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"F","meaning":"F"}
+ ,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"F","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 -,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
 +,"score":0,"replies":[],"status":"resolved","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
  ,"createdDate":{"$date":"2018-01-31T16:41:32.800Z"}

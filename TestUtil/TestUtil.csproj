@@ -36,7 +36,7 @@
     <Reference Include="CommandLine, Version=1.9.71.2, Culture=neutral, PublicKeyToken=de6f01bd326f8c32">
       <HintPath>..\packages\CommandLineParser.1.9.71\lib\net45\CommandLine.dll</HintPath>
     </Reference>
-    <Reference Include="Palaso, Version=2.6.0.0, Culture=neutral, PublicKeyToken=null">
+    <Reference Include="Palaso">
       <HintPath>..\lib\Palaso.dll</HintPath>
     </Reference>
     <Reference Include="System" />

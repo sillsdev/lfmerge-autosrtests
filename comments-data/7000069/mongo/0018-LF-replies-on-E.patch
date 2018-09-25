@@ -47,7 +47,7 @@ index 1732da5..6957e45 100644
  }
 -,"regarding":{"targetGuid":"cd854578-4f50-411b-a157-f7fd8bda9299","word":"E","meaning":"***"}
 -,"replies":[],"isDeleted":false,"status":"open","dateCreated":{"$date":"2017-12-18T18:09:36.223Z"}
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"E","meaning":"***"}
++,"regarding":{"word":"E","meaning":"***"}
 +,"replies":[{"authorInfo":{"createdByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}
 +,"createdDate":{"$date":"2018-01-08T17:24:09.347Z"}
 +,"modifiedByUserRef":{"$oid":"5a2671036efc6737ab1f1f82"}

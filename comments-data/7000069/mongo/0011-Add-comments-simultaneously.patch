@@ -41,7 +41,7 @@ index 8c7bdfa..810c61d 100644
  
 +{"_id":{"$oid":"59c9ede4973e31285b4d2aac"}
 +,"entryRef":{"$oid":"59c8a56fef72839b2c0b624d"}
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"A","meaning":"A"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"A","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
 +,"createdDate":{"$date":"2017-09-26T06:04:20.836Z"}
 +,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}

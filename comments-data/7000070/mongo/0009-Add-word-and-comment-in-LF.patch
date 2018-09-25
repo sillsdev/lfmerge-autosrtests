@@ -147,7 +147,7 @@ index 8925e63..d226d5e 100644
  
 +{"_id":{"$oid":"59c9c173973e3128592fbd03"}
 +,"entryRef":{"$oid":"59c9c16a973e31285b4d2aa6"}
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"D","meaning":"D"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"D","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
 +,"createdDate":{"$date":"2017-09-26T02:54:43.442Z"}
 +,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}

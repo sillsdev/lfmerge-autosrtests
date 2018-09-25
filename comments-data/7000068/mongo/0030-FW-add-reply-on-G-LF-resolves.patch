@@ -75,7 +75,7 @@ index 1ced80a..6066067 100644
 +,"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2018-02-23T15:32:44.000Z"}
 +,"modifiedByUserRef":null,"modifiedDate":{"$date":"2018-02-23T15:32:44.000Z"}
  }
-+,"regarding":{"field":null,"fieldNameForDisplay":null,"fieldValue":null,"inputSystem":null,"inputSystemAbbreviation":null,"word":"G","meaning":"***"}
++,"regarding":{"word":"G","meaning":"***"}
 +,"replies":[],"isDeleted":false,"status":"resolved","statusGuid":"a2d2ea37-605f-4466-a49e-eb96b3d41074","contextGuid":null,"dateCreated":{"$date":"2018-02-23T14:34:00.378Z"}
 +,"score":0}
  

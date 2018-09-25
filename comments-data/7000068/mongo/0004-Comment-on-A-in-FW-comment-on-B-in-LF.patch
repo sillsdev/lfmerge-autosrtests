@@ -38,7 +38,7 @@ index e69de29..f9d8aed 100644
 @@ -0,0 +1,12 @@
 +{"_id":{"$oid":"59c8b8c7973e3162f202c564"}
 +,"entryRef":{"$oid":"59c8a4ba973e314ad86d4462"}
-+,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"B","inputSystem":"French","inputSystemAbbreviation":"Frn","word":"B","meaning":"B"}
++,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"B","inputSystem":"French","inputSystemAbbreviation":"Frn"}
 +,"score":0,"replies":[],"status":"open","isDeleted":false,"authorInfo":{"createdByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
 +,"createdDate":{"$date":"2017-09-25T08:05:27.646Z"}
 +,"modifiedByUserRef":{"$oid":"526a114756dd858f3955a9e7"}
