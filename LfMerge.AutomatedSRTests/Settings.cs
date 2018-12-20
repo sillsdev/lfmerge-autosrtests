@@ -4,14 +4,14 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using Palaso.IO;
+using SIL.IO;
 
 namespace LfMerge.AutomatedSRTests
 {
 	public static class Settings
 	{
 		public const int MinModelVersion = 7000068;
-		public const int MaxModelVersion = 7000070;
+		public const int MaxModelVersion = 7000072;
 		private static string _tempDir;
 
 		public static string TempDir
@@ -33,11 +33,11 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		public static string DataDir =>
-			Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, DataDirName);
+			Path.Combine(FileLocationUtilities.DirectoryOfApplicationOrSolution, DataDirName);
 
 		public static void Cleanup()
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(TempDir);
+			RobustIO.DeleteDirectoryAndContents(TempDir);
 		}
 
 		private static bool VerifyPhpDir(string dir)

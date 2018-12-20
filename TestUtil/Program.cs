@@ -6,8 +6,8 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using LfMerge.AutomatedSRTests;
-using Palaso.IO;
-using Palaso.Linq;
+using SIL.IO;
+using SIL.Linq;
 
 namespace LfMerge.TestUtil
 {
@@ -105,7 +105,7 @@ namespace LfMerge.TestUtil
 
 		private static void Merge(Options.MergeOptions options)
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(options.WorkDir);
+			RobustIO.DeleteDirectoryAndContents(options.WorkDir);
 			Settings.TempDir = options.WorkDir;
 
 			// restore previous data
@@ -133,7 +133,11 @@ namespace LfMerge.TestUtil
 			var workdir = wizardOptions.WorkDir;
 			for (var modelVersion = wizardOptions.MinModel; modelVersion <= wizardOptions.MaxModel; modelVersion++)
 			{
-				Console.WriteLine("--------------------------------------------------------------");
+				if (modelVersion == 7000071)
+					continue;
+
+				Console.WriteLine(
+					"--------------------------------------------------------------");
 				Console.WriteLine($"Processing model version {modelVersion}");
 
 				if (string.IsNullOrEmpty(workdir))
@@ -150,17 +154,21 @@ namespace LfMerge.TestUtil
 					Console.WriteLine($"Can't find FW output directory {outputDir}");
 					continue;
 				}
-				if (!File.Exists(Path.Combine(outputDir, "fwenviron")))
-					File.Copy(Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location),
-						"fwenviron"), Path.Combine(outputDir, "fwenviron"));
+				var sourceEnviron = modelVersion < 7000072 ? "fwenviron" : "fwenviron9";
+				var targetEnviron = Path.Combine(outputDir, "fwenviron");
+				if (!File.Exists(targetEnviron))
+					File.Delete(targetEnviron);
+				File.Copy(Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location),
+						sourceEnviron), targetEnviron);
 
 				Console.WriteLine($"Restoring version {wizardOptions.LanguageDepotVersion} " +
 					$"of chorus repo for model {modelVersion}");
 				RestoreLanguageDepot(new Options.RestoreOptions(wizardOptions));
-				DirectoryUtilities.CopyDirectoryWithException(Path.Combine(wizardOptions.WorkDir, "LanguageDepot", ".hg"),
+				DirectoryHelper.Copy(Path.Combine(wizardOptions.WorkDir,
+				"LanguageDepot", ".hg"),
 					Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"), true);
 				// Delete FW project
-				DirectoryUtilities.DeleteDirectoryRobust(
+				RobustIO.DeleteDirectoryAndContents(
 					Path.Combine(wizardOptions.FwProjectDirectory, $"test-{modelVersion}"));
 
 				Console.WriteLine($"Now get project 'test-{modelVersion}' from USB stick and make changes and afterwards do a s/r with the USB stick.");
@@ -170,7 +178,7 @@ namespace LfMerge.TestUtil
 					outputDir);
 
 				Console.WriteLine($"Saving chorus repo test data for {modelVersion}");
-				DirectoryUtilities.CopyDirectoryWithException(
+				DirectoryHelper.Copy(
 					Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"),
 					Path.Combine(wizardOptions.WorkDir, "LanguageDepot", ".hg"), true);
 				SaveLanguageDepot(new Options.SaveOptions(wizardOptions)
@@ -208,7 +216,7 @@ namespace LfMerge.TestUtil
 				if (string.IsNullOrEmpty(workdir))
 				{
 					// we created a temporary workdir, so delete it again
-					DirectoryUtilities.DeleteDirectoryRobust(wizardOptions.WorkDir);
+					RobustIO.DeleteDirectoryAndContents(wizardOptions.WorkDir);
 				}
 			}
 		}
@@ -267,7 +275,7 @@ diff no-op
 		private static void RestoreLanguageDepot(Options.RestoreOptions options)
 		{
 			var dir = Path.Combine(Settings.TempDir, "LanguageDepot");
-			DirectoryUtilities.DeleteDirectoryRobust(dir);
+			RobustIO.DeleteDirectoryAndContents(dir);
 			using (var ld = new LanguageDepotHelper(true))
 			{
 				for (var i = 0; i <= options.LanguageDepotVersion.Value; i++)

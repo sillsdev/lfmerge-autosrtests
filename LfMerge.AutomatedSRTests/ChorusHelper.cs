@@ -6,7 +6,7 @@ using System.Xml.Linq;
 using System.Xml.XPath;
 using Chorus.VcsDrivers.Mercurial;
 using Nini.Ini;
-using Palaso.Progress;
+using SIL.Progress;
 
 namespace LfMerge.AutomatedSRTests
 {

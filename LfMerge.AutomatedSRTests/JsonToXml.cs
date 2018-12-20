@@ -7,7 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Linq;
 using Newtonsoft.Json;
-using Palaso.Extensions;
+using SIL.Extensions;
 
 namespace LfMerge.AutomatedSRTests
 {

@@ -1,7 +1,7 @@
 // Copyright (c) 2017 SIL International
 // This software is licensed under the MIT License (http://opensource.org/licenses/MIT)
 using System.IO;
-using Palaso.IO;
+using SIL.IO;
 
 namespace LfMerge.AutomatedSRTests
 {
@@ -29,7 +29,7 @@ namespace LfMerge.AutomatedSRTests
 			if (string.IsNullOrEmpty(RepoDir) || _keepDir)
 				return;
 
-			DirectoryUtilities.DeleteDirectoryRobust(RepoDir);
+			RobustIO.DeleteDirectoryAndContents(RepoDir);
 			RepoDir = null;
 		}
 

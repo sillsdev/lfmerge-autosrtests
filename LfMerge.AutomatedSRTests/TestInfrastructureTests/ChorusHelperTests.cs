@@ -4,7 +4,7 @@ using System;
 using System.IO;
 using Chorus.VcsDrivers.Mercurial;
 using NUnit.Framework;
-using Palaso.Progress;
+using SIL.Progress;
 
 namespace LfMerge.AutomatedSRTests
 {

@@ -1,6 +1,6 @@
 # Automated LfMerge S/R Tests
 
-**NOTE:** This project requires Mono 4.x, i.e. the package `mono4-sil` has to be installed!
+**NOTE:** This project requires Mono 5.x, i.e. the package `mono5-sil` has to be installed!
 
 The mocked LanguageDepot/Chorus repo as well as the mongo database data are stored
 in the source tree as series of patch files in the data directory. The Chorus repo

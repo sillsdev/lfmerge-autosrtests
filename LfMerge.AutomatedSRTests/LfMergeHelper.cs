@@ -3,7 +3,7 @@
 using System;
 using System.Diagnostics;
 using System.IO;
-using Palaso.IO;
+using SIL.IO;
 
 namespace LfMerge.AutomatedSRTests
 {
@@ -25,7 +25,8 @@ namespace LfMerge.AutomatedSRTests
 			{
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = true;
-				process.StartInfo.FileName = Path.Combine(FileLocator.DirectoryOfApplicationOrSolution, "lfmerge");
+				process.StartInfo.FileName = Path.Combine(FileLocationUtilities.DirectoryOfApplicationOrSolution,
+				"lfmerge");
 				process.StartInfo.Arguments = args + $" --config \"{Settings.TempDir}\"";
 				process.StartInfo.RedirectStandardOutput = true;
 				Console.WriteLine($"Executing: {process.StartInfo.FileName} {process.StartInfo.Arguments}");
@@ -44,7 +45,7 @@ namespace LfMerge.AutomatedSRTests
 
 		public static void Cleanup()
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(BaseDir);
+			RobustIO.DeleteDirectoryAndContents(BaseDir);
 		}
 	}
 }

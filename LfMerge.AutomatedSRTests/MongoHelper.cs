@@ -7,7 +7,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using Newtonsoft.Json;
-using Palaso.IO;
+using SIL.IO;
 
 namespace LfMerge.AutomatedSRTests
 {
@@ -225,7 +225,7 @@ namespace LfMerge.AutomatedSRTests
 
 		public static void Cleanup()
 		{
-			DirectoryUtilities.DeleteDirectoryRobust(Path.Combine(Settings.TempDir, "patches"));
+			RobustIO.DeleteDirectoryAndContents(Path.Combine(Settings.TempDir, "patches"));
 		}
 
 		private string DbName { get; }
