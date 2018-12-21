@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="ChorusHelper.cs" />
     <Compile Include="JsonToXml.cs" />
+    <Compile Include="ModelVersionValue.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="LanguageDepotHelper.cs" />
     <Compile Include="LfMergeHelper.cs" />

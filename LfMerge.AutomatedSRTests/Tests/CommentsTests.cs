@@ -197,7 +197,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// What should happen: B gets deleted (and comment remains but won't be shown in UI).
 		/// </summary>
 		[Test]
-		public void Test01_FwDeletesEntryWhileLfAddsComment([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test01_FwDeletesEntryWhileLfAddsComment([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_FieldWorks.ApplyPatches(dbVersion, 3);
@@ -240,7 +240,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// What should happen: A remains, with a comment on it.
 		/// </summary>
 		[Test]
-		public void Test02_LfDeletesEntryWhileFwAddsComment([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test02_LfDeletesEntryWhileFwAddsComment([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_FieldWorks.ApplyPatches(dbVersion, 4);
@@ -290,7 +290,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// </summary>
 		/// <remarks>Can we test scenario 5 separately?</remarks>
 		[Test]
-		public void Test03_FwAndLfAddCommentOnA_FwSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test03_FwAndLfAddCommentOnA_FwSyncsFirst([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_FieldWorks.ApplyPatches(dbVersion, 11);
@@ -377,7 +377,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// after FW did the S/R, i.e. LD contains both comments, but LF hasn't pulled the
 		/// changes from FW yet.</p></remarks>
 		[Test]
-		public void Test04_FwAndLfAddCommentOnA_LfSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test04_FwAndLfAddCommentOnA_LfSyncsFirst([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 11);
@@ -465,7 +465,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// What should happen: Both comments appear.
 		/// </summary>
 		[Test]
-		public void Test07_FwAddsCommentOnA_LfAddsCommentOnB_FwSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test07_FwAddsCommentOnA_LfAddsCommentOnB_FwSyncsFirst([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_FieldWorks.ApplyPatches(dbVersion, 4);
@@ -523,7 +523,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// in after FW did the S/R, i.e. LD contains both comments, but LF hasn't pulled the
 		/// changes from FW yet.</remarks>
 		[Test]
-		public void Test08_FwAddsCommentOnA_LfAddsCommentOnB_LfSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test08_FwAddsCommentOnA_LfAddsCommentOnB_LfSyncsFirst([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 4);
@@ -586,7 +586,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
 		/// in after FW did the S/R.</remarks>
 		[Test]
-		public void Test09a_FwAddsCommentOnE_LfReplies([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test09a_FwAddsCommentOnE_LfReplies([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 17);
@@ -631,7 +631,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
 		/// in after FW did the S/R.</remarks>
 		[Test]
-		public void Test09b_FwAddsCommentOnE_LfReplies_FwReplies([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test09b_FwAddsCommentOnE_LfReplies_FwReplies([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 19);
@@ -677,7 +677,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
 		/// in after FW made the change and did the S/R.</remarks>
 		[Test]
-		public void Test10_LfAddsCommentOnF_FwResolves([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test10_LfAddsCommentOnF_FwResolves([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 23);
@@ -719,7 +719,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
 		/// in after FW made the change and did the S/R.</remarks>
 		[Test]
-		public void Test11_LfAddsCommentOnF_FwResolves_LfReopens([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test11_LfAddsCommentOnF_FwResolves_LfReopens([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 25);
@@ -762,7 +762,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
 		/// in after FW made the change and did the S/R.</remarks>
 		[Test]
-		public void Test12_FwAddsCommentOnG_FwAddsNewCommentLfResolves_FwSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test12_FwAddsCommentOnG_FwAddsNewCommentLfResolves_FwSyncsFirst([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 29);
@@ -806,7 +806,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// <remarks>Since we don't test S/R of FW here, we start out with the state that LD/FW is
 		/// in after FW made the change and did the S/R.</remarks>
 		[Test]
-		public void Test14_LfAddsCommentOnH_LfAddsNewReplyFwResolves_LfSyncsFirst([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test14_LfAddsCommentOnH_LfAddsNewReplyFwResolves_LfSyncsFirst([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_webwork.ApplyPatches(dbVersion, 33);
@@ -847,7 +847,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// What should happen: Both the comment and the entry show up.
 		/// </summary>
 		[Test]
-		public void Test21_FwAddsEntryCAndComment([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test21_FwAddsEntryCAndComment([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_FieldWorks.ApplyPatches(dbVersion, 7);
@@ -913,7 +913,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		/// What should happen: Both the comment and the entry show up.
 		/// </summary>
 		[Test]
-		public void Test22_LfAddsEntryDAndComment([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Test22_LfAddsEntryDAndComment([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_FieldWorks.ApplyPatches(dbVersion, 7);

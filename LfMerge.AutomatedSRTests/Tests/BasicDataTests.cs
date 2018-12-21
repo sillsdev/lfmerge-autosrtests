@@ -39,7 +39,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		}
 
 		[Test]
-		public void Clone([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void Clone([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase(dbVersion, 1);
@@ -54,7 +54,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		}
 
 		[Test]
-		public void NoConflicts([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void NoConflicts([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase(dbVersion, 2);
@@ -88,7 +88,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 		}
 
 		[Test]
-		public void EditWinsOverDelete([Range(Settings.MinModelVersion, Settings.MaxModelVersion)] int dbVersion)
+		public void EditWinsOverDelete([ValueSource(typeof(ModelVersionValue), nameof(ModelVersionValue.GetValues))] int dbVersion)
 		{
 			// Setup
 			_mongo.RestoreDatabase(dbVersion, 4);
