@@ -131,7 +131,11 @@ namespace LfMerge.TestUtil
 		private static void Wizard(Options.WizardOptions wizardOptions)
 		{
 			var workdir = wizardOptions.WorkDir;
-			for (var modelVersion = wizardOptions.MinModel; modelVersion <= wizardOptions.MaxModel; modelVersion++)
+			MongoHelper.AddTestUser(Settings.DataDir);
+
+			for (var modelVersion = wizardOptions.MinModel;
+				modelVersion <= wizardOptions.MaxModel;
+				modelVersion++)
 			{
 				if (modelVersion == 7000071)
 					continue;
