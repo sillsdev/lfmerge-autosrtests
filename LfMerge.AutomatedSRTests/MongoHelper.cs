@@ -46,7 +46,7 @@ namespace LfMerge.AutomatedSRTests
 				var patchNo = int.Parse(patchNoStr);
 				if (version.HasValue && patchNo > version.Value)
 					break;
-				TestHelper.Run(Git, $"am {file} --ignore-whitespace", mongoSourceDir);
+				TestHelper.Run(Git, $"am --ignore-whitespace {file}", mongoSourceDir);
 				TestHelper.Run(Git, $"tag r{patchNo}", mongoSourceDir);
 			}
 		}
@@ -82,6 +82,20 @@ namespace LfMerge.AutomatedSRTests
 		}
 
 		#endregion
+
+		public static void AddTestUser(string dataDir)
+		{
+			var file = Path.Combine(dataDir, "mongouser.json");
+			if (!File.Exists(file))
+			{
+				Console.WriteLine($"WARNING: Can't find '{file}'. Can't add test user. Test data might not work as expected.");
+				return;
+			}
+
+			TestHelper.Run(MongoImport,
+				$"--host {Settings.MongoHostName}:{Settings.MongoPort} --db scriptureforge " +
+				$" --collection users --mode merge --file {file}", dataDir);
+		}
 
 		public void RestoreDatabase(int modelVersion, int tag)
 		{
@@ -149,10 +163,11 @@ namespace LfMerge.AutomatedSRTests
 			var strBldr = new StringBuilder();
 			foreach (var line in content.Split('\n'))
 			{
-				if (string.IsNullOrEmpty(line))
+				var trimmedLine = line?.Trim();
+				if (string.IsNullOrEmpty(trimmedLine))
 					continue;
 				strBldr.AppendLine(JsonConvert.SerializeObject(
-					JsonConvert.DeserializeObject(line),
+					JsonConvert.DeserializeObject(trimmedLine),
 					new JsonSerializerSettings
 					{
 						DateFormatHandling = DateFormatHandling.IsoDateFormat,
@@ -162,6 +177,7 @@ namespace LfMerge.AutomatedSRTests
 					}));
 			}
 			strBldr.Replace("}", "}\n");
+			strBldr.Replace("\n\n", "\n");
 			File.WriteAllText(file, strBldr.ToString());
 		}
 
@@ -226,6 +242,24 @@ namespace LfMerge.AutomatedSRTests
 		public static void Cleanup()
 		{
 			RobustIO.DeleteDirectoryAndContents(Path.Combine(Settings.TempDir, "patches"));
+		}
+
+		public static void InitializeNewProject(string modelVersion, string initialPatchFile)
+		{
+			// Import the initial patch file in a temporary directory
+			var tempMongoSource = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+			InitSourceDir(tempMongoSource);
+			TestHelper.Run(Git, $"am --ignore-whitespace {initialPatchFile}", tempMongoSource);
+
+			// Then copy the files to the real mongoSourceDir
+			var mongoSourceDir = GetMongoSourceDir(modelVersion);
+			InitSourceDir(mongoSourceDir);
+			foreach (var file in Directory.GetFiles(tempMongoSource, "*.json"))
+			{
+				File.Copy(file, Path.Combine(mongoSourceDir, Path.GetFileName(file)));
+			}
+
+			RobustIO.DeleteDirectoryAndContents(tempMongoSource);
 		}
 
 		private string DbName { get; }

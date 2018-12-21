@@ -122,18 +122,11 @@ namespace LfMerge.TestUtil
 
 		public class WizardOptions : MergeOptions
 		{
-			private string _fwProjectDirectory;
-
 			[Option("usb", Required = true, HelpText = "Directory where USB stick is mounted, e.g. /media/$USER/MyUsbStick")]
 			public string UsbDirectory { get; set; }
 
-			[Option("fwprojects", HelpText = "Directory where FW projects are stored. Default: $FWROOT/DistFiles/Projects")]
-			public string FwProjectDirectory
-			{
-				get => string.IsNullOrEmpty(_fwProjectDirectory) ?
-					Path.Combine(FwRoot, "DistFiles", "Projects") : _fwProjectDirectory;
-				set => _fwProjectDirectory = value;
-			}
+			[Option("fwprojects", HelpText = "Directory where FW projects are stored. Default: $FWROOT/Output<modelversion>DistFiles/Projects")]
+			public string FwProjectDirectory { get; set; }
 
 			[Option("fwroot", Required = true, HelpText = "FW root directory, e.g. $HOME/fwrepo/fw")]
 			public string FwRoot { get; set; }
@@ -144,9 +137,19 @@ namespace LfMerge.TestUtil
 			[Option("maxmodel", DefaultValue = LfMerge.AutomatedSRTests.Settings.MaxModelVersion, HelpText = "Model version to finish with (useful if something crashes)")]
 			public int MaxModel { get; set; }
 
+			[Option("newproject", DefaultValue = false, HelpText = "true to create a new project")]
+			public bool NewProject { get; set; }
+
 			public override string GetUsage()
 			{
 				return Parent.GetUsage("wizard");
+			}
+
+			public string GetFwProjectDirectory(int modelVersion)
+			{
+				return !string.IsNullOrEmpty(FwProjectDirectory)
+					? FwProjectDirectory
+					: Path.Combine(FwRoot, $"Output{modelVersion}", "DistFiles", "Projects");
 			}
 		}
 

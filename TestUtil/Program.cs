@@ -146,76 +146,155 @@ namespace LfMerge.TestUtil
 
 				if (string.IsNullOrEmpty(workdir))
 				{
-					wizardOptions.WorkDir = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+					wizardOptions.WorkDir =
+						Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
 					Settings.TempDir = wizardOptions.WorkDir;
 					Directory.CreateDirectory(wizardOptions.WorkDir);
 				}
 
 				wizardOptions.ModelVersion = modelVersion;
+				var patchDir = Path.Combine(Settings.DataDir, modelVersion.ToString());
+				if (!Directory.Exists(patchDir))
+					Directory.CreateDirectory(patchDir);
+				var mongoDir = Path.Combine(patchDir, "mongo");
+				if (!Directory.Exists(mongoDir))
+					Directory.CreateDirectory(mongoDir);
+
 				var outputDir = Path.Combine(wizardOptions.FwRoot, $"Output{modelVersion}");
 				if (!Directory.Exists(outputDir))
 				{
 					Console.WriteLine($"Can't find FW output directory {outputDir}");
 					continue;
 				}
+
 				var sourceEnviron = modelVersion < 7000072 ? "fwenviron" : "fwenviron9";
 				var targetEnviron = Path.Combine(outputDir, "fwenviron");
 				if (!File.Exists(targetEnviron))
-					File.Delete(targetEnviron);
-				File.Copy(Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location),
-						sourceEnviron), targetEnviron);
+				{
+					File.Copy(
+						Path.Combine(Path.GetDirectoryName(typeof(Program).Assembly.Location),
+							sourceEnviron),
+						targetEnviron);
+				}
 
-				Console.WriteLine($"Restoring version {wizardOptions.LanguageDepotVersion} " +
-					$"of chorus repo for model {modelVersion}");
-				RestoreLanguageDepot(new Options.RestoreOptions(wizardOptions));
-				DirectoryHelper.Copy(Path.Combine(wizardOptions.WorkDir,
-				"LanguageDepot", ".hg"),
-					Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"), true);
-				// Delete FW project
-				RobustIO.DeleteDirectoryAndContents(
-					Path.Combine(wizardOptions.FwProjectDirectory, $"test-{modelVersion}"));
+				// LanguageDepot
+				if (wizardOptions.NewProject)
+				{
+					wizardOptions.LanguageDepotVersion = 0;
+					wizardOptions.MongoVersion = 0;
+					// Delete FW project
+					RobustIO.DeleteDirectoryAndContents(
+						Path.Combine(wizardOptions.GetFwProjectDirectory(modelVersion),
+							$"test-{modelVersion}"));
+					RobustIO.DeleteDirectoryAndContents(
+						Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}"));
 
-				Console.WriteLine($"Now get project 'test-{modelVersion}' from USB stick and make changes and afterwards do a s/r with the USB stick.");
-				// for whatever reason we have to pass -i, otherwise 7000069 won't be able to bring
-				// up the s/r dialog!
-				Run("/bin/bash", $"-i -c \"cd {outputDir} && . fwenviron && env && cd Output_$(uname -m)/Debug && mono --debug FieldWorks.exe > /dev/null\"",
-					outputDir);
+					Console.WriteLine(
+						$"Create a new project 'test-{modelVersion}' and send this project for the first time to the USB stick");
+					Run("/bin/bash",
+						$"-i -c \"cd {outputDir} && . fwenviron && cd Output_$(uname -m)/Debug && mono --debug FieldWorks.exe > /dev/null\"",
+						outputDir);
+				}
+				else
+				{
+					Console.WriteLine($"Restoring version {wizardOptions.LanguageDepotVersion} " +
+									$"of chorus repo for model {modelVersion}");
+					RestoreLanguageDepot(new Options.RestoreOptions(wizardOptions));
+					DirectoryHelper.Copy(Path.Combine(wizardOptions.WorkDir,
+							"LanguageDepot", ".hg"),
+						Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"),
+						true);
+					// Delete FW project
+					RobustIO.DeleteDirectoryAndContents(
+						Path.Combine(wizardOptions.GetFwProjectDirectory(modelVersion),
+							$"test-{modelVersion}"));
+
+					Console.WriteLine(
+						$"Now get project 'test-{modelVersion}' from USB stick and make changes and afterwards do a s/r with the USB stick.");
+					// for whatever reason we have to pass -i, otherwise 7000069 won't be able to bring
+					// up the s/r dialog!
+					Run("/bin/bash",
+						$"-i -c \"cd {outputDir} && . fwenviron && cd Output_$(uname -m)/Debug && mono --debug FieldWorks.exe > /dev/null\"",
+						outputDir);
+				}
 
 				Console.WriteLine($"Saving chorus repo test data for {modelVersion}");
 				DirectoryHelper.Copy(
 					Path.Combine(wizardOptions.UsbDirectory, $"test-{modelVersion}", ".hg"),
 					Path.Combine(wizardOptions.WorkDir, "LanguageDepot", ".hg"), true);
-				SaveLanguageDepot(new Options.SaveOptions(wizardOptions)
-				{
+				SaveLanguageDepot(new Options.SaveOptions(wizardOptions) {
 					WorkDir = null,
 					CommitMsg = wizardOptions.CommitMsg ?? "New test data"
 				});
 
-				SaveLanguageDepotNoOpPatchIfNecessary(modelVersion, wizardOptions.LanguageDepotVersion + 1);
+				SaveLanguageDepotNoOpPatchIfNecessary(modelVersion,
+					wizardOptions.LanguageDepotVersion + 1);
 
-				Console.WriteLine($"Restoring LanguageForge mongo data version {wizardOptions.MongoVersion} for model {modelVersion}");
-				RestoreMongoDb(new Options.RestoreOptions(wizardOptions));
-
-				Console.WriteLine($"Now make the changes to '{wizardOptions.Project}' in your local" +
-					" LanguageForge, then press return. Don't do a send/receive!");
-				Console.WriteLine("(You might have to empty the cached IndexedDB data in your " +
-					"browser's developer tools)");
-				Run("/bin/bash", "-c \"xdg-open http://languageforge.local/app/projects\"", outputDir);
-				Console.ReadLine();
-
-				Console.WriteLine($"Saving LanguageForge test data for {modelVersion}");
-				SaveMongoDb(new Options.SaveOptions(wizardOptions)
+				// Mongo
+				if (wizardOptions.NewProject)
 				{
-					CommitMsg = wizardOptions.CommitMsg ?? "New test data"
-				});
+					// Since this is a new project, we copy the first patch for mongo from an
+					// older model version, if we can find it
+					int tmpModelVersion;
+					string mongoPatchFile = string.Empty;
+					for (tmpModelVersion = Settings.MinModelVersion;
+						tmpModelVersion <= Settings.MaxModelVersion;
+						tmpModelVersion++)
+					{
+						var tempMongoPatchFile = Path.Combine(Settings.DataDir,
+							tmpModelVersion.ToString(), "mongo", "0001-Add-empty-project.patch");
 
-				// Merge the data we just created
-				Console.WriteLine($"Merge test data for {modelVersion}");
-				Merge(new Options.MergeOptions(wizardOptions)
+						if (File.Exists(tempMongoPatchFile))
+						{
+							mongoPatchFile = tempMongoPatchFile;
+							break;
+						}
+					}
+
+					if (tmpModelVersion > Settings.MaxModelVersion)
+					{
+						Console.WriteLine(
+							"ERROR: Can't find first mongo patch. Please create mongo project some other way.");
+						return;
+					}
+
+					MongoHelper.InitializeNewProject(modelVersion.ToString(), mongoPatchFile);
+
+					Console.WriteLine($"Saving LanguageForge test data for {modelVersion}");
+					SaveMongoDb(new Options.SaveOptions(wizardOptions) {
+						CommitMsg = "Add empty project"
+					});
+				}
+				else
 				{
-					LanguageDepotVersion = wizardOptions.LanguageDepotVersion + 1,
-					MongoVersion = wizardOptions.MongoVersion + 1
-				});
+					Console.WriteLine(
+						$"Restoring LanguageForge mongo data version {wizardOptions.MongoVersion} for model {modelVersion}");
+					RestoreMongoDb(new Options.RestoreOptions(wizardOptions));
+
+					Console.WriteLine(
+						$"Now make the changes to '{wizardOptions.Project}' in your local" +
+						" LanguageForge, then press return. Don't do a send/receive!");
+
+					Console.WriteLine(
+						"(You might have to empty the cached IndexedDB data in your " +
+						"browser's developer tools)");
+					Console.WriteLine("Login as user 'test' with password 'passwordfortest'");
+					Run("/bin/bash", "-c \"xdg-open http://languageforge.local/app/projects\"",
+						outputDir);
+					Console.ReadLine();
+
+					Console.WriteLine($"Saving LanguageForge test data for {modelVersion}");
+					SaveMongoDb(new Options.SaveOptions(wizardOptions) {
+						CommitMsg = wizardOptions.CommitMsg ?? "New test data"
+					});
+
+					// Merge the data we just created
+					Console.WriteLine($"Merge test data for {modelVersion}");
+					Merge(new Options.MergeOptions(wizardOptions) {
+						LanguageDepotVersion = wizardOptions.LanguageDepotVersion + 1,
+						MongoVersion = wizardOptions.MongoVersion + 1
+					});
+				}
 
 				if (string.IsNullOrEmpty(workdir))
 				{
@@ -231,11 +310,13 @@ namespace LfMerge.TestUtil
 				return;
 
 			// add no-op patch
-			var oldContent = File.ReadAllText(Path.Combine(LanguageDepotHelper.LdDirectory, "no-op"))
-				.TrimEnd('\n');
-			File.WriteAllText(Path.Combine(Settings.DataDir, modelVersion.ToString(),
-					$"r{patchVersion}.patch"),
-				$@"# HG changeset patch
+			var noopFile = Path.Combine(LanguageDepotHelper.LdDirectory, "no-op");
+			var patchFile = Path.Combine(Settings.DataDir, modelVersion.ToString(), $"r{patchVersion}.patch");
+			if (File.Exists(noopFile))
+			{
+				var oldContent = File.ReadAllText(noopFile).TrimEnd('\n');
+				File.WriteAllText(patchFile,
+					$@"# HG changeset patch
 # User No-op
 # Branch {modelVersion}
 no-op to keep LD/Mongo patches balanced
@@ -247,6 +328,23 @@ diff no-op
 -{oldContent}
 +{Guid.NewGuid().ToString()}
 ");
+			}
+			else
+			{
+				File.WriteAllText(patchFile,
+					$@"# HG changeset patch
+# User No-op
+# Branch {modelVersion}
+no-op to keep LD/Mongo patches balanced
+
+diff no-op
+--- /dev/null
++++ b/no-op
+@@ 0,0 +1,1 @@
++{Guid.NewGuid().ToString()}
+");
+			}
+
 			Console.WriteLine($"Added no-op patch r{patchVersion}.patch");
 		}
 
@@ -320,6 +418,7 @@ diff no-op
 				options.Project = "sf_" + options.Project;
 
 			MongoHelper.Initialize(options.ModelVersion.ToString(), options.MongoVersion);
+
 			if (_mongoHelper == null)
 				_mongoHelper = new MongoHelper(options.Project, true);
 			_mongoHelper.RestoreDatabase(options.ModelVersion.ToString(), "master");
