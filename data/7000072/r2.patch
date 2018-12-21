@@ -1,0 +1,89 @@
+# HG changeset patch
+# User eberhard
+# Date 1545410793 -3600
+#      Fri Dec 21 17:46:33 2018 +0100
+# Branch 7000072
+# Node ID 3e322bcb7730c51ccab3685bb8135e57604dbeae
+# Parent  2d992561783ac8e6b394e1f1818919e8d691908b
+[FLEx Bridge: 3.0.1-unstable.254+Branch.origin/develop.Sha.498d209d3c2290d5af9783e6a53b29d1890efad5] sync
+
+diff -r 2d992561783a -r 3e322bcb7730 Lexicon.fwstub.ChorusNotes
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/Lexicon.fwstub.ChorusNotes	Fri Dec 21 17:46:33 2018 +0100
+@@ -0,0 +1,1 @@
++<notes version='0'/>
+\ No newline at end of file
+diff -r 2d992561783a -r 3e322bcb7730 Linguistics/Lexicon/Lexicon_09.lexdb
+--- a/Linguistics/Lexicon/Lexicon_09.lexdb	Fri Dec 21 16:34:17 2018 +0100
++++ b/Linguistics/Lexicon/Lexicon_09.lexdb	Fri Dec 21 17:46:33 2018 +0100
+@@ -1,2 +1,55 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="863d94c8-83ca-4748-8c9b-4730d704e10e">
++		<DateCreated
++			val="2018-12-21 16:46:16.647" />
++		<DateModified
++			val="2018-12-21 16:46:16.647" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="590f2d93-27e5-4a0b-84d5-14e720c69e11">
++				<Form>
++					<AUni
++						ws="fr">flex</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="980fe1d4-aaa9-4c67-8716-de4097e53e71">
++				<PartOfSpeech>
++					<objsur
++						guid="46e4fe08-ffa0-4c8b-bf98-2c56f38904d9"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="d349956d-7004-46f8-a82e-865e96c9ac6e">
++				<Gloss>
++					<AUni
++						ws="en">created in FLEx</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="980fe1d4-aaa9-4c67-8716-de4097e53e71"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 2d992561783a -r 3e322bcb7730 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Fri Dec 21 16:34:17 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Fri Dec 21 17:46:33 2018 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2018-12-21T15:33:51Z" />
++		<generation date="2018-12-21T16:45:44Z" />
+ 		<language type="fr" />
+ 	</identity>
+ 	<characters>

@@ -1,0 +1,26 @@
+Test data for BasicDataTests:
+
+Patch 2/3:
+LF:
+  lexeme: lf1
+  definition: Word added by LF
+  partofspeech: n
+  examples:
+    sentence: C'est un exemple
+    translation: This is an example
+
+FLEx:
+  lexeme: flex
+  gloss: created in FLEx
+  partofspeech: adv1
+
+Patch 4/5:
+LF:
+  lexeme: s/lf1/lf1modified/
+
+  delete flex
+
+FLEx:
+  lexeme: s/flex/flexmodified/
+
+  delete lf1

@@ -1,0 +1,128 @@
+# HG changeset patch
+# User Language Forge
+# Date 1545410984 -3600
+#      Fri Dec 21 17:49:44 2018 +0100
+# Branch 7000072
+# Node ID e135753a0a807416153adb6f60dd8135f37c6334
+# Parent  3e322bcb7730c51ccab3685bb8135e57604dbeae
+[LfMergeBridge: 3.0.1.254] Language Forge: 1 entry added
+
+diff -r 3e322bcb7730 -r e135753a0a80 Linguistics/Lexicon/Lexicon_02.lexdb
+--- a/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Dec 21 17:46:33 2018 +0100
++++ b/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Dec 21 17:49:44 2018 +0100
+@@ -1,2 +1,88 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="515442e1-d369-484a-a039-f05dfb8748c0">
++		<DateCreated
++			val="2018-12-21 16:48:36.215" />
++		<DateModified
++			val="2018-12-21 16:49:13.895" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="37f8d199-36ed-4913-afe1-a3a210786afd">
++				<Form>
++					<AUni
++						ws="fr">lf1</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="6c6dc350-1d31-4dfe-a8c4-4fce2657d52a">
++				<PartOfSpeech>
++					<objsur
++						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
++						t="r" />
++				</PartOfSpeech>
++			</MoStemMsa>
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="713cdbac-47f6-4bf9-9a11-2290e415ef3d">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">Word added by LF</Run>
++					</AStr>
++				</Definition>
++				<Examples>
++					<ownseq
++						class="LexExampleSentence"
++						guid="2201a920-8793-417c-b40e-9b36690fb22b">
++						<Example>
++							<AStr
++								ws="fr">
++								<Run
++									ws="fr">C'est un exemple</Run>
++							</AStr>
++						</Example>
++						<Translations>
++							<CmTranslation
++								guid="419fda98-9bce-4f7a-8cca-690bda4d0668">
++								<Translation>
++									<AStr
++										ws="en">
++										<Run
++											ws="en">This is an example</Run>
++									</AStr>
++								</Translation>
++								<Type>
++									<objsur
++										guid="d7f7164a-e8cf-11d3-9764-00c04f186933"
++										t="r" />
++								</Type>
++							</CmTranslation>
++						</Translations>
++					</ownseq>
++				</Examples>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="6c6dc350-1d31-4dfe-a8c4-4fce2657d52a"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 3e322bcb7730 -r e135753a0a80 WritingSystemStore/en-US.ldml
+--- /dev/null	Thu Jan 01 00:00:00 1970 +0000
++++ b/WritingSystemStore/en-US.ldml	Fri Dec 21 17:49:44 2018 +0100
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?>
++<ldml>
++	<identity>
++		<version number="" />
++		<generation date="2018-12-21T16:49:36Z" />
++		<language type="en" />
++		<territory type="US" />
++	</identity>
++	<layout>
++		<orientation>
++			<characterOrder>left-to-right</characterOrder>
++		</orientation>
++	</layout>
++	<special xmlns:sil="urn://www.sil.org/ldml/0.1">
++		<sil:external-resources>
++			<sil:font name="Charis SIL" types="default" />
++		</sil:external-resources>
++	</special>
++</ldml>
+\ No newline at end of file

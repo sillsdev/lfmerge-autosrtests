@@ -1,0 +1,149 @@
+# HG changeset patch
+# User eberhard
+# Date 1545411402 -3600
+#      Fri Dec 21 17:56:42 2018 +0100
+# Branch 7000072
+# Node ID 9a22d579d8b05ffc0ca29c2e00bda5939d90051f
+# Parent  e135753a0a807416153adb6f60dd8135f37c6334
+[FLEx Bridge: 3.0.1-unstable.254+Branch.origin/develop.Sha.498d209d3c2290d5af9783e6a53b29d1890efad5] sync
+
+diff -r e135753a0a80 -r 9a22d579d8b0 General/LanguageProject.langproj
+--- a/General/LanguageProject.langproj	Fri Dec 21 17:49:44 2018 +0100
++++ b/General/LanguageProject.langproj	Fri Dec 21 17:56:42 2018 +0100
+@@ -22,7 +22,7 @@
+ 		<DateCreated
+ 			val="2018-12-21 15:33:44.917" />
+ 		<DateModified
+-			val="2018-12-21 15:33:44.917" />
++			val="2018-12-21 16:55:45.770" />
+ 		<DiscourseData />
+ 		<Education />
+ 		<FilePathsInTsStrings>
+diff -r e135753a0a80 -r 9a22d579d8b0 Linguistics/Lexicon/Lexicon_02.lexdb
+--- a/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Dec 21 17:49:44 2018 +0100
++++ b/Linguistics/Lexicon/Lexicon_02.lexdb	Fri Dec 21 17:56:42 2018 +0100
+@@ -1,88 +1,2 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon>
+-	<LexEntry
+-		guid="515442e1-d369-484a-a039-f05dfb8748c0">
+-		<DateCreated
+-			val="2018-12-21 16:48:36.215" />
+-		<DateModified
+-			val="2018-12-21 16:49:13.895" />
+-		<DoNotUseForParsing
+-			val="False" />
+-		<HomographNumber
+-			val="0" />
+-		<LexemeForm>
+-			<MoStemAllomorph
+-				guid="37f8d199-36ed-4913-afe1-a3a210786afd">
+-				<Form>
+-					<AUni
+-						ws="fr">lf1</AUni>
+-				</Form>
+-				<IsAbstract
+-					val="False" />
+-				<MorphType>
+-					<objsur
+-						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
+-						t="r" />
+-				</MorphType>
+-			</MoStemAllomorph>
+-		</LexemeForm>
+-		<MorphoSyntaxAnalyses>
+-			<MoStemMsa
+-				guid="6c6dc350-1d31-4dfe-a8c4-4fce2657d52a">
+-				<PartOfSpeech>
+-					<objsur
+-						guid="a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5"
+-						t="r" />
+-				</PartOfSpeech>
+-			</MoStemMsa>
+-		</MorphoSyntaxAnalyses>
+-		<Senses>
+-			<ownseq
+-				class="LexSense"
+-				guid="713cdbac-47f6-4bf9-9a11-2290e415ef3d">
+-				<Definition>
+-					<AStr
+-						ws="en">
+-						<Run
+-							ws="en">Word added by LF</Run>
+-					</AStr>
+-				</Definition>
+-				<Examples>
+-					<ownseq
+-						class="LexExampleSentence"
+-						guid="2201a920-8793-417c-b40e-9b36690fb22b">
+-						<Example>
+-							<AStr
+-								ws="fr">
+-								<Run
+-									ws="fr">C'est un exemple</Run>
+-							</AStr>
+-						</Example>
+-						<Translations>
+-							<CmTranslation
+-								guid="419fda98-9bce-4f7a-8cca-690bda4d0668">
+-								<Translation>
+-									<AStr
+-										ws="en">
+-										<Run
+-											ws="en">This is an example</Run>
+-									</AStr>
+-								</Translation>
+-								<Type>
+-									<objsur
+-										guid="d7f7164a-e8cf-11d3-9764-00c04f186933"
+-										t="r" />
+-								</Type>
+-							</CmTranslation>
+-						</Translations>
+-					</ownseq>
+-				</Examples>
+-				<MorphoSyntaxAnalysis>
+-					<objsur
+-						guid="6c6dc350-1d31-4dfe-a8c4-4fce2657d52a"
+-						t="r" />
+-				</MorphoSyntaxAnalysis>
+-			</ownseq>
+-		</Senses>
+-	</LexEntry>
+-</Lexicon>
+\ No newline at end of file
++<Lexicon />
+\ No newline at end of file
+diff -r e135753a0a80 -r 9a22d579d8b0 Linguistics/Lexicon/Lexicon_09.lexdb
+--- a/Linguistics/Lexicon/Lexicon_09.lexdb	Fri Dec 21 17:49:44 2018 +0100
++++ b/Linguistics/Lexicon/Lexicon_09.lexdb	Fri Dec 21 17:56:42 2018 +0100
+@@ -5,7 +5,7 @@
+ 		<DateCreated
+ 			val="2018-12-21 16:46:16.647" />
+ 		<DateModified
+-			val="2018-12-21 16:46:16.647" />
++			val="2018-12-21 16:55:46.755" />
+ 		<DoNotUseForParsing
+ 			val="False" />
+ 		<HomographNumber
+@@ -15,7 +15,7 @@
+ 				guid="590f2d93-27e5-4a0b-84d5-14e720c69e11">
+ 				<Form>
+ 					<AUni
+-						ws="fr">flex</AUni>
++						ws="fr">flexmodified</AUni>
+ 				</Form>
+ 				<IsAbstract
+ 					val="False" />
+diff -r e135753a0a80 -r 9a22d579d8b0 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Fri Dec 21 17:49:44 2018 +0100
++++ b/WritingSystemStore/fr.ldml	Fri Dec 21 17:56:42 2018 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2018-12-21T16:45:44Z" />
++		<generation date="2018-12-21T16:55:32Z" />
+ 		<language type="fr" />
+ 	</identity>
+ 	<characters>
