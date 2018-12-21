@@ -5,6 +5,7 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using Newtonsoft.Json;
 using SIL.IO;
@@ -106,7 +107,12 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
 			TestHelper.Run(Git, $"checkout {tag}", mongoSourceDir);
-			var projectEntryFile = Path.Combine(mongoSourceDir, DbName + ".json");
+			RestoreDatabaseInternal(modelVersion);
+		}
+
+		private void RestoreDatabaseInternal(string modelVersion)
+		{
+			var projectEntryFile = Path.Combine(GetMongoSourceDir(modelVersion), DbName + ".json");
 			if (!File.Exists(projectEntryFile))
 			{
 				throw new FileNotFoundException($"Can't find file {projectEntryFile}");
@@ -129,6 +135,12 @@ namespace LfMerge.AutomatedSRTests
 		{
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
 			InitSourceDir(mongoSourceDir);
+			SaveDatabaseInternal(patchDir, modelVersion, msg, startNumber, mongoSourceDir);
+		}
+
+		private void SaveDatabaseInternal(string patchDir, string modelVersion, string msg,
+			int startNumber, string mongoSourceDir)
+		{
 			var project = DbName.StartsWith("sf_") ? DbName.Substring(3) : DbName;
 			var file = Path.Combine(mongoSourceDir, $"{DbName}.json");
 			var content = TestHelper.Run(MongoExport,
@@ -254,12 +266,19 @@ namespace LfMerge.AutomatedSRTests
 			// Then copy the files to the real mongoSourceDir
 			var mongoSourceDir = GetMongoSourceDir(modelVersion);
 			InitSourceDir(mongoSourceDir);
-			foreach (var file in Directory.GetFiles(tempMongoSource, "*.json"))
-			{
-				File.Copy(file, Path.Combine(mongoSourceDir, Path.GetFileName(file)));
-			}
+			CopyFiles(tempMongoSource, mongoSourceDir);
 
 			RobustIO.DeleteDirectoryAndContents(tempMongoSource);
+		}
+
+		private static void CopyFiles(string sourceDirectory, string destinationDirectory,
+			bool overwrite = false)
+		{
+			foreach (var file in Directory.GetFiles(sourceDirectory, "*.json"))
+			{
+				File.Copy(file, Path.Combine(destinationDirectory, Path.GetFileName(file)),
+					overwrite);
+			}
 		}
 
 		private string DbName { get; }
@@ -273,6 +292,48 @@ namespace LfMerge.AutomatedSRTests
 				$"--host {Settings.MongoHostName} --port {Settings.MongoPort} " +
 				$"scriptureforge --eval 'db.projects.remove({{ \"projectName\" : \"{projectCode}\" }})'",
 				workDir, false, true);
+		}
+
+		public void RefreshPatches(string modelVersion)
+		{
+			// Import the initial patch file in a temporary directory
+			var sourceMongoSource = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName());
+			InitSourceDir(sourceMongoSource);
+
+			var destMongoSource = GetMongoSourceDir(modelVersion);
+			InitSourceDir(destMongoSource);
+
+			var mongoPatchDir = GetMongoPatchDir(modelVersion);
+			var patchFiles = Directory.GetFiles(mongoPatchDir, "*.patch");
+			Array.Sort(patchFiles);
+			foreach (var file in patchFiles)
+			{
+				Console.WriteLine($"\tProcessing {Path.GetFileName(file)}");
+				var patchNoStr = Path.GetFileName(file).Substring(0, 4);
+				var patchNo = int.Parse(patchNoStr);
+				TestHelper.Run(Git, $"am --ignore-whitespace {file}", sourceMongoSource);
+				TestHelper.Run(Git, $"tag r{patchNo}", sourceMongoSource);
+
+				CopyFiles(sourceMongoSource, destMongoSource, true);
+
+				RestoreDatabaseInternal(modelVersion);
+
+				SaveDatabaseInternal(mongoPatchDir, modelVersion, ExtractSubject(file),
+					patchNo, destMongoSource);
+			}
+
+			RobustIO.DeleteDirectoryAndContents(sourceMongoSource);
+		}
+
+		private static string ExtractSubject(string patchFile)
+		{
+			var content = File.ReadAllText(patchFile);
+			var regex = new Regex("Subject: \\[PATCH\\] ([^\n]+)");
+			var match = regex.Match(content);
+			if (match.Success)
+				return match.Groups[1].Value;
+
+			return Path.GetFileName(patchFile).Substring(5);
 		}
 	}
 }

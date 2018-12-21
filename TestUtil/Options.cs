@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using CommandLine;
 using CommandLine.Text;
+using LfMerge.AutomatedSRTests;
 
 namespace LfMerge.TestUtil
 {
@@ -131,10 +132,10 @@ namespace LfMerge.TestUtil
 			[Option("fwroot", Required = true, HelpText = "FW root directory, e.g. $HOME/fwrepo/fw")]
 			public string FwRoot { get; set; }
 
-			[Option("minmodel", DefaultValue = LfMerge.AutomatedSRTests.Settings.MinModelVersion, HelpText = "Model version to start with (useful if something crashes)")]
+			[Option("minmodel", DefaultValue = Settings.MinModelVersion, HelpText = "Model version to start with (useful if something crashes)")]
 			public int MinModel { get; set; }
 
-			[Option("maxmodel", DefaultValue = LfMerge.AutomatedSRTests.Settings.MaxModelVersion, HelpText = "Model version to finish with (useful if something crashes)")]
+			[Option("maxmodel", DefaultValue = Settings.MaxModelVersion, HelpText = "Model version to finish with (useful if something crashes)")]
 			public int MaxModel { get; set; }
 
 			[Option("newproject", DefaultValue = false, HelpText = "true to create a new project")]
@@ -153,6 +154,20 @@ namespace LfMerge.TestUtil
 			}
 		}
 
+		public class UpdateMongoOptions : CommonOptions
+		{
+			[Option("minmodel", DefaultValue = Settings.MinModelVersion, HelpText = "Model version to start with (useful if something crashes)")]
+			public int MinModel { get; set; }
+
+			[Option("maxmodel", DefaultValue = Settings.MaxModelVersion, HelpText = "Model version to finish with (useful if something crashes)")]
+			public int MaxModel { get; set; }
+
+			public override string GetUsage()
+			{
+				return HelpText.AutoBuild(this, "update-mongo");
+			}
+		}
+
 		[VerbOption("restore", HelpText = "Restore the test data")]
 		public RestoreOptions RestoreVerb { get; set;  }
 
@@ -164,6 +179,9 @@ namespace LfMerge.TestUtil
 
 		[VerbOption("wizard", HelpText = "Guide through the steps necessary to create test data for all supported model versions")]
 		public WizardOptions WizardVerb { get; set;  }
+		
+		[VerbOption("update-mongo", HelpText = "Rewrite mongo patches to match current mongo version")]
+		public UpdateMongoOptions UpdateMongoVerb { get; set; }
 
 		[HelpOption("help")]
 		public string GetUsage()

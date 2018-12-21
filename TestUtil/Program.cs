@@ -73,6 +73,11 @@ namespace LfMerge.TestUtil
 
 					Wizard(wizardOptions);
 					break;
+
+				case "update-mongo":
+					var updateMongoOptions = tuple.Item2 as Options.UpdateMongoOptions;
+					UpdateMongo(updateMongoOptions);
+					break;
 			}
 
 			_mongoHelper?.Dispose();
@@ -475,6 +480,27 @@ diff no-op
 					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n{stderr}\nOutput:\n{output}";
 					throw new ApplicationException(msg);
 				}
+			}
+		}
+
+		private static void UpdateMongo(Options.UpdateMongoOptions updateMongoOptions)
+		{
+			if (!updateMongoOptions.Project.StartsWith("sf_"))
+				updateMongoOptions.Project = "sf_" + updateMongoOptions.Project;
+
+			_mongoHelper = new MongoHelper(updateMongoOptions.Project, false, false);
+
+			for (var modelVersion = updateMongoOptions.MinModel;
+				modelVersion <= updateMongoOptions.MaxModel;
+				modelVersion++)
+			{
+				if (modelVersion == 7000071)
+					continue;
+
+				Console.WriteLine(
+					$"Restoring LanguageForge mongo data for model {modelVersion}");
+
+				_mongoHelper.RefreshPatches(modelVersion.ToString());
 			}
 		}
 
