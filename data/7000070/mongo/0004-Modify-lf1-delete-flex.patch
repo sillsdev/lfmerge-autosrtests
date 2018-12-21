@@ -1,113 +1,270 @@
-From ce0675ae1705cbc45c153f73435d6ccd45ab6c37 Mon Sep 17 00:00:00 2001
+From b7350f99b4147ed0323e6a19b7844c4ca20fe146 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Fri, 31 Mar 2017 20:10:58 +0200
+Date: Fri, 21 Dec 2018 18:18:00 +0000
 Subject: [PATCH] Modify lf1, delete flex
 
 ---
- sf_autosrtests.activity.json | 19 +++++++++++++++++++
- sf_autosrtests.json          |  6 +++---
- sf_autosrtests.lexicon.json  | 15 ++++++++-------
- 3 files changed, 30 insertions(+), 10 deletions(-)
+ sf_autosrtests.activity.json        | 45 +++++++++++------
+ sf_autosrtests.lexicon.json         | 15 +++---
+ sf_autosrtests.lexiconComments.json | 18 +++----
+ sf_autosrtests.optionlists.json     | 78 ++++++++++++++---------------
+ 4 files changed, 87 insertions(+), 69 deletions(-)
 
 diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
-index dc1b49c..7da85ed 100644
+index 5780be0..e875ce3 100644
 --- a/sf_autosrtests.activity.json
 +++ b/sf_autosrtests.activity.json
-@@ -57,3 +57,22 @@
- , "dateCreated" : { "$date" : "2017-02-23T17:41:58.581+0100" }
-  }
-
-+{ "_id" : { "$oid" : "58de9b8b6efc67597c2203b4" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1modified", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-03-31T20:10:19.000+0200" }
-+, "dateModified" : { "$date" : "2017-03-31T20:10:19.181+0200" }
-+, "dateCreated" : { "$date" : "2017-03-31T20:10:19.181+0200" }
-+ }
-+
-+{ "_id" : { "$oid" : "58de9b8d6efc67597c2203b5" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : null, "action" : "delete_entry", "actionContent" : { "project" : "autosrtests", "entry" : "flex" }
-+, "date" : { "$date" : "2017-03-31T20:10:21.000+0200" }
-+, "dateModified" : { "$date" : "2017-03-31T20:10:21.228+0200" }
-+, "dateCreated" : { "$date" : "2017-03-31T20:10:21.228+0200" }
-+ }
-+
-diff --git a/sf_autosrtests.json b/sf_autosrtests.json
-index 2135488..c10b7ba 100644
---- a/sf_autosrtests.json
-+++ b/sf_autosrtests.json
-@@ -10,7 +10,7 @@
- , "feedbackGroup" : { "name" : "Feedback Group", "items" : [], "defaultKey" : null }
-  }
- , "userProfilePropertiesEnabled" : [] }
--, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-22T16:26:00.962+0100" }
-+, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-31T20:10:19.166+0200" }
- , "dateCreated" : { "$date" : "2017-02-02T10:24:46.513+0100" }
- , "inputSystems" : { "en" : { "abbreviation" : "en", "tag" : "en", "languageName" : "English", "isRightToLeft" : false }
- , "fr" : { "abbreviation" : "fr", "tag" : "fr", "languageName" : "French", "isRightToLeft" : false }
-@@ -260,7 +260,7 @@
- , "userViews" : {}
-  }
- , "liftFilePath" : null, "sendReceiveProjectIdentifier" : "autosrtests", "sendReceiveProject" : { "name" : "autosrtests", "repository" : "http://public.languagedepot.org", "role" : "manager" }
--, "lastSyncedDate" : { "$date" : "2017-03-22T16:26:01.015+0100" }
--, "lastEntryModifiedDate" : { "$date" : "2017-02-02T15:21:58.010+0100" }
-+, "lastSyncedDate" : { "$date" : "2017-03-31T20:08:21.927+0200" }
-+, "lastEntryModifiedDate" : { "$date" : "2017-03-31T20:10:19.152+0200" }
- , "languageCode" : "fr" }
-
+@@ -7,6 +7,24 @@
+ ,"dateModified":{"$date":"2017-02-23T16:41:08.589Z"}
+ ,"dateCreated":{"$date":"2017-02-23T16:41:08.589Z"}
+ }
++{"_id":{"$oid":"58af10af6efc675e6e223201"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:19.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:19.553Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:19.553Z"}
++}
++{"_id":{"$oid":"58af10b96efc6752cf2db501"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:29.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:29.681Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:29.681Z"}
++}
+ {"_id":{"$oid":"588b76346efc670a0a280313"}
+ ,"projectRef":{"$oid":"588b76336efc670a0a280311"}
+ ,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+@@ -24,23 +42,14 @@
+ ,"dateModified":{"$date":"2017-02-23T16:40:52.214Z"}
+ ,"dateCreated":{"$date":"2017-02-23T16:40:52.214Z"}
+ }
+-{"_id":{"$oid":"58af10af6efc675e6e223201"}
++{"_id":{"$oid":"58de9b8b6efc67597c2203b4"}
+ ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+ ,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ ,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
+-,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
+-,"date":{"$date":"2017-02-23T16:41:19.000Z"}
+-,"dateModified":{"$date":"2017-02-23T16:41:19.553Z"}
+-,"dateCreated":{"$date":"2017-02-23T16:41:19.553Z"}
+-}
+-{"_id":{"$oid":"58af10b96efc6752cf2db501"}
+-,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+-,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
+-,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
+-,"date":{"$date":"2017-02-23T16:41:29.000Z"}
+-,"dateModified":{"$date":"2017-02-23T16:41:29.681Z"}
+-,"dateCreated":{"$date":"2017-02-23T16:41:29.681Z"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1modified","user":"eberhard"}
++,"date":{"$date":"2017-03-31T18:10:19.000Z"}
++,"dateModified":{"$date":"2017-03-31T18:10:19.181Z"}
++,"dateCreated":{"$date":"2017-03-31T18:10:19.181Z"}
+ }
+ {"_id":{"$oid":"58af10d66efc675e6d61ad21"}
+ ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+@@ -51,3 +60,11 @@
+ ,"dateModified":{"$date":"2017-02-23T16:41:58.581Z"}
+ ,"dateCreated":{"$date":"2017-02-23T16:41:58.581Z"}
+ }
++{"_id":{"$oid":"58de9b8d6efc67597c2203b5"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":null,"action":"delete_entry","actionContent":{"project":"autosrtests","entry":"flex"}
++,"date":{"$date":"2017-03-31T18:10:21.000Z"}
++,"dateModified":{"$date":"2017-03-31T18:10:21.228Z"}
++,"dateCreated":{"$date":"2017-03-31T18:10:21.228Z"}
++}
 diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
-index 23cd4b7..45f367b 100644
+index 4248629..c1f41bf 100644
 --- a/sf_autosrtests.lexicon.json
 +++ b/sf_autosrtests.lexicon.json
-@@ -1,5 +1,5 @@
- { "_id" : { "$oid" : "58af10946efc6752d24a25e1" }
--, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1" }
-+, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1modified" }
-  }
- , "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF" }
-  }
-@@ -57,7 +57,7 @@
-  ], "authorInfo" : { "createdByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
- , "createdDate" : { "$date" : "2017-02-23T17:40:52.081+0100" }
- , "modifiedByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
--, "modifiedDate" : { "$date" : "2017-02-23T17:41:58.537+0100" }
-+, "modifiedDate" : { "$date" : "2017-03-31T20:10:19.152+0200" }
-  }
- , "citationForm" : { "fr" : { "value" : "" }
-  }
-@@ -87,22 +87,23 @@
-  }
- , "summaryDefinition" : { "en" : { "value" : "" }
-  }
--, "dateModified" : { "$date" : "2017-02-23T17:41:58.551+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:10:19.166+0200" }
- , "dateCreated" : { "$date" : "2017-02-23T17:40:52.105+0100" }
-  }
-
- { "_id" : { "$oid" : "58d29789edc5a7eae53e13a4" }
--, "guid" : "759e6d95-31a0-441d-aa96-3dfd27aed25e", "liftId" : "flex_759e6d95-31a0-441d-aa96-3dfd27aed25e", "isDeleted" : false, "dateModified" : { "$date" : "2017-03-22T16:26:00.977+0100" }
-+, "guid" : "759e6d95-31a0-441d-aa96-3dfd27aed25e", "liftId" : "flex_759e6d95-31a0-441d-aa96-3dfd27aed25e", "isDeleted" : true, "dateModified" : { "$date" : "2017-03-31T20:10:21.219+0200" }
- , "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "flex" }
-  }
--, "senses" : [ { "id" : null, "liftId" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "guid" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "partOfSpeech" : { "value" : "adv1" }
--, "gloss" : { "en" : { "value" : "created in FLEx" }
-+, "senses" : [ { "liftId" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "guid" : "5ebbc60b-298b-4bd6-8025-2b08b74928d2", "gloss" : { "en" : { "value" : "created in FLEx" }
-  }
-+, "partOfSpeech" : { "value" : "adv1" }
-  }
-  ], "authorInfo" : { "createdByUserRef" : null, "createdDate" : { "$date" : "2017-03-14T18:45:38.975+0100" }
- , "modifiedByUserRef" : null, "modifiedDate" : { "$date" : "2017-03-14T18:45:38.975+0100" }
-  }
- , "customFields" : {}
- , "customFieldGuids" : {}
--, "morphologyType" : "stem", "pronunciationGuid" : "00000000-0000-0000-0000-000000000000" }
-+, "morphologyType" : "stem", "pronunciationGuid" : "00000000-0000-0000-0000-000000000000", "mercurialSha" : null, "dateCreated" : { "$date" : "2017-03-31T20:10:21.218+0200" }
-+ }
-
---
-2.11.0
+@@ -1,19 +1,20 @@
+ {"_id":{"$oid":"58d29789edc5a7eae53e13a4"}
+-,"guid":"759e6d95-31a0-441d-aa96-3dfd27aed25e","liftId":"flex_759e6d95-31a0-441d-aa96-3dfd27aed25e","isDeleted":false,"dateModified":{"$date":"2017-03-22T15:26:00.977Z"}
++,"guid":"759e6d95-31a0-441d-aa96-3dfd27aed25e","liftId":"flex_759e6d95-31a0-441d-aa96-3dfd27aed25e","isDeleted":true,"dateModified":{"$date":"2017-03-31T18:10:21.219Z"}
+ ,"dirtySR":0,"lexeme":{"fr":{"value":"flex"}
+ }
+-,"senses":[{"id":null,"liftId":"5ebbc60b-298b-4bd6-8025-2b08b74928d2","guid":"5ebbc60b-298b-4bd6-8025-2b08b74928d2","partOfSpeech":{"value":"adv1"}
+-,"gloss":{"en":{"value":"created in FLEx"}
++,"senses":[{"liftId":"5ebbc60b-298b-4bd6-8025-2b08b74928d2","guid":"5ebbc60b-298b-4bd6-8025-2b08b74928d2","gloss":{"en":{"value":"created in FLEx"}
+ }
++,"partOfSpeech":{"value":"adv1"}
+ }
+ ],"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-03-14T17:45:38.975Z"}
+ ,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-03-14T17:45:38.975Z"}
+ }
+ ,"customFields":{}
+ ,"customFieldGuids":{}
+-,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000"}
++,"morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","mercurialSha":null,"dateCreated":{"$date":"2017-03-31T18:10:21.218Z"}
++}
+ {"_id":{"$oid":"58af10946efc6752d24a25e1"}
+-,"isDeleted":false,"guid":"51fda335-51f1-46f5-abd1-9f9ce5e8f4df","dirtySR":0,"lexeme":{"fr":{"value":"lf1"}
++,"isDeleted":false,"guid":"51fda335-51f1-46f5-abd1-9f9ce5e8f4df","dirtySR":0,"lexeme":{"fr":{"value":"lf1modified"}
+ }
+ ,"senses":[{"liftId":null,"guid":"fcab1080-000b-4393-b95e-2631310d317d","definition":{"en":{"value":"Word added by LF"}
+ }
+@@ -71,7 +72,7 @@
+ ],"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+ ,"createdDate":{"$date":"2017-02-23T16:40:52.081Z"}
+ ,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"modifiedDate":{"$date":"2017-02-23T16:41:58.537Z"}
++,"modifiedDate":{"$date":"2017-03-31T18:10:19.152Z"}
+ }
+ ,"citationForm":{"fr":{"value":""}
+ }
+@@ -101,6 +102,6 @@
+ }
+ ,"summaryDefinition":{"en":{"value":""}
+ }
+-,"dateModified":{"$date":"2017-02-23T16:41:58.551Z"}
++,"dateModified":{"$date":"2017-03-31T18:10:19.166Z"}
+ ,"dateCreated":{"$date":"2017-02-23T16:40:52.105Z"}
+ }
+diff --git a/sf_autosrtests.lexiconComments.json b/sf_autosrtests.lexiconComments.json
+index 7b3830a..ed1713f 100644
+--- a/sf_autosrtests.lexiconComments.json
++++ b/sf_autosrtests.lexiconComments.json
+@@ -1,12 +1,3 @@
+-{"_id":{"$oid":"5c1d1db9231ba3104cd75a35"}
+-,"guid":"426c0168-59b8-4e20-ae77-5ce1825bae5d","authorInfo":{"createdDate":{"$date":"2018-12-21T17:06:51.000Z"}
+-,"modifiedDate":{"$date":"2018-12-21T17:06:51.000Z"}
+-}
+-,"authorNameAlternate":"merger","content":"Entry \"flexmodified\": Language Forge deleted this element, while eberhard edited it. The merger kept the change made by eberhard.","contextGuid":null,"dateCreated":{"$date":"2018-12-21T17:07:05.105Z"}
+-,"dateModified":{"$date":"2018-12-21T17:07:05.105Z"}
+-,"entryRef":{"$oid":"5c1d19b1231ba3104cd750f6"}
+-,"isDeleted":false,"regarding":{"targetGuid":"863d94c8-83ca-4748-8c9b-4730d704e10e","word":"flexmodified","meaning":"***"}
+-,"replies":[],"status":"open","statusGuid":"c59898ef-f1d4-4603-b0e6-c6ab38eee8ca"}
+ {"_id":{"$oid":"5c1d1db9231ba3104cd75a34"}
+ ,"guid":"be22068f-307d-4e78-a1b1-2a073e7e075b","authorInfo":{"createdDate":{"$date":"2018-12-21T17:06:51.000Z"}
+ ,"modifiedDate":{"$date":"2018-12-21T17:06:51.000Z"}
+@@ -16,3 +7,12 @@
+ ,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
+ ,"isDeleted":false,"regarding":{"targetGuid":"515442e1-d369-484a-a039-f05dfb8748c0","word":"lf1modified","meaning":"Word added by LF"}
+ ,"replies":[],"status":"open","statusGuid":"0fef9230-383c-4e00-8b30-2a609b3570a6"}
++{"_id":{"$oid":"5c1d1db9231ba3104cd75a35"}
++,"guid":"426c0168-59b8-4e20-ae77-5ce1825bae5d","authorInfo":{"createdDate":{"$date":"2018-12-21T17:06:51.000Z"}
++,"modifiedDate":{"$date":"2018-12-21T17:06:51.000Z"}
++}
++,"authorNameAlternate":"merger","content":"Entry \"flexmodified\": Language Forge deleted this element, while eberhard edited it. The merger kept the change made by eberhard.","contextGuid":null,"dateCreated":{"$date":"2018-12-21T17:07:05.105Z"}
++,"dateModified":{"$date":"2018-12-21T17:07:05.105Z"}
++,"entryRef":{"$oid":"5c1d19b1231ba3104cd750f6"}
++,"isDeleted":false,"regarding":{"targetGuid":"863d94c8-83ca-4748-8c9b-4730d704e10e","word":"flexmodified","meaning":"***"}
++,"replies":[],"status":"open","statusGuid":"c59898ef-f1d4-4603-b0e6-c6ab38eee8ca"}
+diff --git a/sf_autosrtests.optionlists.json b/sf_autosrtests.optionlists.json
+index 160d21d..5e05f58 100644
+--- a/sf_autosrtests.optionlists.json
++++ b/sf_autosrtests.optionlists.json
+@@ -1,7 +1,3 @@
+-{"_id":{"$oid":"58d29788edc5a7eae53e139f"}
+-,"code":"location","name":"Location","dateCreated":{"$date":"2017-03-22T15:26:00.875Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.875Z"}
+-,"items":[],"canDelete":false}
+ {"_id":{"$oid":"588b76336efc670a0a280312"}
+ ,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
+ ,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
+@@ -11,10 +7,20 @@
+ ],"canDelete":false,"dateModified":{"$date":"2017-03-22T15:26:00.440Z"}
+ ,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
+ }
++{"_id":{"$oid":"58d29788edc5a7eae53e139f"}
++,"code":"location","name":"Location","dateCreated":{"$date":"2017-03-22T15:26:00.875Z"}
++,"dateModified":{"$date":"2017-03-22T15:26:00.875Z"}
++,"items":[],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e13a2"}
+ ,"code":"anthro-code","name":"Anthropology Categories","dateCreated":{"$date":"2017-03-22T15:26:00.882Z"}
+ ,"dateModified":{"$date":"2017-03-22T15:26:00.882Z"}
+ ,"items":[],"canDelete":false}
++{"_id":{"$oid":"58d29788edc5a7eae53e13a1"}
++,"code":"sense-type","name":"Type","dateCreated":{"$date":"2017-03-22T15:26:00.880Z"}
++,"dateModified":{"$date":"2017-03-22T15:26:00.881Z"}
++,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
++,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
++],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e13a3"}
+ ,"code":"status","name":"Status","dateCreated":{"$date":"2017-03-22T15:26:00.883Z"}
+ ,"dateModified":{"$date":"2017-03-22T15:26:00.886Z"}
+@@ -23,11 +29,35 @@
+ ,{"guid":"bd964254-ea5e-11de-8cdf-0013722f8dec","key":"Pend","value":"Pending","abbreviation":"Pend"}
+ ,{"guid":"b098623a-ea5e-11de-8126-0013722f8dec","key":"Tent","value":"Tentative","abbreviation":"Tent"}
+ ],"canDelete":false}
+-{"_id":{"$oid":"58d29788edc5a7eae53e13a1"}
+-,"code":"sense-type","name":"Type","dateCreated":{"$date":"2017-03-22T15:26:00.880Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.881Z"}
+-,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
+-,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
++{"_id":{"$oid":"58d29788edc5a7eae53e13a0"}
++,"code":"usage-type","name":"Usages","dateCreated":{"$date":"2017-03-22T15:26:00.876Z"}
++,"dateModified":{"$date":"2017-03-22T15:26:00.879Z"}
++,"items":[{"guid":"af600fb2-ea5e-11de-82b5-0013722f8dec","key":"arch","value":"archaic","abbreviation":"arch"}
++,{"guid":"af699910-ea5e-11de-8d20-0013722f8dec","key":"col","value":"colloquial","abbreviation":"col"}
++,{"guid":"af7584c8-ea5e-11de-82a4-0013722f8dec","key":"form","value":"formal","abbreviation":"form"}
++,{"guid":"af817076-ea5e-11de-9a46-0013722f8dec","key":"hist","value":"historical","abbreviation":"hist"}
++,{"guid":"af8af9d4-ea5e-11de-932a-0013722f8dec","key":"hon","value":"honorific","abbreviation":"hon"}
++,{"guid":"af96e582-ea5e-11de-910f-0013722f8dec","key":"inform","value":"informal","abbreviation":"inform"}
++,{"guid":"afa2d13a-ea5e-11de-94da-0013722f8dec","key":"non std","value":"non-standard","abbreviation":"non std"}
++,{"guid":"afaebce8-ea5e-11de-97b5-0013722f8dec","key":"obso","value":"obsolete","abbreviation":"obso"}
++,{"guid":"afb84646-ea5e-11de-94e6-0013722f8dec","key":"oldfash","value":"old-fashioned","abbreviation":"oldfash"}
++,{"guid":"afc431fe-ea5e-11de-8921-0013722f8dec","key":"rare","value":"rare","abbreviation":"rare"}
++,{"guid":"afd01dac-ea5e-11de-9787-0013722f8dec","key":"reg","value":"register","abbreviation":"reg"}
++,{"guid":"afd9a70a-ea5e-11de-9e37-0013722f8dec","key":"bas reg","value":"basic","abbreviation":"bas reg"}
++,{"guid":"afe592c2-ea5e-11de-9d77-0013722f8dec","key":"hi reg","value":"high","abbreviation":"hi reg"}
++,{"guid":"aff17e70-ea5e-11de-94be-0013722f8dec","key":"low reg","value":"low","abbreviation":"low reg"}
++,{"guid":"affb07ce-ea5e-11de-997d-0013722f8dec","key":"mid reg","value":"mid","abbreviation":"mid reg"}
++,{"guid":"b006f37c-ea5e-11de-8cd8-0013722f8dec","key":"rest","value":"restrictive","abbreviation":"rest"}
++,{"guid":"b012df34-ea5e-11de-833e-0013722f8dec","key":"anml","value":"animal","abbreviation":"anml"}
++,{"guid":"b01c6892-ea5e-11de-9e52-0013722f8dec","key":"hum","value":"human","abbreviation":"hum"}
++,{"guid":"b0285440-ea5e-11de-894b-0013722f8dec","key":"f","value":"female","abbreviation":"f"}
++,{"guid":"b0343ff8-ea5e-11de-9132-0013722f8dec","key":"m","value":"male","abbreviation":"m"}
++,{"guid":"b03dc94c-ea5e-11de-87b4-0013722f8dec","key":"sib","value":"same sex sibling","abbreviation":"sib"}
++,{"guid":"b049b504-ea5e-11de-9bb7-0013722f8dec","key":"obsc","value":"obscene","abbreviation":"obsc"}
++,{"guid":"b055a0b2-ea5e-11de-9b16-0013722f8dec","key":"off","value":"offensive","abbreviation":"off"}
++,{"guid":"b05f2a10-ea5e-11de-8593-0013722f8dec","key":"tab","value":"taboo","abbreviation":"tab"}
++,{"guid":"b06b15c8-ea5e-11de-8d8b-0013722f8dec","key":"slg","value":"slang","abbreviation":"slg"}
++,{"guid":"b0770176-ea5e-11de-88f6-0013722f8dec","key":"trad","value":"traditional","abbreviation":"trad"}
+ ],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e139e"}
+ ,"code":"domain-type","name":"Academic Domains","dateCreated":{"$date":"2017-03-22T15:26:00.863Z"}
+@@ -88,33 +118,3 @@
+ ,{"guid":"b2fd1b92-ea5e-11de-8fa9-0013722f8dec","key":"Socio","value":"sociology","abbreviation":"Socio"}
+ ,{"guid":"b3090740-ea5e-11de-901c-0013722f8dec","key":"Trans","value":"translation","abbreviation":"Trans"}
+ ],"canDelete":false}
+-{"_id":{"$oid":"58d29788edc5a7eae53e13a0"}
+-,"code":"usage-type","name":"Usages","dateCreated":{"$date":"2017-03-22T15:26:00.876Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.879Z"}
+-,"items":[{"guid":"af600fb2-ea5e-11de-82b5-0013722f8dec","key":"arch","value":"archaic","abbreviation":"arch"}
+-,{"guid":"af699910-ea5e-11de-8d20-0013722f8dec","key":"col","value":"colloquial","abbreviation":"col"}
+-,{"guid":"af7584c8-ea5e-11de-82a4-0013722f8dec","key":"form","value":"formal","abbreviation":"form"}
+-,{"guid":"af817076-ea5e-11de-9a46-0013722f8dec","key":"hist","value":"historical","abbreviation":"hist"}
+-,{"guid":"af8af9d4-ea5e-11de-932a-0013722f8dec","key":"hon","value":"honorific","abbreviation":"hon"}
+-,{"guid":"af96e582-ea5e-11de-910f-0013722f8dec","key":"inform","value":"informal","abbreviation":"inform"}
+-,{"guid":"afa2d13a-ea5e-11de-94da-0013722f8dec","key":"non std","value":"non-standard","abbreviation":"non std"}
+-,{"guid":"afaebce8-ea5e-11de-97b5-0013722f8dec","key":"obso","value":"obsolete","abbreviation":"obso"}
+-,{"guid":"afb84646-ea5e-11de-94e6-0013722f8dec","key":"oldfash","value":"old-fashioned","abbreviation":"oldfash"}
+-,{"guid":"afc431fe-ea5e-11de-8921-0013722f8dec","key":"rare","value":"rare","abbreviation":"rare"}
+-,{"guid":"afd01dac-ea5e-11de-9787-0013722f8dec","key":"reg","value":"register","abbreviation":"reg"}
+-,{"guid":"afd9a70a-ea5e-11de-9e37-0013722f8dec","key":"bas reg","value":"basic","abbreviation":"bas reg"}
+-,{"guid":"afe592c2-ea5e-11de-9d77-0013722f8dec","key":"hi reg","value":"high","abbreviation":"hi reg"}
+-,{"guid":"aff17e70-ea5e-11de-94be-0013722f8dec","key":"low reg","value":"low","abbreviation":"low reg"}
+-,{"guid":"affb07ce-ea5e-11de-997d-0013722f8dec","key":"mid reg","value":"mid","abbreviation":"mid reg"}
+-,{"guid":"b006f37c-ea5e-11de-8cd8-0013722f8dec","key":"rest","value":"restrictive","abbreviation":"rest"}
+-,{"guid":"b012df34-ea5e-11de-833e-0013722f8dec","key":"anml","value":"animal","abbreviation":"anml"}
+-,{"guid":"b01c6892-ea5e-11de-9e52-0013722f8dec","key":"hum","value":"human","abbreviation":"hum"}
+-,{"guid":"b0285440-ea5e-11de-894b-0013722f8dec","key":"f","value":"female","abbreviation":"f"}
+-,{"guid":"b0343ff8-ea5e-11de-9132-0013722f8dec","key":"m","value":"male","abbreviation":"m"}
+-,{"guid":"b03dc94c-ea5e-11de-87b4-0013722f8dec","key":"sib","value":"same sex sibling","abbreviation":"sib"}
+-,{"guid":"b049b504-ea5e-11de-9bb7-0013722f8dec","key":"obsc","value":"obscene","abbreviation":"obsc"}
+-,{"guid":"b055a0b2-ea5e-11de-9b16-0013722f8dec","key":"off","value":"offensive","abbreviation":"off"}
+-,{"guid":"b05f2a10-ea5e-11de-8593-0013722f8dec","key":"tab","value":"taboo","abbreviation":"tab"}
+-,{"guid":"b06b15c8-ea5e-11de-8d8b-0013722f8dec","key":"slg","value":"slang","abbreviation":"slg"}
+-,{"guid":"b0770176-ea5e-11de-88f6-0013722f8dec","key":"trad","value":"traditional","abbreviation":"trad"}
+-],"canDelete":false}
+-- 
+2.20.1
 

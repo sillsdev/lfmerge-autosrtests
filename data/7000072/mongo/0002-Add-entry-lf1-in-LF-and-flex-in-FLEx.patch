@@ -1,17 +1,16 @@
-From 9fec3b719f40d4c7323cde34f26e175e4df878b0 Mon Sep 17 00:00:00 2001
+From f3404a3fed6a45efb616221f98e354f9cbb937f5 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Fri, 21 Dec 2018 16:49:22 +0000
+Date: Fri, 21 Dec 2018 18:18:04 +0000
 Subject: [PATCH] Add entry lf1 in LF and flex in FLEx
 
 ---
  sf_autosrtests.activity.json    | 36 +++++++++++++++++++++++++++++++++
- sf_autosrtests.json             |  6 +++---
  sf_autosrtests.lexicon.json     | 26 ++++++++++++++++++++++++
- sf_autosrtests.optionlists.json |  8 ++++----
- 4 files changed, 69 insertions(+), 7 deletions(-)
+ sf_autosrtests.optionlists.json | 26 ++++++++++++------------
+ 3 files changed, 75 insertions(+), 13 deletions(-)
 
 diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
-index c93d9cb..2b12950 100644
+index c93d9cb..cd439f9 100644
 --- a/sf_autosrtests.activity.json
 +++ b/sf_autosrtests.activity.json
 @@ -6,3 +6,39 @@
@@ -23,6 +22,15 @@ index c93d9cb..2b12950 100644
 +,"date":{"$date":"2018-12-21T16:48:36.000Z"}
 +,"dateCreated":{"$date":"2018-12-21T16:48:36.384Z"}
 +,"dateModified":{"$date":"2018-12-21T16:48:36.384Z"}
++,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++}
++{"_id":{"$oid":"5c1d19896efc672eaf17e1b2"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"This is an example","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"Translation"}
++,"date":{"$date":"2018-12-21T16:49:13.000Z"}
++,"dateCreated":{"$date":"2018-12-21T16:49:13.925Z"}
++,"dateModified":{"$date":"2018-12-21T16:49:13.925Z"}
 +,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
 +,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
 +,"userRef":{"$oid":"582358be6efc6721d57eb451"}
@@ -45,37 +53,6 @@ index c93d9cb..2b12950 100644
 +,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
 +,"userRef":{"$oid":"582358be6efc6721d57eb451"}
 +}
-+{"_id":{"$oid":"5c1d19896efc672eaf17e1b2"}
-+,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"This is an example","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"Translation"}
-+,"date":{"$date":"2018-12-21T16:49:13.000Z"}
-+,"dateCreated":{"$date":"2018-12-21T16:49:13.925Z"}
-+,"dateModified":{"$date":"2018-12-21T16:49:13.925Z"}
-+,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
-+,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
-+,"userRef":{"$oid":"582358be6efc6721d57eb451"}
-+}
-diff --git a/sf_autosrtests.json b/sf_autosrtests.json
-index 5d92d63..77060ae 100644
---- a/sf_autosrtests.json
-+++ b/sf_autosrtests.json
-@@ -9,7 +9,7 @@
- ,"feedbackGroup":{"name":"Feedback Group"}
- }
- }
--,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2018-12-21T15:23:55.473Z"}
-+,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2018-12-21T16:49:13.909Z"}
- ,"dateCreated":{"$date":"2017-02-02T09:24:46.513Z"}
- ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
- ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
-@@ -258,6 +258,6 @@
- }
- }
- ,"sendReceiveProjectIdentifier":"autosrtests","sendReceiveProject":{"name":"autosrtests","repository":"http://public.languagedepot.org","role":"manager"}
--,"lastSyncedDate":{"$date":"2018-12-21T15:23:55.628Z"}
--,"lastEntryModifiedDate":{"$date":"2018-12-21T12:13:48.849Z"}
-+,"lastSyncedDate":{"$date":"2018-12-21T16:28:49.827Z"}
-+,"lastEntryModifiedDate":{"$date":"2018-12-21T16:49:13.895Z"}
- ,"languageCode":"fr"}
 diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
 index e69de29..452e764 100644
 --- a/sf_autosrtests.lexicon.json
@@ -108,10 +85,10 @@ index e69de29..452e764 100644
 +}
 +]}
 diff --git a/sf_autosrtests.optionlists.json b/sf_autosrtests.optionlists.json
-index 80853ec..237bc65 100644
+index 73d74a2..c9b1cc1 100644
 --- a/sf_autosrtests.optionlists.json
 +++ b/sf_autosrtests.optionlists.json
-@@ -2,10 +2,6 @@
+@@ -2,10 +2,15 @@
  ,"code":"location","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.122Z"}
  ,"dateModified":{"$date":"2018-12-21T15:19:13.122Z"}
  ,"items":[],"name":"Location"}
@@ -119,13 +96,31 @@ index 80853ec..237bc65 100644
 -,"code":"anthro-code","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.127Z"}
 -,"dateModified":{"$date":"2018-12-21T15:19:13.127Z"}
 -,"items":[],"name":"Anthropology Categories"}
- {"_id":{"$oid":"5c1d0471231ba3104cd7263b"}
- ,"code":"status","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.129Z"}
- ,"dateModified":{"$date":"2018-12-21T15:19:13.129Z"}
-@@ -29,6 +25,10 @@
- ],"canDelete":false,"dateModified":{"$date":"2018-12-21T15:19:12.841Z"}
- ,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
- }
++{"_id":{"$oid":"588b76336efc670a0a280312"}
++,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
++,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
++,{"guid":"a4fc78d6-7591-4fb3-8edd-82f10ae3739d","key":"pro-form","value":"Pro-form","abbreviation":"pro-form"}
++,{"guid":"a3274cfd-225f-45fd-8851-a7b1a1e1037a","key":"pro1","value":"Pronoun","abbreviation":"pro"}
++,{"guid":"86ff66f6-0774-407a-a0dc-3eeaf873daf7","key":"v1","value":"Verb","abbreviation":"v"}
++],"canDelete":false,"dateModified":{"$date":"2018-12-21T15:19:12.841Z"}
++,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
++}
+ {"_id":{"$oid":"5c1d0471231ba3104cd72635"}
+ ,"code":"sense-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.126Z"}
+ ,"dateModified":{"$date":"2018-12-21T15:19:13.126Z"}
+@@ -20,15 +25,10 @@
+ ,{"guid":"bd964254-ea5e-11de-8cdf-0013722f8dec","key":"Pend","value":"Pending","abbreviation":"Pend"}
+ ,{"guid":"b098623a-ea5e-11de-8126-0013722f8dec","key":"Tent","value":"Tentative","abbreviation":"Tent"}
+ ],"name":"Status"}
+-{"_id":{"$oid":"588b76336efc670a0a280312"}
+-,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
+-,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
+-,{"guid":"a4fc78d6-7591-4fb3-8edd-82f10ae3739d","key":"pro-form","value":"Pro-form","abbreviation":"pro-form"}
+-,{"guid":"a3274cfd-225f-45fd-8851-a7b1a1e1037a","key":"pro1","value":"Pronoun","abbreviation":"pro"}
+-,{"guid":"86ff66f6-0774-407a-a0dc-3eeaf873daf7","key":"v1","value":"Verb","abbreviation":"v"}
+-],"canDelete":false,"dateModified":{"$date":"2018-12-21T15:19:12.841Z"}
+-,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
+-}
 +{"_id":{"$oid":"5c1d0471231ba3104cd72638"}
 +,"code":"anthro-code","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.127Z"}
 +,"dateModified":{"$date":"2018-12-21T15:19:13.127Z"}

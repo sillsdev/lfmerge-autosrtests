@@ -1,169 +1,163 @@
-From a8e1b96d77e3d69d8023203d69f25e26cdc1f79d Mon Sep 17 00:00:00 2001
+From aa0a0932ca825663cbe56b1a9928b5ae2e32a4e3 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Mon, 20 Mar 2017 18:16:04 +0100
+Date: Fri, 21 Dec 2018 18:17:51 +0000
 Subject: [PATCH] Add entry lf1 in LF
 
 ---
- sf_autosrtests.activity.json | 50 ++++++++++++++++++++++++
- sf_autosrtests.lexicon.json  | 93 ++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 143 insertions(+)
+ sf_autosrtests.activity.json | 45 ++++++++++++++++++
+ sf_autosrtests.lexicon.json  | 92 ++++++++++++++++++++++++++++++++++++
+ 2 files changed, 137 insertions(+)
 
 diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
-index 81d7ed9..dc1b49c 100644
+index c93d9cb..f9befc2 100644
 --- a/sf_autosrtests.activity.json
 +++ b/sf_autosrtests.activity.json
-@@ -7,3 +7,53 @@
- , "dateCreated" : { "$date" : "2017-01-27T17:32:52.250+0100" }
-  }
- 
-+{ "_id" : { "$oid" : "58af10946efc6752d24a25e2" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "add_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-02-23T17:40:52.000+0100" }
-+, "dateModified" : { "$date" : "2017-02-23T17:40:52.214+0100" }
-+, "dateCreated" : { "$date" : "2017-02-23T17:40:52.214+0100" }
-+ }
-+
-+{ "_id" : { "$oid" : "58af10a46efc6757476a6db1" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-02-23T17:41:08.000+0100" }
-+, "dateModified" : { "$date" : "2017-02-23T17:41:08.589+0100" }
-+, "dateCreated" : { "$date" : "2017-02-23T17:41:08.589+0100" }
-+ }
-+
-+{ "_id" : { "$oid" : "58af10af6efc675e6e223201" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-02-23T17:41:19.000+0100" }
-+, "dateModified" : { "$date" : "2017-02-23T17:41:19.553+0100" }
-+, "dateCreated" : { "$date" : "2017-02-23T17:41:19.553+0100" }
-+ }
-+
-+{ "_id" : { "$oid" : "58af10b96efc6752cf2db501" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-02-23T17:41:29.000+0100" }
-+, "dateModified" : { "$date" : "2017-02-23T17:41:29.681+0100" }
-+, "dateCreated" : { "$date" : "2017-02-23T17:41:29.681+0100" }
-+ }
-+
-+{ "_id" : { "$oid" : "58af10d66efc675e6d61ad21" }
-+, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
-+, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
-+, "date" : { "$date" : "2017-02-23T17:41:58.000+0100" }
-+, "dateModified" : { "$date" : "2017-02-23T17:41:58.581+0100" }
-+, "dateCreated" : { "$date" : "2017-02-23T17:41:58.581+0100" }
-+ }
-+
+@@ -6,3 +6,48 @@
+ ,"dateModified":{"$date":"2017-01-27T16:32:52.250Z"}
+ ,"dateCreated":{"$date":"2017-01-27T16:32:52.250Z"}
+ }
++{"_id":{"$oid":"58af10d66efc675e6d61ad21"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:58.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:58.581Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:58.581Z"}
++}
++{"_id":{"$oid":"58af10af6efc675e6e223201"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:19.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:19.553Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:19.553Z"}
++}
++{"_id":{"$oid":"58af10b96efc6752cf2db501"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:29.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:29.681Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:29.681Z"}
++}
++{"_id":{"$oid":"58af10a46efc6757476a6db1"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:08.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:08.589Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:08.589Z"}
++}
++{"_id":{"$oid":"58af10946efc6752d24a25e2"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"add_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:40:52.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:40:52.214Z"}
++,"dateCreated":{"$date":"2017-02-23T16:40:52.214Z"}
++}
 diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
-index e69de29..47a4825 100644
+index e69de29..55c5c42 100644
 --- a/sf_autosrtests.lexicon.json
 +++ b/sf_autosrtests.lexicon.json
-@@ -0,0 +1,93 @@
-+{ "_id" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1" }
-+ }
-+, "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF" }
-+ }
-+, "gloss" : { "en" : { "value" : "" }
-+ }
-+, "pictures" : [], "partOfSpeech" : { "value" : "n" }
-+, "semanticDomain" : { "values" : [ "1.1" ] }
-+, "examples" : [ { "liftId" : null, "sentence" : { "fr" : { "value" : "C'est un exemple" }
-+ }
-+, "translation" : { "en" : { "value" : "This is an example" }
-+ }
-+, "translationGuid" : "ddd97247-9184-4c59-b1c4-2c816f51ae9d", "customFields" : {}
-+, "authorInfo" : { "createdByUserRef" : null, "createdDate" : { "$date" : "2017-02-23T17:41:29.664+0100" }
-+, "modifiedByUserRef" : null, "modifiedDate" : { "$date" : "2017-02-23T17:41:29.664+0100" }
-+ }
-+, "guid" : "02544948-0bba-4034-8978-a72464955177", "reference" : { "en" : { "value" : "" }
-+ }
-+ }
-+ ], "customFields" : {}
-+, "authorInfo" : { "createdByUserRef" : null, "createdDate" : { "$date" : "2017-02-23T17:41:08.540+0100" }
-+, "modifiedByUserRef" : null, "modifiedDate" : { "$date" : "2017-02-23T17:41:08.540+0100" }
-+ }
-+, "scientificName" : { "en" : { "value" : "" }
-+ }
-+, "anthropologyNote" : { "en" : { "value" : "" }
-+ }
-+, "senseBibliography" : { "en" : { "value" : "" }
-+ }
-+, "discourseNote" : { "en" : { "value" : "" }
-+ }
-+, "encyclopedicNote" : { "en" : { "value" : "" }
-+ }
-+, "generalNote" : { "en" : { "value" : "" }
-+ }
-+, "grammarNote" : { "en" : { "value" : "" }
-+ }
-+, "phonologyNote" : { "en" : { "value" : "" }
-+ }
-+, "senseRestrictions" : { "en" : { "value" : "" }
-+ }
-+, "semanticsNote" : { "en" : { "value" : "" }
-+ }
-+, "sociolinguisticsNote" : { "en" : { "value" : "" }
-+ }
-+, "source" : { "en" : { "value" : "" }
-+ }
-+, "usages" : { "values" : [] }
-+, "senseType" : { "value" : "" }
-+, "academicDomains" : { "values" : [] }
-+, "anthropologyCategories" : { "values" : [] }
-+, "senseImportResidue" : { "en" : { "value" : "" }
-+ }
-+, "status" : { "values" : [] }
-+ }
-+ ], "authorInfo" : { "createdByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "createdDate" : { "$date" : "2017-02-23T17:40:52.081+0100" }
-+, "modifiedByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }
-+, "modifiedDate" : { "$date" : "2017-02-23T17:41:58.537+0100" }
-+ }
-+, "citationForm" : { "fr" : { "value" : "" }
-+ }
-+, "customFields" : {}
-+, "entryBibliography" : { "en" : { "value" : "" }
-+ }
-+, "entryRestrictions" : { "en" : { "value" : "" }
-+ }
-+, "etymology" : { "fr" : { "value" : "" }
-+ }
-+, "etymologyGloss" : { "en" : { "value" : "" }
-+ }
-+, "etymologyComment" : { "en" : { "value" : "" }
-+ }
-+, "etymologySource" : { "en" : { "value" : "" }
-+ }
-+, "literalMeaning" : { "en" : { "value" : "" }
-+ }
-+, "location" : { "value" : "" }
-+, "mercurialSha" : null, "note" : { "en" : { "value" : "" }
-+ }
-+, "pronunciation" : { "fr" : { "value" : "" }
-+ }
-+, "cvPattern" : { "en" : { "value" : "" }
-+ }
-+, "tone" : { "en" : { "value" : "" }
-+ }
-+, "summaryDefinition" : { "en" : { "value" : "" }
-+ }
-+, "dateModified" : { "$date" : "2017-02-23T17:41:58.551+0100" }
-+, "dateCreated" : { "$date" : "2017-02-23T17:40:52.105+0100" }
-+ }
-+
+@@ -0,0 +1,92 @@
++{"_id":{"$oid":"58af10946efc6752d24a25e1"}
++,"isDeleted":false,"guid":"51fda335-51f1-46f5-abd1-9f9ce5e8f4df","dirtySR":0,"lexeme":{"fr":{"value":"lf1"}
++}
++,"senses":[{"liftId":null,"guid":"fcab1080-000b-4393-b95e-2631310d317d","definition":{"en":{"value":"Word added by LF"}
++}
++,"gloss":{"en":{"value":""}
++}
++,"pictures":[],"partOfSpeech":{"value":"n"}
++,"semanticDomain":{"values":["1.1"]}
++,"examples":[{"liftId":null,"sentence":{"fr":{"value":"C'est un exemple"}
++}
++,"translation":{"en":{"value":"This is an example"}
++}
++,"translationGuid":"ddd97247-9184-4c59-b1c4-2c816f51ae9d","customFields":{}
++,"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-02-23T16:41:29.664Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-02-23T16:41:29.664Z"}
++}
++,"guid":"02544948-0bba-4034-8978-a72464955177","reference":{"en":{"value":""}
++}
++}
++],"customFields":{}
++,"authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2017-02-23T16:41:08.540Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2017-02-23T16:41:08.540Z"}
++}
++,"scientificName":{"en":{"value":""}
++}
++,"anthropologyNote":{"en":{"value":""}
++}
++,"senseBibliography":{"en":{"value":""}
++}
++,"discourseNote":{"en":{"value":""}
++}
++,"encyclopedicNote":{"en":{"value":""}
++}
++,"generalNote":{"en":{"value":""}
++}
++,"grammarNote":{"en":{"value":""}
++}
++,"phonologyNote":{"en":{"value":""}
++}
++,"senseRestrictions":{"en":{"value":""}
++}
++,"semanticsNote":{"en":{"value":""}
++}
++,"sociolinguisticsNote":{"en":{"value":""}
++}
++,"source":{"en":{"value":""}
++}
++,"usages":{"values":[]}
++,"senseType":{"value":""}
++,"academicDomains":{"values":[]}
++,"anthropologyCategories":{"values":[]}
++,"senseImportResidue":{"en":{"value":""}
++}
++,"status":{"values":[]}
++}
++],"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"createdDate":{"$date":"2017-02-23T16:40:52.081Z"}
++,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"modifiedDate":{"$date":"2017-02-23T16:41:58.537Z"}
++}
++,"citationForm":{"fr":{"value":""}
++}
++,"customFields":{}
++,"entryBibliography":{"en":{"value":""}
++}
++,"entryRestrictions":{"en":{"value":""}
++}
++,"etymology":{"fr":{"value":""}
++}
++,"etymologyGloss":{"en":{"value":""}
++}
++,"etymologyComment":{"en":{"value":""}
++}
++,"etymologySource":{"en":{"value":""}
++}
++,"literalMeaning":{"en":{"value":""}
++}
++,"location":{"value":""}
++,"mercurialSha":null,"note":{"en":{"value":""}
++}
++,"pronunciation":{"fr":{"value":""}
++}
++,"cvPattern":{"en":{"value":""}
++}
++,"tone":{"en":{"value":""}
++}
++,"summaryDefinition":{"en":{"value":""}
++}
++,"dateModified":{"$date":"2017-02-23T16:41:58.551Z"}
++,"dateCreated":{"$date":"2017-02-23T16:40:52.105Z"}
++}
 -- 
-2.11.0
+2.20.1
 

@@ -1,17 +1,16 @@
-From a78a6dce3187cef6036a558dc8c0996234d03d50 Mon Sep 17 00:00:00 2001
+From e3ce31681ad920adee55f5499c52f7f2076aec27 Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Fri, 21 Dec 2018 16:49:54 +0000
+Date: Fri, 21 Dec 2018 18:18:05 +0000
 Subject: [PATCH] Add entry lf1 in LF and flex in FLEx
 
 ---
  sf_autosrtests.activity.json    | 34 ++++++++++++++++-----------------
- sf_autosrtests.json             |  4 ++--
  sf_autosrtests.lexicon.json     | 14 ++++++++++++++
- sf_autosrtests.optionlists.json | 20 +++++++++----------
- 4 files changed, 43 insertions(+), 29 deletions(-)
+ sf_autosrtests.optionlists.json | 26 ++++++++++++-------------
+ 3 files changed, 44 insertions(+), 30 deletions(-)
 
 diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
-index 2b12950..4c18e52 100644
+index cd439f9..5610da8 100644
 --- a/sf_autosrtests.activity.json
 +++ b/sf_autosrtests.activity.json
 @@ -1,11 +1,3 @@
@@ -26,26 +25,35 @@ index 2b12950..4c18e52 100644
  {"_id":{"$oid":"5c1d19646efc673cba7ce325"}
  ,"action":"add_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test"}
  ,"date":{"$date":"2018-12-21T16:48:36.000Z"}
-@@ -24,15 +16,6 @@
+@@ -15,15 +7,6 @@
  ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
  ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
  }
--{"_id":{"$oid":"5c1d19826efc6749cc2ebe9a"}
--,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___sentence___DOT___fr":"C'est un exemple","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___sentence___DOT___fr":"Sentence"}
--,"date":{"$date":"2018-12-21T16:49:06.000Z"}
--,"dateCreated":{"$date":"2018-12-21T16:49:06.671Z"}
--,"dateModified":{"$date":"2018-12-21T16:49:06.671Z"}
+-{"_id":{"$oid":"5c1d19896efc672eaf17e1b2"}
+-,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"This is an example","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"Translation"}
+-,"date":{"$date":"2018-12-21T16:49:13.000Z"}
+-,"dateCreated":{"$date":"2018-12-21T16:49:13.925Z"}
+-,"dateModified":{"$date":"2018-12-21T16:49:13.925Z"}
 -,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
 -,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
 -,"userRef":{"$oid":"582358be6efc6721d57eb451"}
 -}
- {"_id":{"$oid":"5c1d19896efc672eaf17e1b2"}
- ,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"This is an example","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"Translation"}
- ,"date":{"$date":"2018-12-21T16:49:13.000Z"}
+ {"_id":{"$oid":"5c1d19786efc673d0202da42"}
+ ,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___partOfSpeech":"n1","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___definition___DOT___en":"Word added by LF","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___partOfSpeech":"Part of Speech","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___definition___DOT___en":"Definition"}
+ ,"date":{"$date":"2018-12-21T16:48:56.000Z"}
 @@ -42,3 +25,20 @@
  ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
  ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
  }
++{"_id":{"$oid":"5c1d19896efc672eaf17e1b2"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"This is an example","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___translation___DOT___en":"Translation"}
++,"date":{"$date":"2018-12-21T16:49:13.000Z"}
++,"dateCreated":{"$date":"2018-12-21T16:49:13.925Z"}
++,"dateModified":{"$date":"2018-12-21T16:49:13.925Z"}
++,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++}
 +{"_id":{"$oid":"588b76346efc670a0a280313"}
 +,"projectRef":{"$oid":"588b76336efc670a0a280311"}
 +,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
@@ -54,36 +62,6 @@ index 2b12950..4c18e52 100644
 +,"dateModified":{"$date":"2017-01-27T16:32:52.250Z"}
 +,"dateCreated":{"$date":"2017-01-27T16:32:52.250Z"}
 +}
-+{"_id":{"$oid":"5c1d19826efc6749cc2ebe9a"}
-+,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"test","newValue___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___sentence___DOT___fr":"C'est un exemple","fieldLabel___DOT___senses@0#713cdbac-47f6-4bf9-9a11-2290e415ef3d___DOT___examples@0#2201a920-8793-417c-b40e-9b36690fb22b___DOT___sentence___DOT___fr":"Sentence"}
-+,"date":{"$date":"2018-12-21T16:49:06.000Z"}
-+,"dateCreated":{"$date":"2018-12-21T16:49:06.671Z"}
-+,"dateModified":{"$date":"2018-12-21T16:49:06.671Z"}
-+,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
-+,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
-+,"userRef":{"$oid":"582358be6efc6721d57eb451"}
-+}
-diff --git a/sf_autosrtests.json b/sf_autosrtests.json
-index 77060ae..48ad45f 100644
---- a/sf_autosrtests.json
-+++ b/sf_autosrtests.json
-@@ -9,7 +9,7 @@
- ,"feedbackGroup":{"name":"Feedback Group"}
- }
- }
--,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2018-12-21T16:49:13.909Z"}
-+,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2018-12-21T16:49:53.502Z"}
- ,"dateCreated":{"$date":"2017-02-02T09:24:46.513Z"}
- ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
- ,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
-@@ -258,6 +258,6 @@
- }
- }
- ,"sendReceiveProjectIdentifier":"autosrtests","sendReceiveProject":{"name":"autosrtests","repository":"http://public.languagedepot.org","role":"manager"}
--,"lastSyncedDate":{"$date":"2018-12-21T16:28:49.827Z"}
-+,"lastSyncedDate":{"$date":"2018-12-21T16:49:53.711Z"}
- ,"lastEntryModifiedDate":{"$date":"2018-12-21T16:49:13.895Z"}
- ,"languageCode":"fr"}
 diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
 index 452e764..d5963fe 100644
 --- a/sf_autosrtests.lexicon.json
@@ -107,48 +85,47 @@ index 452e764..d5963fe 100644
 +}
 +]}
 diff --git a/sf_autosrtests.optionlists.json b/sf_autosrtests.optionlists.json
-index 237bc65..6c183f2 100644
+index c9b1cc1..8b86a40 100644
 --- a/sf_autosrtests.optionlists.json
 +++ b/sf_autosrtests.optionlists.json
-@@ -1,7 +1,3 @@
+@@ -1,16 +1,3 @@
 -{"_id":{"$oid":"5c1d0471231ba3104cd7262f"}
 -,"code":"location","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.122Z"}
 -,"dateModified":{"$date":"2018-12-21T15:19:13.122Z"}
 -,"items":[],"name":"Location"}
- {"_id":{"$oid":"5c1d0471231ba3104cd7263b"}
- ,"code":"status","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.129Z"}
- ,"dateModified":{"$date":"2018-12-21T15:19:13.129Z"}
-@@ -10,12 +6,6 @@
+-{"_id":{"$oid":"588b76336efc670a0a280312"}
+-,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
+-,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
+-,{"guid":"a4fc78d6-7591-4fb3-8edd-82f10ae3739d","key":"pro-form","value":"Pro-form","abbreviation":"pro-form"}
+-,{"guid":"a3274cfd-225f-45fd-8851-a7b1a1e1037a","key":"pro1","value":"Pronoun","abbreviation":"pro"}
+-,{"guid":"86ff66f6-0774-407a-a0dc-3eeaf873daf7","key":"v1","value":"Verb","abbreviation":"v"}
+-],"canDelete":false,"dateModified":{"$date":"2018-12-21T15:19:12.841Z"}
+-,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
+-}
+ {"_id":{"$oid":"5c1d0471231ba3104cd72635"}
+ ,"code":"sense-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.126Z"}
+ ,"dateModified":{"$date":"2018-12-21T15:19:13.126Z"}
+@@ -25,10 +12,23 @@
  ,{"guid":"bd964254-ea5e-11de-8cdf-0013722f8dec","key":"Pend","value":"Pending","abbreviation":"Pend"}
  ,{"guid":"b098623a-ea5e-11de-8126-0013722f8dec","key":"Tent","value":"Tentative","abbreviation":"Tent"}
  ],"name":"Status"}
--{"_id":{"$oid":"5c1d0471231ba3104cd72635"}
--,"code":"sense-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.126Z"}
--,"dateModified":{"$date":"2018-12-21T15:19:13.126Z"}
--,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
--,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
--],"name":"Type"}
- {"_id":{"$oid":"588b76336efc670a0a280312"}
- ,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
- ,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
-@@ -25,10 +15,20 @@
- ],"canDelete":false,"dateModified":{"$date":"2018-12-21T15:19:12.841Z"}
- ,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
- }
-+{"_id":{"$oid":"5c1d0471231ba3104cd72635"}
-+,"code":"sense-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.126Z"}
-+,"dateModified":{"$date":"2018-12-21T15:19:13.126Z"}
-+,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
-+,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
-+],"name":"Type"}
- {"_id":{"$oid":"5c1d0471231ba3104cd72638"}
- ,"code":"anthro-code","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.127Z"}
- ,"dateModified":{"$date":"2018-12-21T15:19:13.127Z"}
- ,"items":[],"name":"Anthropology Categories"}
 +{"_id":{"$oid":"5c1d0471231ba3104cd7262f"}
 +,"code":"location","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.122Z"}
 +,"dateModified":{"$date":"2018-12-21T15:19:13.122Z"}
 +,"items":[],"name":"Location"}
+ {"_id":{"$oid":"5c1d0471231ba3104cd72638"}
+ ,"code":"anthro-code","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.127Z"}
+ ,"dateModified":{"$date":"2018-12-21T15:19:13.127Z"}
+ ,"items":[],"name":"Anthropology Categories"}
++{"_id":{"$oid":"588b76336efc670a0a280312"}
++,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
++,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
++,{"guid":"a4fc78d6-7591-4fb3-8edd-82f10ae3739d","key":"pro-form","value":"Pro-form","abbreviation":"pro-form"}
++,{"guid":"a3274cfd-225f-45fd-8851-a7b1a1e1037a","key":"pro1","value":"Pronoun","abbreviation":"pro"}
++,{"guid":"86ff66f6-0774-407a-a0dc-3eeaf873daf7","key":"v1","value":"Verb","abbreviation":"v"}
++],"canDelete":false,"dateModified":{"$date":"2018-12-21T15:19:12.841Z"}
++,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
++}
  {"_id":{"$oid":"5c1d0471231ba3104cd72632"}
  ,"code":"usage-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.123Z"}
  ,"dateModified":{"$date":"2018-12-21T15:19:13.125Z"}

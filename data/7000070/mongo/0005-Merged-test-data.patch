@@ -1,93 +1,197 @@
-From 45cc00eed339ae95bf7fb9ed0be3f99a563c2f72 Mon Sep 17 00:00:00 2001
+From 0cd663817684cda0da0282d5c5a1e2fd5f80698f Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Fri, 31 Mar 2017 20:11:26 +0200
+Date: Fri, 21 Dec 2018 18:18:01 +0000
 Subject: [PATCH] Merged test data
 
 ---
- sf_autosrtests.json             |  4 ++--
- sf_autosrtests.optionlists.json | 14 +++++++-------
- 2 files changed, 9 insertions(+), 9 deletions(-)
+ sf_autosrtests.activity.json        | 58 ++++++++++++++---------------
+ sf_autosrtests.lexiconComments.json | 18 ++++-----
+ sf_autosrtests.optionlists.json     | 30 +++++++--------
+ 3 files changed, 53 insertions(+), 53 deletions(-)
 
-diff --git a/sf_autosrtests.json b/sf_autosrtests.json
-index c10b7ba..b3c4de1 100644
---- a/sf_autosrtests.json
-+++ b/sf_autosrtests.json
-@@ -10,7 +10,7 @@
- , "feedbackGroup" : { "name" : "Feedback Group", "items" : [], "defaultKey" : null }
-  }
- , "userProfilePropertiesEnabled" : [] }
--, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-31T20:10:19.166+0200" }
-+, "siteName" : "languageforge.local", "appName" : "lexicon", "usersRequestingAccess" : null, "dateModified" : { "$date" : "2017-03-31T20:11:26.002+0200" }
- , "dateCreated" : { "$date" : "2017-02-02T10:24:46.513+0100" }
- , "inputSystems" : { "en" : { "abbreviation" : "en", "tag" : "en", "languageName" : "English", "isRightToLeft" : false }
- , "fr" : { "abbreviation" : "fr", "tag" : "fr", "languageName" : "French", "isRightToLeft" : false }
-@@ -260,7 +260,7 @@
- , "userViews" : {}
-  }
- , "liftFilePath" : null, "sendReceiveProjectIdentifier" : "autosrtests", "sendReceiveProject" : { "name" : "autosrtests", "repository" : "http://public.languagedepot.org", "role" : "manager" }
--, "lastSyncedDate" : { "$date" : "2017-03-31T20:08:21.927+0200" }
-+, "lastSyncedDate" : { "$date" : "2017-03-31T20:11:26.018+0200" }
- , "lastEntryModifiedDate" : { "$date" : "2017-03-31T20:10:19.152+0200" }
- , "languageCode" : "fr" }
- 
+diff --git a/sf_autosrtests.activity.json b/sf_autosrtests.activity.json
+index e875ce3..62f9e2d 100644
+--- a/sf_autosrtests.activity.json
++++ b/sf_autosrtests.activity.json
+@@ -1,20 +1,10 @@
+-{"_id":{"$oid":"58af10a46efc6757476a6db1"}
+-,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+-,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
+-,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
+-,"date":{"$date":"2017-02-23T16:41:08.000Z"}
+-,"dateModified":{"$date":"2017-02-23T16:41:08.589Z"}
+-,"dateCreated":{"$date":"2017-02-23T16:41:08.589Z"}
+-}
+-{"_id":{"$oid":"58af10af6efc675e6e223201"}
+-,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++{"_id":{"$oid":"588b76346efc670a0a280313"}
++,"projectRef":{"$oid":"588b76336efc670a0a280311"}
+ ,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
+-,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
+-,"date":{"$date":"2017-02-23T16:41:19.000Z"}
+-,"dateModified":{"$date":"2017-02-23T16:41:19.553Z"}
+-,"dateCreated":{"$date":"2017-02-23T16:41:19.553Z"}
++,"userRef2":null,"entryRef":null,"action":"add_user_to_project","actionContent":{"project":"autosrtests","user":"eberhard"}
++,"date":{"$date":"2017-01-27T16:32:52.000Z"}
++,"dateModified":{"$date":"2017-01-27T16:32:52.250Z"}
++,"dateCreated":{"$date":"2017-01-27T16:32:52.250Z"}
+ }
+ {"_id":{"$oid":"58af10b96efc6752cf2db501"}
+ ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+@@ -25,14 +15,6 @@
+ ,"dateModified":{"$date":"2017-02-23T16:41:29.681Z"}
+ ,"dateCreated":{"$date":"2017-02-23T16:41:29.681Z"}
+ }
+-{"_id":{"$oid":"588b76346efc670a0a280313"}
+-,"projectRef":{"$oid":"588b76336efc670a0a280311"}
+-,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"userRef2":null,"entryRef":null,"action":"add_user_to_project","actionContent":{"project":"autosrtests","user":"eberhard"}
+-,"date":{"$date":"2017-01-27T16:32:52.000Z"}
+-,"dateModified":{"$date":"2017-01-27T16:32:52.250Z"}
+-,"dateCreated":{"$date":"2017-01-27T16:32:52.250Z"}
+-}
+ {"_id":{"$oid":"58af10946efc6752d24a25e2"}
+ ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+ ,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+@@ -51,6 +33,14 @@
+ ,"dateModified":{"$date":"2017-03-31T18:10:19.181Z"}
+ ,"dateCreated":{"$date":"2017-03-31T18:10:19.181Z"}
+ }
++{"_id":{"$oid":"58de9b8d6efc67597c2203b5"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":null,"action":"delete_entry","actionContent":{"project":"autosrtests","entry":"flex"}
++,"date":{"$date":"2017-03-31T18:10:21.000Z"}
++,"dateModified":{"$date":"2017-03-31T18:10:21.228Z"}
++,"dateCreated":{"$date":"2017-03-31T18:10:21.228Z"}
++}
+ {"_id":{"$oid":"58af10d66efc675e6d61ad21"}
+ ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+ ,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+@@ -60,11 +50,21 @@
+ ,"dateModified":{"$date":"2017-02-23T16:41:58.581Z"}
+ ,"dateCreated":{"$date":"2017-02-23T16:41:58.581Z"}
+ }
+-{"_id":{"$oid":"58de9b8d6efc67597c2203b5"}
++{"_id":{"$oid":"58af10af6efc675e6e223201"}
+ ,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
+ ,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"userRef2":null,"entryRef":null,"action":"delete_entry","actionContent":{"project":"autosrtests","entry":"flex"}
+-,"date":{"$date":"2017-03-31T18:10:21.000Z"}
+-,"dateModified":{"$date":"2017-03-31T18:10:21.228Z"}
+-,"dateCreated":{"$date":"2017-03-31T18:10:21.228Z"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:19.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:19.553Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:19.553Z"}
++}
++{"_id":{"$oid":"58af10a46efc6757476a6db1"}
++,"projectRef":{"$oid":"5892fade6efc6767f6437b95"}
++,"textRef":null,"questionRef":null,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++,"userRef2":null,"entryRef":{"$oid":"58af10946efc6752d24a25e1"}
++,"action":"update_entry","actionContent":{"project":"autosrtests","entry":"lf1","user":"eberhard"}
++,"date":{"$date":"2017-02-23T16:41:08.000Z"}
++,"dateModified":{"$date":"2017-02-23T16:41:08.589Z"}
++,"dateCreated":{"$date":"2017-02-23T16:41:08.589Z"}
+ }
+diff --git a/sf_autosrtests.lexiconComments.json b/sf_autosrtests.lexiconComments.json
+index ed1713f..7b3830a 100644
+--- a/sf_autosrtests.lexiconComments.json
++++ b/sf_autosrtests.lexiconComments.json
+@@ -1,12 +1,3 @@
+-{"_id":{"$oid":"5c1d1db9231ba3104cd75a34"}
+-,"guid":"be22068f-307d-4e78-a1b1-2a073e7e075b","authorInfo":{"createdDate":{"$date":"2018-12-21T17:06:51.000Z"}
+-,"modifiedDate":{"$date":"2018-12-21T17:06:51.000Z"}
+-}
+-,"authorNameAlternate":"merger","content":"Entry \"lf1modified\": eberhard deleted this element, while Language Forge edited it. The merger kept the change made by Language Forge.","contextGuid":null,"dateCreated":{"$date":"2018-12-21T17:07:05.093Z"}
+-,"dateModified":{"$date":"2018-12-21T17:07:05.093Z"}
+-,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
+-,"isDeleted":false,"regarding":{"targetGuid":"515442e1-d369-484a-a039-f05dfb8748c0","word":"lf1modified","meaning":"Word added by LF"}
+-,"replies":[],"status":"open","statusGuid":"0fef9230-383c-4e00-8b30-2a609b3570a6"}
+ {"_id":{"$oid":"5c1d1db9231ba3104cd75a35"}
+ ,"guid":"426c0168-59b8-4e20-ae77-5ce1825bae5d","authorInfo":{"createdDate":{"$date":"2018-12-21T17:06:51.000Z"}
+ ,"modifiedDate":{"$date":"2018-12-21T17:06:51.000Z"}
+@@ -16,3 +7,12 @@
+ ,"entryRef":{"$oid":"5c1d19b1231ba3104cd750f6"}
+ ,"isDeleted":false,"regarding":{"targetGuid":"863d94c8-83ca-4748-8c9b-4730d704e10e","word":"flexmodified","meaning":"***"}
+ ,"replies":[],"status":"open","statusGuid":"c59898ef-f1d4-4603-b0e6-c6ab38eee8ca"}
++{"_id":{"$oid":"5c1d1db9231ba3104cd75a34"}
++,"guid":"be22068f-307d-4e78-a1b1-2a073e7e075b","authorInfo":{"createdDate":{"$date":"2018-12-21T17:06:51.000Z"}
++,"modifiedDate":{"$date":"2018-12-21T17:06:51.000Z"}
++}
++,"authorNameAlternate":"merger","content":"Entry \"lf1modified\": eberhard deleted this element, while Language Forge edited it. The merger kept the change made by Language Forge.","contextGuid":null,"dateCreated":{"$date":"2018-12-21T17:07:05.093Z"}
++,"dateModified":{"$date":"2018-12-21T17:07:05.093Z"}
++,"entryRef":{"$oid":"5c1d19646efc673cba7ce324"}
++,"isDeleted":false,"regarding":{"targetGuid":"515442e1-d369-484a-a039-f05dfb8748c0","word":"lf1modified","meaning":"Word added by LF"}
++,"replies":[],"status":"open","statusGuid":"0fef9230-383c-4e00-8b30-2a609b3570a6"}
 diff --git a/sf_autosrtests.optionlists.json b/sf_autosrtests.optionlists.json
-index a4d2a42..7cd321f 100644
+index 5e05f58..f7aad3f 100644
 --- a/sf_autosrtests.optionlists.json
 +++ b/sf_autosrtests.optionlists.json
-@@ -4,13 +4,13 @@
- , { "guid" : "a4fc78d6-7591-4fb3-8edd-82f10ae3739d", "key" : "pro-form", "value" : "Pro-form", "abbreviation" : "pro-form" }
- , { "guid" : "a3274cfd-225f-45fd-8851-a7b1a1e1037a", "key" : "pro1", "value" : "Pronoun", "abbreviation" : "pro" }
- , { "guid" : "86ff66f6-0774-407a-a0dc-3eeaf873daf7", "key" : "v1", "value" : "Verb", "abbreviation" : "v" }
-- ], "canDelete" : false, "dateModified" : { "$date" : "2017-03-22T16:26:00.440+0100" }
-+ ], "canDelete" : false, "dateModified" : { "$date" : "2017-03-31T20:11:25.454+0200" }
- , "dateCreated" : { "$date" : "2017-01-27T17:32:51.977+0100" }
-  }
- 
- { "_id" : { "$oid" : "58d29788edc5a7eae53e139e" }
- , "code" : "domain-type", "name" : "Academic Domains", "dateCreated" : { "$date" : "2017-03-22T16:26:00.863+0100" }
--, "dateModified" : { "$date" : "2017-03-22T16:26:00.873+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:11:25.932+0200" }
- , "items" : [ { "guid" : "b0add746-ea5e-11de-8c5c-0013722f8dec", "key" : "Anat", "value" : "anatomy", "abbreviation" : "Anat" }
- , { "guid" : "b0b9c2fe-ea5e-11de-8fed-0013722f8dec", "key" : "Anthro", "value" : "anthropology", "abbreviation" : "Anthro" }
- , { "guid" : "b0c5aeac-ea5e-11de-9463-0013722f8dec", "key" : "Cult anthro", "value" : "cultural anthropology", "abbreviation" : "Cult anthro" }
-@@ -70,12 +70,12 @@
- 
- { "_id" : { "$oid" : "58d29788edc5a7eae53e139f" }
- , "code" : "location", "name" : "Location", "dateCreated" : { "$date" : "2017-03-22T16:26:00.875+0100" }
--, "dateModified" : { "$date" : "2017-03-22T16:26:00.875+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:11:25.934+0200" }
- , "items" : [], "canDelete" : false }
- 
- { "_id" : { "$oid" : "58d29788edc5a7eae53e13a0" }
- , "code" : "usage-type", "name" : "Usages", "dateCreated" : { "$date" : "2017-03-22T16:26:00.876+0100" }
--, "dateModified" : { "$date" : "2017-03-22T16:26:00.879+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:11:25.942+0200" }
- , "items" : [ { "guid" : "af600fb2-ea5e-11de-82b5-0013722f8dec", "key" : "arch", "value" : "archaic", "abbreviation" : "arch" }
- , { "guid" : "af699910-ea5e-11de-8d20-0013722f8dec", "key" : "col", "value" : "colloquial", "abbreviation" : "col" }
- , { "guid" : "af7584c8-ea5e-11de-82a4-0013722f8dec", "key" : "form", "value" : "formal", "abbreviation" : "form" }
-@@ -106,19 +106,19 @@
- 
- { "_id" : { "$oid" : "58d29788edc5a7eae53e13a1" }
- , "code" : "sense-type", "name" : "Type", "dateCreated" : { "$date" : "2017-03-22T16:26:00.880+0100" }
--, "dateModified" : { "$date" : "2017-03-22T16:26:00.881+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:11:25.944+0200" }
- , "items" : [ { "guid" : "af3eaef8-ea5e-11de-80fd-0013722f8dec", "key" : "fig", "value" : "figurative", "abbreviation" : "fig" }
- , { "guid" : "af48384c-ea5e-11de-9aef-0013722f8dec", "key" : "prim", "value" : "primary", "abbreviation" : "prim" }
-  ], "canDelete" : false }
- 
- { "_id" : { "$oid" : "58d29788edc5a7eae53e13a2" }
- , "code" : "anthro-code", "name" : "Anthropology Categories", "dateCreated" : { "$date" : "2017-03-22T16:26:00.882+0100" }
--, "dateModified" : { "$date" : "2017-03-22T16:26:00.882+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:11:25.945+0200" }
- , "items" : [], "canDelete" : false }
- 
- { "_id" : { "$oid" : "58d29788edc5a7eae53e13a3" }
- , "code" : "status", "name" : "Status", "dateCreated" : { "$date" : "2017-03-22T16:26:00.883+0100" }
--, "dateModified" : { "$date" : "2017-03-22T16:26:00.886+0100" }
-+, "dateModified" : { "$date" : "2017-03-31T20:11:25.947+0200" }
- , "items" : [ { "guid" : "bd80cd3e-ea5e-11de-9871-0013722f8dec", "key" : "Conf", "value" : "Confirmed", "abbreviation" : "Conf" }
- , { "guid" : "bd8a569c-ea5e-11de-87cc-0013722f8dec", "key" : "Dis", "value" : "Disproved", "abbreviation" : "Dis" }
- , { "guid" : "bd964254-ea5e-11de-8cdf-0013722f8dec", "key" : "Pend", "value" : "Pending", "abbreviation" : "Pend" }
+@@ -1,37 +1,37 @@
++{"_id":{"$oid":"58d29788edc5a7eae53e13a1"}
++,"code":"sense-type","name":"Type","dateCreated":{"$date":"2017-03-22T15:26:00.880Z"}
++,"dateModified":{"$date":"2017-03-31T18:11:25.944Z"}
++,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
++,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
++],"canDelete":false}
+ {"_id":{"$oid":"588b76336efc670a0a280312"}
+ ,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
+ ,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
+ ,{"guid":"a4fc78d6-7591-4fb3-8edd-82f10ae3739d","key":"pro-form","value":"Pro-form","abbreviation":"pro-form"}
+ ,{"guid":"a3274cfd-225f-45fd-8851-a7b1a1e1037a","key":"pro1","value":"Pronoun","abbreviation":"pro"}
+ ,{"guid":"86ff66f6-0774-407a-a0dc-3eeaf873daf7","key":"v1","value":"Verb","abbreviation":"v"}
+-],"canDelete":false,"dateModified":{"$date":"2017-03-22T15:26:00.440Z"}
++],"canDelete":false,"dateModified":{"$date":"2017-03-31T18:11:25.454Z"}
+ ,"dateCreated":{"$date":"2017-01-27T16:32:51.977Z"}
+ }
+-{"_id":{"$oid":"58d29788edc5a7eae53e139f"}
+-,"code":"location","name":"Location","dateCreated":{"$date":"2017-03-22T15:26:00.875Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.875Z"}
+-,"items":[],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e13a2"}
+ ,"code":"anthro-code","name":"Anthropology Categories","dateCreated":{"$date":"2017-03-22T15:26:00.882Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.882Z"}
++,"dateModified":{"$date":"2017-03-31T18:11:25.945Z"}
+ ,"items":[],"canDelete":false}
+-{"_id":{"$oid":"58d29788edc5a7eae53e13a1"}
+-,"code":"sense-type","name":"Type","dateCreated":{"$date":"2017-03-22T15:26:00.880Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.881Z"}
+-,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
+-,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
+-],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e13a3"}
+ ,"code":"status","name":"Status","dateCreated":{"$date":"2017-03-22T15:26:00.883Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.886Z"}
++,"dateModified":{"$date":"2017-03-31T18:11:25.947Z"}
+ ,"items":[{"guid":"bd80cd3e-ea5e-11de-9871-0013722f8dec","key":"Conf","value":"Confirmed","abbreviation":"Conf"}
+ ,{"guid":"bd8a569c-ea5e-11de-87cc-0013722f8dec","key":"Dis","value":"Disproved","abbreviation":"Dis"}
+ ,{"guid":"bd964254-ea5e-11de-8cdf-0013722f8dec","key":"Pend","value":"Pending","abbreviation":"Pend"}
+ ,{"guid":"b098623a-ea5e-11de-8126-0013722f8dec","key":"Tent","value":"Tentative","abbreviation":"Tent"}
+ ],"canDelete":false}
++{"_id":{"$oid":"58d29788edc5a7eae53e139f"}
++,"code":"location","name":"Location","dateCreated":{"$date":"2017-03-22T15:26:00.875Z"}
++,"dateModified":{"$date":"2017-03-31T18:11:25.934Z"}
++,"items":[],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e13a0"}
+ ,"code":"usage-type","name":"Usages","dateCreated":{"$date":"2017-03-22T15:26:00.876Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.879Z"}
++,"dateModified":{"$date":"2017-03-31T18:11:25.942Z"}
+ ,"items":[{"guid":"af600fb2-ea5e-11de-82b5-0013722f8dec","key":"arch","value":"archaic","abbreviation":"arch"}
+ ,{"guid":"af699910-ea5e-11de-8d20-0013722f8dec","key":"col","value":"colloquial","abbreviation":"col"}
+ ,{"guid":"af7584c8-ea5e-11de-82a4-0013722f8dec","key":"form","value":"formal","abbreviation":"form"}
+@@ -61,7 +61,7 @@
+ ],"canDelete":false}
+ {"_id":{"$oid":"58d29788edc5a7eae53e139e"}
+ ,"code":"domain-type","name":"Academic Domains","dateCreated":{"$date":"2017-03-22T15:26:00.863Z"}
+-,"dateModified":{"$date":"2017-03-22T15:26:00.873Z"}
++,"dateModified":{"$date":"2017-03-31T18:11:25.932Z"}
+ ,"items":[{"guid":"b0add746-ea5e-11de-8c5c-0013722f8dec","key":"Anat","value":"anatomy","abbreviation":"Anat"}
+ ,{"guid":"b0b9c2fe-ea5e-11de-8fed-0013722f8dec","key":"Anthro","value":"anthropology","abbreviation":"Anthro"}
+ ,{"guid":"b0c5aeac-ea5e-11de-9463-0013722f8dec","key":"Cult anthro","value":"cultural anthropology","abbreviation":"Cult anthro"}
 -- 
-2.11.0
+2.20.1
 

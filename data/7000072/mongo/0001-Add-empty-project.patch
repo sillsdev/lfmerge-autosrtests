@@ -1,6 +1,6 @@
-From ad3265c8b042776c2d2baed466a979ccb874342f Mon Sep 17 00:00:00 2001
+From 6805d615ae7c606e0eebb2894e4898e0fcfaed8b Mon Sep 17 00:00:00 2001
 From: Your Name <you@example.com>
-Date: Fri, 21 Dec 2018 15:35:16 +0000
+Date: Fri, 21 Dec 2018 18:18:03 +0000
 Subject: [PATCH] Add empty project
 
 ---
@@ -32,7 +32,7 @@ index 0000000..c93d9cb
 +}
 diff --git a/sf_autosrtests.json b/sf_autosrtests.json
 new file mode 100644
-index 0000000..5d92d63
+index 0000000..0e0c692
 --- /dev/null
 +++ b/sf_autosrtests.json
 @@ -0,0 +1,263 @@
@@ -47,7 +47,7 @@ index 0000000..5d92d63
 +,"feedbackGroup":{"name":"Feedback Group"}
 +}
 +}
-+,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2018-12-21T15:23:55.473Z"}
++,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2018-12-21T17:07:04.834Z"}
 +,"dateCreated":{"$date":"2017-02-02T09:24:46.513Z"}
 +,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
 +,"fr":{"abbreviation":"fr","tag":"fr","languageName":"French","isRightToLeft":false}
@@ -296,8 +296,8 @@ index 0000000..5d92d63
 +}
 +}
 +,"sendReceiveProjectIdentifier":"autosrtests","sendReceiveProject":{"name":"autosrtests","repository":"http://public.languagedepot.org","role":"manager"}
-+,"lastSyncedDate":{"$date":"2018-12-21T15:23:55.628Z"}
-+,"lastEntryModifiedDate":{"$date":"2018-12-21T12:13:48.849Z"}
++,"lastSyncedDate":{"$date":"2018-12-21T17:07:05.276Z"}
++,"lastEntryModifiedDate":{"$date":"2018-12-21T16:57:38.008Z"}
 +,"languageCode":"fr"}
 diff --git a/sf_autosrtests.lexicon.json b/sf_autosrtests.lexicon.json
 new file mode 100644
@@ -307,7 +307,7 @@ new file mode 100644
 index 0000000..e69de29
 diff --git a/sf_autosrtests.optionlists.json b/sf_autosrtests.optionlists.json
 new file mode 100644
-index 0000000..80853ec
+index 0000000..73d74a2
 --- /dev/null
 +++ b/sf_autosrtests.optionlists.json
 @@ -0,0 +1,120 @@
@@ -319,6 +319,12 @@ index 0000000..80853ec
 +,"code":"anthro-code","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.127Z"}
 +,"dateModified":{"$date":"2018-12-21T15:19:13.127Z"}
 +,"items":[],"name":"Anthropology Categories"}
++{"_id":{"$oid":"5c1d0471231ba3104cd72635"}
++,"code":"sense-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.126Z"}
++,"dateModified":{"$date":"2018-12-21T15:19:13.126Z"}
++,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
++,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
++],"name":"Type"}
 +{"_id":{"$oid":"5c1d0471231ba3104cd7263b"}
 +,"code":"status","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.129Z"}
 +,"dateModified":{"$date":"2018-12-21T15:19:13.129Z"}
@@ -327,12 +333,6 @@ index 0000000..80853ec
 +,{"guid":"bd964254-ea5e-11de-8cdf-0013722f8dec","key":"Pend","value":"Pending","abbreviation":"Pend"}
 +,{"guid":"b098623a-ea5e-11de-8126-0013722f8dec","key":"Tent","value":"Tentative","abbreviation":"Tent"}
 +],"name":"Status"}
-+{"_id":{"$oid":"5c1d0471231ba3104cd72635"}
-+,"code":"sense-type","canDelete":false,"dateCreated":{"$date":"2018-12-21T15:19:13.126Z"}
-+,"dateModified":{"$date":"2018-12-21T15:19:13.126Z"}
-+,"items":[{"guid":"af3eaef8-ea5e-11de-80fd-0013722f8dec","key":"fig","value":"figurative","abbreviation":"fig"}
-+,{"guid":"af48384c-ea5e-11de-9aef-0013722f8dec","key":"prim","value":"primary","abbreviation":"prim"}
-+],"name":"Type"}
 +{"_id":{"$oid":"588b76336efc670a0a280312"}
 +,"name":"Part of Speech","code":"grammatical-info","items":[{"guid":"46e4fe08-ffa0-4c8b-bf98-2c56f38904d9","key":"adv1","value":"Adverb","abbreviation":"adv"}
 +,{"guid":"a8e41fd3-e343-4c7c-aa05-01ea3dd5cfb5","key":"n1","value":"Noun","abbreviation":"n"}
