@@ -21,7 +21,7 @@ index dc1b49c..7da85ed 100644
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1modified<br/>", "user" : "eberhard" }
++, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1modified", "user" : "eberhard" }
 +, "date" : { "$date" : "2017-03-31T20:10:19.000+0200" }
 +, "dateModified" : { "$date" : "2017-03-31T20:10:19.181+0200" }
 +, "dateCreated" : { "$date" : "2017-03-31T20:10:19.181+0200" }
@@ -65,10 +65,10 @@ index 23cd4b7..45f367b 100644
 +++ b/sf_autosrtests.lexicon.json
 @@ -1,5 +1,5 @@
  { "_id" : { "$oid" : "58af10946efc6752d24a25e1" }
--, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1<br/>" }
-+, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1modified<br/>" }
+-, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1" }
++, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1modified" }
   }
- , "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF<br/>" }
+ , "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF" }
   }
 @@ -57,7 +57,7 @@
   ], "authorInfo" : { "createdByUserRef" : { "$oid" : "582358be6efc6721d57eb451" }

@@ -97,7 +97,7 @@ diff -r 384b935204c4 -r 161055961fba Linguistics/Lexicon/Lexicon_06.lexdb
 +				guid="828d0516-4d99-4388-b102-e80d8eaa288e">
 +				<Form>
 +					<AUni
-+						ws="fr">lf1modified&lt;br/&gt;</AUni>
++						ws="fr">lf1modified</AUni>
 +				</Form>
 +				<IsAbstract
 +					val="False" />
@@ -131,7 +131,7 @@ diff -r 384b935204c4 -r 161055961fba Linguistics/Lexicon/Lexicon_06.lexdb
 +					<AStr
 +						ws="en">
 +						<Run
-+							ws="en">Word added by LF&lt;br/&gt;</Run>
++							ws="en">Word added by LF</Run>
 +					</AStr>
 +				</Definition>
 +				<Examples>
@@ -142,7 +142,7 @@ diff -r 384b935204c4 -r 161055961fba Linguistics/Lexicon/Lexicon_06.lexdb
 +							<AStr
 +								ws="fr">
 +								<Run
-+									ws="fr">C'est un exemple&lt;br/&gt;</Run>
++									ws="fr">C'est un exemple</Run>
 +							</AStr>
 +						</Example>
 +						<Translations>
@@ -152,7 +152,7 @@ diff -r 384b935204c4 -r 161055961fba Linguistics/Lexicon/Lexicon_06.lexdb
 +									<AStr
 +										ws="en">
 +										<Run
-+											ws="en">This is an example&lt;br/&gt;</Run>
++											ws="en">This is an example</Run>
 +									</AStr>
 +								</Translation>
 +								<Type>

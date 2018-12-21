@@ -66,7 +66,7 @@ diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/Lexicon_06.lexdb
 -				guid="996d66f6-1131-44cf-80a5-87d85d88434a">
 -				<Form>
 -					<AUni
--						ws="fr">lf1&lt;br/&gt;</AUni>
+-						ws="fr">lf1</AUni>
 -				</Form>
 -				<IsAbstract
 -					val="False" />
@@ -100,7 +100,7 @@ diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/Lexicon_06.lexdb
 -					<AStr
 -						ws="en">
 -						<Run
--							ws="en">Word added by LF&lt;br/&gt;</Run>
+-							ws="en">Word added by LF</Run>
 -					</AStr>
 -				</Definition>
 -				<Examples>
@@ -111,7 +111,7 @@ diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/Lexicon_06.lexdb
 -							<AStr
 -								ws="fr">
 -								<Run
--									ws="fr">C'est un exemple&lt;br/&gt;</Run>
+-									ws="fr">C'est un exemple</Run>
 -							</AStr>
 -						</Example>
 -						<Translations>
@@ -121,7 +121,7 @@ diff -r 28f827a16bfb -r f37d3d711827 Linguistics/Lexicon/Lexicon_06.lexdb
 -									<AStr
 -										ws="en">
 -										<Run
--											ws="en">This is an example&lt;br/&gt;</Run>
+-											ws="en">This is an example</Run>
 -									</AStr>
 -								</Translation>
 -								<Type>

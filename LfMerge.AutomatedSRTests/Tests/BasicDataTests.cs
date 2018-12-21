@@ -68,11 +68,10 @@ namespace LfMerge.AutomatedSRTests.Tests
 			Assert.That(TestHelper.SRState, Is.EqualTo("IDLE"));
 			// language=json
 			const string expected = @"[ { 'lexicon': [
-				{ 'lexeme': { 'fr' : { 'value' : 'lf1<br/>' } },
+				{ 'lexeme': { 'fr' : { 'value' : 'lf1' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
-						'gloss' : { 'en' : { 'value' : '' } },
-						'partOfSpeech' : { 'value' : 'n' }
+						'definition' : { 'en' : { 'value' : 'Word added by LF' } },
+						'partOfSpeech' : { 'value' : 'n1' }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'flex' } },
 					'senses' : [ {
@@ -103,11 +102,10 @@ namespace LfMerge.AutomatedSRTests.Tests
 
 			// language=json
 			const string expected = @"[ { 'lexicon': [
-				{ 'lexeme': { 'fr' : { 'value' : 'lf1modified<br/>' } },
+				{ 'lexeme': { 'fr' : { 'value' : 'lf1modified' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'Word added by LF<br/>' } },
-						'gloss' : { 'en' : { 'value' : '' } },
-						'partOfSpeech' : { 'value' : 'n' }
+						'definition' : { 'en' : { 'value' : 'Word added by LF' } },
+						'partOfSpeech' : { 'value' : 'n1' }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'flexmodified' } },
 					'senses' : [ {

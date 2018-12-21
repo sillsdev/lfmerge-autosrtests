@@ -20,7 +20,7 @@ index 81d7ed9..dc1b49c 100644
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "add_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1<br/>", "user" : "eberhard" }
++, "action" : "add_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
 +, "date" : { "$date" : "2017-02-23T17:40:52.000+0100" }
 +, "dateModified" : { "$date" : "2017-02-23T17:40:52.214+0100" }
 +, "dateCreated" : { "$date" : "2017-02-23T17:40:52.214+0100" }
@@ -30,7 +30,7 @@ index 81d7ed9..dc1b49c 100644
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1<br/>", "user" : "eberhard" }
++, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
 +, "date" : { "$date" : "2017-02-23T17:41:08.000+0100" }
 +, "dateModified" : { "$date" : "2017-02-23T17:41:08.589+0100" }
 +, "dateCreated" : { "$date" : "2017-02-23T17:41:08.589+0100" }
@@ -40,7 +40,7 @@ index 81d7ed9..dc1b49c 100644
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1<br/>", "user" : "eberhard" }
++, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
 +, "date" : { "$date" : "2017-02-23T17:41:19.000+0100" }
 +, "dateModified" : { "$date" : "2017-02-23T17:41:19.553+0100" }
 +, "dateCreated" : { "$date" : "2017-02-23T17:41:19.553+0100" }
@@ -50,7 +50,7 @@ index 81d7ed9..dc1b49c 100644
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1<br/>", "user" : "eberhard" }
++, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
 +, "date" : { "$date" : "2017-02-23T17:41:29.000+0100" }
 +, "dateModified" : { "$date" : "2017-02-23T17:41:29.681+0100" }
 +, "dateCreated" : { "$date" : "2017-02-23T17:41:29.681+0100" }
@@ -60,7 +60,7 @@ index 81d7ed9..dc1b49c 100644
 +, "projectRef" : { "$oid" : "5892fade6efc6767f6437b95" }
 +, "textRef" : null, "questionRef" : null, "userRef" : { "$oid" : "582358be6efc6721d57eb451" }
 +, "userRef2" : null, "entryRef" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1<br/>", "user" : "eberhard" }
++, "action" : "update_entry", "actionContent" : { "project" : "autosrtests", "entry" : "lf1", "user" : "eberhard" }
 +, "date" : { "$date" : "2017-02-23T17:41:58.000+0100" }
 +, "dateModified" : { "$date" : "2017-02-23T17:41:58.581+0100" }
 +, "dateCreated" : { "$date" : "2017-02-23T17:41:58.581+0100" }
@@ -72,17 +72,17 @@ index e69de29..47a4825 100644
 +++ b/sf_autosrtests.lexicon.json
 @@ -0,0 +1,93 @@
 +{ "_id" : { "$oid" : "58af10946efc6752d24a25e1" }
-+, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1<br/>" }
++, "isDeleted" : false, "guid" : "51fda335-51f1-46f5-abd1-9f9ce5e8f4df", "dirtySR" : 0, "lexeme" : { "fr" : { "value" : "lf1" }
 + }
-+, "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF<br/>" }
++, "senses" : [ { "liftId" : null, "guid" : "fcab1080-000b-4393-b95e-2631310d317d", "definition" : { "en" : { "value" : "Word added by LF" }
 + }
 +, "gloss" : { "en" : { "value" : "" }
 + }
 +, "pictures" : [], "partOfSpeech" : { "value" : "n" }
 +, "semanticDomain" : { "values" : [ "1.1" ] }
-+, "examples" : [ { "liftId" : null, "sentence" : { "fr" : { "value" : "C'est un exemple<br/>" }
++, "examples" : [ { "liftId" : null, "sentence" : { "fr" : { "value" : "C'est un exemple" }
 + }
-+, "translation" : { "en" : { "value" : "This is an example<br/>" }
++, "translation" : { "en" : { "value" : "This is an example" }
 + }
 +, "translationGuid" : "ddd97247-9184-4c59-b1c4-2c816f51ae9d", "customFields" : {}
 +, "authorInfo" : { "createdByUserRef" : null, "createdDate" : { "$date" : "2017-02-23T17:41:29.664+0100" }
