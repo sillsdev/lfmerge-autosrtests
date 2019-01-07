@@ -61,11 +61,6 @@
 		<Delete Files="build/LfMerge.AutomatedSRTests.files" />
 	</Target>
 
-	<ItemGroup>
-		<AllBuildDependencyTasksFiles Include="$(RootDir)/packages/BuildDependencyTasks*/**"/>
-		<AllBuildDependencyTasksDirs Include="@(AllBuildDependencyTasksFiles->'%(RootDir)%(Directory)')"/>
-	</ItemGroup>
-
 	<Target Name="DownloadDependencies" DependsOnTargets="RestorePackages">
 		<MSBuild
 			Projects="LfMerge.AutomatedSRTests-DownloadDeps.xml"
