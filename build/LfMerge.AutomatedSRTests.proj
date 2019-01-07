@@ -7,13 +7,15 @@
 		<useNUnit-x86 Condition="'$(OS)'=='Windows_NT'">true</useNUnit-x86>
 		<useNUnit-x86 Condition="'$(OS)'!='Windows_NT'">false</useNUnit-x86>
 		<OutputDir>$(RootDir)/output/$(Configuration)</OutputDir>
+		<RestartBuild Condition="!Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll') Or !Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll') Or !Exists('$(RootDir)/packages/BuildDependencyTasks/BuildDependencyTasks.dll')">true</RestartBuild>
+		<RestartBuild Condition="Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll') And Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll') And Exists('$(RootDir)/packages/BuildDependencyTasks/BuildDependencyTasks.dll')">false</RestartBuild>
 	</PropertyGroup>
 
 	<!-- NOTE: this project uses GitVersion (http://gitversion.readthedocs.io) to set the version number. -->
 	<!-- To increment the version number create and push a new tag in git -->
 
-	<UsingTask TaskName="FileUpdate" AssemblyFile="$(RootDir)/build/Palaso.BuildTasks.dll" />
-	<UsingTask TaskName="NUnit" AssemblyFile="$(RootDir)/build/Palaso.BuildTasks.dll" />
+	<UsingTask TaskName="FileUpdate" AssemblyFile="$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll" Condition="Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll')" />
+	<UsingTask TaskName="NUnit" AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll" Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
 	<UsingTask TaskName="NUnitTeamCity"
 		AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)"
 		Condition=" '$(teamcity_version)' != '' And '$(OS)'=='Windows_NT'"/>
@@ -24,25 +26,36 @@
 	<Import Project="NuGet.targets"/>
 
 	<Target Name="Build">
+		<CallTarget Targets="RestoreBuildTasks" />
+		<CallTarget Targets="BuildInternal" Condition="!$(RestartBuild)" />
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="BuildInternal"
+			Properties="Configuration=$(Configuration);RootDir=$(RootDir)"
+			Condition="$(RestartBuild)" />
+	</Target>
+
+	<Target Name="BuildInternal">
+		<Message Text="RestartBuild=$(RestartBuild)" />
 		<CallTarget Targets="Clean"/>
 		<CallTarget Targets="Compile"/>
 		<Message Text="Build Complete"/>
 	</Target>
 
+	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
+		<Message Text="RestartBuild=$(RestartBuild)" />
+		<Exec Command='$(NuGetCommand) install BuildDependencyTasks -excludeVersion -version 0.4.3 -solutionDirectory "$(RootDir)"' />
+		<Exec Command='$(NuGetCommand) install NUnit.Runners.Net4 -version 2.6.4 -solutionDirectory "$(RootDir)"' />
+		<Exec Command='$(NuGetCommand) install MSBuildTasks -excludeVersion -version 1.5.0.235 -solutionDirectory "$(RootDir)"' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.2.0 -solutionDirectory "$(RootDir)"' />
+	</Target>
+
 	<ItemGroup>
-		<ExistingObjectFiles
-			Include="$(RootDir)/output/$(Configuration)/**/*"
-			Exclude="$(RootDir)/.git/**/*"
-		/>
+		<ExistingObjectFiles Include="$(RootDir)/output/$(Configuration)/**/*" Exclude="$(RootDir)/.git/**/*" />
 	</ItemGroup>
 
 	<Target Name="Clean">
 		<Delete Files="@(ExistingObjectFiles)" />
-		<Delete Condition="'$(OS)'=='Windows_NT' Or $(MSBuildToolsVersion) &gt;= 15"
-			 Files="$(RootDir)/**/obj/**/*" />
-		<Exec Condition="'$(OS)'!='Windows_NT' And $(MSBuildToolsVersion) &lt; 15"
-			Command="find . %5c( -name obj -o -name bin -o -name test-results %5c) -type d -print0 | xargs -0 rm -rf"
-			WorkingDirectory="$(RootDir)" />
+		<Delete Condition="'$(OS)'=='Windows_NT' Or $(MSBuildToolsVersion) &gt;= 15" Files="$(RootDir)/**/obj/**/*" />
+		<Exec Condition="'$(OS)'!='Windows_NT' And $(MSBuildToolsVersion) &lt; 15" Command="find . %5c( -name obj -o -name bin -o -name test-results %5c) -type d -print0 | xargs -0 rm -rf" WorkingDirectory="$(RootDir)" />
 		<Delete Files="build/LfMerge.AutomatedSRTests.files" />
 	</Target>
 
