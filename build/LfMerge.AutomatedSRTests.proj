@@ -65,7 +65,8 @@
 	</Target>
 
 	<Target Name="Compile" DependsOnTargets="DownloadDependencies;RestorePackages">
-		<FileUpdate File="$(RootDir)/Mercurial/mercurial.ini" Regex="fixutf8=../" ReplacementText="fixutf8=$(RootDir)/"/>
+		<FileUpdate File="$(RootDir)/Mercurial/mercurial.ini" Regex="fixutf8=../|$"
+			ReplacementText="fixutf8=$(RootDir)/" Multiline="true" />
 		<MSBuild
 			Projects="$(SolutionPath)"
 			Targets="Build"
