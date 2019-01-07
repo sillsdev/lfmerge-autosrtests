@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <RootNamespace>LfMerge.AutomatedSRTests</RootNamespace>
     <AssemblyName>LfMerge.AutomatedSRTests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <LangVersion>default</LangVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
