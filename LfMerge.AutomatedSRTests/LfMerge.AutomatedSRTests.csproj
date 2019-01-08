@@ -59,6 +59,9 @@
     <Reference Include="SIL.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2">
       <HintPath>..\lib\SIL.Core.dll</HintPath>
     </Reference>
+    <Reference Include="SIL.Core.Desktop, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cab3c8c5232dfcf2">
+      <HintPath>..\lib\SIL.Core.Desktop.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
