@@ -1,0 +1,90 @@
+# HG changeset patch
+# User Language Forge
+# Date 1547568503 -3600
+#      Tue Jan 15 17:08:23 2019 +0100
+# Branch 7000072
+# Node ID 7d24e265d1b8a78f7304a13f959e247296ee6f67
+# Parent  1f55450be06de5b6bffca27f3a2bd8c098269d9d
+[LfMergeBridge: 3.0.1.254] Language Forge: 1 entry added
+
+diff -r 1f55450be06d -r 7d24e265d1b8 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Tue Jan 15 17:08:02 2019 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Tue Jan 15 17:08:23 2019 +0100
+@@ -31,4 +31,14 @@
+ 			date="2019-01-15T17:04:24+01:00"
+ 			guid="9d4b25e5-8fc2-4b4c-ba07-48c6f9233f0b">Comment about new word C</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=77dd7691-ffc0-4341-b175-f318632d8232&amp;tag=&amp;id=77dd7691-ffc0-4341-b175-f318632d8232&amp;label=D (Word - Frn &quot;D&quot;)"
++		guid="8d50357f-0b1e-4604-a152-62bb22d20478">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2019-01-15T17:08:15+01:00"
++			guid="fc25190f-411e-44f4-bfc7-f44032173a97">Comment on word D</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 1f55450be06d -r 7d24e265d1b8 Linguistics/Lexicon/Lexicon_04.lexdb
+--- a/Linguistics/Lexicon/Lexicon_04.lexdb	Tue Jan 15 17:08:02 2019 +0100
++++ b/Linguistics/Lexicon/Lexicon_04.lexdb	Tue Jan 15 17:08:23 2019 +0100
+@@ -1,6 +1,46 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <Lexicon>
+ 	<LexEntry
++		guid="77dd7691-ffc0-4341-b175-f318632d8232">
++		<DateCreated
++			val="2019-1-15 16:7:36.476" />
++		<DateModified
++			val="2019-1-15 16:7:36.476" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="7721fc97-bb9f-4c1f-a6a9-e4383a0d2102">
++				<Form>
++					<AUni
++						ws="fr">D</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="98d811a9-0019-4d9d-b745-aea5e1f9eeb8">
++				<Definition>
++					<AStr
++						ws="en">
++						<Run
++							ws="en">D</Run>
++					</AStr>
++				</Definition>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++	<LexEntry
+ 		guid="868092ff-e726-436d-8df5-df7e4276e85b">
+ 		<DateCreated
+ 			val="2019-1-15 10:24:56.803" />
+diff -r 1f55450be06d -r 7d24e265d1b8 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Tue Jan 15 17:08:02 2019 +0100
++++ b/WritingSystemStore/fr.ldml	Tue Jan 15 17:08:23 2019 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2019-01-15T16:05:26Z" />
++		<generation date="2019-01-15T16:08:15Z" />
+ 		<language type="fr" />
+ 	</identity>
+ 	<characters>

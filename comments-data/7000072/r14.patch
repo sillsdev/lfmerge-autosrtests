@@ -1,0 +1,231 @@
+# HG changeset patch
+# User eberhard
+# Date 1547571112 -3600
+#      Tue Jan 15 17:51:52 2019 +0100
+# Branch 7000072
+# Node ID 3ef703a57e6366ede3e4deca980fed0ab9a0ac75
+# Parent  558fae8333e6b8655c54a3187ee47f764f427f83
+[FLEx Bridge: 3.0.1-unstable.254+Branch.develop.Sha.498d209d3c2290d5af9783e6a53b29d1890efad5] sync
+
+diff -r 558fae8333e6 -r 3ef703a57e63 Linguistics/Lexicon/Lexicon_01.lexdb
+--- a/Linguistics/Lexicon/Lexicon_01.lexdb	Tue Jan 15 17:49:34 2019 +0100
++++ b/Linguistics/Lexicon/Lexicon_01.lexdb	Tue Jan 15 17:51:52 2019 +0100
+@@ -85,4 +85,50 @@
+ 			</ownseq>
+ 		</Senses>
+ 	</LexEntry>
++	<LexEntry
++		guid="ed51a98a-03cc-4343-967d-4e78348f8bba">
++		<DateCreated
++			val="2019-1-15 16:51:32.423" />
++		<DateModified
++			val="2019-1-15 16:51:32.423" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="eb2392f2-87e8-4059-b135-f22baffa45ae">
++				<Form>
++					<AUni
++						ws="fr">G</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="b2a6c87a-e546-4109-b423-78fd425fb3b9" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="6d404100-4964-4c91-b22c-ca877ff2842d">
++				<Gloss>
++					<AUni
++						ws="en">G</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="b2a6c87a-e546-4109-b423-78fd425fb3b9"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
+ </Lexicon>
+\ No newline at end of file
+diff -r 558fae8333e6 -r 3ef703a57e63 Linguistics/Lexicon/Lexicon_03.lexdb
+--- a/Linguistics/Lexicon/Lexicon_03.lexdb	Tue Jan 15 17:49:34 2019 +0100
++++ b/Linguistics/Lexicon/Lexicon_03.lexdb	Tue Jan 15 17:51:52 2019 +0100
+@@ -1,2 +1,49 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="9bc38428-9b29-436c-9d6d-551d6231cb6d">
++		<DateCreated
++			val="2019-1-15 16:51:27.224" />
++		<DateModified
++			val="2019-1-15 16:51:27.224" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="eb44d649-8e69-4eef-a081-39485a87619c">
++				<Form>
++					<AUni
++						ws="fr">F</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="477ddaea-43f9-4edd-9d0f-7b8f9c70a2f1" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="45cf26d3-2d8c-42c2-9358-8ff9a861e01a">
++				<Gloss>
++					<AUni
++						ws="en">F</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="477ddaea-43f9-4edd-9d0f-7b8f9c70a2f1"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file
+diff -r 558fae8333e6 -r 3ef703a57e63 Linguistics/Lexicon/Lexicon_04.lexdb
+--- a/Linguistics/Lexicon/Lexicon_04.lexdb	Tue Jan 15 17:49:34 2019 +0100
++++ b/Linguistics/Lexicon/Lexicon_04.lexdb	Tue Jan 15 17:51:52 2019 +0100
+@@ -80,4 +80,50 @@
+ 			</ownseq>
+ 		</Senses>
+ 	</LexEntry>
++	<LexEntry
++		guid="af77a0a9-9012-4947-8725-0138c6cced2a">
++		<DateCreated
++			val="2019-1-15 16:51:21.540" />
++		<DateModified
++			val="2019-1-15 16:51:21.540" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="165bf3e2-f414-4905-b9a4-77f72545e319">
++				<Form>
++					<AUni
++						ws="fr">E</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="5bc6e0e2-e575-408a-957b-4325b5fd635d" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="5e46de00-4be2-4f5a-a782-02ead4cae39b">
++				<Gloss>
++					<AUni
++						ws="en">E</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="5bc6e0e2-e575-408a-957b-4325b5fd635d"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
+ </Lexicon>
+\ No newline at end of file
+diff -r 558fae8333e6 -r 3ef703a57e63 Linguistics/Lexicon/Lexicon_07.lexdb
+--- a/Linguistics/Lexicon/Lexicon_07.lexdb	Tue Jan 15 17:49:34 2019 +0100
++++ b/Linguistics/Lexicon/Lexicon_07.lexdb	Tue Jan 15 17:51:52 2019 +0100
+@@ -1,2 +1,49 @@
+ <?xml version="1.0" encoding="utf-8"?>
+-<Lexicon />
+\ No newline at end of file
++<Lexicon>
++	<LexEntry
++		guid="425fd9e4-fe1d-45d7-835f-a6234992fff4">
++		<DateCreated
++			val="2019-1-15 16:51:40.231" />
++		<DateModified
++			val="2019-1-15 16:51:40.231" />
++		<DoNotUseForParsing
++			val="False" />
++		<HomographNumber
++			val="0" />
++		<LexemeForm>
++			<MoStemAllomorph
++				guid="2815d799-da67-4305-bcb8-c2f87054c738">
++				<Form>
++					<AUni
++						ws="fr">H</AUni>
++				</Form>
++				<IsAbstract
++					val="False" />
++				<MorphType>
++					<objsur
++						guid="d7f713e8-e8cf-11d3-9764-00c04f186933"
++						t="r" />
++				</MorphType>
++			</MoStemAllomorph>
++		</LexemeForm>
++		<MorphoSyntaxAnalyses>
++			<MoStemMsa
++				guid="36d1190c-cfd6-48df-b9cc-0fef08a3074c" />
++		</MorphoSyntaxAnalyses>
++		<Senses>
++			<ownseq
++				class="LexSense"
++				guid="8b0a766e-1baa-4b8f-95cc-ddfe908a03a8">
++				<Gloss>
++					<AUni
++						ws="en">H</AUni>
++				</Gloss>
++				<MorphoSyntaxAnalysis>
++					<objsur
++						guid="36d1190c-cfd6-48df-b9cc-0fef08a3074c"
++						t="r" />
++				</MorphoSyntaxAnalysis>
++			</ownseq>
++		</Senses>
++	</LexEntry>
++</Lexicon>
+\ No newline at end of file

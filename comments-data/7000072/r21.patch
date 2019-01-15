@@ -1,0 +1,21 @@
+# HG changeset patch
+# User Language Forge
+# Date 1547573413 -3600
+#      Tue Jan 15 18:30:13 2019 +0100
+# Branch 7000072
+# Node ID 01f70f4995c2941e4a13918759f37ee1e2e88499
+# Parent  dce6c64e637e69513b4b9a62210206381bfcab39
+[LfMergeBridge: 3.0.1.254] Language Forge S/R
+
+diff -r dce6c64e637e -r 01f70f4995c2 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Tue Jan 15 18:29:27 2019 +0100
++++ b/WritingSystemStore/fr.ldml	Tue Jan 15 18:30:13 2019 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2019-01-15T17:27:24Z" />
++		<generation date="2019-01-15T17:30:04Z" />
+ 		<language type="fr" />
+ 		<special xmlns:sil="urn://www.sil.org/ldml/0.1">
+ 			<sil:identity windowsLCID="9" />

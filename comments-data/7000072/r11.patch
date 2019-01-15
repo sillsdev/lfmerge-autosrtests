@@ -1,0 +1,28 @@
+# HG changeset patch
+# User eberhard
+# Date 1547568760 -3600
+#      Tue Jan 15 17:12:40 2019 +0100
+# Branch 7000072
+# Node ID ec858de1c10f5c65ca7d4cf3119ee07b556d9b37
+# Parent  7b9661b27443a48110e62ac559ae0c8dfb7ea03e
+[FLEx Bridge: 3.0.1-unstable.254+Branch.develop.Sha.498d209d3c2290d5af9783e6a53b29d1890efad5] sync
+
+diff -r 7b9661b27443 -r ec858de1c10f Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Tue Jan 15 17:08:23 2019 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Tue Jan 15 17:12:40 2019 +0100
+@@ -41,4 +41,14 @@
+ 			date="2019-01-15T17:08:15+01:00"
+ 			guid="fc25190f-411e-44f4-bfc7-f44032173a97">Comment on word D</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=8f462260-4726-4036-9df0-fb12641e4d27&amp;tag=&amp;id=8f462260-4726-4036-9df0-fb12641e4d27&amp;label=A"
++		guid="1416c04f-2f39-4607-8654-e1dd12fdefa8">
++		<message
++			author="eberhard"
++			status=""
++			date="2019-01-15T17:12:31+01:00"
++			guid="a0eaf3c4-e89d-4bcb-9905-05b4dbb8a08b">Comment on A, FW first</message>
++	</annotation>
+ </notes>
+\ No newline at end of file

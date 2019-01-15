@@ -1,0 +1,36 @@
+# HG changeset patch
+# User Language Forge
+# Date 1547631273 -3600
+#      Wed Jan 16 10:34:33 2019 +0100
+# Branch 7000072
+# Node ID e6b060ab125d701b953c41b2de40c42544b4b6a6
+# Parent  805c6b6b7752f7e15e6b8586c5e9c9df5bd091a1
+[LfMergeBridge: 3.0.1.254] Language Forge S/R
+
+diff -r 805c6b6b7752 -r e6b060ab125d Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Wed Jan 16 10:34:10 2019 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Wed Jan 16 10:34:33 2019 +0100
+@@ -95,5 +95,10 @@
+ 			status="closed"
+ 			date="2019-01-16T10:27:59+01:00"
+ 			guid="1a65333c-c968-4aaa-9e81-60f9bcdfe8a6"></message>
++		<message
++			author="Language Forge"
++			status="open"
++			date="2019-01-16T10:34:25+01:00"
++			guid="df9f2420-9c9c-4b90-81d2-8b773aea9702"></message>
+ 	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 805c6b6b7752 -r e6b060ab125d WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Jan 16 10:34:10 2019 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Jan 16 10:34:33 2019 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2019-01-16T09:29:09Z" />
++		<generation date="2019-01-16T09:34:25Z" />
+ 		<language type="fr" />
+ 		<special xmlns:sil="urn://www.sil.org/ldml/0.1">
+ 			<sil:identity windowsLCID="9" />

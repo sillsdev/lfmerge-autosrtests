@@ -1,0 +1,24 @@
+# HG changeset patch
+# User eberhard
+# Date 1547635986 -3600
+#      Wed Jan 16 11:53:06 2019 +0100
+# Branch 7000072
+# Node ID 9ea810e132ea765fd34c365c5ad6a8e88c512e10
+# Parent  4a9b689775c30323961be7cdc35dd2cfe7c4e711
+[FLEx Bridge: 3.0.1-unstable.254+Branch.develop.Sha.498d209d3c2290d5af9783e6a53b29d1890efad5] sync
+
+diff -r 4a9b689775c3 -r 9ea810e132ea Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Wed Jan 16 11:50:32 2019 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Wed Jan 16 11:53:06 2019 +0100
+@@ -130,5 +130,10 @@
+ 			status="open"
+ 			date="2019-01-16T11:50:24+01:00"
+ 			guid="32fff3ec-0196-48f8-953b-524335d573b4">LF comment on H</message>
++		<message
++			author="eberhard"
++			status="closed"
++			date="2019-01-16T11:52:55+01:00"
++			guid="a2ef0be5-3975-4ede-a5dc-1e9d14d2e82b"></message>
+ 	</annotation>
+ </notes>
+\ No newline at end of file

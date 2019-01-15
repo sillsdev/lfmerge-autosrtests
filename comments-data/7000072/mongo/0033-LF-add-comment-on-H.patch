@@ -1,0 +1,490 @@
+From 4dad55b46ab97d3f5e22567734371fd17f4d7a58 Mon Sep 17 00:00:00 2001
+From: Your Name <you@example.com>
+Date: Wed, 16 Jan 2019 10:50:42 +0000
+Subject: [PATCH] LF add comment on H
+
+---
+ sf_test-comment-sr.activity.json        | 118 ++++++++++++------------
+ sf_test-comment-sr.json                 |   4 +-
+ sf_test-comment-sr.lexicon.json         |  72 +++++++--------
+ sf_test-comment-sr.lexiconComments.json | 114 +++++++++++------------
+ sf_test-comment-sr.optionlists.json     |   8 +-
+ 5 files changed, 158 insertions(+), 158 deletions(-)
+
+diff --git a/sf_test-comment-sr.activity.json b/sf_test-comment-sr.activity.json
+index 6ec39a6..4f56d36 100644
+--- a/sf_test-comment-sr.activity.json
++++ b/sf_test-comment-sr.activity.json
+@@ -6,15 +6,6 @@
+ ,"dateModified":{"$date":"2017-09-25T06:08:22.655Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.655Z"}
+ }
+-{"_id":{"$oid":"5c3db71f6efc6708362e1222"}
+-,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"B","lexComment":"Comment on word B","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"B","lexCommentLabel":"Word","user":"test"}
+-,"date":{"$date":"2019-01-15T10:34:07.000Z"}
+-,"dateCreated":{"$date":"2019-01-15T10:34:07.352Z"}
+-,"dateModified":{"$date":"2019-01-15T10:34:07.352Z"}
+-,"entryRef":{"$oid":"5c3db4f86efc6774ca4bb4f3"}
+-,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+-,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-}
+ {"_id":{"$oid":"5c3ef7886efc673af24f1282"}
+ ,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentLabel":"Word","user":"test"}
+ ,"date":{"$date":"2019-01-16T09:21:12.000Z"}
+@@ -24,15 +15,24 @@
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+-{"_id":{"$oid":"5c3db4f96efc6774ca4bb4f4"}
+-,"action":"add_entry","actionContent":{"project":"test-comment-sr","entry":"B","user":"test"}
+-,"date":{"$date":"2019-01-15T10:24:57.000Z"}
+-,"dateCreated":{"$date":"2019-01-15T10:24:57.064Z"}
+-,"dateModified":{"$date":"2019-01-15T10:24:57.064Z"}
++{"_id":{"$oid":"5c3db71f6efc6708362e1222"}
++,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"B","lexComment":"Comment on word B","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"B","lexCommentLabel":"Word","user":"test"}
++,"date":{"$date":"2019-01-15T10:34:07.000Z"}
++,"dateCreated":{"$date":"2019-01-15T10:34:07.352Z"}
++,"dateModified":{"$date":"2019-01-15T10:34:07.352Z"}
+ ,"entryRef":{"$oid":"5c3db4f86efc6774ca4bb4f3"}
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
++{"_id":{"$oid":"5c3e05486efc672f8c1056f4"}
++,"action":"add_entry","actionContent":{"project":"test-comment-sr","entry":"D","user":"test"}
++,"date":{"$date":"2019-01-15T16:07:36.000Z"}
++,"dateCreated":{"$date":"2019-01-15T16:07:36.500Z"}
++,"dateModified":{"$date":"2019-01-15T16:07:36.500Z"}
++,"entryRef":{"$oid":"5c3e05486efc672f8c1056f3"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++}
+ {"_id":{"$oid":"5c3e055c6efc6701ee63c482"}
+ ,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"D","lexComment":"Comment on word D","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"D","lexCommentLabel":"Word","user":"test"}
+ ,"date":{"$date":"2019-01-15T16:07:56.000Z"}
+@@ -51,39 +51,12 @@
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+-{"_id":{"$oid":"5c3efa816efc6761007dcea5"}
+-,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentStatus":"open","lexCommentLabel":"Word","user":"test"}
+-,"date":{"$date":"2019-01-16T09:33:53.000Z"}
+-,"dateCreated":{"$date":"2019-01-16T09:33:53.800Z"}
+-,"dateModified":{"$date":"2019-01-16T09:33:53.800Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b4"}
+-,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+-,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-}
+-{"_id":{"$oid":"5c3efa806efc6761007dcea4"}
+-,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentStatus":"resolved","lexCommentLabel":"Word","user":"test"}
+-,"date":{"$date":"2019-01-16T09:33:52.000Z"}
+-,"dateCreated":{"$date":"2019-01-16T09:33:52.893Z"}
+-,"dateModified":{"$date":"2019-01-16T09:33:52.893Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b4"}
+-,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+-,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-}
+-{"_id":{"$oid":"5c3e17e76efc67221a6fd852"}
+-,"action":"add_lex_reply","actionContent":{"project":"test-comment-sr","entry":"E","lexComment":"FW comment on E","lexReply":"LF reply on E","user":"test"}
+-,"date":{"$date":"2019-01-15T17:27:03.000Z"}
+-,"dateCreated":{"$date":"2019-01-15T17:27:03.437Z"}
+-,"dateModified":{"$date":"2019-01-15T17:27:03.437Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b7"}
+-,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+-,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+-}
+-{"_id":{"$oid":"5c3e05486efc672f8c1056f4"}
+-,"action":"add_entry","actionContent":{"project":"test-comment-sr","entry":"D","user":"test"}
+-,"date":{"$date":"2019-01-15T16:07:36.000Z"}
+-,"dateCreated":{"$date":"2019-01-15T16:07:36.500Z"}
+-,"dateModified":{"$date":"2019-01-15T16:07:36.500Z"}
+-,"entryRef":{"$oid":"5c3e05486efc672f8c1056f3"}
++{"_id":{"$oid":"5c3db4f96efc6774ca4bb4f4"}
++,"action":"add_entry","actionContent":{"project":"test-comment-sr","entry":"B","user":"test"}
++,"date":{"$date":"2019-01-15T10:24:57.000Z"}
++,"dateCreated":{"$date":"2019-01-15T10:24:57.064Z"}
++,"dateModified":{"$date":"2019-01-15T10:24:57.064Z"}
++,"entryRef":{"$oid":"5c3db4f86efc6774ca4bb4f3"}
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+@@ -95,6 +68,14 @@
+ ,"entryRef":{"$oid":"5c3e0fededa4178929c733ba"}
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ }
++{"_id":{"$oid":"5c3f0bf26efc673af24f1289"}
++,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"G","lexComment":"FW comment on G","lexCommentStatus":"resolved"}
++,"date":{"$date":"2019-01-16T10:48:18.000Z"}
++,"dateCreated":{"$date":"2019-01-16T10:48:18.959Z"}
++,"dateModified":{"$date":"2019-01-16T10:48:18.959Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733ba"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++}
+ {"_id":{"$oid":"5c3efa7f6efc6761007dcea3"}
+ ,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentStatus":"todo","lexCommentLabel":"Word","user":"test"}
+ ,"date":{"$date":"2019-01-16T09:33:51.000Z"}
+@@ -104,13 +85,23 @@
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+-{"_id":{"$oid":"5c3f0bf26efc673af24f1289"}
+-,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"G","lexComment":"FW comment on G","lexCommentStatus":"resolved"}
+-,"date":{"$date":"2019-01-16T10:48:18.000Z"}
+-,"dateCreated":{"$date":"2019-01-16T10:48:18.959Z"}
+-,"dateModified":{"$date":"2019-01-16T10:48:18.959Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733ba"}
++{"_id":{"$oid":"5c3f0c586efc673af24f128c"}
++,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"H","lexComment":"LF comment on H","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"H","lexCommentLabel":"Word","user":"test"}
++,"date":{"$date":"2019-01-16T10:50:00.000Z"}
++,"dateCreated":{"$date":"2019-01-16T10:50:00.931Z"}
++,"dateModified":{"$date":"2019-01-16T10:50:00.931Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b1"}
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++}
++{"_id":{"$oid":"5c3efa806efc6761007dcea4"}
++,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentStatus":"resolved","lexCommentLabel":"Word","user":"test"}
++,"date":{"$date":"2019-01-16T09:33:52.000Z"}
++,"dateCreated":{"$date":"2019-01-16T09:33:52.893Z"}
++,"dateModified":{"$date":"2019-01-16T09:33:52.893Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b4"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+ {"_id":{"$oid":"5c3efa7e6efc6761007dcea2"}
+ ,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentStatus":"open","lexCommentLabel":"Word","user":"test"}
+@@ -121,12 +112,21 @@
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+-{"_id":{"$oid":"5c3f0c586efc673af24f128c"}
+-,"action":"add_lex_comment","actionContent":{"project":"test-comment-sr","entry":"H","lexComment":"LF comment on H","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"H","lexCommentLabel":"Word","user":"test"}
+-,"date":{"$date":"2019-01-16T10:50:00.000Z"}
+-,"dateCreated":{"$date":"2019-01-16T10:50:00.931Z"}
+-,"dateModified":{"$date":"2019-01-16T10:50:00.931Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b1"}
++{"_id":{"$oid":"5c3efa816efc6761007dcea5"}
++,"action":"update_lex_comment_status","actionContent":{"project":"test-comment-sr","entry":"F","lexComment":"LF comment on F","lexCommentContext":"lexeme.fr","lexCommentFieldValue":"F","lexCommentStatus":"open","lexCommentLabel":"Word","user":"test"}
++,"date":{"$date":"2019-01-16T09:33:53.000Z"}
++,"dateCreated":{"$date":"2019-01-16T09:33:53.800Z"}
++,"dateModified":{"$date":"2019-01-16T09:33:53.800Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b4"}
++,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
++,"userRef":{"$oid":"582358be6efc6721d57eb451"}
++}
++{"_id":{"$oid":"5c3e17e76efc67221a6fd852"}
++,"action":"add_lex_reply","actionContent":{"project":"test-comment-sr","entry":"E","lexComment":"FW comment on E","lexReply":"LF reply on E","user":"test"}
++,"date":{"$date":"2019-01-15T17:27:03.000Z"}
++,"dateCreated":{"$date":"2019-01-15T17:27:03.437Z"}
++,"dateModified":{"$date":"2019-01-15T17:27:03.437Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b7"}
+ ,"projectRef":{"$oid":"59c89d56973e3162f531d592"}
+ ,"userRef":{"$oid":"582358be6efc6721d57eb451"}
+ }
+diff --git a/sf_test-comment-sr.json b/sf_test-comment-sr.json
+index 5ae087d..6797e6f 100644
+--- a/sf_test-comment-sr.json
++++ b/sf_test-comment-sr.json
+@@ -9,7 +9,7 @@
+ ,"feedbackGroup":{"name":"Feedback Group"}
+ }
+ }
+-,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2019-01-16T10:49:00.914Z"}
++,"siteName":"languageforge.local","appName":"lexicon","dateModified":{"$date":"2019-01-16T10:50:41.659Z"}
+ ,"dateCreated":{"$date":"2017-09-25T06:08:22.498Z"}
+ ,"inputSystems":{"en":{"abbreviation":"en","tag":"en","languageName":"English","isRightToLeft":false}
+ ,"fr":{"abbreviation":"Frn","tag":"fr","languageName":"French","isRightToLeft":false}
+@@ -258,6 +258,6 @@
+ }
+ }
+ ,"sendReceiveProjectIdentifier":"test-comment-sr","sendReceiveProject":{"name":"test-comment-sr","repository":"http://public.languagedepot.org","role":"manager"}
+-,"lastSyncedDate":{"$date":"2019-01-16T10:49:01.116Z"}
++,"lastSyncedDate":{"$date":"2019-01-16T10:50:41.834Z"}
+ ,"lastEntryModifiedDate":{"$date":"2019-01-15T16:07:36.476Z"}
+ ,"languageCode":"fr"}
+diff --git a/sf_test-comment-sr.lexicon.json b/sf_test-comment-sr.lexicon.json
+index 5459678..e636463 100644
+--- a/sf_test-comment-sr.lexicon.json
++++ b/sf_test-comment-sr.lexicon.json
+@@ -11,16 +11,16 @@
+ }
+ }
+ ]}
+-{"_id":{"$oid":"5c3e0fededa4178929c733b7"}
+-,"guid":"af77a0a9-9012-4947-8725-0138c6cced2a","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T16:51:21.540Z"}
+-,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T16:51:21.540Z"}
++{"_id":{"$oid":"5c3e0fededa4178929c733b1"}
++,"guid":"425fd9e4-fe1d-45d7-835f-a6234992fff4","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T16:51:40.231Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T16:51:40.231Z"}
+ }
+ ,"customFieldGuids":{}
+ ,"customFields":{}
+-,"dateModified":{"$date":"2019-01-15T16:53:01.504Z"}
+-,"isDeleted":false,"lexeme":{"fr":{"value":"E"}
++,"dateModified":{"$date":"2019-01-15T16:53:01.405Z"}
++,"isDeleted":false,"lexeme":{"fr":{"value":"H"}
+ }
+-,"liftId":"E_af77a0a9-9012-4947-8725-0138c6cced2a","morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","senses":[{"id":null,"liftId":"5e46de00-4be2-4f5a-a782-02ead4cae39b","guid":"5e46de00-4be2-4f5a-a782-02ead4cae39b","gloss":{"en":{"value":"E"}
++,"liftId":"H_425fd9e4-fe1d-45d7-835f-a6234992fff4","morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","senses":[{"id":null,"liftId":"8b0a766e-1baa-4b8f-95cc-ddfe908a03a8","guid":"8b0a766e-1baa-4b8f-95cc-ddfe908a03a8","gloss":{"en":{"value":"H"}
+ }
+ }
+ ]}
+@@ -37,16 +37,17 @@
+ }
+ }
+ ]}
+-{"_id":{"$oid":"5c3e0fededa4178929c733b1"}
+-,"guid":"425fd9e4-fe1d-45d7-835f-a6234992fff4","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T16:51:40.231Z"}
+-,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T16:51:40.231Z"}
++{"_id":{"$oid":"5c3e05486efc672f8c1056f3"}
++,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"createdDate":{"$date":"2019-01-15T16:07:36.476Z"}
++,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"modifiedDate":{"$date":"2019-01-15T16:07:36.476Z"}
+ }
+-,"customFieldGuids":{}
+-,"customFields":{}
+-,"dateModified":{"$date":"2019-01-15T16:53:01.405Z"}
+-,"isDeleted":false,"lexeme":{"fr":{"value":"H"}
++,"dateCreated":{"$date":"2019-01-15T16:07:36.486Z"}
++,"dateModified":{"$date":"2019-01-15T16:07:36.486Z"}
++,"guid":"77dd7691-ffc0-4341-b175-f318632d8232","isDeleted":false,"lexeme":{"fr":{"value":"D"}
+ }
+-,"liftId":"H_425fd9e4-fe1d-45d7-835f-a6234992fff4","morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","senses":[{"id":null,"liftId":"8b0a766e-1baa-4b8f-95cc-ddfe908a03a8","guid":"8b0a766e-1baa-4b8f-95cc-ddfe908a03a8","gloss":{"en":{"value":"H"}
++,"senses":[{"guid":"98d811a9-0019-4d9d-b745-aea5e1f9eeb8","definition":{"en":{"value":"D"}
+ }
+ }
+ ]}
+@@ -63,19 +64,6 @@
+ }
+ }
+ ]}
+-{"_id":{"$oid":"5c3e0fededa4178929c733b4"}
+-,"guid":"9bc38428-9b29-436c-9d6d-551d6231cb6d","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T16:51:27.224Z"}
+-,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T16:51:27.224Z"}
+-}
+-,"customFieldGuids":{}
+-,"customFields":{}
+-,"dateModified":{"$date":"2019-01-15T16:53:01.501Z"}
+-,"isDeleted":false,"lexeme":{"fr":{"value":"F"}
+-}
+-,"liftId":"F_9bc38428-9b29-436c-9d6d-551d6231cb6d","morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","senses":[{"id":null,"liftId":"45cf26d3-2d8c-42c2-9358-8ff9a861e01a","guid":"45cf26d3-2d8c-42c2-9358-8ff9a861e01a","gloss":{"en":{"value":"F"}
+-}
+-}
+-]}
+ {"_id":{"$oid":"5c3db4f86efc6774ca4bb4f3"}
+ ,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+ ,"createdDate":{"$date":"2019-01-15T10:24:56.803Z"}
+@@ -90,17 +78,29 @@
+ }
+ }
+ ]}
+-{"_id":{"$oid":"5c3e05486efc672f8c1056f3"}
+-,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"createdDate":{"$date":"2019-01-15T16:07:36.476Z"}
+-,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"modifiedDate":{"$date":"2019-01-15T16:07:36.476Z"}
++{"_id":{"$oid":"5c3e0fededa4178929c733b4"}
++,"guid":"9bc38428-9b29-436c-9d6d-551d6231cb6d","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T16:51:27.224Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T16:51:27.224Z"}
+ }
+-,"dateCreated":{"$date":"2019-01-15T16:07:36.486Z"}
+-,"dateModified":{"$date":"2019-01-15T16:07:36.486Z"}
+-,"guid":"77dd7691-ffc0-4341-b175-f318632d8232","isDeleted":false,"lexeme":{"fr":{"value":"D"}
++,"customFieldGuids":{}
++,"customFields":{}
++,"dateModified":{"$date":"2019-01-15T16:53:01.501Z"}
++,"isDeleted":false,"lexeme":{"fr":{"value":"F"}
+ }
+-,"senses":[{"guid":"98d811a9-0019-4d9d-b745-aea5e1f9eeb8","definition":{"en":{"value":"D"}
++,"liftId":"F_9bc38428-9b29-436c-9d6d-551d6231cb6d","morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","senses":[{"id":null,"liftId":"45cf26d3-2d8c-42c2-9358-8ff9a861e01a","guid":"45cf26d3-2d8c-42c2-9358-8ff9a861e01a","gloss":{"en":{"value":"F"}
++}
++}
++]}
++{"_id":{"$oid":"5c3e0fededa4178929c733b7"}
++,"guid":"af77a0a9-9012-4947-8725-0138c6cced2a","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T16:51:21.540Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T16:51:21.540Z"}
++}
++,"customFieldGuids":{}
++,"customFields":{}
++,"dateModified":{"$date":"2019-01-15T16:53:01.504Z"}
++,"isDeleted":false,"lexeme":{"fr":{"value":"E"}
++}
++,"liftId":"E_af77a0a9-9012-4947-8725-0138c6cced2a","morphologyType":"stem","pronunciationGuid":"00000000-0000-0000-0000-000000000000","senses":[{"id":null,"liftId":"5e46de00-4be2-4f5a-a782-02ead4cae39b","guid":"5e46de00-4be2-4f5a-a782-02ead4cae39b","gloss":{"en":{"value":"E"}
+ }
+ }
+ ]}
+diff --git a/sf_test-comment-sr.lexiconComments.json b/sf_test-comment-sr.lexiconComments.json
+index 846106b..4246970 100644
+--- a/sf_test-comment-sr.lexiconComments.json
++++ b/sf_test-comment-sr.lexiconComments.json
+@@ -7,6 +7,15 @@
+ ,"entryRef":{"$oid":"5c3db520eda4178929c711a3"}
+ ,"isDeleted":false,"regarding":{"targetGuid":"8f462260-4726-4036-9df0-fb12641e4d27","word":"A","meaning":"***"}
+ ,"replies":[],"status":"open","statusGuid":"a0eaf3c4-e89d-4bcb-9905-05b4dbb8a08b"}
++{"_id":{"$oid":"5c3e04d8eda4178929c729d8"}
++,"guid":"07e6955c-1f20-4b77-917e-1a3d6b30567f","authorInfo":{"createdDate":{"$date":"2019-01-15T16:04:24.000Z"}
++,"modifiedDate":{"$date":"2019-01-15T16:04:24.000Z"}
++}
++,"authorNameAlternate":"eberhard","content":"Comment about new word C","contextGuid":null,"dateCreated":{"$date":"2019-01-15T16:05:44.533Z"}
++,"dateModified":{"$date":"2019-01-15T16:05:44.533Z"}
++,"entryRef":{"$oid":"5c3e04d8eda4178929c729d2"}
++,"isDeleted":false,"regarding":{"targetGuid":"3fb7c318-bdd2-42ce-8546-69e9eb6884c6","word":"C","meaning":"***"}
++,"replies":[],"status":"open","statusGuid":"9d4b25e5-8fc2-4b4c-ba07-48c6f9233f0b"}
+ {"_id":{"$oid":"5c3db71f6efc6708362e1223"}
+ ,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+ ,"createdDate":{"$date":"2019-01-15T10:34:07.351Z"}
+@@ -18,6 +27,25 @@
+ ,"entryRef":{"$oid":"5c3db4f86efc6774ca4bb4f3"}
+ ,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"B","inputSystem":"French","inputSystemAbbreviation":"Frn"}
+ ,"status":"open","guid":"2db635db-5eb5-41f5-801a-e39ddc502944","statusGuid":"6f389757-8ad3-4e43-80a6-0b64e321549c"}
++{"_id":{"$oid":"5c3e1773eda4178929c73650"}
++,"guid":"4d2621cb-b12c-4e3e-a233-afbd8b2d4726","authorInfo":{"createdDate":{"$date":"2019-01-15T17:24:04.000Z"}
++,"modifiedDate":{"$date":"2019-01-15T17:24:04.000Z"}
++}
++,"authorNameAlternate":"eberhard","content":"FW comment on E","dateCreated":{"$date":"2019-01-15T17:25:07.827Z"}
++,"dateModified":{"$date":"2019-01-15T17:30:22.466Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b7"}
++,"isDeleted":false,"regarding":{"word":"E","meaning":"***"}
++,"replies":[{"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"createdDate":{"$date":"2019-01-15T17:27:03.433Z"}
++,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"modifiedDate":{"$date":"2019-01-15T17:27:03.433Z"}
++}
++,"content":"LF reply on E","id":"5c3e17e769d8c","guid":"07f290d6-dd00-46ef-be6b-682530a91064","isDeleted":false}
++,{"guid":"b66430b5-f0de-454a-904e-e30e8de3f6fc","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T17:28:53.000Z"}
++,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T17:28:53.000Z"}
++}
++,"authorNameAlternate":"eberhard","content":"FW reply on E","id":"5c3e18ae6a71e","isDeleted":false}
++],"status":"open","statusGuid":"b66430b5-f0de-454a-904e-e30e8de3f6fc"}
+ {"_id":{"$oid":"5c3e055c6efc6701ee63c484"}
+ ,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+ ,"createdDate":{"$date":"2019-01-15T16:07:56.583Z"}
+@@ -29,15 +57,26 @@
+ ,"entryRef":{"$oid":"5c3e05486efc672f8c1056f3"}
+ ,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"D","inputSystem":"French","inputSystemAbbreviation":"Frn"}
+ ,"status":"open","guid":"8d50357f-0b1e-4604-a152-62bb22d20478","statusGuid":"fc25190f-411e-44f4-bfc7-f44032173a97"}
+-{"_id":{"$oid":"5c3e04d8eda4178929c729d8"}
+-,"guid":"07e6955c-1f20-4b77-917e-1a3d6b30567f","authorInfo":{"createdDate":{"$date":"2019-01-15T16:04:24.000Z"}
+-,"modifiedDate":{"$date":"2019-01-15T16:04:24.000Z"}
++{"_id":{"$oid":"5c3db748eda4178929c7171a"}
++,"guid":"b58fe6ff-3ab4-424b-8eb8-ccea462c3826","authorInfo":{"createdDate":{"$date":"2019-01-15T10:32:10.000Z"}
++,"modifiedDate":{"$date":"2019-01-15T10:32:10.000Z"}
+ }
+-,"authorNameAlternate":"eberhard","content":"Comment about new word C","contextGuid":null,"dateCreated":{"$date":"2019-01-15T16:05:44.533Z"}
+-,"dateModified":{"$date":"2019-01-15T16:05:44.533Z"}
+-,"entryRef":{"$oid":"5c3e04d8eda4178929c729d2"}
+-,"isDeleted":false,"regarding":{"targetGuid":"3fb7c318-bdd2-42ce-8546-69e9eb6884c6","word":"C","meaning":"***"}
+-,"replies":[],"status":"open","statusGuid":"9d4b25e5-8fc2-4b4c-ba07-48c6f9233f0b"}
++,"authorNameAlternate":"eberhard","content":"FW comment on word A","contextGuid":null,"dateCreated":{"$date":"2019-01-15T10:34:48.752Z"}
++,"dateModified":{"$date":"2019-01-15T10:34:48.752Z"}
++,"entryRef":{"$oid":"5c3db520eda4178929c711a3"}
++,"isDeleted":false,"regarding":{"targetGuid":"8f462260-4726-4036-9df0-fb12641e4d27","word":"A","meaning":"***"}
++,"replies":[],"status":"open","statusGuid":"435a7d53-08e7-46c6-b970-9c7b6d9950f1"}
++{"_id":{"$oid":"5c3f0c586efc673af24f128e"}
++,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"createdDate":{"$date":"2019-01-16T10:50:00.928Z"}
++,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"modifiedDate":{"$date":"2019-01-16T10:50:00.928Z"}
++}
++,"content":"LF comment on H","contextGuid":"lexeme.fr","dateCreated":{"$date":"2019-01-16T10:50:00.935Z"}
++,"dateModified":{"$date":"2019-01-16T10:50:41.828Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b1"}
++,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"Frn"}
++,"status":"open","guid":"b4d9e4d9-8496-4958-8373-8cdda3ce68b9","statusGuid":"32fff3ec-0196-48f8-953b-524335d573b4"}
+ {"_id":{"$oid":"5c3e06ac6efc6774f6566044"}
+ ,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+ ,"createdDate":{"$date":"2019-01-15T16:13:32.874Z"}
+@@ -49,15 +88,17 @@
+ ,"entryRef":{"$oid":"5c3db520eda4178929c711a3"}
+ ,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"A","inputSystem":"French","inputSystemAbbreviation":"Frn"}
+ ,"status":"open","guid":"124a18a9-2f7b-48a7-a335-15759eaf1d5b","statusGuid":"4f016f6c-fb7d-444b-9454-a6523e412069"}
+-{"_id":{"$oid":"5c3db748eda4178929c7171a"}
+-,"guid":"b58fe6ff-3ab4-424b-8eb8-ccea462c3826","authorInfo":{"createdDate":{"$date":"2019-01-15T10:32:10.000Z"}
+-,"modifiedDate":{"$date":"2019-01-15T10:32:10.000Z"}
++{"_id":{"$oid":"5c3ef7886efc673af24f1284"}
++,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"createdDate":{"$date":"2019-01-16T09:21:12.098Z"}
++,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
++,"modifiedDate":{"$date":"2019-01-16T09:21:12.098Z"}
+ }
+-,"authorNameAlternate":"eberhard","content":"FW comment on word A","contextGuid":null,"dateCreated":{"$date":"2019-01-15T10:34:48.752Z"}
+-,"dateModified":{"$date":"2019-01-15T10:34:48.752Z"}
+-,"entryRef":{"$oid":"5c3db520eda4178929c711a3"}
+-,"isDeleted":false,"regarding":{"targetGuid":"8f462260-4726-4036-9df0-fb12641e4d27","word":"A","meaning":"***"}
+-,"replies":[],"status":"open","statusGuid":"435a7d53-08e7-46c6-b970-9c7b6d9950f1"}
++,"content":"LF comment on F","contextGuid":"lexeme.fr","dateCreated":{"$date":"2019-01-16T09:21:12.109Z"}
++,"dateModified":{"$date":"2019-01-16T09:34:42.885Z"}
++,"entryRef":{"$oid":"5c3e0fededa4178929c733b4"}
++,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"F","inputSystem":"French","inputSystemAbbreviation":"Frn"}
++,"status":"open","guid":"3e3fc597-c88c-4e25-9254-5562dd529b04","statusGuid":"df9f2420-9c9c-4b90-81d2-8b773aea9702"}
+ {"_id":{"$oid":"5c3efbb1eda4178929c7486e"}
+ ,"guid":"d407ef62-5f27-4f5b-9996-0ed26beceb85","authorInfo":{"createdDate":{"$date":"2019-01-16T09:37:51.000Z"}
+ ,"modifiedDate":{"$date":"2019-01-16T09:37:51.000Z"}
+@@ -71,44 +112,3 @@
+ }
+ ,"authorNameAlternate":"eberhard","content":"FW reply on G","id":"5c3f0c1d14710","isDeleted":false}
+ ]}
+-{"_id":{"$oid":"5c3ef7886efc673af24f1284"}
+-,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"createdDate":{"$date":"2019-01-16T09:21:12.098Z"}
+-,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"modifiedDate":{"$date":"2019-01-16T09:21:12.098Z"}
+-}
+-,"content":"LF comment on F","contextGuid":"lexeme.fr","dateCreated":{"$date":"2019-01-16T09:21:12.109Z"}
+-,"dateModified":{"$date":"2019-01-16T09:34:42.885Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b4"}
+-,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"F","inputSystem":"French","inputSystemAbbreviation":"Frn"}
+-,"status":"open","guid":"3e3fc597-c88c-4e25-9254-5562dd529b04","statusGuid":"df9f2420-9c9c-4b90-81d2-8b773aea9702"}
+-{"_id":{"$oid":"5c3e1773eda4178929c73650"}
+-,"guid":"4d2621cb-b12c-4e3e-a233-afbd8b2d4726","authorInfo":{"createdDate":{"$date":"2019-01-15T17:24:04.000Z"}
+-,"modifiedDate":{"$date":"2019-01-15T17:24:04.000Z"}
+-}
+-,"authorNameAlternate":"eberhard","content":"FW comment on E","dateCreated":{"$date":"2019-01-15T17:25:07.827Z"}
+-,"dateModified":{"$date":"2019-01-15T17:30:22.466Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b7"}
+-,"isDeleted":false,"regarding":{"word":"E","meaning":"***"}
+-,"replies":[{"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"createdDate":{"$date":"2019-01-15T17:27:03.433Z"}
+-,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"modifiedDate":{"$date":"2019-01-15T17:27:03.433Z"}
+-}
+-,"content":"LF reply on E","id":"5c3e17e769d8c","guid":"07f290d6-dd00-46ef-be6b-682530a91064","isDeleted":false}
+-,{"guid":"b66430b5-f0de-454a-904e-e30e8de3f6fc","authorInfo":{"createdByUserRef":null,"createdDate":{"$date":"2019-01-15T17:28:53.000Z"}
+-,"modifiedByUserRef":null,"modifiedDate":{"$date":"2019-01-15T17:28:53.000Z"}
+-}
+-,"authorNameAlternate":"eberhard","content":"FW reply on E","id":"5c3e18ae6a71e","isDeleted":false}
+-],"status":"open","statusGuid":"b66430b5-f0de-454a-904e-e30e8de3f6fc"}
+-{"_id":{"$oid":"5c3f0c586efc673af24f128e"}
+-,"authorInfo":{"createdByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"createdDate":{"$date":"2019-01-16T10:50:00.928Z"}
+-,"modifiedByUserRef":{"$oid":"582358be6efc6721d57eb451"}
+-,"modifiedDate":{"$date":"2019-01-16T10:50:00.928Z"}
+-}
+-,"content":"LF comment on H","contextGuid":"lexeme.fr","dateCreated":{"$date":"2019-01-16T10:50:00.935Z"}
+-,"dateModified":{"$date":"2019-01-16T10:50:00.935Z"}
+-,"entryRef":{"$oid":"5c3e0fededa4178929c733b1"}
+-,"isDeleted":false,"regarding":{"field":"lexeme","fieldNameForDisplay":"Word","fieldValue":"H","inputSystem":"French","inputSystemAbbreviation":"Frn"}
+-,"status":"open"}
+diff --git a/sf_test-comment-sr.optionlists.json b/sf_test-comment-sr.optionlists.json
+index 4cea9de..633c630 100644
+--- a/sf_test-comment-sr.optionlists.json
++++ b/sf_test-comment-sr.optionlists.json
+@@ -1,11 +1,11 @@
+-{"_id":{"$oid":"59c89d74ef72839b2c0b6247"}
+-,"code":"location","name":"Location","dateCreated":{"$date":"2017-09-25T06:08:52.670Z"}
+-,"dateModified":{"$date":"2017-09-25T06:08:52.670Z"}
+-,"items":[],"canDelete":false}
+ {"_id":{"$oid":"59c89d74ef72839b2c0b624a"}
+ ,"code":"anthro-code","name":"Anthropology Categories","dateCreated":{"$date":"2017-09-25T06:08:52.687Z"}
+ ,"dateModified":{"$date":"2017-09-25T06:08:52.687Z"}
+ ,"items":[],"canDelete":false}
++{"_id":{"$oid":"59c89d74ef72839b2c0b6247"}
++,"code":"location","name":"Location","dateCreated":{"$date":"2017-09-25T06:08:52.670Z"}
++,"dateModified":{"$date":"2017-09-25T06:08:52.670Z"}
++,"items":[],"canDelete":false}
+ {"_id":{"$oid":"59c89d74ef72839b2c0b624b"}
+ ,"code":"status","name":"Status","dateCreated":{"$date":"2017-09-25T06:08:52.689Z"}
+ ,"dateModified":{"$date":"2017-09-25T06:08:52.690Z"}
+-- 
+2.20.1
+

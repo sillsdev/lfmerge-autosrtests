@@ -1,0 +1,40 @@
+# HG changeset patch
+# User Language Forge
+# Date 1547630504 -3600
+#      Wed Jan 16 10:21:44 2019 +0100
+# Branch 7000072
+# Node ID 988b06416763602686663ab37f191636e8196f15
+# Parent  6c662fceddbcf4aa6d6674332e738eaf4ccb6942
+[LfMergeBridge: 3.0.1.254] Language Forge S/R
+
+diff -r 6c662fceddbc -r 988b06416763 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Wed Jan 16 10:21:21 2019 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Wed Jan 16 10:21:44 2019 +0100
+@@ -81,4 +81,14 @@
+ 			date="2019-01-15T18:28:53+01:00"
+ 			guid="b66430b5-f0de-454a-904e-e30e8de3f6fc">FW reply on E</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=9bc38428-9b29-436c-9d6d-551d6231cb6d&amp;tag=&amp;id=9bc38428-9b29-436c-9d6d-551d6231cb6d&amp;label=F (Word - Frn &quot;F&quot;)"
++		guid="3e3fc597-c88c-4e25-9254-5562dd529b04">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2019-01-16T10:21:36+01:00"
++			guid="ad38a97f-d814-4cb6-ac86-f69c382b922d">LF comment on F</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 6c662fceddbc -r 988b06416763 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Wed Jan 16 10:21:21 2019 +0100
++++ b/WritingSystemStore/fr.ldml	Wed Jan 16 10:21:44 2019 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2019-01-15T17:30:04Z" />
++		<generation date="2019-01-16T09:21:36Z" />
+ 		<language type="fr" />
+ 		<special xmlns:sil="urn://www.sil.org/ldml/0.1">
+ 			<sil:identity windowsLCID="9" />
