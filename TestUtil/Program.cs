@@ -198,7 +198,7 @@ namespace LfMerge.TestUtil
 						$"Create a new project 'test-{modelVersion}' and send this project for the first time to the USB stick");
 					Run("/bin/bash",
 						$"-i -c \"cd {outputDir} && . fwenviron && cd Output_$(uname -m)/Debug && mono --debug FieldWorks.exe > /dev/null\"",
-						outputDir);
+						outputDir, true);
 				}
 				else
 				{
@@ -220,7 +220,7 @@ namespace LfMerge.TestUtil
 					// up the s/r dialog!
 					Run("/bin/bash",
 						$"-i -c \"cd {outputDir} && . fwenviron && cd Output_$(uname -m)/Debug && mono --debug FieldWorks.exe > /dev/null\"",
-						outputDir);
+						outputDir, true);
 				}
 
 				Console.WriteLine($"Saving chorus repo test data for {modelVersion}");
@@ -241,19 +241,18 @@ namespace LfMerge.TestUtil
 					// Since this is a new project, we copy the first patch for mongo from an
 					// older model version, if we can find it
 					int tmpModelVersion;
-					string mongoPatchFile = string.Empty;
+					var mongoPatchFile = string.Empty;
 					for (tmpModelVersion = Settings.MinModelVersion;
 						tmpModelVersion <= Settings.MaxModelVersion;
 						tmpModelVersion++)
 					{
-						var tempMongoPatchFile = Path.Combine(Settings.DataDir,
-							tmpModelVersion.ToString(), "mongo", "0001-Add-empty-project.patch");
+						var dirInfo = new DirectoryInfo(Path.Combine(Settings.DataDir, tmpModelVersion.ToString(), "mongo"));
+						var patchFiles = dirInfo.GetFiles("0001-*.patch");
+						if (patchFiles.Length != 1)
+							continue;
 
-						if (File.Exists(tempMongoPatchFile))
-						{
-							mongoPatchFile = tempMongoPatchFile;
-							break;
-						}
+						mongoPatchFile = patchFiles[0].FullName;
+						break;
 					}
 
 					if (tmpModelVersion > Settings.MaxModelVersion)
@@ -326,7 +325,6 @@ namespace LfMerge.TestUtil
 # Branch {modelVersion}
 no-op to keep LD/Mongo patches balanced
 
-diff no-op
 --- a/no-op
 +++ b/no-op
 @@ -1,1 +1,1 @@
@@ -342,10 +340,9 @@ diff no-op
 # Branch {modelVersion}
 no-op to keep LD/Mongo patches balanced
 
-diff no-op
 --- /dev/null
 +++ b/no-op
-@@ 0,0 +1,1 @@
+@@ -0,0 +1,1 @@
 +{Guid.NewGuid().ToString()}
 ");
 			}
@@ -431,7 +428,8 @@ diff no-op
 			Console.WriteLine($"Successfully restored mongo database at version {options.MongoVersion}");
 		}
 
-		private static string Run(string command, string args, string workDir)
+		private static string Run(string command, string args, string workDir,
+			bool ignoreExitCode = false)
 		{
 			// NOTE: don't replace this method with HgRunner.Run()! That trims leading/trailing
 			// spaces and causes the patch files to fail to import!
@@ -474,7 +472,7 @@ diff no-op
 					errorWaitHandle.WaitOne();
 					outputWaitHandle.WaitOne();
 
-					if (process.ExitCode == 0)
+					if (process.ExitCode == 0 || ignoreExitCode)
 						return output.ToString();
 
 					var msg = $"Running '{command} {args}' returned {process.ExitCode}.\nStderr:\n{stderr}\nOutput:\n{output}";
