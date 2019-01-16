@@ -232,13 +232,21 @@ namespace LfMerge.AutomatedSRTests
 		private static void VerifyReplies(List<JToken> expectedObjs, BsonDocument actual)
 		{
 			Assert.That(expectedObjs, Is.Not.Null);
-			var actualObjs = actual.GetElement("replies").Value as BsonArray;
-			Assert.That(actualObjs.Count, Is.GreaterThanOrEqualTo(expectedObjs.Count));
-			for (var i = 0; i < expectedObjs.Count; i++)
+			if (actual.Contains("replies"))
 			{
-				var expectedObj = expectedObjs[i] as JObject;
-				var actualObj = actualObjs[i];
-				VerifyReply(expectedObj, actualObj.ToBsonDocument());
+				var actualObjs = actual.GetElement("replies").Value as BsonArray;
+				Assert.That(actualObjs.Count, Is.GreaterThanOrEqualTo(expectedObjs.Count));
+				for (var i = 0; i < expectedObjs.Count; i++)
+				{
+					var expectedObj = expectedObjs[i] as JObject;
+					var actualObj = actualObjs[i];
+					VerifyReply(expectedObj, actualObj.ToBsonDocument());
+				}
+			}
+			else
+			{
+				Assert.That(expectedObjs.Count, Is.EqualTo(0),
+					$"Found no replies where we did expect {expectedObjs.Count}");
 			}
 		}
 
