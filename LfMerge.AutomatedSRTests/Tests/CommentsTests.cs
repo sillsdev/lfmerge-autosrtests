@@ -20,8 +20,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			// language=json
 			@"{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 				'senses' : [ {
-					'definition' : { 'en' : { 'value' : 'B' } },
-					'gloss' : { 'en' : { 'value' : '' } }
+					'definition' : { 'en' : { 'value' : 'B' } }
 				} ] }";
 
 		private const string LexemeC =
@@ -36,8 +35,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			// language=json
 			@"{ 'lexeme': { 'fr' : { 'value' : 'D' } },
 				'senses' : [ {
-					'definition' : { 'en' : { 'value' : 'D' } },
-					'gloss' : { 'en' : { 'value' : '' } }
+					'definition' : { 'en' : { 'value' : 'D' } }
 			} ] }";
 
 		private const string LexemeE =
@@ -257,8 +255,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
 					'senses' : [ {
@@ -307,8 +304,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
 					'senses' : [ {
@@ -400,8 +396,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
 					'senses' : [ {
@@ -482,8 +477,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
 					'senses' : [ {
@@ -547,8 +541,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
 					'senses' : [ {
@@ -739,7 +732,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 				'messages': [
 					{ 'message' : {
 						'status': 'open',
-						'value': 'LF comment on F',
+						'value': 'LF comment on F'
 					}}, { 'message': {
 						'status': 'resolved'
 					}}, { 'message': {
@@ -864,8 +857,7 @@ namespace LfMerge.AutomatedSRTests.Tests
 			const string expected = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 				} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'C' } },
 					'senses' : [ {

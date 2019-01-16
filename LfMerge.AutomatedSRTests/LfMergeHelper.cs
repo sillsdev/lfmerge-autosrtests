@@ -26,7 +26,7 @@ namespace LfMerge.AutomatedSRTests
 				process.StartInfo.UseShellExecute = false;
 				process.StartInfo.CreateNoWindow = true;
 				process.StartInfo.FileName = Path.Combine(FileLocationUtilities.DirectoryOfApplicationOrSolution,
-				"lfmerge");
+					"lfmerge");
 				process.StartInfo.Arguments = args + $" --config \"{Settings.TempDir}\"";
 				process.StartInfo.RedirectStandardOutput = true;
 				Console.WriteLine($"Executing: {process.StartInfo.FileName} {process.StartInfo.Arguments}");
