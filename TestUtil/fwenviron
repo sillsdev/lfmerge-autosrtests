@@ -12,8 +12,8 @@ ARCH=$(uname -m)
 OUTPUTBASE=$(pwd)
 OUTPUT=${OUTPUTBASE}/Output_$(uname -m)
 [ -z "$BUILD" ] && BUILD=Debug
-[ -z "$MONO_PREFIX" ] && MONO_PREFIX=/opt/mono-sil
-[ -z "$MONO_SILPKGDIR" ] && MONO_SILPKGDIR=/opt/mono-sil
+MONO_PREFIX=/opt/mono-sil
+MONO_SILPKGDIR=$MONO_PREFIX
 MONO_ENVIRON=${OUTPUTBASE}/fwenviron
 
 # Dependency locations
