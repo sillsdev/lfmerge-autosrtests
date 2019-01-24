@@ -36,8 +36,7 @@ namespace LfMerge.AutomatedSRTests
 			const string testData = @"[ { 'lexicon': [
 				{ 'lexeme': { 'fr' : { 'value' : 'B' } },
 					'senses' : [ {
-						'definition' : { 'en' : { 'value' : 'B' } },
-						'gloss' : { 'en' : { 'value' : '' } }
+						'definition' : { 'en' : { 'value' : 'B' } }
 					} ] },
 				{ 'lexeme': { 'fr' : { 'value' : 'A' } },
 					'senses' : [ {
