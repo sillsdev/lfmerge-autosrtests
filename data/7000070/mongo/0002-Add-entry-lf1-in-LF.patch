@@ -73,7 +73,7 @@ index e69de29..55c5c42 100644
 +}
 +,"gloss":{"en":{"value":""}
 +}
-+,"pictures":[],"partOfSpeech":{"value":"n"}
++,"pictures":[],"partOfSpeech":{"value":"n1"}
 +,"semanticDomain":{"values":["1.1"]}
 +,"examples":[{"liftId":null,"sentence":{"fr":{"value":"C'est un exemple"}
 +}
