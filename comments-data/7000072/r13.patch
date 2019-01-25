@@ -1,10 +1,40 @@
 # HG changeset patch
-# User No-op
+# User Language Forge
+# Date 1547568840 -3600
+#      Tue Jan 15 17:14:00 2019 +0100
 # Branch 7000072
-no-op to keep LD/Mongo patches balanced
+# Node ID f3e96da0f3900e704825979fde9c6b25991394ea
+# Parent  9594bb9ea4553a2db8c6eee346d91fdced453653
+[LfMergeBridge: 3.0.1.254] Language Forge S/R
 
---- a/no-op
-+++ b/no-op
-@@ -1,1 +1,1 @@
--fc0e8251-160a-4f5b-b3ca-b52ec01a600c
-+e864ad31-feaf-4c75-8c0e-9bcaa411271e
+diff -r 9594bb9ea455 -r f3e96da0f390 Lexicon.fwstub.ChorusNotes
+--- a/Lexicon.fwstub.ChorusNotes	Tue Jan 15 17:12:40 2019 +0100
++++ b/Lexicon.fwstub.ChorusNotes	Tue Jan 15 17:14:00 2019 +0100
+@@ -51,4 +51,14 @@
+ 			date="2019-01-15T17:12:31+01:00"
+ 			guid="a0eaf3c4-e89d-4bcb-9905-05b4dbb8a08b">Comment on A, FW first</message>
+ 	</annotation>
++	<annotation
++		class="question"
++		ref="silfw://localhost/link?app=flex&amp;database=current&amp;server=&amp;tool=default&amp;guid=8f462260-4726-4036-9df0-fb12641e4d27&amp;tag=&amp;id=8f462260-4726-4036-9df0-fb12641e4d27&amp;label=A (Word - Frn &quot;A&quot;)"
++		guid="124a18a9-2f7b-48a7-a335-15759eaf1d5b">
++		<message
++			author="Language Forge"
++			status="open"
++			date="2019-01-15T17:13:52+01:00"
++			guid="4f016f6c-fb7d-444b-9454-a6523e412069">Comment on A, LF second</message>
++	</annotation>
+ </notes>
+\ No newline at end of file
+diff -r 9594bb9ea455 -r f3e96da0f390 WritingSystemStore/fr.ldml
+--- a/WritingSystemStore/fr.ldml	Tue Jan 15 17:12:40 2019 +0100
++++ b/WritingSystemStore/fr.ldml	Tue Jan 15 17:14:00 2019 +0100
+@@ -2,7 +2,7 @@
+ <ldml>
+ 	<identity>
+ 		<version number="$Revision: 12004 $" />
+-		<generation date="2019-01-15T16:08:15Z" />
++		<generation date="2019-01-15T16:13:52Z" />
+ 		<language type="fr" />
+ 	</identity>
+ 	<characters>
