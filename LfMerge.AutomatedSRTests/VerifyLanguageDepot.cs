@@ -109,7 +109,7 @@ namespace LfMerge.AutomatedSRTests
 					Assert.That(actualAttribute, Is.Not.Null,
 						$"LanguageDepot: No attribute '{expectedAttribute.Name}' for element '{expectedElement.Name}' (record {_currentRecord})");
 					if (actualAttribute.Name == "ref")
-						Assert.That(actualAttribute.Value, Is.StringContaining(expectedAttribute.Value),
+						Assert.That(actualAttribute.Value, Does.Contain(expectedAttribute.Value),
 							$"LanguageDepot: Attribute '{expectedAttribute.Name}' of element '{expectedElement.Name}' doesn't contain expected value (record {_currentRecord})");
 					else
 						Assert.That(actualAttribute.Value, Is.EqualTo(expectedAttribute.Value),
