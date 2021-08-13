@@ -53,8 +53,8 @@ namespace LfMerge.AutomatedSRTests
 				Assert.That(GetTipRevision(_repoDir), Is.EqualTo(prevTip));
 				var notes = File.ReadAllText(Path.Combine(Settings.TempDir, "LanguageDepot",
 					"Lexicon.fwstub.ChorusNotes"));
-				Assert.That(notes, Is.StringContaining("FW comment on word A"));
-				Assert.That(notes, Is.Not.StringContaining("Comment on word B"));
+				Assert.That(notes, Does.Contain("FW comment on word A"));
+				Assert.That(notes, Does.Not.Contain("Comment on word B"));
 			}
 		}
 
@@ -75,8 +75,8 @@ namespace LfMerge.AutomatedSRTests
 				Assert.That(GetTipRevision(_repoDir), Is.EqualTo(prevTip));
 				var notes = File.ReadAllText(Path.Combine(_repoDir,
 					"Lexicon.fwstub.ChorusNotes"));
-				Assert.That(notes, Is.StringContaining("FW comment on word A"));
-				Assert.That(notes, Is.StringContaining("Comment on word B"));
+				Assert.That(notes, Does.Contain("FW comment on word A"));
+				Assert.That(notes, Does.Contain("Comment on word B"));
 			}
 		}
 

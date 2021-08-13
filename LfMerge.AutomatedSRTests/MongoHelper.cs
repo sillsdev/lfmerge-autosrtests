@@ -45,10 +45,10 @@ namespace LfMerge.AutomatedSRTests
 			{
 				var patchNoStr = Path.GetFileName(file).Substring(0, 4);
 				var patchNo = int.Parse(patchNoStr);
-				if (version.HasValue && patchNo > version.Value)
+				if (patchNo > version)
 					break;
 				TestHelper.Run(Git, $"am --ignore-whitespace {file}", mongoSourceDir);
-				TestHelper.Run(Git, $"tag r{patchNo}", mongoSourceDir);
+				TestHelper.Run(Git, $"tag -m \"r{patchNo}\" r{patchNo}", mongoSourceDir);
 			}
 		}
 
