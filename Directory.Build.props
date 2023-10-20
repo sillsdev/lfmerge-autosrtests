@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <TargetFrameworks>net462</TargetFrameworks>
+    <Configurations>Debug;Release</Configurations>
+    <Company>SIL International</Company>
+    <Authors>SIL International</Authors>
+    <Product>LfMerge</Product>
+    <Copyright>Copyright © 2010-2021 SIL International</Copyright>
+    <OutputPath>../output/$(Configuration)</OutputPath>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+</Project>

@@ -56,7 +56,7 @@ namespace LfMerge.AutomatedSRTests
 			File.WriteAllText(fileName, fileContent);
 		}
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetUp()
 		{
 			_VerifyLanguageDepot = new VerifyLanguageDepotDouble();

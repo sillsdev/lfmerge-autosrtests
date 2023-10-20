@@ -14,13 +14,13 @@ namespace LfMerge.AutomatedSRTests.Tests
 		private MongoHelper _mongo;
 		private WebworkHelper _webWork;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetup()
 		{
 			TestHelper.SetupFixture("data", "autosrtests");
 		}
 
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			TestHelper.TearDownFixture();

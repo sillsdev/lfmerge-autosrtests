@@ -5,12 +5,12 @@ using System.Collections;
 
 namespace LfMerge.AutomatedSRTests
 {
-	public class ModelVersionValue
+	public static class ModelVersionValue
 	{
 		/// <summary>
 		/// Return all supported model versions
 		/// </summary>
-		public IEnumerable GetValues()
+		public static IEnumerable GetValues()
 		{
 			for (var modelVersion = Settings.MinModelVersion;
 				modelVersion <= Settings.MaxModelVersion;

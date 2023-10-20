@@ -7,24 +7,20 @@
 		<useNUnit-x86 Condition="'$(OS)'=='Windows_NT'">true</useNUnit-x86>
 		<useNUnit-x86 Condition="'$(OS)'!='Windows_NT'">false</useNUnit-x86>
 		<OutputDir>$(RootDir)/output/$(Configuration)</OutputDir>
-		<RestartBuild Condition="!Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll') Or !Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll') Or !Exists('$(RootDir)/packages/BuildDependencyTasks/BuildDependencyTasks.dll')">true</RestartBuild>
-		<RestartBuild Condition="Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll') And Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll') And Exists('$(RootDir)/packages/BuildDependencyTasks/BuildDependencyTasks.dll')">false</RestartBuild>
+		<RestartBuild Condition="!Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll') Or !Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll') Or !Exists('$(RootDir)/packages/NUnit.ConsoleRunner/tools/nunit3-console.exe')">true</RestartBuild>
+		<RestartBuild Condition="Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll') And Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll') And Exists('$(RootDir)/packages/NUnit.ConsoleRunner/tools/nunit3-console.exe')">false</RestartBuild>
 		<ExtraExcludeCategories Condition="'$(teamcity_version)' != ''">SkipOnTeamCity,$(ExtraExcludeCategories)</ExtraExcludeCategories>
+		<TeamCity Condition="'$(teamcity_version)' != ''">true</TeamCity>
+		<TeamCity Condition="'$(teamcity_version)' == ''">false</TeamCity>
 	</PropertyGroup>
 
 	<!-- NOTE: this project uses GitVersion (http://gitversion.readthedocs.io) to set the version number. -->
 	<!-- To increment the version number create and push a new tag in git -->
 
 	<UsingTask TaskName="FileUpdate" AssemblyFile="$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll" Condition="Exists('$(RootDir)/packages/MSBuildTasks/tools/MSBuild.Community.Tasks.dll')" />
-	<UsingTask TaskName="NUnit"
+	<UsingTask TaskName="NUnit3"
 		AssemblyFile="$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll"
 		Condition="Exists('$(RootDir)/packages/SIL.BuildTasks/tools/SIL.BuildTasks.dll')" />
-	<UsingTask TaskName="NUnitTeamCity"
-		AssemblyFile="$(teamcity_dotnet_nunitlauncher_msbuild_task)"
-		Condition=" '$(teamcity_version)' != '' And '$(OS)'=='Windows_NT'"/>
-	<UsingTask TaskName="NUnitTeamCity"
-		AssemblyFile="$(agent_home_dir)/plugins/dotnetPlugin/bin/JetBrains.BuildServer.MSBuildLoggers.dll"
-		Condition=" '$(teamcity_version)' != '' And '$(OS)'!='Windows_NT'"/>
 
 	<Import Project="NuGet.targets"/>
 
@@ -45,10 +41,10 @@
 
 	<Target Name="RestoreBuildTasks" DependsOnTargets="CheckPrerequisites">
 		<Message Text="RestartBuild=$(RestartBuild)" />
-		<Exec Command='$(NuGetCommand) install BuildDependencyTasks -excludeVersion -version 0.4.3 -solutionDirectory "$(RootDir)"' />
-		<Exec Command='$(NuGetCommand) install NUnit.Runners.Net4 -version 2.6.4 -solutionDirectory "$(RootDir)"' />
 		<Exec Command='$(NuGetCommand) install MSBuildTasks -excludeVersion -version 1.5.0.235 -solutionDirectory "$(RootDir)"' />
-		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.2.0 -solutionDirectory "$(RootDir)"' />
+		<Exec Command='$(NuGetCommand) install SIL.BuildTasks -excludeVersion -version 2.5.0 -solutionDirectory "$(RootDir)"' />
+		<!-- Install NUnit.Console which has the required extensions as dependencies -->
+		<Exec Command='$(NuGetCommand) install NUnit.Console -excludeVersion -version 3.12.0 -solutionDirectory "$(RootDir)"' />
 	</Target>
 
 	<ItemGroup>
@@ -62,14 +58,7 @@
 		<Delete Files="build/LfMerge.AutomatedSRTests.files" />
 	</Target>
 
-	<Target Name="DownloadDependencies" DependsOnTargets="RestorePackages">
-		<MSBuild
-			Projects="LfMerge.AutomatedSRTests-DownloadDeps.xml"
-			Targets="DownloadDependenciesTarget"
-			Properties="Configuration=$(Configuration);RootDir=$(RootDir);SolutionDir=$(SolutionDir)" />
-	</Target>
-
-	<Target Name="Compile" DependsOnTargets="DownloadDependencies;RestorePackages">
+	<Target Name="Compile" DependsOnTargets="RestorePackages">
 		<FileUpdate Files="$(RootDir)/Mercurial/mercurial.ini" Regex="fixutf8=../|$"
 			ReplacementText="fixutf8=$(RootDir)/" Multiline="true" />
 		<MSBuild
@@ -83,29 +72,20 @@
 	</Target>
 
 	<Target Name="TestOnly">
-		<PropertyGroup>
-			<NUnitVersion>2.6.4</NUnitVersion>
-			<NUnitRunnerPackage>$(RootDir)/packages/NUnit.Runners.Net4.$(NUnitVersion)</NUnitRunnerPackage>
-		</PropertyGroup>
 		<ItemGroup>
-			<TestAssemblies Include="$(RootDir)/output/$(Configuration)/LfMerge.AutomatedSRTests.dll"/>
-			<NUnitAddinFiles Include="$(teamcity_dotnet_nunitaddin)-$(NUnitVersion).*" />
+			<TestAssemblies Include="$(RootDir)/output/$(Configuration)/net462/LfMerge.AutomatedSRTests.dll"/>
 		</ItemGroup>
 
-		<MakeDir Directories="$(NUnitRunnerPackage)/tools/addins"
-			Condition="'$(teamcity_version)' != ''"/>
-		<Copy SourceFiles="@(NUnitAddinFiles)" DestinationFolder="$(NUnitRunnerPackage)/tools/addins"
-			Condition="'$(teamcity_version)' != ''"/>
-		<NUnit Assemblies="@(TestAssemblies)"
-			ToolPath="$(NUnitRunnerPackage)/tools"
-			TestInNewThread="false"
+		<NUnit3
+			Assemblies="@(TestAssemblies)"
+			ToolPath="$(RootDir)/packages/NUnit.ConsoleRunner/tools"
 			ExcludeCategory="$(ExtraExcludeCategories)$(excludedCategories)"
 			WorkingDirectory="$(RootDir)/output/$(Configuration)"
 			Force32Bit="$(useNUnit-x86)"
 			Verbose="true"
-			OutputXmlFile="$(RootDir)/output/$(Configuration)/TestResults.xml"/>
-		<Message Text="##teamcity[importData type='nunit' path='$(RootDir)/output/$(Configuration)/TestResults.xml']"
-			Condition="'$(teamcity_version)' != '' and '$(OS)'!='Windows_NT'"/>
+			UseNUnit3Xml="false"
+			OutputXmlFile="$(RootDir)/output/$(Configuration)/TestResults.xml"
+			TeamCity="$(TeamCity)"/>
 	</Target>
 
 </Project>

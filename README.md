@@ -1,4 +1,6 @@
 # Automated LfMerge S/R Tests
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD029 -->
 
 **NOTE:** This project requires Mono 5.x, i.e. the package `mono5-sil` has to be installed!
 
@@ -43,9 +45,11 @@ The `TestUtil` test utility has a wizard mode that guides through the steps
 necessary to create test data for a new unit test (with a USB stick mounted at
 `/media/$USER/MyUsbStick`):
 
-	mono --debug TestUtil.exe wizard --mongo=2 --ld=2 --project autosrtests \
-		--fwroot=$HOME/fwrepo/fw --usb /media/$USER/MyUsbStick --datadir=data \
-		--msg "new test"
+```bash
+mono --debug TestUtil.exe wizard --mongo=2 --ld=2 --project autosrtests \
+	--fwroot=$HOME/fwrepo/fw --usb /media/$USER/MyUsbStick --datadir=data \
+	--msg "new test"
+```
 
 ## Creating new tests - semi-automated way
 
@@ -56,8 +60,10 @@ files (up to revision _rev_; in the example below this would be `r0.patch` and `
 `data/7000068` directory and the Chorus repo will end up in
 `/tmp/testdata/LanguageDepot`.
 
-	mono --debug TestUtil.exe restore --ld=1 --workdir=/tmp/testdata/ \
-		--project=autosrtests --model=7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe restore --ld=1 --workdir=/tmp/testdata/ \
+	--project=autosrtests --model=7000068 --datadir=data
+```
 
 ### Export existing Chorus repo
 
@@ -67,8 +73,10 @@ your hard drive (e.g. /tmp/ld) to speed up processing.
 
 The new changes can be exported by running:
 
-	mono --debug TestUtil.exe save --ld --workdir /tmp/ld --project autosrtests \
-		--model 7000068 --datadir=otherdata
+```bash
+mono --debug TestUtil.exe save --ld --workdir /tmp/ld --project autosrtests \
+	--model 7000068 --datadir=otherdata
+```
 
 This will save the new patches in `otherdata/7000068`.
 
@@ -83,15 +91,19 @@ The patches for the test project in the mongo database are located as patches in
 `data/<modelversion>/mongo`. To restore version _2_ for model version
 _7000068_ run the following command:
 
-	mono --debug TestUtil.exe restore --mongo=2 --project autosrtests \
-		--workdir /tmp/testdata --model 7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe restore --mongo=2 --project autosrtests \
+	--workdir /tmp/testdata --model 7000068 --datadir=data
+```
 
 ### Export test project in Mongo
 
 Make the changes in _LanguageForge_, then run:
 
-	mono --debug TestUtil.exe save --mongo --project autosrtests --msg "commit msg" \
-		--workdir /tmp/testdata --model 7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe save --mongo --project autosrtests --msg "commit msg" \
+	--workdir /tmp/testdata --model 7000068 --datadir=data
+```
 
 ### Merge Chorus and Mongo test data
 
@@ -103,8 +115,10 @@ additional path parameter).
 The merged data based on mongo patch _2_ and
 language depot patch _2_ for model version 7000068 can be created by running:
 
-	mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
-		--ld=2 --workdir=/tmp/testdata/ --model=7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
+	--ld=2 --workdir=/tmp/testdata/ --model=7000068 --datadir=data
+```
 
 ### Steps to create a new test
 
@@ -115,14 +129,16 @@ and LF, then export the changes and write the unit test.
 
 1. Restore the Chorus repo:
 
-
-	mono --debug TestUtil.exe restore --ld=3 --project autosrtests \
-		--workdir /tmp/testdata --model 7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe restore --ld=3 --project autosrtests \
+	--workdir /tmp/testdata --model 7000068 --datadir=data
+```
 
 2. Copy the `.hg` subdirectory from `/tmp/testdata/LanguageDepot` to the USB stick
 
-
-	cp -a /tmp/testdata/LanguageDepot/.hg /media/$USER/USBstick/test-7000068
+```bash
+cp -a /tmp/testdata/LanguageDepot/.hg /media/$USER/USBstick/test-7000068
+```
 
 3. In FW get the testproject from the USB stick. This might involve deleting the
    existing project in FW. If you re-use the existing project make sure that later
@@ -136,26 +152,29 @@ and LF, then export the changes and write the unit test.
 
 7. Export the new commit of the simulated LanguageDepot by running:
 
-
-	mono --debug TestUtil.exe save --ld --workdir /tmp/test-7000068 \
-		--project autosrtests --model 7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe save --ld --workdir /tmp/test-7000068 \
+	--project autosrtests --model 7000068 --datadir=data
+```
 
 #### Create changes in LanguageForge
 
 1. Restore project in Mongo
 
-
-	mono --debug TestUtil.exe restore --mongo=3 --project autosrtests \
-		--workdir /tmp/testdata --model 7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe restore --mongo=3 --project autosrtests \
+	--workdir /tmp/testdata --model 7000068 --datadir=data
+```
 
 2. Make changes in local LF
 
 3. Export Mongo test data
 
-
-	mono --debug TestUtil.exe save --mongo --project autosrtests \
-		--msg "commit msg" --workdir /tmp/testdata --model 7000068 \
-		--datadir=data
+```bash
+mono --debug TestUtil.exe save --mongo --project autosrtests \
+	--msg "commit msg" --workdir /tmp/testdata --model 7000068 \
+	--datadir=data
+```
 
 #### Changes in `LfMerge.AutomatedSRTests`
 
@@ -163,18 +182,21 @@ and LF, then export the changes and write the unit test.
 - repeat the above steps for each model version
 - merge the Chorus and Mongo test data for each model version:
 
-
-	mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
-		--ld=2 --workdir=/tmp/testdata/ --model=7000068 --datadir=data
+```bash
+mono --debug TestUtil.exe merge --mongo=2 --project autosrtests \
+	--ld=2 --workdir=/tmp/testdata/ --model=7000068 --datadir=data
+```
 
 ## Creating new tests - the hard way
 
 ### Export existing Chorus repo
 
-	mkdir -p $modelversion
-	for i in $(hg log -b $modelversion --template "{rev} "); do
-		hg export -r $i > $modelversion/r$i.patch
-	done
+```bash
+mkdir -p $modelversion
+for i in $(hg log -b $modelversion --template "{rev} "); do
+	hg export -r $i > $modelversion/r$i.patch
+done
+```
 
 ### Restore existing Chorus repo
 
@@ -183,22 +205,28 @@ patch files in the `data` directory. The repo will be restored during a test run
 However, for adding or modifying tests it might be necessary to manually restore the
 repo. This can be achieved by creating a Mercurial repo and then applying the patches:
 
-	mkdir -p workdir/testproj
-	hg init .
-	hg import ../../data/r0.patch
-	hg import ../../data/7000068/r1.patch
-	etc.
+```bash
+mkdir -p workdir/testproj
+hg init .
+hg import ../../data/r0.patch
+hg import ../../data/7000068/r1.patch
+etc.
+```
 
 ### Export Mongo database
 
-	mongoexport --db scriptureforge --collection projects --query '{ "projectName" : $projectname}' > $projectname.json
-	for col in activity lexicon optionlists; do
-		mongoexport --db $projectname --collection $col > ${projectname}.${col}.json
-	done
+```bash
+mongoexport --db scriptureforge --collection projects --query '{ "projectName" : $projectname}' > $projectname.json
+for col in activity lexicon optionlists; do
+	mongoexport --db $projectname --collection $col > ${projectname}.${col}.json
+done
+```
 
 ### Restore Mongo database
 
-	mongoimport --db scriptureforge --collection projects --file $dbname.json
-	for col in activity lexicon optionlists; do
-		mongoimport --db $dbname --drop --collection $col --file ${dbname}.${col}.json
-	done
+```bash
+mongoimport --db scriptureforge --collection projects --file $dbname.json
+for col in activity lexicon optionlists; do
+	mongoimport --db $dbname --drop --collection $col --file ${dbname}.${col}.json
+done
+```

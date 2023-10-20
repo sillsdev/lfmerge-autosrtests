@@ -165,13 +165,13 @@ namespace LfMerge.AutomatedSRTests.Tests
 		private MongoHelper _LanguageForge;
 		private WebworkHelper _webwork;
 
-		[TestFixtureSetUp]
+		[OneTimeSetUp]
 		public void FixtureSetup()
 		{
 			TestHelper.SetupFixture("comments-data", "test-comment-sr");
 		}
 
-		[TestFixtureTearDown]
+		[OneTimeTearDown]
 		public void FixtureTearDown()
 		{
 			TestHelper.TearDownFixture();
